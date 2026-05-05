@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProLink — Términos de Servicio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #0a0f0d;
+      --green: #00e87a;
+      --green-glow: rgba(0,232,122,0.12);
+      --white: #f0f5f2;
+      --gray: #7a8f84;
+      --border: rgba(0,232,122,0.12);
+      --card: rgba(15,26,21,0.9);
+      --warn-bg: rgba(240,165,0,0.07);
+      --warn-border: rgba(240,165,0,0.25);
+      --warn-text: #c8a84b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(0,232,122,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,232,122,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
+    nav { position: sticky; top: 0; z-index: 100; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10,15,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--green); letter-spacing: -0.5px; text-decoration: none; }
+    .logo span { color: var(--white); }
+    .nav-back { color: var(--gray); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .nav-back:hover { color: var(--green); }
+    .hero { position: relative; z-index: 1; padding: 5rem 2rem 4rem; max-width: 860px; margin: 0 auto; }
+    .hero-tag { display: inline-flex; align-items: center; background: var(--green-glow); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 1rem; font-size: 0.75rem; color: var(--green); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+    .hero h1 { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -2px; line-height: 1.05; margin-bottom: 1rem; }
+    .hero h1 em { font-style: normal; color: var(--green); }
+    .hero p { color: var(--gray); font-size: 1rem; max-width: 480px; }
+    .fecha { display: inline-block; margin-top: 1.5rem; background: var(--green-glow); border: 1px solid var(--border); color: var(--green); padding: 0.3rem 0.9rem; border-radius: 100px; font-size: 0.78rem; }
+    .container { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
+    .divider { width: 100%; height: 1px; background: var(--border); margin: 0 0 3rem; }
+    h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--green); margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    h2:first-of-type { margin-top: 0; }
+    p { color: var(--gray); margin-bottom: 1rem; font-size: 0.95rem; }
+    p strong { color: var(--white); font-weight: 500; }
+    ul { padding-left: 1.2rem; margin-bottom: 1rem; }
+    ul li { color: var(--gray); font-size: 0.95rem; margin-bottom: 0.5rem; }
+    ul li::marker { color: var(--green); }
+    .aviso { background: var(--warn-bg); border: 1px solid var(--warn-border); border-left: 3px solid var(--warn-text); border-radius: 0 10px 10px 0; padding: 1.2rem 1.5rem; margin: 1.5rem 0; }
+    .aviso p { color: var(--warn-text); margin: 0; font-size: 0.88rem; }
+    .aviso p strong { color: #f5c842; }
+    .contacto-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
+    .contacto-box strong { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); display: block; margin-bottom: 0.5rem; }
+    .contacto-box p { margin: 0; }
+    .contacto-box a { color: var(--green); text-decoration: none; }
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+    footer p { color: var(--gray); font-size: 0.82rem; margin: 0; }
+    footer strong { color: var(--green); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green); }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html" class="logo">Pro<span>Link</span></a>
+    <a href="index.html" class="nav-back">← Volver al inicio</a>
+  </nav>
+  <div class="hero">
+    <div class="hero-tag">Legal</div>
+    <h1>Términos de <em>Servicio</em></h1>
+    <p>Condiciones que rigen el uso del servicio de recepción virtual ProLink.</p>
+    <div class="fecha">Última actualización: mayo 2026</div>
+  </div>
+  <div class="container">
+    <div class="divider"></div>
+
+    <h2>1. Definiciones</h2>
+    <p><strong>ProLink</strong> se refiere al servicio de recepcionista virtual con inteligencia artificial operado desde Los Mochis, Sinaloa, México.</p>
+    <p><strong>Cliente</strong> se refiere al negocio o persona física o moral que contrata los servicios de ProLink.</p>
+    <p><strong>Usuario final</strong> se refiere a los clientes, pacientes o contactos del negocio que interactúan con el agente de voz.</p>
+
+    <h2>2. Descripción del servicio</h2>
+    <p>ProLink proporciona un agente de voz con inteligencia artificial que opera 24 horas al día, 7 días a la semana, 365 días al año, con las siguientes funcionalidades según el plan contratado:</p>
+    <ul>
+      <li>Atención de llamadas entrantes en español mexicano</li>
+      <li>Agendamiento automático de citas en Google Calendar</li>
+      <li>Envío de confirmaciones y recordatorios por WhatsApp</li>
+      <li>Notificaciones al negocio cliente de cada cita nueva</li>
+    </ul>
+
+    <h2>3. Condiciones de uso</h2>
+    <p>Al contratar los servicios de ProLink, el Cliente acepta:</p>
+    <ul>
+      <li>Proporcionar información veraz para la configuración del agente</li>
+      <li>Activar el desvío de llamadas al número proporcionado por ProLink</li>
+      <li>No modificar ni eliminar eventos del calendario compartido sin notificar a ProLink</li>
+      <li>Designar un contacto responsable para comunicación con ProLink</li>
+      <li>Informar a ProLink con al menos 48 horas de anticipación sobre cambios en horarios o servicios</li>
+      <li>Informar a sus usuarios finales que las llamadas son atendidas por un agente de voz automatizado</li>
+    </ul>
+
+    <h2>4. Limitaciones del servicio</h2>
+    <div class="aviso">
+      <p><strong>Importante:</strong> El agente de voz de ProLink es una herramienta de automatización y no sustituye el criterio médico, legal o profesional. El negocio cliente es responsable de definir qué tipos de llamadas debe manejar el agente y cuáles requieren atención humana directa.</p>
+    </div>
+    <p>ProLink no garantiza disponibilidad del 100% del tiempo debido a posibles interrupciones de los servicios tecnológicos de terceros. En caso de interrupción, ProLink notificará al Cliente a la brevedad posible y trabajará para restablecer el servicio en el menor tiempo posible.</p>
+
+    <h2>5. Planes y límites de uso</h2>
+    <p>Cada plan tiene un límite mensual de llamadas incluidas:</p>
+    <ul>
+      <li><strong>Plan Básico:</strong> hasta 100 llamadas por mes</li>
+      <li><strong>Plan Estándar:</strong> 101 a 200 llamadas por mes</li>
+      <li><strong>Plan Plus:</strong> 201 a 400 llamadas por mes</li>
+    </ul>
+    <p>El primer mes en que el Cliente supere el límite de su plan, ProLink absorberá el costo del excedente sin cargo adicional. Si el Cliente supera el límite durante dos meses consecutivos, ProLink notificará con 15 días naturales de anticipación el cambio automático al plan inmediato superior.</p>
+
+    <h2>6. Responsabilidad</h2>
+    <p>ProLink limita su responsabilidad a la correcta configuración y operación del servicio contratado. ProLink no será responsable por:</p>
+    <ul>
+      <li>Errores de interpretación del agente en casos de lenguaje ambiguo o ruido en la llamada</li>
+      <li>Pérdidas económicas derivadas de citas mal agendadas por información incorrecta del usuario final</li>
+      <li>Interrupciones del servicio causadas por terceros proveedores tecnológicos</li>
+      <li>Decisiones tomadas por el negocio cliente basadas en la información gestionada por el agente</li>
+    </ul>
+
+    <h2>7. Vigencia y cancelación</h2>
+    <p>El contrato de servicio tiene una <strong>vigencia inicial de 6 meses</strong> a partir de la fecha de activación, con renovación automática mensual al término de dicho periodo.</p>
+    <p>El Cliente puede cancelar el servicio con 15 días naturales de anticipación antes del siguiente ciclo de facturación. ProLink se reserva el derecho de cancelar el servicio en caso de incumplimiento de las condiciones de uso, con notificación previa de 5 días hábiles.</p>
+
+    <h2>8. Confidencialidad</h2>
+    <p>Ambas partes se comprometen a mantener la confidencialidad de la información técnica, comercial y de usuarios finales intercambiada durante la vigencia del contrato y por 2 años posteriores a su terminación.</p>
+
+    <h2>9. Propiedad intelectual</h2>
+    <p>La configuración, flujos de automatización, prompts y personalizaciones desarrolladas por ProLink para el Cliente son propiedad de ProLink. Al término del contrato, el Cliente conserva acceso a sus propios datos (calendario, contactos) pero no a la configuración técnica del agente de voz.</p>
+
+    <h2>10. Modificaciones al servicio</h2>
+    <p>ProLink podrá modificar estos Términos con notificación previa de 15 días al Cliente por correo electrónico. El uso continuado del servicio después de dicha notificación implica la aceptación de los nuevos términos.</p>
+
+    <h2>11. Jurisdicción</h2>
+    <p>Para cualquier controversia derivada de estos Términos, las partes se someten a la jurisdicción de los tribunales competentes de Los Mochis, Sinaloa, México, renunciando a cualquier otro fuero que pudiera corresponderles.</p>
+
+    <div class="contacto-box">
+      <strong>¿Dudas sobre los términos?</strong>
+      <p>Contáctanos en <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a> antes de contratar. Respondemos en menos de 48 horas hábiles.</p>
+    </div>
+  </div>
+  <footer>
+    <p><strong>ProLink</strong> — Los Mochis, Sinaloa, México · © 2026</p>
+    <div class="footer-links">
+      <a href="index.html">Inicio</a>
+      <a href="privacidad.html">Política de Privacidad</a>
+    </div>
+  </footer>
+</body>
+</html>
