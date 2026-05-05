@@ -7,7 +7,7 @@
   <meta name="description" content="Recepcionista virtual con IA para consultorios y negocios en Los Mochis. Atiende llamadas y agenda citas automáticamente, 24/7."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --bg: #0a0f0d;
@@ -20,11 +20,8 @@
       --border: rgba(0,232,122,0.12);
       --card: rgba(15,26,21,0.8);
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
-
     body {
       background: var(--bg);
       color: var(--white);
@@ -33,8 +30,6 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-
-    /* GRID BG */
     body::before {
       content: '';
       position: fixed;
@@ -46,8 +41,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -60,7 +53,6 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .logo {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
@@ -68,17 +60,9 @@
       color: var(--green);
       letter-spacing: -0.5px;
     }
-
     .logo span { color: var(--white); }
-
-    nav a {
-      color: var(--gray);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
+    nav a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     nav a:hover { color: var(--green); }
-
     .nav-cta {
       background: var(--green);
       color: #0a0f0d !important;
@@ -88,8 +72,6 @@
       transition: background 0.2s !important;
     }
     .nav-cta:hover { background: var(--green-dim) !important; }
-
-    /* HERO */
     .hero {
       position: relative;
       z-index: 1;
@@ -101,7 +83,6 @@
       text-align: center;
       padding: 8rem 2rem 4rem;
     }
-
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -115,7 +96,6 @@
       margin-bottom: 2rem;
       animation: fadeDown 0.6s ease both;
     }
-
     .hero-badge::before {
       content: '';
       width: 6px; height: 6px;
@@ -123,28 +103,23 @@
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
-
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.8); }
     }
-
     h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
       font-size: clamp(2.8rem, 7vw, 5.5rem);
       line-height: 1.05;
       letter-spacing: -2px;
       margin-bottom: 1.5rem;
       animation: fadeUp 0.7s ease 0.1s both;
     }
-
     h1 em {
       font-style: normal;
       color: var(--green);
-      position: relative;
     }
-
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--gray);
@@ -152,7 +127,6 @@
       margin-bottom: 2.5rem;
       animation: fadeUp 0.7s ease 0.2s both;
     }
-
     .hero-actions {
       display: flex;
       gap: 1rem;
@@ -160,7 +134,6 @@
       justify-content: center;
       animation: fadeUp 0.7s ease 0.3s both;
     }
-
     .btn-primary {
       background: var(--green);
       color: #0a0f0d;
@@ -173,7 +146,6 @@
       transition: background 0.2s, transform 0.2s;
     }
     .btn-primary:hover { background: var(--green-dim); transform: translateY(-2px); }
-
     .btn-ghost {
       background: transparent;
       color: var(--white);
@@ -187,8 +159,6 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-ghost:hover { border-color: var(--green); color: var(--green); }
-
-    /* GLOW ORB */
     .orb {
       position: absolute;
       width: 600px; height: 600px;
@@ -198,8 +168,7 @@
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
-
-    /* STATS BAR */
+    /* STATS */
     .stats {
       position: relative; z-index: 1;
       display: flex;
@@ -210,7 +179,6 @@
       background: var(--bg2);
       flex-wrap: wrap;
     }
-
     .stat {
       flex: 1;
       min-width: 160px;
@@ -219,23 +187,22 @@
       border-right: 1px solid var(--border);
     }
     .stat:last-child { border-right: none; }
-
     .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 2.2rem;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
       color: var(--green);
       line-height: 1;
       margin-bottom: 0.3rem;
+      letter-spacing: -1px;
+      text-shadow: 0 0 24px rgba(0,232,122,0.35);
     }
-
     .stat-label {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       color: var(--gray);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
     }
-
     /* SECTIONS */
     section {
       position: relative;
@@ -244,7 +211,6 @@
       max-width: 1100px;
       margin: 0 auto;
     }
-
     .section-tag {
       font-size: 0.75rem;
       color: var(--green);
@@ -253,7 +219,6 @@
       margin-bottom: 1rem;
       font-weight: 500;
     }
-
     h2 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -262,58 +227,103 @@
       line-height: 1.1;
       margin-bottom: 1rem;
     }
-
     .section-sub {
       color: var(--gray);
       font-size: 1.05rem;
       max-width: 500px;
       margin-bottom: 3rem;
     }
-
-    /* HOW IT WORKS */
+    /* STEPS */
     .steps {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap: 1.5rem;
     }
-
     .step {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 2rem;
       position: relative;
-      transition: border-color 0.3s;
+      transition: border-color 0.3s, transform 0.2s;
+      cursor: pointer;
+      overflow: hidden;
     }
-    .step:hover { border-color: rgba(0,232,122,0.35); }
-
+    .step:hover { border-color: rgba(0,232,122,0.35); transform: translateY(-2px); }
+    .step.active { border-color: var(--green); }
     .step-num {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 3rem;
-      color: var(--green-glow);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 3.5rem;
       line-height: 1;
       margin-bottom: 1rem;
-      -webkit-text-stroke: 1px rgba(0,232,122,0.3);
+      -webkit-text-stroke: 1px rgba(0,232,122,0.4);
       color: transparent;
+      letter-spacing: -2px;
     }
-
     .step h3 {
       font-family: 'Syne', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
     .step p { color: var(--gray); font-size: 0.9rem; }
-
+    .step-cta {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--green);
+      opacity: 0.7;
+      letter-spacing: 0.05em;
+    }
+    .step-demo {
+      display: none;
+      margin-top: 1.2rem;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .step-demo.show { display: flex; }
+    .chat-bubble {
+      padding: 0.6rem 0.9rem;
+      border-radius: 10px;
+      font-size: 0.82rem;
+      line-height: 1.4;
+      animation: bubbleIn 0.4s ease both;
+    }
+    .chat-bubble.incoming {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.1);
+      align-self: flex-start;
+      color: var(--white);
+    }
+    .chat-bubble.outgoing {
+      background: rgba(0,232,122,0.12);
+      border: 1px solid rgba(0,232,122,0.2);
+      align-self: flex-end;
+      color: var(--green);
+    }
+    .chat-bubble.wa {
+      background: rgba(37,211,102,0.1);
+      border: 1px solid rgba(37,211,102,0.2);
+      color: #afffcf;
+      font-size: 0.78rem;
+    }
+    .chat-bubble.wa-owner {
+      background: rgba(255,200,0,0.08);
+      border: 1px solid rgba(255,200,0,0.15);
+      color: #ffe87a;
+      font-size: 0.78rem;
+    }
+    .chat-bubble.typing { animation-delay: 0.5s; }
+    @keyframes bubbleIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
     /* FEATURES */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
     }
-
     .feature-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -322,21 +332,14 @@
       transition: border-color 0.3s, transform 0.3s;
     }
     .feature-card:hover { border-color: rgba(0,232,122,0.35); transform: translateY(-4px); }
-
-    .feature-icon {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
+    .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
     .feature-card h3 {
       font-family: 'Syne', sans-serif;
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
     .feature-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
-
     /* PRICING */
     .pricing-grid {
       display: grid;
@@ -344,7 +347,6 @@
       gap: 1.5rem;
       align-items: start;
     }
-
     .price-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -352,13 +354,11 @@
       padding: 2rem;
       transition: border-color 0.3s;
     }
-
     .price-card.featured {
       border-color: var(--green);
       background: linear-gradient(135deg, rgba(0,232,122,0.05), var(--card));
       position: relative;
     }
-
     .featured-badge {
       position: absolute;
       top: -12px; left: 50%;
@@ -372,25 +372,22 @@
       padding: 0.25rem 0.8rem;
       border-radius: 100px;
     }
-
     .price-plan {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
-
     .price-amount {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
       font-size: 2.8rem;
       color: var(--green);
       line-height: 1;
       margin-bottom: 0.2rem;
+      text-shadow: 0 0 20px rgba(0,232,122,0.25);
     }
-
     .price-period { color: var(--gray); font-size: 0.85rem; margin-bottom: 1.5rem; }
-
     .price-calls {
       display: inline-block;
       background: var(--green-glow);
@@ -401,7 +398,6 @@
       border-radius: 100px;
       margin-bottom: 1.5rem;
     }
-
     .price-features { list-style: none; margin-bottom: 2rem; }
     .price-features li {
       padding: 0.5rem 0;
@@ -413,7 +409,6 @@
       gap: 0.6rem;
     }
     .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; }
-
     .price-btn {
       display: block;
       text-align: center;
@@ -424,20 +419,10 @@
       font-size: 0.95rem;
       transition: all 0.2s;
     }
-
-    .price-btn-outline {
-      border: 1px solid var(--border);
-      color: var(--white);
-    }
+    .price-btn-outline { border: 1px solid var(--border); color: var(--white); }
     .price-btn-outline:hover { border-color: var(--green); color: var(--green); }
-
-    .price-btn-solid {
-      background: var(--green);
-      color: #0a0f0d;
-    }
+    .price-btn-solid { background: var(--green); color: #0a0f0d; }
     .price-btn-solid:hover { background: var(--green-dim); }
-
-    /* DIVIDER */
     .full-divider {
       width: 100%;
       height: 1px;
@@ -445,19 +430,14 @@
       position: relative;
       z-index: 1;
     }
-
-    /* CTA FINAL */
     .cta-section {
       text-align: center;
       padding: 8rem 2rem;
       position: relative;
       z-index: 1;
     }
-
     .cta-section h2 { margin-bottom: 1rem; }
     .cta-section p { color: var(--gray); margin-bottom: 2.5rem; max-width: 460px; margin-left: auto; margin-right: auto; }
-
-    /* FOOTER */
     footer {
       position: relative;
       z-index: 1;
@@ -467,28 +447,21 @@
       color: var(--gray);
       font-size: 0.85rem;
     }
-
     footer strong { color: var(--green); }
-
-    /* ANIMATIONS */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     @keyframes fadeDown {
       from { opacity: 0; transform: translateY(-10px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .reveal {
       opacity: 0;
       transform: translateY(24px);
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-
-    /* WHATSAPP FLOAT */
     .wa-float {
       position: fixed;
       bottom: 2rem; right: 2rem;
@@ -503,7 +476,6 @@
     }
     .wa-float:hover { transform: scale(1.1); }
     .wa-float svg { width: 28px; height: 28px; fill: white; }
-
     @media (max-width: 600px) {
       nav { padding: 1rem; }
       .stat { min-width: 140px; }
@@ -513,17 +485,15 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="logo">Pro<span>Link</span></div>
     <a href="#contacto" class="nav-cta">Solicitar demo</a>
   </nav>
 
-  <!-- HERO -->
   <div class="hero">
     <div class="orb"></div>
     <div class="hero-badge">Activo 24/7 · Los Mochis, Sinaloa</div>
-    <h1>Tu negocio nunca<br/>deja de <em>atender</em></h1>
+    <h1>Tu negocio disponible<br/>los <em>365 días</em> del año</h1>
     <p class="hero-sub">Recepcionista virtual con IA que atiende llamadas, agenda citas y confirma por WhatsApp — automáticamente, sin que hagas nada.</p>
     <div class="hero-actions">
       <a href="#contacto" class="btn-primary">Ver una demo gratis</a>
@@ -531,7 +501,6 @@
     </div>
   </div>
 
-  <!-- STATS -->
   <div class="stats">
     <div class="stat">
       <div class="stat-num">24/7</div>
@@ -551,38 +520,61 @@
     </div>
   </div>
 
-  <!-- CÓMO FUNCIONA -->
   <section id="como-funciona">
     <div class="section-tag reveal">¿Cómo funciona?</div>
-    <h2 class="reveal">Tres pasos.<br/>Sin complicaciones.</h2>
-    <p class="section-sub reveal">Tu paciente llama. Sofía, nuestra recepcionista IA, atiende, agenda y confirma. Tú solo ves las citas en tu calendario.</p>
+    <h2 class="reveal">Cuatro pasos.<br/>Sin complicaciones.</h2>
+    <p class="section-sub reveal">Tu paciente llama. Tu recepcionista IA atiende, agenda y confirma. Tú solo ves las citas en tu calendario.</p>
     <div class="steps">
-      <div class="step reveal">
+
+      <div class="step reveal" onclick="playStep(this,'s1')">
         <div class="step-num">01</div>
         <h3>El paciente llama</h3>
-        <p>A cualquier hora, cualquier día. Sofía contesta en menos de 2 segundos con el nombre de tu consultorio.</p>
+        <p>A cualquier hora, cualquier día. Tu recepcionista contesta en menos de 2 segundos con el nombre de tu consultorio.</p>
+        <div class="step-demo" id="s1">
+          <div class="chat-bubble incoming">📞 Buenas tardes, llamo para agendar una cita...</div>
+          <div class="chat-bubble outgoing typing">🤖 ¡Buenas tardes! Con gusto le ayudo. ¿Me puede dar su nombre completo?</div>
+        </div>
+        <div class="step-cta">▶ Ver en acción</div>
       </div>
-      <div class="step reveal">
+
+      <div class="step reveal" onclick="playStep(this,'s2')">
         <div class="step-num">02</div>
-        <h3>Sofía agenda la cita</h3>
-        <p>Pregunta nombre, motivo y fecha. Registra la cita directo en tu Google Calendar en tiempo real.</p>
+        <h3>Agenda la cita</h3>
+        <p>Pregunta nombre, motivo y fecha. Registra la cita en tu Google Calendar en tiempo real.</p>
+        <div class="step-demo" id="s2">
+          <div class="chat-bubble incoming">📋 Soy Juan García, quiero cita para el lunes a las 3</div>
+          <div class="chat-bubble outgoing typing">✅ Perfecto Juan. Cita confirmada el lunes 12 de mayo a las 3:00pm. ¿Le mando confirmación por WhatsApp?</div>
+        </div>
+        <div class="step-cta">▶ Ver en acción</div>
       </div>
-      <div class="step reveal">
+
+      <div class="step reveal" onclick="playStep(this,'s3')">
         <div class="step-num">03</div>
         <h3>Confirmación por WhatsApp</h3>
         <p>El paciente recibe confirmación automática. Tú recibes notificación. Sin hacer nada.</p>
+        <div class="step-demo" id="s3">
+          <div class="chat-bubble wa">💬 Hola Juan, tu cita ha sido confirmada para el 12-05-2026 a las 15:00. Motivo: Consulta general.</div>
+          <div class="chat-bubble wa-owner">🔔 Para ti: Nueva cita — Juan García, lunes 12 mayo, 3:00pm.</div>
+        </div>
+        <div class="step-cta">▶ Ver en acción</div>
       </div>
-      <div class="step reveal">
+
+      <div class="step reveal" onclick="playStep(this,'s4')">
         <div class="step-num">04</div>
         <h3>Recordatorio automático</h3>
-        <p>24 horas antes de la cita, el paciente recibe un recordatorio por WhatsApp. Menos cancelaciones.</p>
+        <p>24 horas antes, el paciente recibe un recordatorio por WhatsApp. Menos ausencias, más ingresos.</p>
+        <div class="step-demo" id="s4">
+          <div class="chat-bubble wa">⏰ Hola Juan, mañana tienes cita a las 3:00pm. Responde SÍ para confirmar.</div>
+          <div class="chat-bubble incoming">SÍ, ahí estaré 👍</div>
+        </div>
+        <div class="step-cta">▶ Ver en acción</div>
       </div>
+
     </div>
   </section>
 
   <div class="full-divider"></div>
 
-  <!-- FEATURES -->
   <section id="funciones">
     <div class="section-tag reveal">Funciones</div>
     <h2 class="reveal">Todo lo que necesita<br/>tu consultorio</h2>
@@ -591,7 +583,7 @@
       <div class="feature-card reveal">
         <div class="feature-icon">🎙️</div>
         <h3>Voz natural en español</h3>
-        <p>Sofía habla como una recepcionista real. Tus pacientes no notarán la diferencia.</p>
+        <p>Tu recepcionista habla como una persona real. Tus pacientes no notarán la diferencia.</p>
       </div>
       <div class="feature-card reveal">
         <div class="feature-icon">📅</div>
@@ -623,7 +615,6 @@
 
   <div class="full-divider"></div>
 
-  <!-- PRICING -->
   <section id="precios">
     <div class="section-tag reveal">Precios</div>
     <h2 class="reveal">Sin contratos largos.<br/>Sin sorpresas.</h2>
@@ -636,13 +627,13 @@
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">Hasta 100 llamadas/mes</div>
         <ul class="price-features">
-          <li>Recepcionista virtual Sofía</li>
+          <li>Recepcionista virtual</li>
           <li>Agendado en Google Calendar</li>
           <li>Confirmación WhatsApp al paciente</li>
           <li>Notificación al dueño</li>
           <li>Soporte local</li>
         </ul>
-        <a href="#contacto" class="price-btn price-btn-outline">Solicitar demo</a>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
 
       <div class="price-card featured reveal">
@@ -653,12 +644,13 @@
         <div class="price-calls">101–200 llamadas/mes</div>
         <ul class="price-features">
           <li>Todo lo del plan Básico</li>
+          <li>Recepcionista virtual con nombre y voz personalizados</li>
           <li>Recordatorio 24h antes de cita</li>
           <li>Flujo de cancelación automático</li>
           <li>Reporte semanal de citas</li>
           <li>Soporte prioritario</li>
         </ul>
-        <a href="#contacto" class="price-btn price-btn-solid">Solicitar demo</a>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-solid">Solicitar demo</a>
       </div>
 
       <div class="price-card reveal">
@@ -673,7 +665,7 @@
           <li>Flujos personalizados</li>
           <li>Soporte dedicado</li>
         </ul>
-        <a href="#contacto" class="price-btn price-btn-outline">Solicitar demo</a>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
 
     </div>
@@ -681,24 +673,21 @@
 
   <div class="full-divider"></div>
 
-  <!-- CTA FINAL -->
   <div class="cta-section" id="contacto">
     <div class="section-tag reveal">¿Listo para empezar?</div>
     <h2 class="reveal">Agenda una demo<br/>sin compromiso</h2>
-    <p class="reveal">Te mostramos cómo funciona Sofía en vivo, con el nombre de tu consultorio, en menos de 20 minutos.</p>
-    <a href="https://wa.me/526681638143?text=Hola%2C%20quiero%20saber%20más%20sobre%20ProLink" class="btn-primary reveal" target="_blank">
+    <p class="reveal">Te mostramos cómo funciona tu nueva secretaria en vivo, con el nombre de tu consultorio, en menos de 20 minutos.</p>
+    <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" class="btn-primary reveal" target="_blank">
       Escribir por WhatsApp
     </a>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p><strong>ProLink</strong> — Automatizaciones para tu negocio · Los Mochis, Sinaloa, México</p>
-    <p style="margin-top:0.5rem;">contacto@prolink365.com.mx</p>
+    <p style="margin-top:0.5rem;">carlosrope@prolink365.com.mx</p>
   </footer>
 
-  <!-- WHATSAPP FLOTANTE -->
-  <a class="wa-float" href="https://wa.me/526681638143?text=Hola%2C%20quiero%20saber%20más%20sobre%20ProLink" target="_blank" aria-label="WhatsApp">
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
     </svg>
@@ -716,6 +705,22 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+
+    // Step interaction
+    function playStep(card, demoId) {
+      const demo = document.getElementById(demoId);
+      const cta = card.querySelector('.step-cta');
+      const isOpen = demo.classList.contains('show');
+      // Close all
+      document.querySelectorAll('.step-demo').forEach(d => d.classList.remove('show'));
+      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.step-cta').forEach(c => c.textContent = '▶ Ver en acción');
+      if (!isOpen) {
+        demo.classList.add('show');
+        card.classList.add('active');
+        cta.textContent = '▼ Cerrar';
+      }
+    }
   </script>
 </body>
 </html>
