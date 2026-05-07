@@ -114,12 +114,22 @@
       line-height: 1.05;
       letter-spacing: -2px;
       margin-bottom: 1.5rem;
-      animation: fadeUp 0.7s ease 0.1s both;
     }
-    h1 em {
-      font-style: normal;
-      color: var(--green);
+    h1 em { font-style: normal; color: var(--green); }
+
+    /* ── PALABRA POR PALABRA ── */
+    h1 .hw {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(32px);
     }
+    h1 .hw.visible-word {
+      animation: wordCascade 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
+    }
+    @keyframes wordCascade {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .hero-sub {
       font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--gray);
@@ -168,7 +178,6 @@
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
-    /* STATS */
     .stats {
       position: relative; z-index: 1;
       display: flex;
@@ -203,7 +212,6 @@
       text-transform: uppercase;
       letter-spacing: 0.1em;
     }
-    /* SECTIONS */
     section {
       position: relative;
       z-index: 1;
@@ -233,7 +241,6 @@
       max-width: 500px;
       margin-bottom: 3rem;
     }
-    /* STEPS */
     .steps {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -261,26 +268,10 @@
       color: transparent;
       letter-spacing: -2px;
     }
-    .step h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .step h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
     .step p { color: var(--gray); font-size: 0.9rem; }
-    .step-cta {
-      margin-top: 1rem;
-      font-size: 0.8rem;
-      color: var(--green);
-      opacity: 0.7;
-      letter-spacing: 0.05em;
-    }
-    .step-demo {
-      display: none;
-      margin-top: 1.2rem;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
+    .step-cta { margin-top: 1rem; font-size: 0.8rem; color: var(--green); opacity: 0.7; letter-spacing: 0.05em; }
+    .step-demo { display: none; margin-top: 1.2rem; flex-direction: column; gap: 0.6rem; }
     .step-demo.show { display: flex; }
     .chat-bubble {
       padding: 0.6rem 0.9rem;
@@ -289,198 +280,48 @@
       line-height: 1.4;
       animation: bubbleIn 0.4s ease both;
     }
-    .chat-bubble.incoming {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.1);
-      align-self: flex-start;
-      color: var(--white);
-    }
-    .chat-bubble.outgoing {
-      background: rgba(0,232,122,0.12);
-      border: 1px solid rgba(0,232,122,0.2);
-      align-self: flex-end;
-      color: var(--green);
-    }
-    .chat-bubble.wa {
-      background: rgba(37,211,102,0.1);
-      border: 1px solid rgba(37,211,102,0.2);
-      color: #afffcf;
-      font-size: 0.78rem;
-    }
-    .chat-bubble.wa-owner {
-      background: rgba(255,200,0,0.08);
-      border: 1px solid rgba(255,200,0,0.15);
-      color: #ffe87a;
-      font-size: 0.78rem;
-    }
+    .chat-bubble.incoming { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); align-self: flex-start; color: var(--white); }
+    .chat-bubble.outgoing { background: rgba(0,232,122,0.12); border: 1px solid rgba(0,232,122,0.2); align-self: flex-end; color: var(--green); }
+    .chat-bubble.wa { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.2); color: #afffcf; font-size: 0.78rem; }
+    .chat-bubble.wa-owner { background: rgba(255,200,0,0.08); border: 1px solid rgba(255,200,0,0.15); color: #ffe87a; font-size: 0.78rem; }
     .chat-bubble.typing { animation-delay: 0.5s; }
-    @keyframes bubbleIn {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    /* FEATURES */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .feature-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      transition: border-color 0.3s, transform 0.3s;
-    }
+    @keyframes bubbleIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
     .feature-card:hover { border-color: rgba(0,232,122,0.35); transform: translateY(-4px); }
     .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .feature-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
+    .feature-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
     .feature-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
-    /* PRICING */
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      align-items: start;
-    }
-    .price-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: border-color 0.3s;
-    }
-    .price-card.featured {
-      border-color: var(--green);
-      background: linear-gradient(135deg, rgba(0,232,122,0.05), var(--card));
-      position: relative;
-    }
-    .featured-badge {
-      position: absolute;
-      top: -12px; left: 50%;
-      transform: translateX(-50%);
-      background: var(--green);
-      color: #0a0f0d;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.25rem 0.8rem;
-      border-radius: 100px;
-    }
-    .price-plan {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .price-amount {
-      font-family: 'Exo 2', sans-serif;
-      font-weight: 900;
-      font-size: 2.8rem;
-      color: var(--green);
-      line-height: 1;
-      margin-bottom: 0.2rem;
-      text-shadow: 0 0 20px rgba(0,232,122,0.25);
-    }
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: start; }
+    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.3s; }
+    .price-card.featured { border-color: var(--green); background: linear-gradient(135deg, rgba(0,232,122,0.05), var(--card)); position: relative; }
+    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #0a0f0d; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.8rem; border-radius: 100px; }
+    .price-plan { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .price-amount { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 2.8rem; color: var(--green); line-height: 1; margin-bottom: 0.2rem; text-shadow: 0 0 20px rgba(0,232,122,0.25); }
     .price-period { color: var(--gray); font-size: 0.85rem; margin-bottom: 1.5rem; }
-    .price-calls {
-      display: inline-block;
-      background: var(--green-glow);
-      border: 1px solid var(--border);
-      color: var(--green);
-      font-size: 0.8rem;
-      padding: 0.25rem 0.7rem;
-      border-radius: 100px;
-      margin-bottom: 1.5rem;
-    }
+    .price-calls { display: inline-block; background: var(--green-glow); border: 1px solid var(--border); color: var(--green); font-size: 0.8rem; padding: 0.25rem 0.7rem; border-radius: 100px; margin-bottom: 1.5rem; }
     .price-features { list-style: none; margin-bottom: 2rem; }
-    .price-features li {
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 0.9rem;
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+    .price-features li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--gray); display: flex; align-items: center; gap: 0.6rem; }
     .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; }
-    .price-btn {
-      display: block;
-      text-align: center;
-      padding: 0.85rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      transition: all 0.2s;
-    }
+    .price-btn { display: block; text-align: center; padding: 0.85rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; }
     .price-btn-outline { border: 1px solid var(--border); color: var(--white); }
     .price-btn-outline:hover { border-color: var(--green); color: var(--green); }
     .price-btn-solid { background: var(--green); color: #0a0f0d; }
     .price-btn-solid:hover { background: var(--green-dim); }
-    .full-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-      position: relative;
-      z-index: 1;
-    }
-    .cta-section {
-      text-align: center;
-      padding: 8rem 2rem;
-      position: relative;
-      z-index: 1;
-    }
+    .full-divider { width: 100%; height: 1px; background: var(--border); position: relative; z-index: 1; }
+    .cta-section { text-align: center; padding: 8rem 2rem; position: relative; z-index: 1; }
     .cta-section h2 { margin-bottom: 1rem; }
     .cta-section p { color: var(--gray); margin-bottom: 2.5rem; max-width: 460px; margin-left: auto; margin-right: auto; }
-    footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      color: var(--gray);
-      font-size: 0.85rem;
-    }
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--gray); font-size: 0.85rem; }
     footer strong { color: var(--green); }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .wa-float {
-      position: fixed;
-      bottom: 2rem; right: 2rem;
-      z-index: 200;
-      background: #25d366;
-      border-radius: 50%;
-      width: 56px; height: 56px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.4);
-      text-decoration: none;
-      transition: transform 0.2s;
-    }
+    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; background: #25d366; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s; }
     .wa-float:hover { transform: scale(1.1); }
     .wa-float svg { width: 28px; height: 28px; fill: white; }
-    @media (max-width: 600px) {
-      nav { padding: 1rem; }
-      .stat { min-width: 140px; }
-      h1 { letter-spacing: -1px; }
-    }
+    @media (max-width: 600px) { nav { padding: 1rem; } .stat { min-width: 140px; } h1 { letter-spacing: -1px; } }
   </style>
 </head>
 <body>
@@ -493,7 +334,10 @@
   <div class="hero">
     <div class="orb"></div>
     <div class="hero-badge">Activo 24/7 · Los Mochis, Sinaloa</div>
-    <h1>Tu negocio disponible<br/>los <em>365 días</em> del año</h1>
+    <h1>
+      <span class="hw">Tu&nbsp;</span><span class="hw">negocio&nbsp;</span><span class="hw">disponible</span><br/>
+      <span class="hw">los&nbsp;</span><span class="hw"><em>365&nbsp;</em></span><span class="hw"><em>días&nbsp;</em></span><span class="hw">del&nbsp;</span><span class="hw">año</span>
+    </h1>
     <p class="hero-sub">Recepcionista virtual con IA que atiende llamadas, agenda citas y confirma por WhatsApp — automáticamente, sin que hagas nada.</p>
     <div class="hero-actions">
       <a href="#contacto" class="btn-primary">Ver una demo gratis</a>
@@ -503,19 +347,19 @@
 
   <div class="stats">
     <div class="stat">
-      <div class="stat-num">24/7</div>
+      <div class="stat-num" data-type="static">24/7</div>
       <div class="stat-label">Disponibilidad</div>
     </div>
     <div class="stat">
-      <div class="stat-num">&lt;2s</div>
+      <div class="stat-num" data-type="static">&lt;2s</div>
       <div class="stat-label">Tiempo de respuesta</div>
     </div>
     <div class="stat">
-      <div class="stat-num">100%</div>
+      <div class="stat-num" data-type="number" data-target="100" data-suffix="%">0%</div>
       <div class="stat-label">Llamadas atendidas</div>
     </div>
     <div class="stat">
-      <div class="stat-num">0</div>
+      <div class="stat-num" data-type="number" data-target="0" data-suffix="" data-from="999">999</div>
       <div class="stat-label">Llamadas perdidas</div>
     </div>
   </div>
@@ -525,7 +369,6 @@
     <h2 class="reveal">Cuatro pasos.<br/>Sin complicaciones.</h2>
     <p class="section-sub reveal">Tu paciente llama. Tu recepcionista IA atiende, agenda y confirma. Tú solo ves las citas en tu calendario.</p>
     <div class="steps">
-
       <div class="step reveal" onclick="playStep(this,'s1')">
         <div class="step-num">01</div>
         <h3>El paciente llama</h3>
@@ -536,7 +379,6 @@
         </div>
         <div class="step-cta">▶ Ver en acción</div>
       </div>
-
       <div class="step reveal" onclick="playStep(this,'s2')">
         <div class="step-num">02</div>
         <h3>Agenda la cita</h3>
@@ -547,7 +389,6 @@
         </div>
         <div class="step-cta">▶ Ver en acción</div>
       </div>
-
       <div class="step reveal" onclick="playStep(this,'s3')">
         <div class="step-num">03</div>
         <h3>Confirmación por WhatsApp</h3>
@@ -558,7 +399,6 @@
         </div>
         <div class="step-cta">▶ Ver en acción</div>
       </div>
-
       <div class="step reveal" onclick="playStep(this,'s4')">
         <div class="step-num">04</div>
         <h3>Recordatorio automático</h3>
@@ -569,7 +409,6 @@
         </div>
         <div class="step-cta">▶ Ver en acción</div>
       </div>
-
     </div>
   </section>
 
@@ -620,7 +459,6 @@
     <h2 class="reveal">Sin contratos largos.<br/>Sin sorpresas.</h2>
     <p class="section-sub reveal">Pago mensual. Cancelas cuando quieras con 15 días de aviso.</p>
     <div class="pricing-grid">
-
       <div class="price-card reveal">
         <div class="price-plan">Básico</div>
         <div class="price-amount">$2,500</div>
@@ -635,7 +473,6 @@
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
-
       <div class="price-card featured reveal">
         <div class="featured-badge">Más popular</div>
         <div class="price-plan">Estándar</div>
@@ -652,7 +489,6 @@
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-solid">Solicitar demo</a>
       </div>
-
       <div class="price-card reveal">
         <div class="price-plan">Plus</div>
         <div class="price-amount">$4,500</div>
@@ -667,7 +503,6 @@
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
-
     </div>
   </section>
 
@@ -677,9 +512,7 @@
     <div class="section-tag reveal">¿Listo para empezar?</div>
     <h2 class="reveal">Agenda una demo<br/>sin compromiso</h2>
     <p class="reveal">Te mostramos cómo funciona tu nueva secretaria en vivo, con el nombre de tu consultorio, en menos de 20 minutos.</p>
-    <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" class="btn-primary reveal" target="_blank">
-      Escribir por WhatsApp
-    </a>
+    <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" class="btn-primary reveal" target="_blank">Escribir por WhatsApp</a>
   </div>
 
   <footer>
@@ -698,24 +531,88 @@
   </a>
 
   <script>
-    // Reveal on scroll
+    // ── REVEAL ON SCROLL ──────────────────────────────────────
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 60);
-          observer.unobserve(entry.target);
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
+    reveals.forEach(el => revealObserver.observe(el));
 
-    // Step interaction
+    // ── PALABRA POR PALABRA en cascada ────────────────────────
+    const words = document.querySelectorAll('.hero h1 .hw');
+    words.forEach((w, i) => {
+      setTimeout(() => w.classList.add('visible-word'), 300 + i * 95);
+    });
+
+    // ── COUNTER ANIMATION (Daisy-style) ───────────────────────
+    function animateCounter(el) {
+      const target = parseInt(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      const from = el.dataset.from ? parseInt(el.dataset.from) : 0;
+      const duration = 1800;
+      const steps = 60;
+      const interval = duration / steps;
+      let step = 0;
+      let scrambleCount = 0;
+      const scrambleMax = 18;
+      const scramble = setInterval(() => {
+        const rand = Math.floor(Math.random() * (from > target ? from : 100));
+        el.textContent = rand + suffix;
+        scrambleCount++;
+        if (scrambleCount >= scrambleMax) {
+          clearInterval(scramble);
+          const counter = setInterval(() => {
+            step++;
+            const progress = step / steps;
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const current = Math.round(from + (target - from) * ease);
+            el.textContent = current + suffix;
+            if (step >= steps) {
+              clearInterval(counter);
+              el.textContent = target + suffix;
+            }
+          }, interval);
+        }
+      }, 40);
+    }
+
+    const statsEls = document.querySelectorAll('.stat-num[data-type="number"]');
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => animateCounter(entry.target), 200);
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    statsEls.forEach(el => statsObserver.observe(el));
+
+    // ── PARTICLES in hero ─────────────────────────────────────
+    const hero = document.querySelector('.hero');
+    if (hero) {
+      for (let p = 0; p < 18; p++) {
+        const dot = document.createElement('div');
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        const delay = Math.random() * 4;
+        const dur = Math.random() * 6 + 4;
+        dot.style.cssText = `position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${Math.random()*0.4+0.1};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;z-index:0;`;
+        hero.appendChild(dot);
+      }
+      document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);opacity:0.1;}to{transform:translateY(-20px) translateX(8px);opacity:0.5;}}</style>');
+    }
+
+    // ── STEP INTERACTION ──────────────────────────────────────
     function playStep(card, demoId) {
       const demo = document.getElementById(demoId);
       const cta = card.querySelector('.step-cta');
       const isOpen = demo.classList.contains('show');
-      // Close all
       document.querySelectorAll('.step-demo').forEach(d => d.classList.remove('show'));
       document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
       document.querySelectorAll('.step-cta').forEach(c => c.textContent = '▶ Ver en acción');
@@ -725,6 +622,29 @@
         cta.textContent = '▼ Cerrar';
       }
     }
+
+    // ── GLOWING BORDER on hover ───────────────────────────────
+    document.querySelectorAll('.feature-card, .price-card, .step').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0,232,122,0.06), rgba(15,26,21,0.9) 70%)`;
+      });
+      card.addEventListener('mouseleave', () => { card.style.background = ''; });
+    });
+
+    // ── NAV on scroll ─────────────────────────────────────────
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        nav.style.background = 'rgba(10,15,13,0.97)';
+        nav.style.boxShadow = '0 1px 0 rgba(0,232,122,0.15)';
+      } else {
+        nav.style.background = 'rgba(10,15,13,0.85)';
+        nav.style.boxShadow = 'none';
+      }
+    });
   </script>
 </body>
 </html>
