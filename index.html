@@ -455,9 +455,9 @@
   <div class="full-divider"></div>
 
   <section id="precios">
-    <div class="section-tag reveal">Precios</div>
-    <h2 class="reveal">Sin contratos largos.<br/>Sin sorpresas.</h2>
-    <p class="section-sub reveal">Pago mensual. Cancelas cuando quieras con 15 días de aviso.</p>
+    <div class="section-tag reveal">Valor</div>
+    <h2 class="reveal">Una cita perdida cuesta más<br/>que todo el mes.</h2>
+    <p class="section-sub reveal">Inversión mensual. Cancelas cuando quieras con 15 días de aviso.</p>
     <div class="pricing-grid">
       <div class="price-card reveal">
         <div class="price-plan">Básico</div>
@@ -465,7 +465,7 @@
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">Hasta 100 llamadas/mes</div>
         <ul class="price-features">
-          <li>Recepcionista virtual</li>
+          <li>Recepcionista virtual 24/7</li>
           <li>Agendado en Google Calendar</li>
           <li>Confirmación WhatsApp al paciente</li>
           <li>Notificación al dueño</li>
@@ -475,31 +475,30 @@
       </div>
       <div class="price-card featured reveal">
         <div class="featured-badge">Más popular</div>
-        <div class="price-plan">Estándar</div>
+        <div class="price-plan">Profesional</div>
         <div class="price-amount">$3,500</div>
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">101–200 llamadas/mes</div>
         <ul class="price-features">
           <li>Todo lo del plan Básico</li>
-          <li>Recepcionista virtual con nombre y voz personalizados</li>
-          <li>Recordatorio 24h antes de cita</li>
-          <li>Flujo de cancelación automático</li>
-          <li>Reporte semanal de citas</li>
-          <li>Soporte prioritario</li>
+          <li>Recordatorio automático 24h antes de la cita</li>
+          <li>Confirmación o cancelación por WhatsApp</li>
+          <li>Cancelación automática en calendario</li>
+          <li>Reporte semanal de citas al dueño</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-solid">Solicitar demo</a>
       </div>
       <div class="price-card reveal">
-        <div class="price-plan">Plus</div>
+        <div class="price-plan">Premium</div>
         <div class="price-amount">$4,500</div>
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">201–400 llamadas/mes</div>
         <ul class="price-features">
-          <li>Todo lo del plan Estándar</li>
-          <li>Múltiples especialidades</li>
-          <li>Múltiples doctores</li>
-          <li>Flujos personalizados</li>
-          <li>Soporte dedicado</li>
+          <li>Todo lo del plan Profesional</li>
+          <li>Número de WhatsApp Business exclusivo</li>
+          <li>Nombre y logo del negocio visible en WhatsApp</li>
+          <li>Asistente IA responde mensajes de texto</li>
+          <li>Perfil de negocio personalizado</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
@@ -592,21 +591,22 @@
     }, { threshold: 0.5 });
     statsEls.forEach(el => statsObserver.observe(el));
 
-    // ── PARTICLES in hero ─────────────────────────────────────
-    const hero = document.querySelector('.hero');
-    if (hero) {
-      for (let p = 0; p < 18; p++) {
-        const dot = document.createElement('div');
-        const size = Math.random() * 3 + 1;
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const delay = Math.random() * 4;
-        const dur = Math.random() * 6 + 4;
-        dot.style.cssText = `position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${Math.random()*0.4+0.1};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;z-index:0;`;
-        hero.appendChild(dot);
-      }
-      document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);opacity:0.1;}to{transform:translateY(-20px) translateX(8px);opacity:0.5;}}</style>');
+    // ── PARTICLES fixed background ────────────────────────────
+    const particleContainer = document.createElement('div');
+    particleContainer.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;';
+    document.body.appendChild(particleContainer);
+    for (let p = 0; p < 50; p++) {
+      const dot = document.createElement('div');
+      const size = Math.random() * 3 + 1;
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const delay = Math.random() * 6;
+      const dur = Math.random() * 6 + 4;
+      const opacity = (Math.random() * 0.3 + 0.55).toFixed(2);
+      dot.style.cssText = `position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`;
+      particleContainer.appendChild(dot);
     }
+    document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);}to{transform:translateY(-18px) translateX(8px);}}</style>');
 
     // ── STEP INTERACTION ──────────────────────────────────────
     function playStep(card, demoId) {
