@@ -41,6 +41,8 @@
       pointer-events: none;
       z-index: 0;
     }
+
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -63,6 +65,25 @@
     .logo span { color: var(--white); }
     nav a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     nav a:hover { color: var(--green); }
+    .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
+    .btn-roi {
+      background: transparent;
+      color: var(--green) !important;
+      font-weight: 500;
+      font-size: 0.88rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      border: 1px solid rgba(0,232,122,0.35);
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s !important;
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      letter-spacing: 0;
+    }
+    .btn-roi:hover { background: rgba(0,232,122,0.08); border-color: var(--green) !important; }
+    .btn-roi .roi-icon { font-size: 0.9rem; }
     .nav-cta {
       background: var(--green);
       color: #0a0f0d !important;
@@ -72,265 +93,667 @@
       transition: background 0.2s !important;
     }
     .nav-cta:hover { background: var(--green-dim) !important; }
-    .hero {
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
+
+    /* ── MODAL OVERLAY ── */
+    .roi-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(5, 10, 8, 0.88);
+      backdrop-filter: blur(8px);
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 8rem 2rem 4rem;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
     }
-    .hero-badge {
+    .roi-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .roi-modal {
+      background: #0d1a12;
+      border: 1px solid rgba(0,232,122,0.25);
+      border-radius: 20px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(28px) scale(0.97);
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,232,122,0.2) transparent;
+    }
+    .roi-overlay.open .roi-modal {
+      transform: translateY(0) scale(1);
+    }
+    .roi-modal::-webkit-scrollbar { width: 4px; }
+    .roi-modal::-webkit-scrollbar-thumb { background: rgba(0,232,122,0.2); border-radius: 4px; }
+
+    /* Modal header */
+    .roi-header {
+      padding: 1.8rem 2rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .roi-header-text {}
+    .roi-modal-badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      background: var(--green-glow);
-      border: 1px solid var(--border);
+      gap: 0.4rem;
+      background: rgba(0,232,122,0.1);
+      border: 1px solid rgba(0,232,122,0.2);
       border-radius: 100px;
-      padding: 0.35rem 1rem;
-      font-size: 0.8rem;
+      padding: 0.25rem 0.8rem;
+      font-size: 0.72rem;
       color: var(--green);
-      margin-bottom: 2rem;
-      animation: fadeDown 0.6s ease both;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
     }
-    .hero-badge::before {
+    .roi-modal-badge::before {
       content: '';
-      width: 6px; height: 6px;
+      width: 5px; height: 5px;
       background: var(--green);
       border-radius: 50%;
       animation: pulse 2s infinite;
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
-    h1 {
+    .roi-modal h2 {
       font-family: 'Exo 2', sans-serif;
       font-weight: 900;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 1.05;
-      letter-spacing: -2px;
-      margin-bottom: 1.5rem;
-    }
-    h1 em { font-style: normal; color: var(--green); }
-
-    /* ── PALABRA POR PALABRA ── */
-    h1 .hw {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(32px);
-    }
-    h1 .hw.visible-word {
-      animation: wordCascade 0.65s cubic-bezier(0.22,1,0.36,1) forwards;
-    }
-    @keyframes wordCascade {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .hero-sub {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--gray);
-      max-width: 520px;
-      margin-bottom: 2.5rem;
-      animation: fadeUp 0.7s ease 0.2s both;
-    }
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeUp 0.7s ease 0.3s both;
-    }
-    .btn-primary {
-      background: var(--green);
-      color: #0a0f0d;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 1rem;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .btn-primary:hover { background: var(--green-dim); transform: translateY(-2px); }
-    .btn-ghost {
-      background: transparent;
+      font-size: 1.6rem;
+      letter-spacing: -0.5px;
       color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      font-size: 1rem;
-      padding: 0.85rem 2rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
+      line-height: 1.15;
+      margin-bottom: 0.3rem;
     }
-    .btn-ghost:hover { border-color: var(--green); color: var(--green); }
-    .orb {
-      position: absolute;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(0,232,122,0.08) 0%, transparent 70%);
+    .roi-modal h2 em { font-style: normal; color: var(--green); }
+    .roi-modal-sub {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 0;
+    }
+    .roi-close {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 8px;
+      color: var(--gray);
+      width: 36px; height: 36px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: background 0.2s, color 0.2s;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+    .roi-close:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+
+    /* Modal body */
+    .roi-body { padding: 1.8rem 2rem; }
+
+    /* Inputs */
+    .roi-field { margin-bottom: 1.4rem; }
+    .roi-label {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.6rem;
+    }
+    .roi-label-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
       border-radius: 50%;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      opacity: 0.7;
+    }
+
+    /* Spinner de llamadas */
+    .spinner-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(15,26,21,0.9);
+      border: 1px solid rgba(0,232,122,0.18);
+      border-radius: 10px;
+      overflow: hidden;
+      width: fit-content;
+    }
+    .spinner-btn {
+      width: 44px; height: 48px;
+      background: transparent;
+      border: none;
+      color: var(--green);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+      flex-shrink: 0;
+      font-family: 'DM Sans', sans-serif;
+    }
+    .spinner-btn:hover { background: rgba(0,232,122,0.08); }
+    .spinner-btn:active { background: rgba(0,232,122,0.14); }
+    .spinner-val {
+      min-width: 60px;
+      height: 48px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--white);
+      border-left: 1px solid rgba(0,232,122,0.12);
+      border-right: 1px solid rgba(0,232,122,0.12);
+      user-select: none;
+    }
+    .spinner-unit {
+      padding: 0 0.9rem;
+      font-size: 0.78rem;
+      color: var(--gray);
+      white-space: nowrap;
+    }
+
+    /* Textbox inputs */
+    .roi-input-wrap {
+      display: flex;
+      align-items: center;
+      background: rgba(15,26,21,0.9);
+      border: 1px solid rgba(0,232,122,0.18);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .roi-input-wrap:focus-within { border-color: rgba(0,232,122,0.5); }
+    .roi-prefix {
+      padding: 0 0.9rem;
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--green);
+      opacity: 0.8;
+      border-right: 1px solid rgba(0,232,122,0.12);
+      height: 48px;
+      display: flex; align-items: center;
+      flex-shrink: 0;
+    }
+    .roi-suffix {
+      padding: 0 0.9rem;
+      font-size: 0.78rem;
+      color: var(--gray);
+      border-left: 1px solid rgba(0,232,122,0.12);
+      height: 48px;
+      display: flex; align-items: center;
+      flex-shrink: 0;
+    }
+    .roi-input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--white);
+      font-family: 'Exo 2', sans-serif;
+      font-weight: 900;
+      font-size: 1.3rem;
+      padding: 0 0.8rem;
+      width: 100%;
+      height: 48px;
+      -moz-appearance: textfield;
+    }
+    .roi-input::-webkit-outer-spin-button,
+    .roi-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+    .roi-input::placeholder { color: rgba(240,245,242,0.2); font-weight: 700; }
+
+    /* Toggle recepcionista */
+    .roi-toggle-wrap {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .roi-toggle-opt {
+      flex: 1;
+      padding: 0.75rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0,232,122,0.15);
+      background: rgba(15,26,21,0.7);
+      color: var(--gray);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .roi-toggle-opt:hover { border-color: rgba(0,232,122,0.3); color: var(--white); }
+    .roi-toggle-opt.selected {
+      background: rgba(0,232,122,0.12);
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* Campo condicional de sueldo */
+    .roi-cond-field {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.3s ease, margin 0.3s ease;
+      margin-top: 0;
+    }
+    .roi-cond-field.visible {
+      max-height: 120px;
+      opacity: 1;
+      margin-top: 1.4rem;
+    }
+
+    /* Divider */
+    .roi-divider {
+      height: 1px;
+      background: rgba(0,232,122,0.1);
+      margin: 1.6rem 0;
+    }
+
+    /* RESULTADO */
+    .roi-result {
+      background: rgba(0,232,122,0.05);
+      border: 1px solid rgba(0,232,122,0.2);
+      border-radius: 14px;
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
       pointer-events: none;
     }
-    .stats {
-      position: relative; z-index: 1;
-      display: flex;
-      justify-content: center;
-      gap: 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      background: var(--bg2);
-      flex-wrap: wrap;
+    .roi-result.show {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
     }
-    .stat {
-      flex: 1;
-      min-width: 160px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      border-right: 1px solid var(--border);
+    .roi-result-label {
+      font-size: 0.72rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.4rem;
     }
-    .stat:last-child { border-right: none; }
-    .stat-num {
+    .roi-result-main {
       font-family: 'Exo 2', sans-serif;
       font-weight: 900;
       font-size: 3rem;
       color: var(--green);
       line-height: 1;
-      margin-bottom: 0.3rem;
       letter-spacing: -1px;
-      text-shadow: 0 0 24px rgba(0,232,122,0.35);
+      text-shadow: 0 0 32px rgba(0,232,122,0.3);
+      margin-bottom: 0.25rem;
     }
-    .stat-label {
-      font-size: 0.75rem;
+    .roi-result-period {
+      font-size: 0.82rem;
       color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
+      margin-bottom: 1.2rem;
     }
-    section {
-      position: relative;
-      z-index: 1;
-      padding: 6rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
+    .roi-rows { display: flex; flex-direction: column; gap: 0; }
+    .roi-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(0,232,122,0.07);
+      font-size: 0.85rem;
     }
-    .section-tag {
-      font-size: 0.75rem;
+    .roi-row:last-child { border-bottom: none; }
+    .roi-row-label { color: var(--gray); }
+    .roi-row-val { font-weight: 500; color: var(--white); font-family: 'DM Sans', sans-serif; }
+    .roi-row-val.green { color: var(--green); }
+    .roi-row-val.dim { color: rgba(240,245,242,0.45); }
+    .roi-plan-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(0,232,122,0.12);
+      border: 1px solid rgba(0,232,122,0.25);
       color: var(--green);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 1rem;
+      font-size: 0.78rem;
       font-weight: 500;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
     }
-    h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 4vw, 3rem);
-      letter-spacing: -1px;
-      line-height: 1.1;
-      margin-bottom: 1rem;
+    .roi-annual {
+      margin-top: 1rem;
+      background: rgba(0,232,122,0.06);
+      border-radius: 8px;
+      padding: 0.7rem 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
     }
-    .section-sub {
-      color: var(--gray);
-      font-size: 1.05rem;
-      max-width: 500px;
-      margin-bottom: 3rem;
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-    }
-    .step {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 2rem;
-      position: relative;
-      transition: border-color 0.3s, transform 0.2s;
-      cursor: pointer;
-      overflow: hidden;
-    }
-    .step:hover { border-color: rgba(0,232,122,0.35); transform: translateY(-2px); }
-    .step.active { border-color: var(--green); }
-    .step-num {
+    .roi-annual-label { color: var(--gray); }
+    .roi-annual-val {
       font-family: 'Exo 2', sans-serif;
       font-weight: 900;
-      font-size: 3.5rem;
-      line-height: 1;
-      margin-bottom: 1rem;
-      -webkit-text-stroke: 1px rgba(0,232,122,0.4);
-      color: transparent;
-      letter-spacing: -2px;
+      font-size: 1.1rem;
+      color: var(--green);
     }
-    .step h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .step p { color: var(--gray); font-size: 0.9rem; }
-    .step-cta { margin-top: 1rem; font-size: 0.8rem; color: var(--green); opacity: 0.7; letter-spacing: 0.05em; }
-    .step-demo { display: none; margin-top: 1.2rem; flex-direction: column; gap: 0.6rem; }
-    .step-demo.show { display: flex; }
-    .chat-bubble {
-      padding: 0.6rem 0.9rem;
+
+    /* Credibility note */
+    .roi-credibility {
+      margin-top: 0.8rem;
+      font-size: 0.75rem;
+      color: rgba(122,143,132,0.7);
+      text-align: center;
+      display: none;
+    }
+    .roi-credibility.show { display: block; }
+
+    /* CTA inside modal */
+    .roi-modal-cta {
+      display: block;
+      margin-top: 1.2rem;
+      background: var(--green);
+      color: #0a0f0d;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 0.85rem;
       border-radius: 10px;
-      font-size: 0.82rem;
-      line-height: 1.4;
-      animation: bubbleIn 0.4s ease both;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      opacity: 0;
+      pointer-events: none;
+      transition: background 0.2s, transform 0.15s, opacity 0.4s ease;
     }
-    .chat-bubble.incoming { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1); align-self: flex-start; color: var(--white); }
-    .chat-bubble.outgoing { background: rgba(0,232,122,0.12); border: 1px solid rgba(0,232,122,0.2); align-self: flex-end; color: var(--green); }
-    .chat-bubble.wa { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.2); color: #afffcf; font-size: 0.78rem; }
-    .chat-bubble.wa-owner { background: rgba(255,200,0,0.08); border: 1px solid rgba(255,200,0,0.15); color: #ffe87a; font-size: 0.78rem; }
-    .chat-bubble.typing { animation-delay: 0.5s; }
-    @keyframes bubbleIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-    .feature-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: border-color 0.3s, transform 0.3s; }
-    .feature-card:hover { border-color: rgba(0,232,122,0.35); transform: translateY(-4px); }
-    .feature-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .feature-card h3 { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .feature-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.6; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: start; }
-    .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; transition: border-color 0.3s; }
-    .price-card.featured { border-color: var(--green); background: linear-gradient(135deg, rgba(0,232,122,0.05), var(--card)); position: relative; }
-    .featured-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--green); color: #0a0f0d; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.8rem; border-radius: 100px; }
-    .price-plan { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; }
-    .price-amount { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 2.8rem; color: var(--green); line-height: 1; margin-bottom: 0.2rem; text-shadow: 0 0 20px rgba(0,232,122,0.25); }
-    .price-period { color: var(--gray); font-size: 0.85rem; margin-bottom: 1.5rem; }
-    .price-calls { display: inline-block; background: var(--green-glow); border: 1px solid var(--border); color: var(--green); font-size: 0.8rem; padding: 0.25rem 0.7rem; border-radius: 100px; margin-bottom: 1.5rem; }
-    .price-features { list-style: none; margin-bottom: 2rem; }
-    .price-features li { padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--gray); display: flex; align-items: center; gap: 0.6rem; }
-    .price-features li::before { content: '✓'; color: var(--green); font-weight: 700; }
-    .price-btn { display: block; text-align: center; padding: 0.85rem; border-radius: 8px; text-decoration: none; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; }
-    .price-btn-outline { border: 1px solid var(--border); color: var(--white); }
-    .price-btn-outline:hover { border-color: var(--green); color: var(--green); }
-    .price-btn-solid { background: var(--green); color: #0a0f0d; }
-    .price-btn-solid:hover { background: var(--green-dim); }
-    .full-divider { width: 100%; height: 1px; background: var(--border); position: relative; z-index: 1; }
-    .cta-section { text-align: center; padding: 8rem 2rem; position: relative; z-index: 1; }
-    .cta-section h2 { margin-bottom: 1rem; }
-    .cta-section p { color: var(--gray); margin-bottom: 2.5rem; max-width: 460px; margin-left: auto; margin-right: auto; }
-    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--gray); font-size: 0.85rem; }
-    footer strong { color: var(--green); }
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-    .wa-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 200; background: #25d366; border-radius: 50%; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); text-decoration: none; transition: transform 0.2s; }
-    .wa-float:hover { transform: scale(1.1); }
-    .wa-float svg { width: 28px; height: 28px; fill: white; }
-    @media (max-width: 600px) { nav { padding: 1rem; } .stat { min-width: 140px; } h1 { letter-spacing: -1px; } }
+    .roi-modal-cta.show { opacity: 1; pointer-events: all; }
+    .roi-modal-cta:hover { background: var(--green-dim); transform: translateY(-1px); }
+
+    /* ── RESTO DEL LANDING (sin cambios) ── */
+    .hero {
+      position: relative; z-index: 1;
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: var(--green-glow); border: 1px solid var(--border);
+      border-radius: 100px; padding: 0.35rem 1rem;
+      font-size: 0.8rem; color: var(--green);
+      margin-bottom: 2rem;
+      animation: fadeDown 0.6s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px;
+      background: var(--green); border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.8);} }
+    h1 {
+      font-family: 'Exo 2', sans-serif; font-weight: 900;
+      font-size: clamp(2.8rem,7vw,5.5rem);
+      line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.5rem;
+    }
+    h1 em { font-style: normal; color: var(--green); }
+    h1 .hw { display: inline-block; opacity: 0; transform: translateY(32px); }
+    h1 .hw.visible-word { animation: wordCascade 0.65s cubic-bezier(0.22,1,0.36,1) forwards; }
+    @keyframes wordCascade { to { opacity:1; transform:translateY(0); } }
+    .hero-sub {
+      font-size: clamp(1rem,2vw,1.2rem); color: var(--gray);
+      max-width: 520px; margin-bottom: 2.5rem;
+      animation: fadeUp 0.7s ease 0.2s both;
+    }
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+      animation: fadeUp 0.7s ease 0.3s both;
+    }
+    .btn-primary {
+      background: var(--green); color: #0a0f0d;
+      font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 1rem;
+      padding: 0.85rem 2rem; border-radius: 8px; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { background: var(--green-dim); transform: translateY(-2px); }
+    .btn-ghost {
+      background: transparent; color: var(--white);
+      font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 1rem;
+      padding: 0.85rem 2rem; border-radius: 8px;
+      border: 1px solid var(--border); text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--green); color: var(--green); }
+    .orb {
+      position: absolute; width: 600px; height: 600px;
+      background: radial-gradient(circle,rgba(0,232,122,.08) 0%,transparent 70%);
+      border-radius: 50%; top:50%; left:50%; transform:translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .stats {
+      position:relative; z-index:1;
+      display:flex; justify-content:center;
+      border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+      background:var(--bg2); flex-wrap:wrap;
+    }
+    .stat {
+      flex:1; min-width:160px; padding:2rem 1.5rem;
+      text-align:center; border-right:1px solid var(--border);
+    }
+    .stat:last-child { border-right:none; }
+    .stat-num {
+      font-family:'Exo 2',sans-serif; font-weight:900; font-size:3rem;
+      color:var(--green); line-height:1; margin-bottom:.3rem;
+      letter-spacing:-1px; text-shadow:0 0 24px rgba(0,232,122,.35);
+    }
+    .stat-label { font-size:.75rem; color:var(--gray); text-transform:uppercase; letter-spacing:.1em; }
+    section {
+      position:relative; z-index:1;
+      padding:6rem 2rem; max-width:1100px; margin:0 auto;
+    }
+    .section-tag { font-size:.75rem; color:var(--green); text-transform:uppercase; letter-spacing:.15em; margin-bottom:1rem; font-weight:500; }
+    h2 {
+      font-family:'Syne',sans-serif; font-weight:700;
+      font-size:clamp(2rem,4vw,3rem); letter-spacing:-1px; line-height:1.1; margin-bottom:1rem;
+    }
+    .section-sub { color:var(--gray); font-size:1.05rem; max-width:500px; margin-bottom:3rem; }
+    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; }
+    .step {
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:2rem; position:relative; transition:border-color .3s,transform .2s;
+      cursor:pointer; overflow:hidden;
+    }
+    .step:hover { border-color:rgba(0,232,122,.35); transform:translateY(-2px); }
+    .step.active { border-color:var(--green); }
+    .step-num {
+      font-family:'Exo 2',sans-serif; font-weight:900; font-size:3.5rem;
+      line-height:1; margin-bottom:1rem;
+      -webkit-text-stroke:1px rgba(0,232,122,.4); color:transparent; letter-spacing:-2px;
+    }
+    .step h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
+    .step p { color:var(--gray); font-size:.9rem; }
+    .step-cta { margin-top:1rem; font-size:.8rem; color:var(--green); opacity:.7; letter-spacing:.05em; }
+    .step-demo { display:none; margin-top:1.2rem; flex-direction:column; gap:.6rem; }
+    .step-demo.show { display:flex; }
+    .chat-bubble {
+      padding:.6rem .9rem; border-radius:10px; font-size:.82rem;
+      line-height:1.4; animation:bubbleIn .4s ease both;
+    }
+    .chat-bubble.incoming { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); align-self:flex-start; color:var(--white); }
+    .chat-bubble.outgoing { background:rgba(0,232,122,.12); border:1px solid rgba(0,232,122,.2); align-self:flex-end; color:var(--green); }
+    .chat-bubble.wa { background:rgba(37,211,102,.1); border:1px solid rgba(37,211,102,.2); color:#afffcf; font-size:.78rem; }
+    .chat-bubble.wa-owner { background:rgba(255,200,0,.08); border:1px solid rgba(255,200,0,.15); color:#ffe87a; font-size:.78rem; }
+    @keyframes bubbleIn { from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);} }
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+    .feature-card {
+      background:var(--card); border:1px solid var(--border); border-radius:12px;
+      padding:2rem; transition:border-color .3s,transform .3s;
+    }
+    .feature-card:hover { border-color:rgba(0,232,122,.35); transform:translateY(-4px); }
+    .feature-icon { font-size:2rem; margin-bottom:1rem; }
+    .feature-card h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
+    .feature-card p { color:var(--gray); font-size:.9rem; line-height:1.6; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
+    .price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; }
+    .price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); position:relative; }
+    .featured-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--green); color:#0a0f0d; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; padding:.25rem .8rem; border-radius:100px; }
+    .price-plan { font-family:'Syne',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:.5rem; }
+    .price-amount { font-family:'Exo 2',sans-serif; font-weight:900; font-size:2.8rem; color:var(--green); line-height:1; margin-bottom:.2rem; text-shadow:0 0 20px rgba(0,232,122,.25); }
+    .price-period { color:var(--gray); font-size:.85rem; margin-bottom:1.5rem; }
+    .price-calls { display:inline-block; background:var(--green-glow); border:1px solid var(--border); color:var(--green); font-size:.8rem; padding:.25rem .7rem; border-radius:100px; margin-bottom:1.5rem; }
+    .price-features { list-style:none; margin-bottom:2rem; }
+    .price-features li { padding:.5rem 0; border-bottom:1px solid var(--border); font-size:.9rem; color:var(--gray); display:flex; align-items:center; gap:.6rem; }
+    .price-features li::before { content:'✓'; color:var(--green); font-weight:700; }
+    .price-btn { display:block; text-align:center; padding:.85rem; border-radius:8px; text-decoration:none; font-weight:500; font-size:.95rem; transition:all .2s; }
+    .price-btn-outline { border:1px solid var(--border); color:var(--white); }
+    .price-btn-outline:hover { border-color:var(--green); color:var(--green); }
+    .price-btn-solid { background:var(--green); color:#0a0f0d; }
+    .price-btn-solid:hover { background:var(--green-dim); }
+    .full-divider { width:100%; height:1px; background:var(--border); position:relative; z-index:1; }
+    .cta-section { text-align:center; padding:8rem 2rem; position:relative; z-index:1; }
+    .cta-section h2 { margin-bottom:1rem; }
+    .cta-section p { color:var(--gray); margin-bottom:2.5rem; max-width:460px; margin-left:auto; margin-right:auto; }
+    footer { position:relative; z-index:1; border-top:1px solid var(--border); padding:2rem; text-align:center; color:var(--gray); font-size:.85rem; }
+    footer strong { color:var(--green); }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);} }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .wa-float { position:fixed; bottom:2rem; right:2rem; z-index:200; background:#25d366; border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,.4); text-decoration:none; transition:transform .2s; }
+    .wa-float:hover { transform:scale(1.1); }
+    .wa-float svg { width:28px; height:28px; fill:white; }
+    @media(max-width:600px) {
+      nav { padding:1rem; }
+      .nav-actions { gap:0.4rem; }
+      .btn-roi { padding:0.45rem 0.75rem; font-size:0.8rem; }
+      .btn-roi .roi-icon { display:none; }
+      .stat { min-width:140px; }
+      h1 { letter-spacing:-1px; }
+      .roi-modal { border-radius:16px; }
+      .roi-result-main { font-size:2.4rem; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- ── NAV ── -->
   <nav>
     <div class="logo">Pro<span>Link</span></div>
-    <a href="#contacto" class="nav-cta">Solicitar demo</a>
+    <div class="nav-actions">
+      <button class="btn-roi" onclick="openROI()" aria-label="Calcular ROI">
+        <span class="roi-icon">📊</span> Calcular ROI
+      </button>
+      <a href="#contacto" class="nav-cta">Solicitar demo</a>
+    </div>
   </nav>
 
+  <!-- ══════════════════════════════════════════
+       MODAL ROI
+  ══════════════════════════════════════════ -->
+  <div class="roi-overlay" id="roiOverlay" onclick="handleOverlayClick(event)">
+    <div class="roi-modal" id="roiModal">
+
+      <div class="roi-header">
+        <div class="roi-header-text">
+          <div class="roi-modal-badge">Calculadora de retorno</div>
+          <h2>¿Cuánto te cuesta<br/><em>no tener</em> ProLink?</h2>
+          <p class="roi-modal-sub">Ingresa los datos de tu consultorio y ve tu ahorro real en segundos.</p>
+        </div>
+        <button class="roi-close" onclick="closeROI()" aria-label="Cerrar">✕</button>
+      </div>
+
+      <div class="roi-body">
+
+        <!-- INPUT 1: Llamadas por día -->
+        <div class="roi-field">
+          <div class="roi-label"><span class="roi-label-dot"></span>Llamadas que recibes al día</div>
+          <div class="spinner-wrap">
+            <button class="spinner-btn" onclick="changeSpinner(-1)" aria-label="Menos">−</button>
+            <div class="spinner-val" id="spinnerVal">10</div>
+            <button class="spinner-btn" onclick="changeSpinner(1)" aria-label="Más">+</button>
+            <span class="spinner-unit">llamadas / día</span>
+          </div>
+        </div>
+
+        <!-- INPUT 2: Precio de consulta -->
+        <div class="roi-field">
+          <div class="roi-label"><span class="roi-label-dot"></span>Precio de consulta</div>
+          <div class="roi-input-wrap">
+            <span class="roi-prefix">$</span>
+            <input type="number" class="roi-input" id="precioConsulta" placeholder="800" min="0" oninput="calcROI()">
+            <span class="roi-suffix">MXN</span>
+          </div>
+        </div>
+
+        <!-- INPUT 3: Toggle recepcionista -->
+        <div class="roi-field">
+          <div class="roi-label"><span class="roi-label-dot"></span>¿Tienes recepcionista actualmente?</div>
+          <div class="roi-toggle-wrap">
+            <div class="roi-toggle-opt selected" id="togSi" onclick="setRecep(true)">✓ &nbsp;Sí tengo</div>
+            <div class="roi-toggle-opt" id="togNo" onclick="setRecep(false)">✗ &nbsp;No tengo</div>
+          </div>
+        </div>
+
+        <!-- INPUT 4: Sueldo (condicional) -->
+        <div class="roi-cond-field visible" id="sueldoField">
+          <div class="roi-label"><span class="roi-label-dot"></span>Sueldo mensual de tu recepcionista</div>
+          <div class="roi-input-wrap">
+            <span class="roi-prefix">$</span>
+            <input type="number" class="roi-input" id="sueldoRecep" placeholder="6500" min="0" oninput="calcROI()">
+            <span class="roi-suffix">MXN / mes</span>
+          </div>
+        </div>
+
+        <div class="roi-divider"></div>
+
+        <!-- RESULTADO -->
+        <div class="roi-result" id="roiResult">
+          <div class="roi-result-label">Tu ahorro mensual estimado con ProLink</div>
+          <div class="roi-result-main" id="roiNum">$0</div>
+          <div class="roi-result-period">pesos mexicanos por mes</div>
+
+          <div class="roi-rows">
+            <div class="roi-row">
+              <span class="roi-row-label">Plan recomendado</span>
+              <span class="roi-row-val"><span class="roi-plan-badge" id="planBadge">Básico</span></span>
+            </div>
+            <div class="roi-row">
+              <span class="roi-row-label">Costo mensual ProLink</span>
+              <span class="roi-row-val dim" id="planCosto">$2,500 MXN</span>
+            </div>
+            <div class="roi-row">
+              <span class="roi-row-label">Citas recuperadas est.</span>
+              <span class="roi-row-val" id="citasRec">—</span>
+            </div>
+            <div class="roi-row">
+              <span class="roi-row-label">vs. recepcionista humana</span>
+              <span class="roi-row-val green" id="vsHumana">—</span>
+            </div>
+          </div>
+
+          <div class="roi-annual">
+            <span class="roi-annual-label">Proyección anual de ahorro</span>
+            <span class="roi-annual-val" id="roiAnual">$0</span>
+          </div>
+        </div>
+
+        <p class="roi-credibility" id="roiCredibility">
+          * Estimado conservador: recuperación del 40% de llamadas fuera de horario.
+        </p>
+
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink"
+           target="_blank"
+           class="roi-modal-cta"
+           id="roiCta">
+          Quiero empezar — hablar por WhatsApp →
+        </a>
+
+      </div><!-- /roi-body -->
+    </div><!-- /roi-modal -->
+  </div><!-- /roi-overlay -->
+
+  <!-- ── HERO ── -->
   <div class="hero">
     <div class="orb"></div>
     <div class="hero-badge">Activo 24/7 · Los Mochis, Sinaloa</div>
@@ -345,6 +768,7 @@
     </div>
   </div>
 
+  <!-- ── STATS ── -->
   <div class="stats">
     <div class="stat">
       <div class="stat-num" data-type="static">24/7</div>
@@ -364,6 +788,7 @@
     </div>
   </div>
 
+  <!-- ── CÓMO FUNCIONA ── -->
   <section id="como-funciona">
     <div class="section-tag reveal">¿Cómo funciona?</div>
     <h2 class="reveal">Cuatro pasos.<br/>Sin complicaciones.</h2>
@@ -414,46 +839,24 @@
 
   <div class="full-divider"></div>
 
+  <!-- ── FUNCIONES ── -->
   <section id="funciones">
     <div class="section-tag reveal">Funciones</div>
     <h2 class="reveal">Todo lo que necesita<br/>tu consultorio</h2>
     <p class="section-sub reveal">Diseñado específicamente para negocios locales en Los Mochis y Sinaloa.</p>
     <div class="features-grid">
-      <div class="feature-card reveal">
-        <div class="feature-icon">🎙️</div>
-        <h3>Voz natural en español</h3>
-        <p>Tu recepcionista habla como una persona real. Tus pacientes no notarán la diferencia.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">📅</div>
-        <h3>Google Calendar integrado</h3>
-        <p>Las citas aparecen directo en tu calendario. Sin apps nuevas que aprender.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">💬</div>
-        <h3>WhatsApp automático</h3>
-        <p>Confirmaciones y recordatorios al paciente y notificaciones a ti, sin intervención manual.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">🌙</div>
-        <h3>Atiende de noche y fines de semana</h3>
-        <p>Las llamadas que antes perdías ahora se convierten en citas agendadas.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">⚡</div>
-        <h3>Listo en 7 días</h3>
-        <p>Configuramos todo nosotros. Tú solo nos das los datos de tu consultorio.</p>
-      </div>
-      <div class="feature-card reveal">
-        <div class="feature-icon">📍</div>
-        <h3>Soporte local presencial</h3>
-        <p>Estamos en Los Mochis. Si algo falla, lo resolvemos ese mismo día.</p>
-      </div>
+      <div class="feature-card reveal"><div class="feature-icon">🎙️</div><h3>Voz natural en español</h3><p>Tu recepcionista habla como una persona real. Tus pacientes no notarán la diferencia.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">📅</div><h3>Google Calendar integrado</h3><p>Las citas aparecen directo en tu calendario. Sin apps nuevas que aprender.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">💬</div><h3>WhatsApp automático</h3><p>Confirmaciones y recordatorios al paciente y notificaciones a ti, sin intervención manual.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">🌙</div><h3>Atiende de noche y fines de semana</h3><p>Las llamadas que antes perdías ahora se convierten en citas agendadas.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Listo en 7 días</h3><p>Configuramos todo nosotros. Tú solo nos das los datos de tu consultorio.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">📍</div><h3>Soporte local presencial</h3><p>Estamos en Los Mochis. Si algo falla, lo resolvemos ese mismo día.</p></div>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
+  <!-- ── PRECIOS ── -->
   <section id="precios">
     <div class="section-tag reveal">Valor</div>
     <h2 class="reveal">Una cita perdida cuesta más<br/>que todo el mes.</h2>
@@ -507,6 +910,7 @@
 
   <div class="full-divider"></div>
 
+  <!-- ── CTA FINAL ── -->
   <div class="cta-section" id="contacto">
     <div class="section-tag reveal">¿Listo para empezar?</div>
     <h2 class="reveal">Agenda una demo<br/>sin compromiso</h2>
@@ -514,6 +918,7 @@
     <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" class="btn-primary reveal" target="_blank">Escribir por WhatsApp</a>
   </div>
 
+  <!-- ── FOOTER ── -->
   <footer>
     <p><strong>ProLink</strong> — Automatizaciones para tu negocio · Los Mochis, Sinaloa, México</p>
     <p style="margin-top:0.5rem;">carlosrope@prolink365.com.mx</p>
@@ -523,6 +928,7 @@
     </div>
   </footer>
 
+  <!-- ── WA FLOAT ── -->
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" aria-label="WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -530,121 +936,215 @@
   </a>
 
   <script>
-    // ── REVEAL ON SCROLL ──────────────────────────────────────
-    const reveals = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => revealObserver.observe(el));
+  // ══════════════════════════════════════════
+  // ROI MODAL
+  // ══════════════════════════════════════════
+  let spinnerVal = 10;
+  let tieneRecep = true;
 
-    // ── PALABRA POR PALABRA en cascada ────────────────────────
-    const words = document.querySelectorAll('.hero h1 .hw');
-    words.forEach((w, i) => {
-      setTimeout(() => w.classList.add('visible-word'), 300 + i * 95);
-    });
+  function openROI() {
+    document.getElementById('roiOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    calcROI();
+  }
+  function closeROI() {
+    document.getElementById('roiOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('roiOverlay')) closeROI();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeROI(); });
 
-    // ── COUNTER ANIMATION (Daisy-style) ───────────────────────
-    function animateCounter(el) {
-      const target = parseInt(el.dataset.target);
-      const suffix = el.dataset.suffix || '';
-      const from = el.dataset.from ? parseInt(el.dataset.from) : 0;
-      const duration = 1800;
-      const steps = 60;
-      const interval = duration / steps;
-      let step = 0;
-      let scrambleCount = 0;
-      const scrambleMax = 18;
-      const scramble = setInterval(() => {
-        const rand = Math.floor(Math.random() * (from > target ? from : 100));
-        el.textContent = rand + suffix;
-        scrambleCount++;
-        if (scrambleCount >= scrambleMax) {
-          clearInterval(scramble);
-          const counter = setInterval(() => {
-            step++;
-            const progress = step / steps;
-            const ease = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(from + (target - from) * ease);
-            el.textContent = current + suffix;
-            if (step >= steps) {
-              clearInterval(counter);
-              el.textContent = target + suffix;
-            }
-          }, interval);
-        }
-      }, 40);
+  function changeSpinner(delta) {
+    spinnerVal = Math.max(1, Math.min(50, spinnerVal + delta));
+    document.getElementById('spinnerVal').textContent = spinnerVal;
+    calcROI();
+  }
+
+  function setRecep(val) {
+    tieneRecep = val;
+    document.getElementById('togSi').classList.toggle('selected', val);
+    document.getElementById('togNo').classList.toggle('selected', !val);
+    const campo = document.getElementById('sueldoField');
+    campo.classList.toggle('visible', val);
+    calcROI();
+  }
+
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
+  }
+
+  function calcROI() {
+    const precio = parseFloat(document.getElementById('precioConsulta').value) || 0;
+    const sueldo = parseFloat(document.getElementById('sueldoRecep').value) || 0;
+
+    // Plan por volumen
+    const llamadasMes = spinnerVal * 22;
+    let planNombre, planCosto;
+    if (llamadasMes <= 100)      { planNombre = 'Básico';       planCosto = 2500; }
+    else if (llamadasMes <= 200) { planNombre = 'Profesional';  planCosto = 3500; }
+    else                         { planNombre = 'Premium';      planCosto = 4500; }
+
+    // Citas perdidas (40% fijo del total de llamadas)
+    const citasPerdidas = Math.round(llamadasMes * 0.40);
+    const ingresoRecuperable = citasPerdidas * precio;
+
+    // Costo de recepcionista: real si tiene, referencia mercado si no
+    const costoRecep = tieneRecep ? sueldo : 6500;
+
+    // Ahorro bruto
+    const ahorroBruto = costoRecep + ingresoRecuperable;
+    const roiNeto = ahorroBruto - planCosto;
+
+    // Credibilidad: si el ahorro supera $80k, activamos nota
+    const esMuyAlto = roiNeto > 80000;
+
+    // Mostrar resultado solo si hay precio de consulta (al menos)
+    const tieneData = precio > 0 || (tieneRecep && sueldo > 0);
+    if (!tieneData) {
+      document.getElementById('roiResult').classList.remove('show');
+      document.getElementById('roiCta').classList.remove('show');
+      document.getElementById('roiCredibility').classList.remove('show');
+      return;
     }
 
-    const statsEls = document.querySelectorAll('.stat-num[data-type="number"]');
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setTimeout(() => animateCounter(entry.target), 200);
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-    statsEls.forEach(el => statsObserver.observe(el));
+    // Actualizar UI
+    document.getElementById('roiNum').textContent = fmt(roiNeto);
+    document.getElementById('planBadge').textContent = planNombre + ' — ' + fmt(planCosto).replace(' MXN','');
+    document.getElementById('planCosto').textContent = fmt(planCosto);
+    document.getElementById('citasRec').textContent = citasPerdidas + ' citas / mes';
+    document.getElementById('roiAnual').textContent = fmt(roiNeto * 12);
 
-    // ── PARTICLES fixed background ────────────────────────────
-    const particleContainer = document.createElement('div');
-    particleContainer.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;';
-    document.body.appendChild(particleContainer);
-    for (let p = 0; p < 50; p++) {
-      const dot = document.createElement('div');
-      const size = Math.random() * 3 + 1;
-      const x = Math.random() * 100;
-      const y = Math.random() * 100;
-      const delay = Math.random() * 6;
-      const dur = Math.random() * 6 + 4;
-      const opacity = (Math.random() * 0.3 + 0.55).toFixed(2);
-      dot.style.cssText = `position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`;
-      particleContainer.appendChild(dot);
-    }
-    document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);}to{transform:translateY(-18px) translateX(8px);}}</style>');
+    // vs humana
+    const vsTexto = tieneRecep
+      ? 'Ahorras ' + fmt(sueldo - planCosto) + ' / mes'
+      : 'vs $6,500 recepcionista de mercado';
+    document.getElementById('vsHumana').textContent = vsTexto;
 
-    // ── STEP INTERACTION ──────────────────────────────────────
-    function playStep(card, demoId) {
-      const demo = document.getElementById(demoId);
-      const cta = card.querySelector('.step-cta');
-      const isOpen = demo.classList.contains('show');
-      document.querySelectorAll('.step-demo').forEach(d => d.classList.remove('show'));
-      document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-      document.querySelectorAll('.step-cta').forEach(c => c.textContent = '▶ Ver en acción');
-      if (!isOpen) {
-        demo.classList.add('show');
-        card.classList.add('active');
-        cta.textContent = '▼ Cerrar';
-      }
-    }
+    document.getElementById('roiResult').classList.add('show');
+    document.getElementById('roiCta').classList.add('show');
+    document.getElementById('roiCredibility').classList.toggle('show', esMuyAlto);
+  }
 
-    // ── GLOWING BORDER on hover ───────────────────────────────
-    document.querySelectorAll('.feature-card, .price-card, .step').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0,232,122,0.06), rgba(15,26,21,0.9) 70%)`;
-      });
-      card.addEventListener('mouseleave', () => { card.style.background = ''; });
-    });
+  // ══════════════════════════════════════════
+  // LANDING — scripts originales
+  // ══════════════════════════════════════════
 
-    // ── NAV on scroll ─────────────────────────────────────────
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) {
-        nav.style.background = 'rgba(10,15,13,0.97)';
-        nav.style.boxShadow = '0 1px 0 rgba(0,232,122,0.15)';
-      } else {
-        nav.style.background = 'rgba(10,15,13,0.85)';
-        nav.style.boxShadow = 'none';
+  // REVEAL ON SCROLL
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        revealObserver.unobserve(entry.target);
       }
     });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => revealObserver.observe(el));
+
+  // PALABRA POR PALABRA
+  const words = document.querySelectorAll('.hero h1 .hw');
+  words.forEach((w, i) => {
+    setTimeout(() => w.classList.add('visible-word'), 300 + i * 95);
+  });
+
+  // COUNTER ANIMATION
+  function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const suffix = el.dataset.suffix || '';
+    const from = el.dataset.from ? parseInt(el.dataset.from) : 0;
+    const duration = 1800;
+    const steps = 60;
+    const interval = duration / steps;
+    let step = 0;
+    let scrambleCount = 0;
+    const scrambleMax = 18;
+    const scramble = setInterval(() => {
+      const rand = Math.floor(Math.random() * (from > target ? from : 100));
+      el.textContent = rand + suffix;
+      scrambleCount++;
+      if (scrambleCount >= scrambleMax) {
+        clearInterval(scramble);
+        const counter = setInterval(() => {
+          step++;
+          const progress = step / steps;
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const current = Math.round(from + (target - from) * ease);
+          el.textContent = current + suffix;
+          if (step >= steps) {
+            clearInterval(counter);
+            el.textContent = target + suffix;
+          }
+        }, interval);
+      }
+    }, 40);
+  }
+  const statsEls = document.querySelectorAll('.stat-num[data-type="number"]');
+  const statsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => animateCounter(entry.target), 200);
+        statsObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  statsEls.forEach(el => statsObserver.observe(el));
+
+  // PARTICLES
+  const particleContainer = document.createElement('div');
+  particleContainer.style.cssText = 'position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;';
+  document.body.appendChild(particleContainer);
+  for (let p = 0; p < 50; p++) {
+    const dot = document.createElement('div');
+    const size = Math.random() * 3 + 1;
+    const x = Math.random() * 100;
+    const y = Math.random() * 100;
+    const delay = Math.random() * 6;
+    const dur = Math.random() * 6 + 4;
+    const opacity = (Math.random() * 0.3 + 0.55).toFixed(2);
+    dot.style.cssText = `position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`;
+    particleContainer.appendChild(dot);
+  }
+  document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);}to{transform:translateY(-18px) translateX(8px);}}</style>');
+
+  // STEP INTERACTION
+  function playStep(card, demoId) {
+    const demo = document.getElementById(demoId);
+    const cta = card.querySelector('.step-cta');
+    const isOpen = demo.classList.contains('show');
+    document.querySelectorAll('.step-demo').forEach(d => d.classList.remove('show'));
+    document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.step-cta').forEach(c => c.textContent = '▶ Ver en acción');
+    if (!isOpen) {
+      demo.classList.add('show');
+      card.classList.add('active');
+      cta.textContent = '▼ Cerrar';
+    }
+  }
+
+  // GLOW on hover
+  document.querySelectorAll('.feature-card, .price-card, .step').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(0,232,122,0.06), rgba(15,26,21,0.9) 70%)`;
+    });
+    card.addEventListener('mouseleave', () => { card.style.background = ''; });
+  });
+
+  // NAV scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.style.background = 'rgba(10,15,13,0.97)';
+      nav.style.boxShadow = '0 1px 0 rgba(0,232,122,0.15)';
+    } else {
+      nav.style.background = 'rgba(10,15,13,0.85)';
+      nav.style.boxShadow = 'none';
+    }
+  });
   </script>
 </body>
 </html>
