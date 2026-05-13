@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="#00e87a">
+  <!-- Cabeza -->
+  <circle cx="44" cy="18" r="12"/>
+  <!-- Cuerpo / torso -->
+  <path d="M22 48 Q22 34 44 34 Q66 34 66 48 L66 54 L22 54 Z"/>
+  <!-- Mostrador superficie -->
+  <rect x="4" y="54" width="92" height="6" rx="2"/>
+  <!-- Cuerpo del mostrador -->
+  <rect x="4" y="60" width="92" height="36" rx="3"/>
+  <!-- Campana cúpula -->
+  <path d="M72 53 Q72 40 83 40 Q94 40 94 53 Z"/>
+  <!-- Campana base -->
+  <ellipse cx="83" cy="53" rx="11" ry="3.5"/>
+  <!-- Botón campana -->
+  <rect x="80" y="37" width="6" height="4" rx="1"/>
+</svg>
