@@ -6,6 +6,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ProLink — Automatizaciones para tu negocio</title>
   <meta name="description" content="Automatizaciones para negocios en Los Mochis. Recepcionista virtual IA, páginas web profesionales y más. Sin que hagas nada."/>
+
+  <!-- Meta tags Open Graph (para compartir en WhatsApp/Facebook) -->
+  <meta property="og:title" content="ProLink — Automatizaciones para tu negocio"/>
+  <meta property="og:description" content="Recepcionista virtual IA y páginas web profesionales para negocios en Los Mochis, Sinaloa. Sin que hagas nada."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prolink365.com.mx"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="ProLink — Automatizaciones para tu negocio"/>
+  <meta name="twitter:description" content="Recepcionista virtual IA y páginas web profesionales para negocios en Los Mochis, Sinaloa."/>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
@@ -45,97 +65,38 @@
 
     /* ── NAV ── */
     nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       padding: 1.2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      display: flex; justify-content: space-between; align-items: center;
       background: rgba(10,15,13,0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-    .logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.4rem;
-      color: var(--green);
-      letter-spacing: -0.5px;
-    }
+    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--green); letter-spacing: -0.5px; }
     .logo span { color: var(--white); }
     nav a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
     nav a:hover { color: var(--green); }
     .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
     .btn-roi {
-      background: transparent;
-      color: var(--green) !important;
-      font-weight: 500;
-      font-size: 0.88rem;
-      padding: 0.5rem 1.1rem;
-      border-radius: 6px;
-      border: 1px solid rgba(0,232,122,0.35);
-      cursor: pointer;
-      transition: background 0.2s, border-color 0.2s !important;
-      font-family: 'DM Sans', sans-serif;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      letter-spacing: 0;
+      background: transparent; color: var(--green) !important; font-weight: 500; font-size: 0.88rem;
+      padding: 0.5rem 1.1rem; border-radius: 6px; border: 1px solid rgba(0,232,122,0.35);
+      cursor: pointer; transition: background 0.2s, border-color 0.2s !important;
+      font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: 0.4rem; letter-spacing: 0;
     }
     .btn-roi:hover { background: rgba(0,232,122,0.08); border-color: var(--green) !important; }
     .btn-roi .roi-icon { font-size: 0.9rem; }
-    .nav-cta {
-      background: var(--green);
-      color: #0a0f0d !important;
-      font-weight: 500;
-      padding: 0.5rem 1.2rem;
-      border-radius: 6px;
-      transition: background 0.2s !important;
-    }
+    .nav-cta { background: var(--green); color: #0a0f0d !important; font-weight: 500; padding: 0.5rem 1.2rem; border-radius: 6px; transition: background 0.2s !important; }
     .nav-cta:hover { background: var(--green-dim) !important; }
 
-    /* ── MODAL OVERLAY ── */
-    .roi-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 999;
-      background: rgba(5, 10, 8, 0.88);
-      backdrop-filter: blur(8px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
+    /* ── MODAL ROI ── */
+    .roi-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(5,10,8,0.88); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .roi-overlay.open { opacity: 1; pointer-events: all; }
-    .roi-modal {
-      background: #0d1a12;
-      border: 1px solid rgba(0,232,122,0.25);
-      border-radius: 20px;
-      width: 100%;
-      max-width: 560px;
-      max-height: 90vh;
-      overflow-y: auto;
-      position: relative;
-      transform: translateY(28px) scale(0.97);
-      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1);
-      scrollbar-width: thin;
-      scrollbar-color: rgba(0,232,122,0.2) transparent;
-    }
+    .roi-modal { background: #0d1a12; border: 1px solid rgba(0,232,122,0.25); border-radius: 20px; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(28px) scale(0.97); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); scrollbar-width: thin; scrollbar-color: rgba(0,232,122,0.2) transparent; }
     .roi-overlay.open .roi-modal { transform: translateY(0) scale(1); }
     .roi-modal::-webkit-scrollbar { width: 4px; }
     .roi-modal::-webkit-scrollbar-thumb { background: rgba(0,232,122,0.2); border-radius: 4px; }
     .roi-header { padding: 1.8rem 2rem 0; display: flex; justify-content: space-between; align-items: flex-start; }
-    .roi-modal-badge {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      background: rgba(0,232,122,0.1); border: 1px solid rgba(0,232,122,0.2);
-      border-radius: 100px; padding: 0.25rem 0.8rem;
-      font-size: 0.72rem; color: var(--green); letter-spacing: 0.08em;
-      text-transform: uppercase; margin-bottom: 0.6rem;
-    }
+    .roi-modal-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,232,122,0.1); border: 1px solid rgba(0,232,122,0.2); border-radius: 100px; padding: 0.25rem 0.8rem; font-size: 0.72rem; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
     .roi-modal-badge::before { content:''; width:5px; height:5px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
     .roi-modal h2 { font-family:'Exo 2',sans-serif; font-weight:900; font-size:1.6rem; letter-spacing:-0.5px; color:var(--white); line-height:1.15; margin-bottom:0.3rem; }
     .roi-modal h2 em { font-style:normal; color:var(--green); }
@@ -220,29 +181,17 @@
 
     /* ── SERVICIOS ── */
     .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
-    .service-card {
-      background:var(--card); border:1px solid var(--border); border-radius:16px;
-      padding:2rem; position:relative; transition:border-color .3s,transform .2s;
-      display:flex; flex-direction:column; gap:1rem;
-    }
+    .service-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; position:relative; transition:border-color .3s,transform .2s; display:flex; flex-direction:column; gap:1rem; }
     .service-card:hover { border-color:rgba(0,232,122,.35); transform:translateY(-4px); }
     .service-card.active { border-color:var(--green); }
     .service-card.soon { opacity:0.7; }
-    .service-badge {
-      position:absolute; top:1.2rem; right:1.2rem;
-      font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em;
-      padding:0.2rem 0.6rem; border-radius:100px;
-    }
+    .service-badge { position:absolute; top:1.2rem; right:1.2rem; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; padding:0.2rem 0.6rem; border-radius:100px; }
     .service-badge.live { background:rgba(0,232,122,0.12); color:var(--green); border:1px solid rgba(0,232,122,0.25); }
     .service-badge.soon-badge { background:rgba(255,200,0,0.08); color:#ffe87a; border:1px solid rgba(255,200,0,0.2); }
     .service-icon { font-size:2.5rem; line-height:1; }
     .service-card h3 { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; }
     .service-card p { color:var(--gray); font-size:0.9rem; line-height:1.6; flex:1; }
-    .service-link {
-      display:inline-flex; align-items:center; gap:0.4rem;
-      font-size:0.85rem; font-weight:500; color:var(--green);
-      text-decoration:none; transition:gap 0.2s;
-    }
+    .service-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.85rem; font-weight:500; color:var(--green); text-decoration:none; transition:gap 0.2s; }
     .service-link:hover { gap:0.7rem; }
     .service-link.disabled { color:var(--gray); pointer-events:none; }
 
@@ -482,8 +431,6 @@
     <h2 class="reveal">Una empresa.<br/>Tres soluciones.</h2>
     <p class="section-sub reveal">Automatizamos los procesos que más tiempo te quitan para que puedas enfocarte en lo que importa.</p>
     <div class="services-grid">
-
-      <!-- Recepcionista Virtual -->
       <div class="service-card active reveal">
         <span class="service-badge live">● Disponible</span>
         <div class="service-icon">🎙️</div>
@@ -491,17 +438,13 @@
         <p>Tu agente IA atiende llamadas, agenda citas y envía confirmaciones por WhatsApp — las 24 horas, los 7 días, los 365 días del año. Tú solo ves tu agenda llena.</p>
         <a href="#como-funciona" class="service-link">Ver cómo funciona →</a>
       </div>
-
-      <!-- Páginas Web -->
       <div class="service-card reveal">
         <span class="service-badge live">● Disponible</span>
         <div class="service-icon">🌐</div>
         <h3>Páginas Web Profesionales</h3>
-        <p>Sitios web modernos y rápidos para tu negocio. Desde una landing page hasta un sitio completo con SEO y Google Business. Tu presencia en internet lista en menos de 24 horas.</p>
+        <p>Sitios web modernos y rápidos para tu negocio. Desde una landing page hasta un sitio completo con posicionamiento en Google y Google Business. Tu presencia en internet lista en menos de 24 horas.</p>
         <a href="#paginas-web" class="service-link">Tu negocio en la web →</a>
       </div>
-
-      <!-- Contador Virtual — Próximamente -->
       <div class="service-card soon reveal">
         <span class="service-badge soon-badge">⏳ Próximamente</span>
         <div class="service-icon">🧾</div>
@@ -509,7 +452,6 @@
         <p>Automatización de facturación por WhatsApp. Tu cliente recibe su factura CFDI al instante, sin que muevas un dedo. Integración directa con el SAT.</p>
         <span class="service-link disabled">En desarrollo →</span>
       </div>
-
     </div>
   </section>
 
@@ -593,7 +535,7 @@
     <div class="pricing-grid">
       <div class="price-card reveal">
         <div class="price-plan">Básico</div>
-        <div class="price-amount">$2,500</div>
+        <div class="price-amount">$3,000</div>
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">Hasta 100 llamadas/mes</div>
         <ul class="price-features">
@@ -608,7 +550,7 @@
       <div class="price-card featured reveal">
         <div class="featured-badge">Más popular</div>
         <div class="price-plan">Profesional</div>
-        <div class="price-amount">$3,500</div>
+        <div class="price-amount">$4,000</div>
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">101–200 llamadas/mes</div>
         <ul class="price-features">
@@ -622,7 +564,7 @@
       </div>
       <div class="price-card reveal">
         <div class="price-plan">Premium</div>
-        <div class="price-amount">$4,500</div>
+        <div class="price-amount">$4,900</div>
         <div class="price-period">MXN / mes</div>
         <div class="price-calls">201–400 llamadas/mes</div>
         <ul class="price-features">
@@ -650,8 +592,8 @@
     <!-- Features web -->
     <div class="features-grid" style="margin-bottom:4rem;">
       <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Rápido y profesional</h3><p>Sitios optimizados para cargar en menos de 2 segundos. Primera impresión que convierte visitantes en clientes.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📱</div><h3>100% responsivo</h3><p>Se ve perfecto en celular, tablet y computadora. El 80% de tus clientes te busca desde el teléfono.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🔍</div><h3>SEO incluido en Premium</h3><p>Configuración de Google Business Profile y optimización básica para que te encuentren en búsquedas locales.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">📱</div><h3>100% adaptado al celular</h3><p>Se ve perfecto en celular, tablet y computadora. El 80% de tus clientes te busca desde el teléfono.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">🔍</div><h3>Posicionamiento en Google incluido en Premium</h3><p>Configuración de Google Business Profile para que aparezcas en el mapa cuando te busquen en tu ciudad.</p></div>
     </div>
 
     <!-- Precios web -->
@@ -671,6 +613,10 @@
         <ul class="price-features">
           <li>Landing page 1 página</li>
           <li>Diseño personalizado con tu marca</li>
+          <li>100% adaptado a celular</li>
+          <li>Botón de WhatsApp flotante</li>
+          <li>Ícono personalizado en el navegador</li>
+          <li>Verificación en Google Search Console</li>
           <li>Hosting en GitHub Pages (gratis)</li>
           <li>Dominio propio configurado</li>
           <li>Soporte técnico anual incluido</li>
@@ -688,11 +634,15 @@
         <div class="web-maint">Soporte anual $500 MXN</div>
         <p class="web-note">Dominio se gestiona por separado según disponibilidad.</p>
         <ul class="price-features">
+          <li>Todo lo del plan Básico</li>
           <li>Sitio 3–5 páginas completo</li>
           <li>Formulario de contacto funcional</li>
-          <li>Diseño profesional con tu marca</li>
-          <li>Hosting configurado</li>
-          <li>Soporte técnico anual incluido</li>
+          <li>Mapa de Google Maps integrado</li>
+          <li>Botón de llamada directa desde celular</li>
+          <li>Galería de fotos del negocio</li>
+          <li>Sección de testimonios</li>
+          <li>Política de privacidad incluida</li>
+          <li>2 revisiones de diseño incluidas</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20Negocio%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-solid">Quiero mi sitio</a>
         <p class="web-extra-note">Cambios adicionales con costo extra</p>
@@ -706,11 +656,14 @@
         <div class="web-maint">Soporte anual $500 MXN</div>
         <p class="web-note">Dominio se gestiona por separado según disponibilidad.</p>
         <ul class="price-features">
-          <li>Sitio completo multi-sección</li>
-          <li>SEO básico configurado</li>
-          <li>Google Business Profile</li>
-          <li>Mantenimiento mensual incluido</li>
-          <li>Actualizaciones de contenido</li>
+          <li>Todo lo del plan Negocio</li>
+          <li>Posicionamiento en Google configurado</li>
+          <li>Google Business Profile con fotos</li>
+          <li>Google Analytics instalado</li>
+          <li>Vista previa al compartir en WhatsApp y redes</li>
+          <li>QR code del sitio en PDF para imprimir</li>
+          <li>5 fotos del negocio optimizadas</li>
+          <li>2 revisiones de diseño incluidas</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20Premium%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-outline">Quiero el Premium</a>
         <p class="web-extra-note">Cambios fuera del plan con costo extra</p>
@@ -750,33 +703,21 @@
   // ── ROI MODAL ──
   let spinnerVal = 10;
   let tieneRecep = true;
-
   function openROI() { document.getElementById('roiOverlay').classList.add('open'); document.body.style.overflow='hidden'; calcROI(); }
   function closeROI() { document.getElementById('roiOverlay').classList.remove('open'); document.body.style.overflow=''; }
   function handleOverlayClick(e) { if(e.target===document.getElementById('roiOverlay')) closeROI(); }
   document.addEventListener('keydown', e => { if(e.key==='Escape') closeROI(); });
-
-  function changeSpinner(delta) {
-    spinnerVal = Math.max(1, Math.min(50, spinnerVal + delta));
-    document.getElementById('spinnerVal').textContent = spinnerVal;
-    calcROI();
-  }
-  function setRecep(val) {
-    tieneRecep = val;
-    document.getElementById('togSi').classList.toggle('selected', val);
-    document.getElementById('togNo').classList.toggle('selected', !val);
-    document.getElementById('sueldoField').classList.toggle('visible', val);
-    calcROI();
-  }
+  function changeSpinner(delta) { spinnerVal = Math.max(1, Math.min(50, spinnerVal + delta)); document.getElementById('spinnerVal').textContent = spinnerVal; calcROI(); }
+  function setRecep(val) { tieneRecep = val; document.getElementById('togSi').classList.toggle('selected', val); document.getElementById('togNo').classList.toggle('selected', !val); document.getElementById('sueldoField').classList.toggle('visible', val); calcROI(); }
   function fmt(n) { return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN'; }
   function calcROI() {
     const precio = parseFloat(document.getElementById('precioConsulta').value) || 0;
     const sueldo = parseFloat(document.getElementById('sueldoRecep').value) || 0;
     const llamadasMes = spinnerVal * 22;
     let planNombre, planCosto;
-    if(llamadasMes<=100){planNombre='Básico';planCosto=2500;}
-    else if(llamadasMes<=200){planNombre='Profesional';planCosto=3500;}
-    else{planNombre='Premium';planCosto=4500;}
+    if(llamadasMes<=100){planNombre='Básico';planCosto=3000;}
+    else if(llamadasMes<=200){planNombre='Profesional';planCosto=4000;}
+    else{planNombre='Premium';planCosto=4900;}
     const citasPerdidas = Math.round(llamadasMes * 0.40);
     const ingresoRecuperable = citasPerdidas * precio;
     const costoRecep = tieneRecep ? sueldo : 6500;
@@ -800,9 +741,7 @@
   // ── REVEAL ON SCROLL ──
   const reveals = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if(entry.isIntersecting){ setTimeout(()=>entry.target.classList.add('visible'), i*80); revealObserver.unobserve(entry.target); }
-    });
+    entries.forEach((entry, i) => { if(entry.isIntersecting){ setTimeout(()=>entry.target.classList.add('visible'), i*80); revealObserver.unobserve(entry.target); } });
   }, { threshold: 0.1 });
   reveals.forEach(el => revealObserver.observe(el));
 
@@ -812,112 +751,41 @@
 
   // ── COUNTER ──
   function animateCounter(el) {
-    const target = parseInt(el.dataset.target);
-    const suffix = el.dataset.suffix || '';
-    const from = el.dataset.from ? parseInt(el.dataset.from) : 0;
-    const duration = 1800; const steps = 60; const interval = duration/steps;
-    let step=0, scrambleCount=0;
-    const scramble = setInterval(()=>{
-      const rand = Math.floor(Math.random()*(from>target?from:100));
-      el.textContent = rand+suffix; scrambleCount++;
-      if(scrambleCount>=18){ clearInterval(scramble);
-        const counter = setInterval(()=>{ step++; const progress=step/steps; const ease=1-Math.pow(1-progress,3); const current=Math.round(from+(target-from)*ease); el.textContent=current+suffix; if(step>=steps){clearInterval(counter);el.textContent=target+suffix;} }, interval); }
-    }, 40);
+    const target = parseInt(el.dataset.target); const suffix = el.dataset.suffix || ''; const from = el.dataset.from ? parseInt(el.dataset.from) : 0;
+    const duration = 1800; const steps = 60; const interval = duration/steps; let step=0, scrambleCount=0;
+    const scramble = setInterval(()=>{ const rand = Math.floor(Math.random()*(from>target?from:100)); el.textContent = rand+suffix; scrambleCount++; if(scrambleCount>=18){ clearInterval(scramble); const counter = setInterval(()=>{ step++; const progress=step/steps; const ease=1-Math.pow(1-progress,3); const current=Math.round(from+(target-from)*ease); el.textContent=current+suffix; if(step>=steps){clearInterval(counter);el.textContent=target+suffix;} }, interval); } }, 40);
   }
   const statsEls = document.querySelectorAll('.stat-num[data-type="number"]');
-  const statsObserver = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{ if(entry.isIntersecting){setTimeout(()=>animateCounter(entry.target),200);statsObserver.unobserve(entry.target);} });
-  }, {threshold:0.5});
+  const statsObserver = new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){setTimeout(()=>animateCounter(entry.target),200);statsObserver.unobserve(entry.target);} }); }, {threshold:0.5});
   statsEls.forEach(el=>statsObserver.observe(el));
 
   // ── PARTICLES ──
   const particleContainer = document.createElement('div');
   particleContainer.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;';
   document.body.appendChild(particleContainer);
-  for(let p=0;p<50;p++){
-    const dot=document.createElement('div');
-    const size=Math.random()*3+1, x=Math.random()*100, y=Math.random()*100, delay=Math.random()*6, dur=Math.random()*6+4, opacity=(Math.random()*0.3+0.55).toFixed(2);
-    dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`;
-    particleContainer.appendChild(dot);
-  }
+  for(let p=0;p<50;p++){ const dot=document.createElement('div'); const size=Math.random()*3+1, x=Math.random()*100, y=Math.random()*100, delay=Math.random()*6, dur=Math.random()*6+4, opacity=(Math.random()*0.3+0.55).toFixed(2); dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`; particleContainer.appendChild(dot); }
   document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);}to{transform:translateY(-18px) translateX(8px);}}</style>');
 
   // ── STEPS ──
-  function playStep(card, demoId){
-    const demo=document.getElementById(demoId), cta=card.querySelector('.step-cta'), isOpen=demo.classList.contains('show');
-    document.querySelectorAll('.step-demo').forEach(d=>d.classList.remove('show'));
-    document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-    document.querySelectorAll('.step-cta').forEach(c=>c.textContent='▶ Ver en acción');
-    if(!isOpen){demo.classList.add('show');card.classList.add('active');cta.textContent='▼ Cerrar';}
-  }
+  function playStep(card, demoId){ const demo=document.getElementById(demoId), cta=card.querySelector('.step-cta'), isOpen=demo.classList.contains('show'); document.querySelectorAll('.step-demo').forEach(d=>d.classList.remove('show')); document.querySelectorAll('.step').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.step-cta').forEach(c=>c.textContent='▶ Ver en acción'); if(!isOpen){demo.classList.add('show');card.classList.add('active');cta.textContent='▼ Cerrar';} }
 
   // ── GLOW HOVER ──
-  document.querySelectorAll('.feature-card, .price-card, .step, .service-card, .web-price-card').forEach(card=>{
-    card.addEventListener('mousemove',(e)=>{
-      const rect=card.getBoundingClientRect(), x=((e.clientX-rect.left)/rect.width)*100, y=((e.clientY-rect.top)/rect.height)*100;
-      card.style.background=`radial-gradient(circle at ${x}% ${y}%, rgba(0,232,122,0.06), rgba(15,26,21,0.9) 70%)`;
-    });
-    card.addEventListener('mouseleave',()=>{card.style.background='';});
-  });
+  document.querySelectorAll('.feature-card, .price-card, .step, .service-card, .web-price-card').forEach(card=>{ card.addEventListener('mousemove',(e)=>{ const rect=card.getBoundingClientRect(), x=((e.clientX-rect.left)/rect.width)*100, y=((e.clientY-rect.top)/rect.height)*100; card.style.background=`radial-gradient(circle at ${x}% ${y}%, rgba(0,232,122,0.06), rgba(15,26,21,0.9) 70%)`; }); card.addEventListener('mouseleave',()=>{card.style.background='';}); });
 
   // ── NAV SCROLL ──
   const nav=document.querySelector('nav');
-  window.addEventListener('scroll',()=>{
-    if(window.scrollY>80){nav.style.background='rgba(10,15,13,0.97)';nav.style.boxShadow='0 1px 0 rgba(0,232,122,0.15)';}
-    else{nav.style.background='rgba(10,15,13,0.85)';nav.style.boxShadow='none';}
-  });
+  window.addEventListener('scroll',()=>{ if(window.scrollY>80){nav.style.background='rgba(10,15,13,0.97)';nav.style.boxShadow='0 1px 0 rgba(0,232,122,0.15)';}else{nav.style.background='rgba(10,15,13,0.85)';nav.style.boxShadow='none';} });
   </script>
   <script>
-  // ── ESTRELLA INSIGNIA — partículas verdes + brillitos dorados ──
   (function(){
-    const wrap = document.getElementById('insigniaWrap');
-    if(!wrap) return;
-
-    // Partículas verdes de fondo
+    const wrap = document.getElementById('insigniaWrap'); if(!wrap) return;
     const gp = document.getElementById('insigniaGreenParts');
-    if(gp){
-      for(let i=0;i<28;i++){
-        const dot = document.createElement('div');
-        const size = Math.random()*2.5+1;
-        const x = Math.random()*100, y = Math.random()*100;
-        const delay = Math.random()*6, dur = Math.random()*6+4;
-        const opacity = (Math.random()*0.25+0.35).toFixed(2);
-        dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`;
-        gp.appendChild(dot);
-      }
-    }
-
-    // Brillitos dorados
-    const container = document.getElementById('insigniaSparkles');
-    if(!container) return;
+    if(gp){ for(let i=0;i<28;i++){ const dot = document.createElement('div'); const size = Math.random()*2.5+1; const x = Math.random()*100, y = Math.random()*100; const delay = Math.random()*6, dur = Math.random()*6+4; const opacity = (Math.random()*0.25+0.35).toFixed(2); dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`; gp.appendChild(dot); } }
+    const container = document.getElementById('insigniaSparkles'); if(!container) return;
     const colors = ['#f5c842','#ffe066','#fff0a0','#e8a800','#ffffff'];
-    function makeSpark(delay){
-      const el = document.createElement('div');
-      el.style.cssText = 'position:absolute;pointer-events:none;opacity:0;';
-      const size = 5 + Math.random() * 7;
-      const W = wrap.offsetWidth || 600;
-      const H = wrap.offsetHeight || 300;
-      const x = 20 + Math.random() * (W - 40);
-      const y = 10 + Math.random() * (H - 20);
-      const color = colors[Math.floor(Math.random()*colors.length)];
-      const dur = 600 + Math.random() * 900;
-      const rise = 22 + Math.random() * 32;
-      el.style.left = x + 'px';
-      el.style.top = y + 'px';
-      el.innerHTML=`<svg width="${size}" height="${size}" viewBox="0 0 10 10"><line x1="5" y1="0" x2="5" y2="10" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="0" y1="5" x2="10" y2="5" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="1.5" y1="1.5" x2="8.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/><line x1="8.5" y1="1.5" x2="1.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/></svg>`;
-      container.appendChild(el);
-      setTimeout(() => {
-        el.style.transition = `opacity ${dur}ms ease, transform ${dur}ms ease`;
-        el.style.opacity = '1';
-        el.style.transform = `translateY(-${rise}px) rotate(${Math.random()*60-30}deg) scale(${0.8+Math.random()*0.7})`;
-        setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), dur+100); }, dur*0.5);
-      }, delay);
-    }
+    function makeSpark(delay){ const el = document.createElement('div'); el.style.cssText = 'position:absolute;pointer-events:none;opacity:0;'; const size = 5 + Math.random() * 7; const W = wrap.offsetWidth || 600; const H = wrap.offsetHeight || 300; const x = 20 + Math.random() * (W - 40); const y = 10 + Math.random() * (H - 20); const color = colors[Math.floor(Math.random()*colors.length)]; const dur = 600 + Math.random() * 900; const rise = 22 + Math.random() * 32; el.style.left = x + 'px'; el.style.top = y + 'px'; el.innerHTML=`<svg width="${size}" height="${size}" viewBox="0 0 10 10"><line x1="5" y1="0" x2="5" y2="10" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="0" y1="5" x2="10" y2="5" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="1.5" y1="1.5" x2="8.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/><line x1="8.5" y1="1.5" x2="1.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/></svg>`; container.appendChild(el); setTimeout(() => { el.style.transition = `opacity ${dur}ms ease, transform ${dur}ms ease`; el.style.opacity = '1'; el.style.transform = `translateY(-${rise}px) rotate(${Math.random()*60-30}deg) scale(${0.8+Math.random()*0.7})`; setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), dur+100); }, dur*0.5); }, delay); }
     function burst(n, d){ for(let i=0;i<n;i++) makeSpark(d+i*60); }
-    setTimeout(() => {
-      burst(14,0); burst(9,800); burst(7,1700);
-      setInterval(() => burst(2+Math.floor(Math.random()*4),0), 2200);
-    }, 700);
+    setTimeout(() => { burst(14,0); burst(9,800); burst(7,1700); setInterval(() => burst(2+Math.floor(Math.random()*4),0), 2200); }, 700);
   })();
   </script>
 </body>
