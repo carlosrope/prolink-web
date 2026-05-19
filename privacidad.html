@@ -1,153 +1,370 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ProLink — Política de Privacidad</title>
+  <meta name="description" content="Política de privacidad de ProLink — cómo recopilamos, usamos y protegemos tu información."/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --bg: #0a0f0d;
+      --bg2: #0f1a15;
       --green: #00e87a;
-      --green-glow: rgba(0,232,122,0.12);
+      --green-dim: #00c965;
+      --green-glow: rgba(0,232,122,0.15);
       --white: #f0f5f2;
       --gray: #7a8f84;
       --border: rgba(0,232,122,0.12);
-      --card: rgba(15,26,21,0.9);
+      --card: rgba(15,26,21,0.8);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { background: var(--bg); color: var(--white); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-    body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(0,232,122,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,232,122,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none; z-index: 0; }
-    nav { position: sticky; top: 0; z-index: 100; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(10,15,13,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,232,122,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,232,122,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+      background: rgba(10,15,13,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
     .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--green); letter-spacing: -0.5px; text-decoration: none; }
     .logo span { color: var(--white); }
-    .nav-back { color: var(--gray); text-decoration: none; font-size: 0.875rem; transition: color 0.2s; }
+    .nav-back { color: var(--gray); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; display: flex; align-items: center; gap: 0.4rem; }
     .nav-back:hover { color: var(--green); }
-    .hero { position: relative; z-index: 1; padding: 5rem 2rem 4rem; max-width: 860px; margin: 0 auto; }
-    .hero-tag { display: inline-flex; align-items: center; background: var(--green-glow); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 1rem; font-size: 0.75rem; color: var(--green); margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
-    .hero h1 { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.8rem); letter-spacing: -2px; line-height: 1.05; margin-bottom: 1rem; }
-    .hero h1 em { font-style: normal; color: var(--green); }
-    .hero p { color: var(--gray); font-size: 1rem; max-width: 480px; }
-    .fecha { display: inline-block; margin-top: 1.5rem; background: var(--green-glow); border: 1px solid var(--border); color: var(--green); padding: 0.3rem 0.9rem; border-radius: 100px; font-size: 0.78rem; }
-    .container { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 2rem 2rem 5rem; }
-    .divider { width: 100%; height: 1px; background: var(--border); margin: 0 0 3rem; }
-    h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--green); margin-top: 3rem; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
-    h2:first-of-type { margin-top: 0; }
+    main {
+      position: relative; z-index: 1;
+      max-width: 800px; margin: 0 auto;
+      padding: 7rem 2rem 5rem;
+    }
+    .doc-tag { font-size: 0.75rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.15em; font-weight: 500; margin-bottom: 0.8rem; }
+    .doc-title { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: clamp(2.2rem, 5vw, 3.2rem); letter-spacing: -1.5px; line-height: 1.05; margin-bottom: 0.8rem; }
+    .doc-title em { font-style: normal; color: var(--green); }
+    .doc-subtitle { color: var(--gray); font-size: 1rem; margin-bottom: 0.5rem; }
+    .doc-date { font-size: 0.8rem; color: rgba(122,143,132,0.6); margin-bottom: 3rem; }
+    .doc-divider { height: 1px; background: var(--border); margin-bottom: 3rem; }
+    .service-scope { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; }
+    .scope-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,232,122,0.08); border: 1px solid rgba(0,232,122,0.2); border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.78rem; color: var(--green); font-weight: 500; }
+    .scope-badge::before { content: ''; width: 5px; height: 5px; background: var(--green); border-radius: 50%; }
+    .toc { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 2rem; margin-bottom: 3rem; }
+    .toc-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+    .toc ol { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; }
+    .toc a { color: var(--gray); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .toc a:hover { color: var(--green); }
+    .doc-section { margin-bottom: 3rem; }
+    .section-anchor { display: block; height: 80px; margin-top: -80px; visibility: hidden; }
+    h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--white); border-left: 3px solid var(--green); padding-left: 1rem; margin-bottom: 1.2rem; line-height: 1.3; }
+    h3 { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 1rem; color: var(--green); margin-bottom: 0.8rem; margin-top: 1.5rem; }
     p { color: var(--gray); margin-bottom: 1rem; font-size: 0.95rem; }
-    p strong { color: var(--white); font-weight: 500; }
-    ul { padding-left: 1.2rem; margin-bottom: 1rem; }
-    ul li { color: var(--gray); font-size: 0.95rem; margin-bottom: 0.5rem; }
-    ul li::marker { color: var(--green); }
-    .contacto-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; margin-top: 3rem; }
-    .contacto-box strong { font-family: 'Syne', sans-serif; font-size: 1.1rem; font-weight: 700; color: var(--white); display: block; margin-bottom: 0.5rem; }
-    .contacto-box p { margin: 0; }
-    .contacto-box a { color: var(--green); text-decoration: none; }
-    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-    footer p { color: var(--gray); font-size: 0.82rem; margin: 0; }
+    ul, ol { padding-left: 1.4rem; margin-bottom: 1rem; }
+    li { color: var(--gray); font-size: 0.93rem; margin-bottom: 0.4rem; line-height: 1.6; }
+    strong { color: var(--white); font-weight: 500; }
+    .data-table { width: 100%; border-collapse: collapse; margin: 1.2rem 0; border-radius: 12px; overflow: hidden; }
+    .data-table th { background: rgba(0,232,122,0.08); color: var(--green); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+    .data-table td { padding: 0.7rem 1rem; font-size: 0.88rem; color: var(--gray); border-bottom: 1px solid rgba(0,232,122,0.07); vertical-align: top; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: rgba(0,232,122,0.03); }
+    .data-table td:first-child { color: var(--white); font-weight: 500; white-space: nowrap; }
+    .callout { background: rgba(0,232,122,0.05); border: 1px solid rgba(0,232,122,0.2); border-radius: 12px; padding: 1.2rem 1.5rem; margin: 1.2rem 0; }
+    .callout p { margin: 0; font-size: 0.88rem; }
+    .arco-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin: 1.2rem 0; }
+    .arco-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; }
+    .arco-letter { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 1.8rem; color: var(--green); line-height: 1; margin-bottom: 0.3rem; }
+    .arco-name { font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--white); margin-bottom: 0.3rem; }
+    .arco-desc { font-size: 0.78rem; color: var(--gray); }
+    .contact-box { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; margin-top: 3rem; text-align: center; }
+    .contact-box p { margin-bottom: 0.5rem; }
+    .contact-box a { color: var(--green); text-decoration: none; font-weight: 500; }
+    .contact-box a:hover { text-decoration: underline; }
+    footer { position: relative; z-index: 1; border-top: 1px solid var(--border); padding: 2rem; text-align: center; color: var(--gray); font-size: 0.82rem; }
     footer strong { color: var(--green); }
-    .footer-links { display: flex; gap: 1.5rem; }
-    .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--green); }
+    footer a { color: var(--gray); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--green); }
+    .footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+    @media(max-width: 600px) {
+      main { padding: 6rem 1.2rem 4rem; }
+      h2 { font-size: 1.1rem; }
+      .arco-grid { grid-template-columns: repeat(2, 1fr); }
+      .data-table td:first-child { white-space: normal; }
+    }
   </style>
 </head>
 <body>
-  <nav>
-    <a href="index.html" class="logo">Pro<span>Link</span></a>
-    <a href="index.html" class="nav-back">← Volver al inicio</a>
-  </nav>
-  <div class="hero">
-    <div class="hero-tag">Legal</div>
-    <h1>Política de <em>Privacidad</em></h1>
-    <p>Cómo recopilamos, usamos y protegemos tu información personal.</p>
-    <div class="fecha">Última actualización: mayo 2026</div>
+
+<nav>
+  <a href="index.html" class="logo">Pro<span>Link</span></a>
+  <a href="index.html" class="nav-back">← Volver al inicio</a>
+</nav>
+
+<main>
+  <div class="doc-tag">Legal</div>
+  <h1 class="doc-title">Política de <em>Privacidad</em></h1>
+  <p class="doc-subtitle">Cómo recopilamos, usamos y protegemos tu información personal.</p>
+  <p class="doc-date">Última actualización: mayo 2026</p>
+
+  <div class="service-scope">
+    <span class="scope-badge">🎙️ Recepcionista Virtual</span>
+    <span class="scope-badge">🌐 Páginas Web Profesionales</span>
   </div>
-  <div class="container">
-    <div class="divider"></div>
 
+  <div class="doc-divider"></div>
+
+  <div class="toc">
+    <div class="toc-title">Índice de contenidos</div>
+    <ol>
+      <li><a href="#p1">Introducción</a></li>
+      <li><a href="#p2">Información que recopilamos</a></li>
+      <li><a href="#p3">Cómo utilizamos la información</a></li>
+      <li><a href="#p4">Compartir información con terceros</a></li>
+      <li><a href="#p5">Almacenamiento y seguridad</a></li>
+      <li><a href="#p6">Retención de datos</a></li>
+      <li><a href="#p7">Derechos ARCO</a></li>
+      <li><a href="#p8">Autoridad de control (INAI)</a></li>
+      <li><a href="#p9">Privacidad de menores</a></li>
+      <li><a href="#p10">Cookies y analytics</a></li>
+      <li><a href="#p11">Cambios a esta política</a></li>
+    </ol>
+  </div>
+
+  <!-- 1 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p1"></span>
     <h2>1. Introducción</h2>
-    <p>En ProLink, nos comprometemos a proteger la privacidad y seguridad de los datos de nuestros usuarios. Esta Política describe cómo recopilamos, usamos, almacenamos y protegemos la información personal cuando se utiliza nuestro servicio de recepcionista virtual con inteligencia artificial.</p>
+    <p>En ProLink nos comprometemos a proteger la privacidad y seguridad de los datos de nuestros clientes y usuarios. Esta Política describe cómo recopilamos, usamos, almacenamos y protegemos la información personal al utilizar cualquiera de nuestros servicios:</p>
+    <ul>
+      <li><strong>Recepcionista Virtual:</strong> agente de voz con IA para atención de llamadas y gestión de citas.</li>
+      <li><strong>Páginas Web Profesionales:</strong> diseño, desarrollo y publicación de sitios web para negocios.</li>
+    </ul>
     <p>ProLink opera desde Los Mochis, Sinaloa, México. Contacto: <strong>carlosrope@prolink365.com.mx</strong></p>
+  </div>
 
+  <!-- 2 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p2"></span>
     <h2>2. Información que recopilamos</h2>
-    <p><strong>Información del negocio cliente:</strong> Al contratar el servicio recopilamos nombre del negocio, dirección, teléfono, correo electrónico, especialidad o giro, horarios de atención y servicios ofrecidos.</p>
-    <p><strong>Datos de usuarios finales:</strong> A través de las llamadas procesadas, podemos recopilar los siguientes datos de pacientes o clientes del negocio:</p>
+
+    <h3>2.1 Servicio de Recepcionista Virtual</h3>
+    <p><strong>Información del negocio cliente:</strong> nombre del negocio, dirección, teléfono, correo electrónico, especialidad o giro, horarios de atención y servicios ofrecidos.</p>
+    <p><strong>Datos de usuarios finales</strong> (pacientes o clientes del negocio, recopilados durante las llamadas procesadas):</p>
     <ul>
       <li>Nombre completo</li>
       <li>Número de teléfono o celular</li>
       <li>Motivo de la cita o consulta</li>
       <li>Fecha y hora de la cita agendada</li>
     </ul>
-    <p>ProLink <strong>no</strong> recopila ni almacena grabaciones de voz. El procesamiento de audio ocurre en tiempo real a través de los proveedores tecnológicos del servicio y no es retenido por ProLink.</p>
-
-    <h2>3. Cómo utilizamos la información</h2>
-    <p>Los datos recopilados se utilizan exclusivamente para:</p>
-    <ul>
-      <li>Agendar, confirmar y gestionar citas en nombre del negocio cliente</li>
-      <li>Enviar confirmaciones y recordatorios automáticos vía WhatsApp</li>
-      <li>Registrar eventos en el calendario del negocio cliente</li>
-      <li>Proporcionar soporte técnico y atención al cliente</li>
-      <li>Mejorar la calidad y precisión del servicio</li>
-    </ul>
-    <p>ProLink no utiliza los datos personales de usuarios finales para fines de marketing ni los comparte con terceros ajenos a la prestación del servicio.</p>
-
-    <h2>4. Compartir información con terceros</h2>
-    <p>No vendemos ni rentamos información personal. Para operar el servicio, datos limitados son procesados por proveedores tecnológicos especializados, agrupados por función:</p>
-    <ul>
-      <li><strong>Procesamiento de voz e IA:</strong> Empresas que sintetizan y procesan el audio de las llamadas en tiempo real</li>
-      <li><strong>Telefonía:</strong> Proveedores que gestionan la infraestructura de llamadas entrantes</li>
-      <li><strong>Mensajería:</strong> Plataformas que envían confirmaciones y recordatorios por WhatsApp</li>
-      <li><strong>Calendario y productividad:</strong> Servicios de agenda donde se registran las citas</li>
-      <li><strong>Automatización:</strong> Plataformas que orquestan los flujos de trabajo del servicio</li>
-      <li><strong>Cumplimiento legal:</strong> Autoridades competentes cuando sea requerido por ley</li>
-    </ul>
-    <p>Todos los proveedores están obligados contractualmente a proteger los datos y solo pueden usarlos para los fines especificados.</p>
-
-    <h2>5. Almacenamiento y seguridad</h2>
-    <p>ProLink implementa medidas técnicas y organizativas para proteger los datos contra acceso no autorizado, pérdida o divulgación indebida:</p>
-    <ul>
-      <li>Comunicaciones mediante canales cifrados</li>
-      <li>Acceso a sistemas restringido al personal autorizado</li>
-      <li>Servidores con estándares internacionales de seguridad</li>
-    </ul>
-
-    <h2>6. Retención de datos</h2>
-    <p>Los datos de usuarios finales se conservan durante la vigencia del contrato con el negocio cliente y hasta 12 meses adicionales para efectos de registro y auditoría. Transcurrido ese periodo, los datos son eliminados de forma segura.</p>
-    <p>Tras la cancelación del servicio, los datos del negocio cliente se eliminan dentro de los 90 días siguientes, salvo aquellos que deban conservarse por obligaciones legales.</p>
-
-    <h2>7. Derechos ARCO</h2>
-    <p>De conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), los titulares de datos tienen derecho a:</p>
-    <ul>
-      <li><strong>Acceso:</strong> Solicitar una copia de los datos que tenemos sobre usted</li>
-      <li><strong>Rectificación:</strong> Corregir datos inexactos o incompletos</li>
-      <li><strong>Cancelación:</strong> Solicitar la eliminación de sus datos personales</li>
-      <li><strong>Oposición:</strong> Oponerse al tratamiento de sus datos para ciertos fines</li>
-    </ul>
-    <p>Para ejercer estos derechos envía tu solicitud a: <strong>carlosrope@prolink365.com.mx</strong></p>
-
-    <h2>8. Autoridad de control</h2>
-    <p>Si considera que el tratamiento de sus datos infringe la normativa aplicable, puede presentar una reclamación ante el Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (<strong>INAI</strong>), autoridad competente en México.</p>
-
-    <h2>9. Privacidad de menores</h2>
-    <p>El servicio de ProLink está dirigido a negocios y no recopilamos intencionalmente información de menores de 18 años. Si detectamos datos de un menor sin consentimiento parental apropiado, tomaremos medidas inmediatas para eliminarlos.</p>
-
-    <h2>10. Cambios a esta política</h2>
-    <p>ProLink se reserva el derecho de actualizar esta Política en cualquier momento. Los cambios serán notificados a los negocios clientes con al menos 15 días de anticipación por correo electrónico.</p>
-
-    <div class="contacto-box">
-      <strong>¿Tienes preguntas sobre tu privacidad?</strong>
-      <p>Escríbenos a <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a> y te respondemos en menos de 48 horas hábiles.</p>
+    <div class="callout">
+      <p>ProLink <strong>no</strong> recopila ni almacena grabaciones de voz. El procesamiento de audio ocurre en tiempo real a través de los proveedores tecnológicos del servicio y no es retenido por ProLink.</p>
     </div>
+
+    <h3>2.2 Servicio de Páginas Web Profesionales</h3>
+    <p><strong>Información del negocio cliente:</strong> nombre del negocio, logotipo, textos de presentación, número de teléfono, correo electrónico, horarios, dirección física, fotos del negocio y cualquier otro contenido proporcionado voluntariamente por el Cliente para incluir en el sitio web.</p>
+    <p><strong>Datos técnicos para configuración:</strong> nombre de dominio elegido, acceso al panel DNS del registrador (temporal, solo para configuración inicial), correo electrónico para Google Search Console y Google Analytics.</p>
+    <p>ProLink <strong>no</strong> tiene acceso continuo al panel de control del dominio del Cliente una vez completada la configuración inicial, salvo que el Cliente lo solicite expresamente para soporte técnico.</p>
+
+    <h3>2.3 Datos de visitantes de los sitios creados</h3>
+    <p>Los sitios web desarrollados por ProLink pueden incluir Google Analytics instalado en el plan Premium. Los datos de visitantes recopilados por Google Analytics (páginas vistas, ubicación aproximada, dispositivo) son procesados directamente por Google bajo sus propias políticas de privacidad y están a disposición del Cliente como titular del sitio.</p>
   </div>
-  <footer>
-    <p><strong>ProLink</strong> — Los Mochis, Sinaloa, México · © 2026</p>
-    <div class="footer-links">
-      <a href="index.html">Inicio</a>
-      <a href="terminos.html">Términos de Servicio</a>
+
+  <!-- 3 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p3"></span>
+    <h2>3. Cómo utilizamos la información</h2>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>Dato</th>
+          <th>Uso</th>
+          <th>Servicio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Datos del negocio cliente</td>
+          <td>Configurar el agente de voz o el sitio web según el perfil del negocio</td>
+          <td>Ambos</td>
+        </tr>
+        <tr>
+          <td>Nombre y teléfono del usuario final</td>
+          <td>Agendar cita y enviar confirmación/recordatorio por WhatsApp</td>
+          <td>Recepcionista</td>
+        </tr>
+        <tr>
+          <td>Motivo y fecha de cita</td>
+          <td>Registrar evento en Google Calendar del negocio</td>
+          <td>Recepcionista</td>
+        </tr>
+        <tr>
+          <td>Contenido del sitio (textos, fotos)</td>
+          <td>Publicar el sitio web del Cliente</td>
+          <td>Páginas Web</td>
+        </tr>
+        <tr>
+          <td>Datos de configuración DNS</td>
+          <td>Conectar el dominio al hosting durante setup inicial</td>
+          <td>Páginas Web</td>
+        </tr>
+        <tr>
+          <td>Correo electrónico del Cliente</td>
+          <td>Soporte técnico, notificaciones de servicio y facturación</td>
+          <td>Ambos</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>ProLink <strong>no</strong> utiliza los datos personales de usuarios finales para fines de marketing ni los comparte con terceros ajenos a la prestación del servicio.</p>
+  </div>
+
+  <!-- 4 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p4"></span>
+    <h2>4. Compartir información con terceros</h2>
+    <p>No vendemos ni rentamos información personal. Para operar los servicios, datos limitados son procesados por proveedores tecnológicos especializados:</p>
+
+    <h3>Recepcionista Virtual</h3>
+    <ul>
+      <li><strong>Procesamiento de voz e IA:</strong> síntesis y procesamiento de audio en tiempo real.</li>
+      <li><strong>Telefonía:</strong> gestión de infraestructura de llamadas entrantes.</li>
+      <li><strong>Mensajería:</strong> envío de confirmaciones y recordatorios por WhatsApp.</li>
+      <li><strong>Calendario:</strong> registro de citas en la agenda del negocio.</li>
+      <li><strong>Automatización:</strong> orquestación de flujos de trabajo del servicio.</li>
+    </ul>
+
+    <h3>Páginas Web Profesionales</h3>
+    <ul>
+      <li><strong>Hosting:</strong> GitHub Pages (GitHub Inc.) — publica y sirve el sitio web.</li>
+      <li><strong>Dominio:</strong> registrador elegido por el Cliente (recomendamos Namecheap).</li>
+      <li><strong>Analytics (plan Premium):</strong> Google Analytics — métricas de visitantes del sitio.</li>
+      <li><strong>Posicionamiento (plan Premium):</strong> Google Search Console y Google Business Profile.</li>
+    </ul>
+
+    <p>Todos los proveedores están obligados contractualmente a proteger los datos y solo pueden usarlos para los fines especificados. Adicionalmente, ProLink puede divulgar información a autoridades competentes cuando sea requerido por ley mexicana.</p>
+  </div>
+
+  <!-- 5 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p5"></span>
+    <h2>5. Almacenamiento y seguridad</h2>
+    <p>ProLink implementa las siguientes medidas para proteger los datos:</p>
+    <ul>
+      <li>Comunicaciones mediante canales cifrados (HTTPS).</li>
+      <li>Acceso a sistemas restringido al personal autorizado de ProLink.</li>
+      <li>Los sitios web publicados cuentan con HTTPS activado obligatoriamente.</li>
+      <li>Las credenciales de acceso de clientes (paneles DNS, Google) se utilizan únicamente durante la configuración y no se almacenan en sistemas de ProLink.</li>
+    </ul>
+  </div>
+
+  <!-- 6 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p6"></span>
+    <h2>6. Retención de datos</h2>
+
+    <h3>Recepcionista Virtual</h3>
+    <p>Los datos de usuarios finales se conservan durante la vigencia del contrato y hasta <strong>12 meses adicionales</strong> para efectos de registro y auditoría. Transcurrido ese periodo, los datos son eliminados. Los datos del negocio cliente se eliminan dentro de los <strong>90 días</strong> siguientes a la cancelación del servicio.</p>
+
+    <h3>Páginas Web Profesionales</h3>
+    <p>El contenido publicado en el sitio web (textos, imágenes) permanece en GitHub Pages mientras el sitio esté activo. Al terminar la relación con ProLink, el Cliente puede solicitar la transferencia del repositorio a su propia cuenta de GitHub, o ProLink lo eliminará dentro de los <strong>30 días</strong> posteriores a la solicitud expresa del Cliente.</p>
+    <p>Los datos de contacto del Cliente (nombre, correo, teléfono) se conservan por <strong>24 meses</strong> tras la última interacción para efectos administrativos y fiscales, conforme a la legislación mexicana aplicable.</p>
+  </div>
+
+  <!-- 7 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p7"></span>
+    <h2>7. Derechos ARCO</h2>
+    <p>De conformidad con la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), los titulares de datos tienen los siguientes derechos:</p>
+
+    <div class="arco-grid">
+      <div class="arco-card">
+        <div class="arco-letter">A</div>
+        <div class="arco-name">Acceso</div>
+        <div class="arco-desc">Solicitar una copia de los datos que tenemos sobre usted.</div>
+      </div>
+      <div class="arco-card">
+        <div class="arco-letter">R</div>
+        <div class="arco-name">Rectificación</div>
+        <div class="arco-desc">Corregir datos inexactos o incompletos.</div>
+      </div>
+      <div class="arco-card">
+        <div class="arco-letter">C</div>
+        <div class="arco-name">Cancelación</div>
+        <div class="arco-desc">Solicitar la eliminación de sus datos personales.</div>
+      </div>
+      <div class="arco-card">
+        <div class="arco-letter">O</div>
+        <div class="arco-name">Oposición</div>
+        <div class="arco-desc">Oponerse al tratamiento de sus datos para ciertos fines.</div>
+      </div>
     </div>
-  </footer>
+
+    <p>Para ejercer estos derechos, envía tu solicitud a: <strong>carlosrope@prolink365.com.mx</strong>. Responderemos en un plazo máximo de <strong>20 días hábiles</strong> conforme a lo establecido en la LFPDPPP.</p>
+  </div>
+
+  <!-- 8 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p8"></span>
+    <h2>8. Autoridad de control</h2>
+    <p>Si considera que el tratamiento de sus datos infringe la normativa aplicable, puede presentar una reclamación ante el <strong>Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI)</strong>, autoridad competente en México.</p>
+    <p>Sitio web del INAI: <strong>inai.org.mx</strong></p>
+  </div>
+
+  <!-- 9 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p9"></span>
+    <h2>9. Privacidad de menores</h2>
+    <p>Los servicios de ProLink están dirigidos a negocios y personas mayores de edad. No recopilamos intencionalmente información de menores de 18 años. Si detectamos datos de un menor sin consentimiento parental apropiado, tomaremos medidas inmediatas para eliminarlos.</p>
+  </div>
+
+  <!-- 10 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p10"></span>
+    <h2>10. Cookies y analytics</h2>
+    <p>El sitio web de ProLink (<strong>prolink365.com.mx</strong>) puede utilizar Google Analytics para medir el tráfico de visitantes. Google Analytics recopila datos de uso de forma anónima y agregada (páginas visitadas, tiempo en el sitio, dispositivo utilizado). No utilizamos cookies de rastreo con fines publicitarios.</p>
+    <p>Los sitios web creados para clientes en el plan Premium también incluirán Google Analytics bajo las mismas condiciones. El Cliente, como titular del sitio, es responsable de informar a sus propios visitantes sobre el uso de Analytics si así lo requieren las leyes aplicables a su negocio.</p>
+  </div>
+
+  <!-- 11 -->
+  <div class="doc-section">
+    <span class="section-anchor" id="p11"></span>
+    <h2>11. Cambios a esta política</h2>
+    <p>ProLink se reserva el derecho de actualizar esta Política en cualquier momento. Los cambios serán notificados a los negocios clientes con al menos <strong>15 días de anticipación</strong> por correo electrónico o WhatsApp. La versión vigente siempre estará disponible en <strong>prolink365.com.mx/privacidad.html</strong>.</p>
+  </div>
+
+  <div class="contact-box">
+    <p style="color:var(--white); font-family:'Syne',sans-serif; font-weight:700; margin-bottom:0.5rem;">¿Tienes preguntas sobre tu privacidad?</p>
+    <p>Escríbenos y te respondemos en menos de 48 horas hábiles.</p>
+    <p><a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a></p>
+  </div>
+</main>
+
+<footer>
+  <p><strong>ProLink</strong> — Automatizaciones para tu negocio · Los Mochis, Sinaloa, México · © 2026</p>
+  <div class="footer-links">
+    <a href="index.html">Inicio</a>
+    <a href="terminos.html">Términos de Servicio</a>
+  </div>
+</footer>
+
 </body>
 </html>
