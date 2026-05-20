@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>ProLink — Páginas Web Profesionales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg:#0a0f0d; --bg2:#0f1a15; --green:#00e87a; --green-dim:#00c965;
+  --green-glow:rgba(0,232,122,0.15); --white:#f0f5f2; --gray:#7a8f84;
+  --border:rgba(0,232,122,0.12); --card:rgba(15,26,21,0.9);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-tap-highlight-color:transparent;}
+body{background:var(--bg);color:var(--white);font-family:'DM Sans',sans-serif;
+  font-weight:300;line-height:1.6;overflow-x:hidden;min-height:100vh;}
+body::before{content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,232,122,0.03) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(0,232,122,0.03) 1px,transparent 1px);
+  background-size:50px 50px;pointer-events:none;z-index:0;}
+
+/* ── PANTALLAS ── */
+.screen{display:none;min-height:100vh;position:relative;z-index:1;
+  flex-direction:column;align-items:center;justify-content:flex-start;
+  padding:0 0 5rem;}
+.screen.active{display:flex;}
+
+/* ── NAV ── */
+.topbar{width:100%;display:flex;justify-content:space-between;align-items:center;
+  padding:1.1rem 1.4rem;background:rgba(10,15,13,0.92);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--border);
+  position:sticky;top:0;z-index:50;}
+.logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.3rem;
+  color:var(--green);letter-spacing:-0.5px;}
+.logo span{color:var(--white);}
+.back-btn{background:transparent;border:1px solid var(--border);color:var(--gray);
+  padding:0.4rem 0.9rem;border-radius:6px;font-size:0.82rem;cursor:pointer;
+  font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.back-btn:active{background:rgba(0,232,122,0.08);color:var(--green);}
+.menu-btn{background:var(--green);border:none;color:#0a0f0d;
+  padding:0.4rem 0.9rem;border-radius:6px;font-size:0.82rem;
+  font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;}
+
+/* ── HERO HOME ── */
+.hero-home{width:100%;padding:2.5rem 1.4rem 0;display:flex;flex-direction:column;align-items:center;text-align:center;}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;
+  background:var(--green-glow);border:1px solid var(--border);
+  border-radius:100px;padding:0.3rem 0.9rem;font-size:0.75rem;
+  color:var(--green);margin-bottom:1.5rem;}
+.hero-badge::before{content:'';width:5px;height:5px;background:var(--green);
+  border-radius:50%;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.8);}}
+.hero-home h1{font-family:'Exo 2',sans-serif;font-weight:900;
+  font-size:2.4rem;line-height:1.05;letter-spacing:-1.5px;margin-bottom:1rem;}
+.hero-home h1 em{font-style:normal;color:var(--green);}
+.hero-home p{color:var(--gray);font-size:0.95rem;max-width:320px;margin-bottom:2rem;}
+
+/* ── SELECTOR DE NEGOCIO ── */
+.selector-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--green);font-weight:500;margin-bottom:0.9rem;text-align:center;}
+.biz-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.65rem;width:100%;padding:0 1.4rem;}
+.biz-btn{background:var(--card);border:1px solid var(--border);border-radius:14px;
+  padding:1rem 0.8rem;display:flex;flex-direction:column;align-items:center;
+  gap:0.4rem;cursor:pointer;transition:all 0.2s;-webkit-user-select:none;user-select:none;}
+.biz-btn:active{border-color:var(--green);background:rgba(0,232,122,0.08);transform:scale(0.97);}
+.biz-icon{font-size:1.6rem;line-height:1;}
+.biz-name{font-size:0.8rem;font-weight:500;color:var(--white);text-align:center;line-height:1.3;}
+.biz-plan{font-size:0.65rem;color:var(--green);background:rgba(0,232,122,0.1);
+  padding:0.15rem 0.5rem;border-radius:100px;border:1px solid rgba(0,232,122,0.2);}
+
+/* ── PLAN SCREEN ── */
+.plan-hero{width:100%;padding:2rem 1.4rem 1.5rem;text-align:center;}
+.plan-biz-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--green);margin-bottom:0.5rem;}
+.plan-biz-name{font-family:'Syne',sans-serif;font-weight:800;font-size:1.6rem;
+  letter-spacing:-0.5px;margin-bottom:0.4rem;}
+.plan-biz-icon{font-size:2.5rem;margin-bottom:0.5rem;display:block;}
+.plan-rec{display:inline-flex;align-items:center;gap:0.5rem;
+  background:rgba(0,232,122,0.1);border:1px solid rgba(0,232,122,0.25);
+  border-radius:100px;padding:0.35rem 1rem;font-size:0.8rem;color:var(--green);
+  font-weight:500;margin-bottom:1.2rem;}
+.plan-rec::before{content:'★';font-size:0.7rem;}
+.plan-pitch{color:var(--gray);font-size:0.88rem;font-style:italic;
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:1rem 1.2rem;margin:0 1.4rem 1.5rem;line-height:1.5;}
+
+/* ── PLANES CARDS ── */
+.planes-wrap{width:100%;padding:0 1.4rem;display:flex;flex-direction:column;gap:0.9rem;}
+.plan-card{background:var(--card);border:1px solid var(--border);
+  border-radius:16px;padding:1.2rem 1.4rem;position:relative;transition:all 0.2s;}
+.plan-card.featured{border-color:var(--green);background:linear-gradient(135deg,rgba(0,232,122,0.06),var(--card));}
+.plan-card.dimmed{opacity:0.55;}
+.plan-tag{position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:#0a0f0d;font-size:0.65rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:0.1em;padding:0.2rem 0.8rem;
+  border-radius:100px;white-space:nowrap;}
+.plan-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.7rem;}
+.plan-name{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;}
+.plan-price-wrap{text-align:right;}
+.plan-price{font-family:'Exo 2',sans-serif;font-weight:900;font-size:1.9rem;
+  color:var(--green);line-height:1;letter-spacing:-1px;}
+.plan-price-sub{font-size:0.7rem;color:var(--gray);}
+.plan-why{font-size:0.82rem;color:var(--green);background:rgba(0,232,122,0.07);
+  border-radius:8px;padding:0.5rem 0.7rem;margin-bottom:0.8rem;line-height:1.4;}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:0.35rem;margin-bottom:1rem;}
+.plan-features li{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.82rem;color:var(--gray);}
+.plan-features li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+.plan-cta{display:block;text-align:center;background:var(--green);color:#0a0f0d;
+  font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.9rem;
+  padding:0.75rem;border-radius:10px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer;width:100%;}
+.plan-cta:active{background:var(--green-dim);transform:scale(0.98);}
+.plan-cta.outline{background:transparent;color:var(--white);border:1px solid var(--border);}
+.plan-cta.outline:active{border-color:var(--green);color:var(--green);}
+
+/* ── INFO SCREEN ── */
+.info-wrap{width:100%;padding:1.5rem 1.4rem;}
+.info-section{margin-bottom:1.8rem;}
+.info-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.1rem;
+  border-left:3px solid var(--green);padding-left:0.8rem;margin-bottom:1rem;}
+.info-list{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+.info-list li{display:flex;align-items:flex-start;gap:0.6rem;
+  font-size:0.85rem;color:var(--gray);background:var(--card);
+  border:1px solid var(--border);border-radius:10px;padding:0.65rem 0.8rem;}
+.info-list li span.icon{font-size:0.9rem;flex-shrink:0;margin-top:1px;}
+.warn-item{border-color:rgba(255,200,0,0.2) !important;background:rgba(255,200,0,0.04) !important;}
+.warn-item span.icon{color:#ffe87a;}
+
+/* ── COMPARE SCREEN ── */
+.compare-wrap{width:100%;padding:1rem 1.4rem;}
+.compare-table{width:100%;border-collapse:collapse;margin-bottom:1.5rem;}
+.compare-table th{font-family:'Syne',sans-serif;font-size:0.75rem;font-weight:700;
+  color:var(--green);text-transform:uppercase;letter-spacing:0.06em;
+  padding:0.6rem 0.5rem;border-bottom:1px solid var(--border);text-align:left;}
+.compare-table th:not(:first-child){text-align:center;}
+.compare-table td{padding:0.55rem 0.5rem;font-size:0.78rem;color:var(--gray);
+  border-bottom:1px solid rgba(0,232,122,0.06);}
+.compare-table td:not(:first-child){text-align:center;}
+.compare-table td.feat{color:var(--white);font-weight:400;}
+.compare-table .yes{color:var(--green);font-size:1rem;}
+.compare-table .no{color:rgba(122,143,132,0.35);font-size:0.9rem;}
+.compare-table .featured-col{background:rgba(0,232,122,0.04);}
+.compare-table tr:last-child td{border-bottom:none;}
+
+/* ── BOTTOM NAV ── */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;z-index:50;
+  background:rgba(10,15,13,0.97);border-top:1px solid var(--border);
+  display:flex;padding:0.6rem 0.5rem calc(0.6rem + env(safe-area-inset-bottom));
+  gap:0.3rem;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;
+  gap:0.2rem;padding:0.35rem 0.2rem;border-radius:10px;cursor:pointer;
+  transition:all 0.2s;border:none;background:transparent;color:var(--gray);
+  font-family:'DM Sans',sans-serif;-webkit-tap-highlight-color:transparent;}
+.nav-item.active{color:var(--green);background:rgba(0,232,122,0.08);}
+.nav-item svg{width:20px;height:20px;stroke:currentColor;fill:none;
+  stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.nav-label{font-size:0.62rem;font-weight:500;}
+
+/* ── FOOTER SPACE ── */
+.bottom-space{height:4rem;}
+
+/* ── ANIMACIONES ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.fade-in{animation:fadeUp 0.45s ease both;}
+.fade-in-1{animation-delay:0.05s;}
+.fade-in-2{animation-delay:0.12s;}
+.fade-in-3{animation-delay:0.19s;}
+.fade-in-4{animation-delay:0.26s;}
+.fade-in-5{animation-delay:0.33s;}
+.fade-in-6{animation-delay:0.40s;}
+.fade-in-7{animation-delay:0.47s;}
+.fade-in-8{animation-delay:0.54s;}
+
+/* ── PRECIO TAG HOME ── */
+.plan-home-pill{font-size:0.65rem;display:inline-block;padding:0.2rem 0.6rem;
+  border-radius:100px;margin-top:0.25rem;}
+.pill-basico{background:rgba(122,143,132,0.15);color:var(--gray);}
+.pill-negocio{background:rgba(0,232,122,0.12);color:var(--green);}
+.pill-premium{background:rgba(0,200,255,0.12);color:#7ad8ff;}
+
+/* ── ORBE DECORATIVO ── */
+.orb{position:absolute;width:280px;height:280px;
+  background:radial-gradient(circle,rgba(0,232,122,.06) 0%,transparent 70%);
+  border-radius:50%;top:10%;left:50%;transform:translateX(-50%);pointer-events:none;}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════
+     PANTALLA 1: HOME / SELECTOR
+═══════════════════════════════ -->
+<div class="screen active" id="screen-home">
+  <div class="topbar">
+    <div class="logo">Pro<span>Link</span></div>
+    <button class="menu-btn" onclick="goScreen('screen-compare')">Comparar planes</button>
+  </div>
+
+  <div class="hero-home fade-in">
+    <div class="orb"></div>
+    <div class="hero-badge">Páginas Web · Los Mochis</div>
+    <h1>Tu negocio<br/>en internet<br/><em>hoy mismo</em></h1>
+    <p>Elige tu tipo de negocio y te mostramos el sitio web perfecto para ti.</p>
+  </div>
+
+  <p class="selector-label fade-in fade-in-2">¿Qué tipo de negocio tienes?</p>
+
+  <div class="biz-grid">
+    <button class="biz-btn fade-in fade-in-2" onclick="selectBiz('consultorio')">
+      <span class="biz-icon">🩺</span>
+      <span class="biz-name">Consultorio / Clínica</span>
+      <span class="biz-plan">Plan Negocio</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-3" onclick="selectBiz('taller')">
+      <span class="biz-icon">🔧</span>
+      <span class="biz-name">Taller automotriz</span>
+      <span class="biz-plan">Plan Básico</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-4" onclick="selectBiz('restaurante')">
+      <span class="biz-icon">🍽️</span>
+      <span class="biz-name">Restaurante / Fonda</span>
+      <span class="biz-plan">Plan Negocio</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-4" onclick="selectBiz('inmobiliaria')">
+      <span class="biz-icon">🏠</span>
+      <span class="biz-name">Inmobiliaria</span>
+      <span class="biz-plan pill-premium">Plan Premium</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-5" onclick="selectBiz('despacho')">
+      <span class="biz-icon">💼</span>
+      <span class="biz-name">Despacho / Notaría</span>
+      <span class="biz-plan pill-premium">Plan Premium</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-5" onclick="selectBiz('estetica')">
+      <span class="biz-icon">✂️</span>
+      <span class="biz-name">Estética / Spa</span>
+      <span class="biz-plan">Plan Básico</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-6" onclick="selectBiz('veterinaria')">
+      <span class="biz-icon">🐾</span>
+      <span class="biz-name">Veterinaria</span>
+      <span class="biz-plan">Plan Negocio</span>
+    </button>
+    <button class="biz-btn fade-in fade-in-6" onclick="selectBiz('gym')">
+      <span class="biz-icon">💪</span>
+      <span class="biz-name">Gimnasio / Box</span>
+      <span class="biz-plan">Plan Negocio</span>
+    </button>
+  </div>
+  <div class="bottom-space"></div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PANTALLA 2: PLAN RECOMENDADO
+═══════════════════════════════ -->
+<div class="screen" id="screen-plan">
+  <div class="topbar">
+    <button class="back-btn" onclick="goScreen('screen-home')">← Atrás</button>
+    <div class="logo">Pro<span>Link</span></div>
+    <button class="menu-btn" onclick="goScreen('screen-info')">Qué necesito</button>
+  </div>
+
+  <div class="plan-hero fade-in">
+    <span class="plan-biz-icon" id="p-icon">🩺</span>
+    <div class="plan-biz-label">Plan recomendado para</div>
+    <div class="plan-biz-name" id="p-name">Consultorio</div>
+    <div class="plan-rec" id="p-rec">Plan Negocio — $1,500 MXN</div>
+  </div>
+
+  <div class="plan-pitch fade-in fade-in-2" id="p-pitch">"..."</div>
+
+  <div class="planes-wrap" id="p-cards"></div>
+  <div class="bottom-space"></div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PANTALLA 3: QUÉ INFORMACIÓN
+═══════════════════════════════ -->
+<div class="screen" id="screen-info">
+  <div class="topbar">
+    <button class="back-btn" onclick="goBack()">← Atrás</button>
+    <div class="logo">Pro<span>Link</span></div>
+    <div style="width:80px;"></div>
+  </div>
+
+  <div class="info-wrap fade-in">
+    <div class="info-section">
+      <div class="info-title">📋 Información base</div>
+      <ul class="info-list" id="info-base"></ul>
+    </div>
+    <div class="info-section" id="info-extra-section">
+      <div class="info-title">➕ Información adicional</div>
+      <ul class="info-list" id="info-extra"></ul>
+    </div>
+    <div class="info-section">
+      <div class="info-title">⚠️ Verificar antes</div>
+      <ul class="info-list">
+        <li class="warn-item"><span class="icon">⚠️</span>¿Tienen logo? Si no, cobrar diseño aparte</li>
+        <li class="warn-item"><span class="icon">⚠️</span>¿Tienen fotos del negocio? Pedirlas antes de arrancar</li>
+        <li class="warn-item"><span class="icon">⚠️</span>Verificar disponibilidad del dominio antes de cerrar</li>
+        <li class="warn-item"><span class="icon">⚠️</span>¿Tienen correo Gmail? Necesario para Analytics y Search Console</li>
+        <li class="warn-item"><span class="icon">⚠️</span>¿Piden tienda en línea o pagos? Fuera del alcance — cotizar aparte</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-space"></div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     PANTALLA 4: COMPARAR PLANES
+═══════════════════════════════ -->
+<div class="screen" id="screen-compare">
+  <div class="topbar">
+    <button class="back-btn" onclick="goScreen('screen-home')">← Atrás</button>
+    <div class="logo">Pro<span>Link</span></div>
+    <div style="width:80px;"></div>
+  </div>
+
+  <div class="compare-wrap fade-in">
+    <div style="text-align:center;padding:1.2rem 0 1.5rem;">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;letter-spacing:-0.5px;margin-bottom:0.4rem;">Comparar <span style="color:var(--green)">planes</span></div>
+      <div style="font-size:0.85rem;color:var(--gray);">Pago único. Sin mensualidades.</div>
+    </div>
+
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Función</th>
+          <th style="width:20%">Básico<br/><span style="color:var(--white);font-weight:900;font-family:'Exo 2',sans-serif;font-size:0.9rem;">$500</span></th>
+          <th style="width:22%;color:#00e87a;border-bottom:2px solid var(--green);">Negocio<br/><span style="color:var(--white);font-weight:900;font-family:'Exo 2',sans-serif;font-size:0.9rem;">$1,500</span></th>
+          <th style="width:20%">Premium<br/><span style="color:var(--white);font-weight:900;font-family:'Exo 2',sans-serif;font-size:0.9rem;">$3,000</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="feat">Páginas</td>
+          <td>1</td>
+          <td class="featured-col">3–5</td>
+          <td>3–5</td>
+        </tr>
+        <tr>
+          <td class="feat">Diseño personalizado</td>
+          <td><span class="yes">✓</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Adaptado a celular</td>
+          <td><span class="yes">✓</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Botón WhatsApp</td>
+          <td><span class="yes">✓</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Google Search Console</td>
+          <td><span class="yes">✓</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Formulario de contacto</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Google Maps</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Galería de fotos</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Política de privacidad</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="yes">✓</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Google Business Profile</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Google Analytics</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Vista previa WhatsApp</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">QR code PDF</td>
+          <td><span class="no">—</span></td>
+          <td class="featured-col"><span class="no">—</span></td>
+          <td><span class="yes">✓</span></td>
+        </tr>
+        <tr>
+          <td class="feat">Revisiones de diseño</td>
+          <td>1</td>
+          <td class="featured-col">2</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td class="feat">Soporte anual</td>
+          <td colspan="3" style="text-align:center;color:var(--green);">$500 MXN / año en todos los planes</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:1.2rem;margin-bottom:1rem;">
+      <div style="font-size:0.75rem;color:var(--green);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;">Incluido en todos los planes</div>
+      <div style="font-size:0.83rem;color:var(--gray);line-height:1.7;">
+        Hosting en GitHub Pages · HTTPS activado · Dominio propio configurado · Entrega en 7 días hábiles · Soporte local presencial en Los Mochis
+      </div>
+      <div style="font-size:0.78rem;color:rgba(122,143,132,0.6);margin-top:0.6rem;font-style:italic;">
+        * Dominio (~$200 MXN/año) no incluido — se contrata por separado
+      </div>
+    </div>
+
+    <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web%20para%20mi%20negocio" target="_blank" class="plan-cta" style="display:block;text-align:center;text-decoration:none;margin-bottom:0.5rem;">
+      Quiero mi sitio web → WhatsApp
+    </a>
+  </div>
+  <div class="bottom-space"></div>
+</div>
+
+
+<!-- ═══════════════════════════════
+     BOTTOM NAV
+═══════════════════════════════ -->
+<nav class="bottom-nav">
+  <button class="nav-item active" id="nav-home" onclick="goScreen('screen-home')">
+    <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span class="nav-label">Inicio</span>
+  </button>
+  <button class="nav-item" id="nav-plan" onclick="goScreen('screen-plan')">
+    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <span class="nav-label">Mi plan</span>
+  </button>
+  <button class="nav-item" id="nav-info" onclick="goScreen('screen-info')">
+    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+    <span class="nav-label">Necesito</span>
+  </button>
+  <button class="nav-item" id="nav-compare" onclick="goScreen('screen-compare')">
+    <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+    <span class="nav-label">Comparar</span>
+  </button>
+</nav>
+
+<script>
+const BIZ = {
+  consultorio:{icon:'🩺',name:'Consultorio / Clínica',plan:'Negocio',price:'$1,500',
+    pitch:'"Doctor, sus pacientes lo buscan en Google antes de llamar. Si no aparece, se van con quien sí tiene sitio web."',
+    base:['Nombre del doctor y especialidad','Servicios que ofrece (consulta, estudios, etc.)','Precio de consulta','Horario por día (lunes a sábado)','Teléfono y WhatsApp para citas','Logo o imagen del consultorio'],
+    extra:['Foto profesional del doctor','Fotos del consultorio (sala de espera, equipo)','¿Acepta seguros médicos? ¿Cuáles?','2–3 testimonios de pacientes','Correo para recibir mensajes del formulario'],
+    featured:'negocio'},
+  taller:{icon:'🔧',name:'Taller automotriz',plan:'Básico',price:'$500',
+    pitch:'"Sus clientes ya los recomiendan. Con una página web esa recomendación se convierte en un link que mandan por WhatsApp."',
+    base:['Nombre del taller y especialidad','5 servicios principales (mecánica, hojalatería, etc.)','Teléfono y WhatsApp','Horario de atención','Dirección con colonia','Logo o nombre del negocio'],
+    extra:['Fotos del local o fachada','Fotos de trabajos terminados (antes y después)','¿Trabajan con aseguradoras?'],
+    featured:'basico'},
+  restaurante:{icon:'🍽️',name:'Restaurante / Fonda',plan:'Negocio',price:'$1,500',
+    pitch:'"Cuando alguien busca dónde comer en Los Mochis, le aparecen los que tienen sitio con fotos. Su comida merece estar ahí."',
+    base:['Nombre y tipo de cocina','Horario por día','Teléfono y WhatsApp','¿Tienen para llevar? ¿Reservaciones?','¿Aceptan tarjeta? ¿Estacionamiento?','Logo o imagen del restaurante'],
+    extra:['Menú con platillos estrella y precios','5+ fotos de platillos bien iluminadas','Fotos del local por dentro y fuera','Correo para recibir reservaciones'],
+    featured:'negocio'},
+  inmobiliaria:{icon:'🏠',name:'Inmobiliaria',plan:'Premium',price:'$3,000',
+    pitch:'"Sus compradores buscan \'casas en venta Los Mochis\' en Google. Si no aparecen ahí, le están regalando esos leads a la competencia."',
+    base:['Nombre de la inmobiliaria y años de operación','Tipos de propiedades (casas, terrenos, locales)','Zonas donde operan en Los Mochis','Teléfono y WhatsApp','Logo del negocio','Correo Gmail para Google Business'],
+    extra:['Nombre y foto de cada asesor','3–5 propiedades activas (foto, precio, zona)','Testimonios de ventas cerradas','Redes sociales activas','Descripción del negocio en 2–3 párrafos'],
+    featured:'premium'},
+  despacho:{icon:'💼',name:'Despacho / Notaría',plan:'Premium',price:'$3,000',
+    pitch:'"Las empresas medianas buscan en Google antes de contactar a un contador o abogado. Sin sitio web, simplemente no existen para ellos."',
+    base:['Nombre y especialidad (fiscal, laboral, corporativo)','Nombre del titular y años de experiencia','Servicios específicos con descripción','Teléfono y WhatsApp profesional','Logo o nombre del despacho','Correo Gmail para Analytics'],
+    extra:['Foto profesional del titular','¿Atienden personas físicas, morales o ambas?','Casos de éxito (sin datos confidenciales)','Correo profesional de contacto','Descripción del despacho en 2 párrafos'],
+    featured:'premium'},
+  estetica:{icon:'✂️',name:'Estética / Spa',plan:'Básico',price:'$500',
+    pitch:'"Sus clientas nuevas llegan por recomendación. Pero cuando las recomiendan, buscan el nombre en Google. Si no aparece nada, dudan."',
+    base:['Nombre de la estética','Servicios con precio (corte, tinte, manicure)','Horario (incluyendo domingos)','WhatsApp para reservar','Dirección con colonia','Logo o imagen del negocio'],
+    extra:['Fotos de trabajos realizados (cabello, uñas)','Foto del local','¿Aceptan citas o es de paso?'],
+    featured:'basico'},
+  veterinaria:{icon:'🐾',name:'Veterinaria',plan:'Negocio',price:'$1,500',
+    pitch:'"Un perro enfermo a las 11pm: el dueño busca \'veterinaria urgencias Los Mochis\'. Si no tienen sitio, no los encuentra."',
+    base:['Nombre de la clínica y especialidades','Nombre del veterinario titular','Servicios con precio (consulta, vacunas, esterilización)','¿Tienen urgencias? ¿Qué horario?','Teléfono y WhatsApp de emergencia','Logo o imagen del negocio'],
+    extra:['Fotos del consultorio y sala de espera','Fotos de pacientes (con permiso)','¿Aceptan todas las especies?','¿Tienen tienda de productos?'],
+    featured:'negocio'},
+  gym:{icon:'💪',name:'Gimnasio / Box',plan:'Negocio',price:'$1,500',
+    pitch:'"En enero todos buscan gimnasio. Si en diciembre no tienen sitio web, están perdiendo esos nuevos socios ante quien sí aparece en Google."',
+    base:['Nombre y tipo (funcional, box, tradicional)','Clases disponibles con horario','Precios de membresías','Teléfono y WhatsApp','Horario de atención','Logo del gimnasio'],
+    extra:['Fotos de instalaciones y clases','¿Ofrecen prueba gratis? → CTA principal','Nombre y certificaciones de instructores','¿Venta de suplementos?'],
+    featured:'negocio'}
+};
+
+const PLANS = {
+  basico:{name:'Básico',price:'$500',sub:'MXN — pago único',tag:null,
+    why:'Una landing page es todo lo que necesitas: ubicación, servicios y contacto directo por WhatsApp.',
+    features:['1 página diseñada a tu medida','Diseño personalizado con tu marca','100% adaptado a celular','Botón WhatsApp flotante','Google Search Console verificado','Hosting gratuito en GitHub Pages','Dominio propio configurado','Soporte técnico anual incluido'],cta:'outline'},
+  negocio:{name:'Negocio',price:'$1,500',sub:'MXN — pago único',tag:'Más solicitado',
+    why:'El plan completo para negocios que quieren mostrar sus servicios, galería y recibir mensajes de clientes nuevos.',
+    features:['Todo lo del plan Básico','Sitio 3–5 páginas completo','Formulario de contacto funcional','Google Maps integrado','Galería de fotos del negocio','Sección de testimonios','Política de privacidad incluida','2 revisiones de diseño incluidas'],cta:'solid'},
+  premium:{name:'Premium',price:'$3,000',sub:'MXN — pago único',tag:null,
+    why:'Para negocios que quieren aparecer en búsquedas de Google y tener presencia profesional completa en internet.',
+    features:['Todo lo del plan Negocio','Google Business Profile configurado','Google Analytics instalado','Vista previa al compartir en WhatsApp','QR code del sitio en PDF','5 fotos optimizadas incluidas','2 revisiones de diseño incluidas'],cta:'outline'}
+};
+
+let lastBiz = 'consultorio';
+let prevScreen = 'screen-home';
+
+function goScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  const map={'screen-home':'nav-home','screen-plan':'nav-plan','screen-info':'nav-info','screen-compare':'nav-compare'};
+  if(map[id]) document.getElementById(map[id]).classList.add('active');
+  prevScreen=id;
+}
+
+function goBack(){
+  goScreen('screen-plan');
+}
+
+function renderCards(bizKey){
+  const biz = BIZ[bizKey];
+  const order = ['basico','negocio','premium'];
+  let html='';
+  order.forEach(pk=>{
+    const p=PLANS[pk];
+    const isFeatured=pk===biz.featured;
+    const isDimmed=!isFeatured&&pk!==biz.featured;
+    html+=`<div class="plan-card ${isFeatured?'featured':''} ${!isFeatured&&biz.featured!==pk&&Math.abs(order.indexOf(pk)-order.indexOf(biz.featured))>1?'dimmed':''}">
+      ${p.tag?`<div class="plan-tag">${p.tag}</div>`:''}
+      <div class="plan-top">
+        <div class="plan-name">${p.name}</div>
+        <div class="plan-price-wrap">
+          <div class="plan-price">${p.price}</div>
+          <div class="plan-price-sub">${p.sub}</div>
+        </div>
+      </div>
+      ${isFeatured?`<div class="plan-why">✦ Recomendado para ${biz.name}: ${p.why}</div>`:''}
+      <ul class="plan-features">${p.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+      <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20plan%20${encodeURIComponent(p.name)}%20para%20mi%20negocio" target="_blank" class="plan-cta ${p.cta==='solid'?'':'outline'}">
+        ${isFeatured?'Quiero este plan →':'Ver este plan →'}
+      </a>
+    </div>`;
+  });
+  document.getElementById('p-cards').innerHTML=html;
+}
+
+function renderInfo(bizKey){
+  const biz=BIZ[bizKey];
+  const base=biz.base.map(i=>`<li><span class="icon">📌</span>${i}</li>`).join('');
+  const extra=biz.extra.map(i=>`<li><span class="icon">➕</span>${i}</li>`).join('');
+  document.getElementById('info-base').innerHTML=base;
+  document.getElementById('info-extra').innerHTML=extra;
+  const planNames={basico:'Plan Básico',negocio:'Plan Negocio',premium:'Plan Premium'};
+  const extraTitle=`➕ Adicional (${planNames[biz.featured]})`;
+  document.querySelector('#info-extra-section .info-title').textContent=extraTitle;
+}
+
+function selectBiz(key){
+  lastBiz=key;
+  const biz=BIZ[key];
+  const planNames={basico:'Plan Básico — $500 MXN',negocio:'Plan Negocio — $1,500 MXN',premium:'Plan Premium — $3,000 MXN'};
+  document.getElementById('p-icon').textContent=biz.icon;
+  document.getElementById('p-name').textContent=biz.name;
+  document.getElementById('p-rec').textContent='★ '+planNames[biz.featured];
+  document.getElementById('p-pitch').textContent=biz.pitch;
+  renderCards(key);
+  renderInfo(key);
+  goScreen('screen-plan');
+}
+
+selectBiz('consultorio');
+</script>
+</body>
+</html>
