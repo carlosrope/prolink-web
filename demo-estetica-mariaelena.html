@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Estética María Elena — Unisex & Spa Select | Los Mochis</title>
+<meta name="description" content="Estética Unisex & Spa Select en Los Mochis, Sinaloa. Dos sucursales. Tu imagen, nuestra pasión."/>
+<meta property="og:title" content="Estética María Elena — Unisex & Spa Select"/>
+<meta property="og:description" content="Belleza y cuidado personal en Los Mochis. Dos sucursales. Agenda tu cita."/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,600&family=Jost:wght@200;300;400;500&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0e0c0b;
+  --ink2:#1c1917;
+  --cream:#faf7f4;
+  --cream2:#f2ede8;
+  --warm:#e8ddd4;
+  --pink:#c4547a;
+  --pink-light:#ecc8d4;
+  --gold:#b8963e;
+  --gray:#8a7f78;
+  --gray-light:#c5bdb6;
+  --border:#e0d8d2;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--cream);
+  color:var(--ink);
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:default;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::after{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:999;opacity:0.4;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1.4rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(250,247,244,0.92);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  transition:all 0.3s;
+}
+.nav-logo{
+  font-family:'Bodoni Moda',serif;
+  font-size:1.15rem;font-weight:700;
+  letter-spacing:0.08em;color:var(--ink);
+  text-transform:uppercase;line-height:1.1;
+}
+.nav-logo small{
+  display:block;font-family:'Jost',sans-serif;
+  font-size:0.55rem;letter-spacing:0.35em;
+  color:var(--gray);font-weight:300;text-transform:uppercase;
+  margin-top:1px;
+}
+.nav-links{display:flex;align-items:center;gap:2.5rem;}
+.nav-links a{
+  font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--gray);text-decoration:none;transition:color 0.2s;font-weight:400;
+}
+.nav-links a:hover{color:var(--ink);}
+.nav-cta{
+  font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;
+  background:var(--ink);color:var(--cream)!important;
+  padding:0.65rem 1.5rem;border-radius:0;
+  font-weight:400;transition:background 0.2s!important;
+}
+.nav-cta:hover{background:var(--pink)!important;}
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem;}
+  .nav-links .hide-mobile{display:none;}
+}
+
+/* ── HERO — EDITORIAL ── */
+.hero{
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  padding-top:80px;
+  position:relative;
+  overflow:hidden;
+}
+@media(max-width:768px){.hero{grid-template-columns:1fr;}}
+
+.hero-left{
+  padding:6rem 3rem 4rem;
+  display:flex;flex-direction:column;justify-content:center;
+  position:relative;
+}
+.hero-issue{
+  font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--gray);margin-bottom:2rem;display:flex;align-items:center;gap:0.8rem;
+}
+.hero-issue::before{content:'';width:30px;height:1px;background:var(--gray-light);}
+
+.hero-h1{
+  font-family:'Bodoni Moda',serif;
+  font-size:clamp(4rem,8vw,7rem);
+  font-weight:400;line-height:0.9;
+  letter-spacing:-1px;
+  color:var(--ink);
+  margin-bottom:0.5rem;
+}
+.hero-h1 em{
+  font-family:'IM Fell English',serif;
+  font-style:italic;color:var(--pink);
+  font-size:1.05em;
+}
+.hero-h1 .hero-h1-sub{
+  display:block;font-family:'Jost',sans-serif;
+  font-size:0.18em;letter-spacing:0.35em;
+  color:var(--gray);font-weight:300;
+  text-transform:uppercase;margin-top:1.2rem;
+  font-style:normal;
+}
+.hero-tagline{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:clamp(1rem,2vw,1.3rem);color:var(--gray);
+  margin:2rem 0;line-height:1.4;max-width:320px;
+}
+.hero-actions{display:flex;flex-direction:column;gap:0.8rem;max-width:280px;}
+.btn-ink{
+  display:flex;align-items:center;justify-content:center;gap:0.8rem;
+  background:var(--ink);color:var(--cream);
+  font-family:'Jost',sans-serif;font-size:0.72rem;
+  letter-spacing:0.2em;text-transform:uppercase;font-weight:400;
+  padding:1rem 1.8rem;text-decoration:none;
+  transition:all 0.3s;border:1px solid var(--ink);
+}
+.btn-ink:hover{background:var(--pink);border-color:var(--pink);}
+.btn-outline-ink{
+  display:flex;align-items:center;justify-content:center;gap:0.8rem;
+  background:transparent;color:var(--ink);
+  font-family:'Jost',sans-serif;font-size:0.72rem;
+  letter-spacing:0.2em;text-transform:uppercase;font-weight:400;
+  padding:1rem 1.8rem;text-decoration:none;
+  transition:all 0.3s;border:1px solid var(--border);
+}
+.btn-outline-ink:hover{border-color:var(--ink);}
+
+.hero-rating{
+  margin-top:3rem;display:flex;align-items:center;gap:1rem;
+  padding-top:2rem;border-top:1px solid var(--border);
+}
+.rating-stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;}
+.rating-text{font-size:0.72rem;color:var(--gray);letter-spacing:0.1em;}
+.rating-num{font-family:'Bodoni Moda',serif;font-size:1.8rem;color:var(--ink);line-height:1;}
+
+.hero-right{
+  background:var(--ink2);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:3rem;
+  min-height:70vh;
+}
+@media(max-width:768px){.hero-right{min-height:50vw;padding:2rem 1.5rem;}}
+
+.hero-photo-placeholder{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.8rem;
+}
+.hero-photo-placeholder .ph-big{font-size:3rem;opacity:0.15;}
+.hero-photo-placeholder p{font-size:0.75rem;color:rgba(255,255,255,0.25);letter-spacing:0.15em;text-transform:uppercase;}
+.hero-photo-placeholder small{font-size:0.65rem;color:rgba(255,255,255,0.15);}
+
+.hero-right-text{position:relative;z-index:2;}
+.hero-accent-num{
+  font-family:'Bodoni Moda',serif;
+  font-size:7rem;line-height:1;color:rgba(255,255,255,0.05);
+  position:absolute;top:2rem;right:2rem;font-weight:700;
+  pointer-events:none;
+}
+.hero-caption{
+  font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);margin-bottom:0.5rem;
+}
+.hero-caption-text{
+  font-family:'Bodoni Moda',serif;font-size:1.4rem;
+  color:rgba(255,255,255,0.85);font-weight:400;line-height:1.2;
+}
+
+/* ── DIVIDER EDITORIAL ── */
+.divider-editorial{
+  display:flex;align-items:center;gap:2rem;
+  padding:1.5rem 3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--cream2);
+  overflow:hidden;
+}
+@media(max-width:768px){.divider-editorial{padding:1.2rem 1.5rem;gap:1.5rem;}}
+.divider-editorial-item{
+  display:flex;align-items:center;gap:1rem;flex-shrink:0;
+}
+.div-num{
+  font-family:'Bodoni Moda',serif;font-size:2rem;
+  color:var(--pink);font-weight:400;line-height:1;
+}
+.div-label{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);}
+.divider-sep{width:1px;height:40px;background:var(--border);flex-shrink:0;}
+
+/* ── SERVICIOS — EDITORIAL ── */
+.services-section{padding:7rem 3rem;}
+@media(max-width:768px){.services-section{padding:4rem 1.5rem;}}
+.section-header-editorial{
+  display:grid;grid-template-columns:1fr 2fr;gap:4rem;
+  margin-bottom:5rem;align-items:end;
+}
+@media(max-width:768px){.section-header-editorial{grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem;}}
+.section-num-big{
+  font-family:'Bodoni Moda',serif;font-size:8rem;
+  color:var(--border);font-weight:700;line-height:1;
+  letter-spacing:-4px;
+}
+.section-header-right{}
+.section-label{
+  font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--pink);margin-bottom:1rem;display:flex;align-items:center;gap:0.8rem;
+}
+.section-label::after{content:'';flex:1;max-width:40px;height:1px;background:var(--pink-light);}
+.section-h2{
+  font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:400;line-height:1;color:var(--ink);letter-spacing:-1px;margin-bottom:1rem;
+}
+.section-h2 em{font-style:italic;color:var(--pink);}
+.section-sub{font-size:0.88rem;color:var(--gray);line-height:1.8;max-width:380px;}
+
+.services-list{display:flex;flex-direction:column;}
+.service-item{
+  display:grid;grid-template-columns:60px 1fr auto;align-items:center;
+  gap:2rem;padding:2rem 0;border-bottom:1px solid var(--border);
+  transition:all 0.3s;cursor:default;
+}
+.service-item:first-child{border-top:1px solid var(--border);}
+.service-item:hover{padding-left:1rem;}
+.service-item:hover .service-item-num{color:var(--pink);}
+.service-item-num{
+  font-family:'Bodoni Moda',serif;font-size:1.1rem;
+  color:var(--border);font-weight:400;text-align:right;
+}
+.service-item-body{}
+.service-item-name{
+  font-family:'Bodoni Moda',serif;font-size:1.5rem;
+  font-weight:400;color:var(--ink);margin-bottom:0.3rem;
+}
+.service-item-desc{font-size:0.82rem;color:var(--gray);line-height:1.6;}
+.service-item-tag{
+  font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--gray-light);white-space:nowrap;
+}
+@media(max-width:640px){
+  .service-item{grid-template-columns:40px 1fr;gap:1rem;}
+  .service-item-tag{display:none;}
+}
+
+/* ── SPLIT ABOUT ── */
+.about-section{
+  display:grid;grid-template-columns:1fr 1fr;
+  min-height:80vh;
+}
+@media(max-width:768px){.about-section{grid-template-columns:1fr;}}
+.about-photo-col{
+  background:var(--cream2);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:1rem;
+  min-height:400px;
+  border-right:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.about-photo-col .ph-area{
+  width:80%;max-width:340px;aspect-ratio:3/4;
+  border:1px dashed var(--gray-light);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:0.5rem;color:var(--gray-light);font-size:0.75rem;
+  letter-spacing:0.12em;text-transform:uppercase;
+}
+.about-photo-col .ph-area span{font-size:2rem;opacity:0.3;}
+.about-text-col{
+  padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;
+}
+@media(max-width:768px){.about-text-col{padding:3rem 1.5rem;}}
+.about-pull-quote{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:clamp(1.4rem,3vw,2rem);line-height:1.4;
+  color:var(--ink);margin-bottom:2.5rem;
+  padding-left:1.5rem;border-left:2px solid var(--pink);
+}
+.about-body{font-size:0.88rem;color:var(--gray);line-height:1.9;margin-bottom:2.5rem;}
+.about-stats-row{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2.5rem;}
+.about-stat-item{}
+.about-stat-n{
+  font-family:'Bodoni Moda',serif;font-size:3rem;
+  color:var(--ink);line-height:1;margin-bottom:0.2rem;
+}
+.about-stat-l{font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray);}
+.about-deco-num{
+  position:absolute;bottom:-2rem;right:1rem;
+  font-family:'Bodoni Moda',serif;font-size:10rem;
+  color:rgba(0,0,0,0.03);font-weight:700;line-height:1;
+  pointer-events:none;
+}
+
+/* ── SUCURSALES ── */
+.sucursales-section{padding:7rem 3rem;background:var(--ink2);}
+@media(max-width:768px){.sucursales-section{padding:4rem 1.5rem;}}
+.sucursales-header{margin-bottom:4rem;}
+.sucursales-label{
+  font-size:0.62rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--pink);margin-bottom:1rem;
+}
+.sucursales-h2{
+  font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:400;color:var(--cream);line-height:1;letter-spacing:-1px;
+}
+.sucursales-h2 em{font-style:italic;color:var(--pink);}
+.sucursales-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;}
+@media(max-width:768px){.sucursales-grid{grid-template-columns:1fr;}}
+.suc-card{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.07);
+  padding:3rem;position:relative;overflow:hidden;
+  transition:background 0.3s;
+}
+.suc-card:hover{background:rgba(255,255,255,0.05);}
+.suc-big-num{
+  font-family:'Bodoni Moda',serif;font-size:10rem;
+  color:rgba(255,255,255,0.03);font-weight:700;line-height:1;
+  position:absolute;right:-1rem;top:-2rem;pointer-events:none;
+}
+.suc-label{
+  font-size:0.62rem;letter-spacing:0.28em;text-transform:uppercase;
+  color:var(--pink);margin-bottom:1.5rem;
+}
+.suc-name{
+  font-family:'Bodoni Moda',serif;font-size:1.8rem;
+  color:var(--cream);font-weight:400;margin-bottom:2rem;line-height:1.1;
+}
+.suc-info{display:flex;flex-direction:column;gap:1rem;margin-bottom:2.5rem;}
+.suc-row{display:flex;gap:1rem;font-size:0.83rem;}
+.suc-row-icon{color:var(--pink);flex-shrink:0;margin-top:1px;}
+.suc-row-text{color:rgba(255,255,255,0.55);line-height:1.5;}
+.suc-row-text strong{color:rgba(255,255,255,0.8);font-weight:400;}
+.suc-map{
+  height:160px;border:1px solid rgba(255,255,255,0.08);
+  border-radius:0;overflow:hidden;margin-bottom:1.8rem;
+}
+.suc-map iframe{width:100%;height:100%;filter:grayscale(80%) invert(90%) contrast(90%);}
+.btn-wa-suc{
+  display:flex;align-items:center;justify-content:center;gap:0.8rem;
+  background:var(--pink);color:var(--cream);
+  font-family:'Jost',sans-serif;font-size:0.68rem;
+  letter-spacing:0.22em;text-transform:uppercase;font-weight:400;
+  padding:1rem 1.5rem;text-decoration:none;transition:background 0.2s;
+  border:none;
+}
+.btn-wa-suc:hover{background:#a8405f;}
+
+/* ── HORARIO ── */
+.horario-section{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+@media(max-width:768px){.horario-section{grid-template-columns:1fr;}}
+.horario-left{
+  padding:6rem 3rem;
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;justify-content:center;
+}
+@media(max-width:768px){.horario-left{padding:3rem 1.5rem;border-right:none;border-bottom:1px solid var(--border);}}
+.horario-right{padding:4rem 3rem;display:flex;flex-direction:column;justify-content:center;}
+@media(max-width:768px){.horario-right{padding:3rem 1.5rem;}}
+.horario-big{
+  font-family:'Bodoni Moda',serif;font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:400;line-height:0.9;color:var(--ink);margin-bottom:1.5rem;
+}
+.horario-big em{font-style:italic;color:var(--pink);}
+.horario-note{font-size:0.82rem;color:var(--gray);line-height:1.8;}
+.horario-table{width:100%;}
+.h-row{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0.9rem 0;border-bottom:1px solid var(--border);
+  font-size:0.82rem;
+}
+.h-row:last-child{border-bottom:none;}
+.h-dia{color:var(--gray);letter-spacing:0.05em;}
+.h-hora{color:var(--ink);font-weight:400;}
+.h-hora.open{color:var(--pink);}
+.h-dot{width:5px;height:5px;border-radius:50%;background:#4caf50;margin-right:0.4rem;display:inline-block;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* ── TESTIMONIOS ── */
+.testi-section{padding:7rem 3rem;background:var(--cream2);}
+@media(max-width:768px){.testi-section{padding:4rem 1.5rem;}}
+.testi-intro{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  margin-bottom:5rem;align-items:end;
+}
+@media(max-width:768px){.testi-intro{grid-template-columns:1fr;gap:2rem;margin-bottom:3rem;}}
+.testi-h2{
+  font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:400;line-height:1;letter-spacing:-1px;
+}
+.testi-h2 em{font-style:italic;color:var(--pink);}
+.testi-note{font-size:0.82rem;color:var(--gray);line-height:1.8;align-self:end;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+@media(max-width:768px){.testi-grid{grid-template-columns:1fr;gap:1.5rem;}}
+.testi-card{background:var(--cream);padding:2.5rem;border:1px solid var(--border);position:relative;}
+.testi-quote-mark{
+  font-family:'Bodoni Moda',serif;font-size:4rem;
+  color:var(--pink-light);line-height:1;margin-bottom:0.5rem;
+}
+.testi-text{
+  font-family:'Bodoni Moda',serif;font-style:italic;
+  font-size:0.95rem;color:var(--ink2);line-height:1.7;margin-bottom:1.5rem;
+}
+.testi-sep{width:30px;height:1px;background:var(--pink-light);margin-bottom:1rem;}
+.testi-name{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gray);}
+.testi-stars-sm{color:var(--gold);font-size:0.7rem;letter-spacing:1px;margin-bottom:0.3rem;}
+
+/* ── CTA FINAL ── */
+.cta-final{
+  min-height:70vh;
+  background:var(--ink2);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:6rem 2rem;
+  position:relative;overflow:hidden;
+}
+.cta-deco{
+  position:absolute;font-family:'Bodoni Moda',serif;
+  font-size:22rem;color:rgba(255,255,255,0.02);
+  font-weight:700;line-height:1;pointer-events:none;
+  bottom:-4rem;left:50%;transform:translateX(-50%);
+  white-space:nowrap;
+}
+.cta-label{
+  font-size:0.65rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--pink);margin-bottom:1.5rem;
+}
+.cta-h2{
+  font-family:'Bodoni Moda',serif;font-size:clamp(2.5rem,6vw,5rem);
+  font-weight:400;color:var(--cream);line-height:1;
+  letter-spacing:-1px;margin-bottom:1.2rem;
+}
+.cta-h2 em{font-style:italic;color:var(--pink);}
+.cta-sub{
+  font-size:0.88rem;color:rgba(255,255,255,0.45);
+  max-width:400px;margin:0 auto 3rem;line-height:1.8;
+}
+.cta-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;position:relative;z-index:2;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--ink);padding:4rem 3rem 2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+@media(max-width:768px){footer{padding:3rem 1.5rem 2rem;}}
+.footer-top{
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;
+  padding-bottom:3rem;border-bottom:1px solid rgba(255,255,255,0.06);
+  margin-bottom:2rem;
+}
+@media(max-width:768px){.footer-top{grid-template-columns:1fr;gap:2rem;}}
+.footer-brand-name{
+  font-family:'Bodoni Moda',serif;font-size:2rem;
+  color:var(--cream);font-weight:400;margin-bottom:0.3rem;
+}
+.footer-brand-sub{
+  font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;
+  color:var(--pink);margin-bottom:1rem;
+}
+.footer-brand-p{font-size:0.8rem;color:rgba(255,255,255,0.35);line-height:1.7;max-width:260px;}
+.footer-col-title{
+  font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;
+  color:rgba(255,255,255,0.3);margin-bottom:1.2rem;
+}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:0.7rem;}
+.footer-col ul li a{
+  font-size:0.82rem;color:rgba(255,255,255,0.45);
+  text-decoration:none;transition:color 0.2s;
+}
+.footer-col ul li a:hover{color:var(--cream);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.5rem;
+  font-size:0.7rem;color:rgba(255,255,255,0.2);
+}
+.footer-credit a{color:var(--pink);text-decoration:none;}
+
+/* ── WA FLOAT ── */
+.wa-float{
+  position:fixed;bottom:2rem;right:2rem;z-index:200;
+  background:#25d366;width:54px;height:54px;border-radius:0;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,0.35);
+  text-decoration:none;transition:transform 0.2s;
+}
+.wa-float:hover{transform:scale(1.08);}
+.wa-float svg{width:26px;height:26px;fill:white;}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    María Elena
+    <small>Unisex &amp; Spa Select</small>
+  </div>
+  <div class="nav-links">
+    <a href="#servicios" class="hide-mobile">Servicios</a>
+    <a href="#sucursales" class="hide-mobile">Sucursales</a>
+    <a href="#contacto" class="hide-mobile">Contacto</a>
+    <a href="https://wa.me/526688128127?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="nav-cta">Agendar cita</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-issue">Los Mochis, Sinaloa</div>
+    <h1 class="hero-h1">
+      María<br/>
+      <em>Elena</em>
+      <span class="hero-h1-sub">Estética Unisex &amp; Spa Select</span>
+    </h1>
+    <p class="hero-tagline">"Tu imagen, nuestra<br/>pasión de siempre."</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/526688128127?text=Hola%2C%20quiero%20agendar%20una%20cita" target="_blank" class="btn-ink">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar cita ahora
+      </a>
+      <a href="#sucursales" class="btn-outline-ink">Ver nuestras sucursales</a>
+    </div>
+    <div class="hero-rating">
+      <div class="rating-num">4.5</div>
+      <div>
+        <div class="rating-stars">★★★★★</div>
+        <div class="rating-text">+500 reseñas en Google · 2 sucursales</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="cliente.jpg" alt="Estética María Elena — clientes" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0.75;">
+    <div class="hero-accent-num">ME</div>
+    <div class="hero-right-text">
+      <div class="hero-caption">Desde Los Mochis</div>
+      <div class="hero-caption-text">Belleza & Cuidado<br/>Personal</div>
+    </div>
+  </div>
+</div>
+
+<!-- DIVIDER STATS -->
+<div class="divider-editorial reveal">
+  <div class="divider-editorial-item">
+    <div class="div-num">2</div>
+    <div class="div-label">Sucursales<br/>en Los Mochis</div>
+  </div>
+  <div class="divider-sep"></div>
+  <div class="divider-editorial-item">
+    <div class="div-num">4.5★</div>
+    <div class="div-label">Calificación<br/>en Google</div>
+  </div>
+  <div class="divider-sep"></div>
+  <div class="divider-editorial-item">
+    <div class="div-num">+500</div>
+    <div class="div-label">Clientes<br/>satisfechos</div>
+  </div>
+  <div class="divider-sep"></div>
+  <div class="divider-editorial-item">
+    <div class="div-num">8pm</div>
+    <div class="div-label">Horario<br/>de cierre</div>
+  </div>
+</div>
+
+<!-- SERVICIOS -->
+<section class="services-section" id="servicios">
+  <div class="section-header-editorial">
+    <div class="section-num-big reveal-left">06</div>
+    <div class="section-header-right">
+      <div class="section-label reveal">Nuestros servicios</div>
+      <h2 class="section-h2 reveal">Todo para<br/><em>tu imagen</em></h2>
+      <p class="section-sub reveal">Atendemos dama y caballero con los mejores tratamientos de belleza, en un ambiente cómodo y profesional.</p>
+    </div>
+  </div>
+  <div class="services-list">
+    <div class="service-item reveal">
+      <div class="service-item-num">01</div>
+      <div class="service-item-body">
+        <div class="service-item-name">Corte de Cabello</div>
+        <div class="service-item-desc">Personalizado para dama y caballero. Estilistas especializados en las últimas tendencias.</div>
+      </div>
+      <div class="service-item-tag">Dama &amp; Caballero</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-item-num">02</div>
+      <div class="service-item-body">
+        <div class="service-item-name">Coloración &amp; Mechas</div>
+        <div class="service-item-desc">Tinte, mechas, balayage, highlights y técnicas avanzadas de color con productos de primera calidad.</div>
+      </div>
+      <div class="service-item-tag">Color Avanzado</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-item-num">03</div>
+      <div class="service-item-body">
+        <div class="service-item-name">Keratina &amp; Tratamientos</div>
+        <div class="service-item-desc">Alisado, hidratación profunda y reconstrucción capilar. Cabello sano, brillante y sin frizz.</div>
+      </div>
+      <div class="service-item-tag">Spa Capilar</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-item-num">04</div>
+      <div class="service-item-body">
+        <div class="service-item-name">Manicure &amp; Pedicure</div>
+        <div class="service-item-desc">Uñas acrílicas, gel y semipermanente. Diseños exclusivos para manos y pies perfectos.</div>
+      </div>
+      <div class="service-item-tag">Uñas &amp; Nail Art</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-item-num">05</div>
+      <div class="service-item-body">
+        <div class="service-item-name">Facial &amp; Spa Select</div>
+        <div class="service-item-desc">Limpiezas faciales, tratamientos anti-edad, hidratación y relajación profunda.</div>
+      </div>
+      <div class="service-item-tag">Spa Premium</div>
+    </div>
+    <div class="service-item reveal">
+      <div class="service-item-num">06</div>
+      <div class="service-item-body">
+        <div class="service-item-name">Peinado &amp; Maquillaje</div>
+        <div class="service-item-desc">Para bodas, XV años, graduaciones y eventos especiales. Maquillaje profesional a domicilio.</div>
+      </div>
+      <div class="service-item-tag">Eventos Especiales</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div class="about-section">
+  <div class="about-photo-col">
+    <div class="ph-area" style="border:none;padding:0;width:80%;max-width:340px;aspect-ratio:3/4;overflow:hidden;">
+      <img src="equipolocal.jpg" alt="Equipo Estética María Elena" style="width:100%;height:100%;object-fit:cover;object-position:center;">
+    </div>
+    <div class="about-deco-num">ME</div>
+  </div>
+  <div class="about-text-col">
+    <p class="about-pull-quote reveal">"Nos hemos convertido en el referente de belleza y cuidado personal en Los Mochis."</p>
+    <p class="about-body reveal">Con años de experiencia en el sector, Estética María Elena nació con una sola misión: que cada cliente salga sintiéndose lo mejor de sí mismo. Hoy contamos con dos sucursales estratégicamente ubicadas, un equipo de estilistas certificados y los mejores productos de línea.</p>
+    <div class="about-stats-row reveal">
+      <div class="about-stat-item">
+        <div class="about-stat-n">382</div>
+        <div class="about-stat-l">Reseñas en Google<br/>Sucursal principal</div>
+      </div>
+      <div class="about-stat-item">
+        <div class="about-stat-n">128</div>
+        <div class="about-stat-l">Reseñas en Google<br/>Sucursal Pedro Anaya</div>
+      </div>
+    </div>
+    <a href="https://wa.me/526688128127?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" class="btn-ink reveal" style="max-width:260px;">Hablar con nosotros</a>
+  </div>
+</div>
+
+<!-- SUCURSALES -->
+<section class="sucursales-section" id="sucursales">
+  <div class="sucursales-header">
+    <div class="sucursales-label reveal">Encuéntranos</div>
+    <h2 class="sucursales-h2 reveal">Dos sucursales<br/><em>en Los Mochis</em></h2>
+  </div>
+  <div class="sucursales-grid">
+    <div class="suc-card reveal">
+      <div class="suc-big-num">01</div>
+      <div class="suc-label">Sucursal Principal</div>
+      <div class="suc-name">Jiquilpan</div>
+      <div class="suc-info">
+        <div class="suc-row">
+          <span class="suc-row-icon">↗</span>
+          <div class="suc-row-text">Blvd. Antonio Rosales, Jiquilpan<br/><strong>81220 Los Mochis, Sinaloa</strong></div>
+        </div>
+        <div class="suc-row">
+          <span class="suc-row-icon">→</span>
+          <div class="suc-row-text"><a href="tel:6688128127" style="color:inherit;text-decoration:none;"><strong>668 812 8127</strong></a></div>
+        </div>
+        <div class="suc-row">
+          <span class="suc-row-icon">◷</span>
+          <div class="suc-row-text">Lunes a Sábado · <strong>Cierra 8:00 pm</strong></div>
+        </div>
+        <div class="suc-row">
+          <span class="suc-row-icon">★</span>
+          <div class="suc-row-text"><strong>4.5</strong> · 382 reseñas en Google</div>
+        </div>
+      </div>
+      <div class="suc-map">
+        <iframe src="https://maps.google.com/maps?q=Blvd.+Antonio+Rosales,+Jiquilpan,+81220+Los+Mochis,+Sin&output=embed" width="100%" height="160" style="border:0;" loading="lazy" title="Mapa sucursal Jiquilpan"></iframe>
+      </div>
+      <a href="https://wa.me/526688128127?text=Hola%2C%20quiero%20agendar%20en%20la%20sucursal%20de%20Jiquilpan" target="_blank" class="btn-wa-suc">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar en esta sucursal
+      </a>
+    </div>
+    <div class="suc-card reveal">
+      <div class="suc-big-num">02</div>
+      <div class="suc-label">Sucursal Pedro Anaya</div>
+      <div class="suc-name">Alameda</div>
+      <div class="suc-info">
+        <div class="suc-row">
+          <span class="suc-row-icon">↗</span>
+          <div class="suc-row-text">Blvd. Pedro Anaya 902A, Alameda<br/><strong>81271 Los Mochis, Sinaloa</strong></div>
+        </div>
+        <div class="suc-row">
+          <span class="suc-row-icon">→</span>
+          <div class="suc-row-text"><a href="tel:6688249968" style="color:inherit;text-decoration:none;"><strong>668 824 9968</strong></a></div>
+        </div>
+        <div class="suc-row">
+          <span class="suc-row-icon">◷</span>
+          <div class="suc-row-text">Lunes a Sábado · <strong>Cierra 8:00 pm</strong></div>
+        </div>
+        <div class="suc-row">
+          <span class="suc-row-icon">★</span>
+          <div class="suc-row-text"><strong>4.5</strong> · 128 reseñas en Google</div>
+        </div>
+      </div>
+      <div class="suc-map">
+        <iframe src="https://maps.google.com/maps?q=Blvd.+Pedro+Anaya+902A,+Alameda,+Los+Mochis,+Sinaloa&output=embed" width="100%" height="160" style="border:0;" loading="lazy" title="Mapa sucursal Pedro Anaya"></iframe>
+      </div>
+      <a href="https://wa.me/526688249968?text=Hola%2C%20quiero%20agendar%20en%20la%20sucursal%20de%20Pedro%20Anaya" target="_blank" class="btn-wa-suc">
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Agendar en esta sucursal
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- HORARIO -->
+<div class="horario-section">
+  <div class="horario-left">
+    <div class="section-label reveal" style="margin-bottom:1rem;">Horario de atención</div>
+    <div class="horario-big reveal">Siempre<br/><em>aquí</em><br/>para ti</div>
+    <p class="horario-note reveal">Ambas sucursales comparten el mismo horario para que siempre puedas encontrarnos. <span class="h-dot"></span> Abierto ahora.</p>
+  </div>
+  <div class="horario-right">
+    <div class="horario-table reveal">
+      <div class="h-row"><span class="h-dia">Lunes</span><span class="h-hora open">9:00 am — 8:00 pm</span></div>
+      <div class="h-row"><span class="h-dia">Martes</span><span class="h-hora open">9:00 am — 8:00 pm</span></div>
+      <div class="h-row"><span class="h-dia">Miércoles</span><span class="h-hora open">9:00 am — 8:00 pm</span></div>
+      <div class="h-row"><span class="h-dia">Jueves</span><span class="h-hora open">9:00 am — 8:00 pm</span></div>
+      <div class="h-row"><span class="h-dia">Viernes</span><span class="h-hora open">9:00 am — 8:00 pm</span></div>
+      <div class="h-row"><span class="h-dia">Sábado</span><span class="h-hora open">9:00 am — 8:00 pm</span></div>
+      <div class="h-row"><span class="h-dia">Domingo</span><span class="h-hora" style="color:var(--gray-light);">Consultar disponibilidad</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS -->
+<section class="testi-section">
+  <div class="testi-intro">
+    <h2 class="testi-h2 reveal">Lo que dicen<br/>nuestras <em>clientas</em></h2>
+    <p class="testi-note reveal">Más de 500 reseñas verificadas en Google. La confianza de nuestros clientes es nuestro mayor reconocimiento en Los Mochis.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-quote-mark">"</div>
+      <div class="testi-stars-sm">★★★★★</div>
+      <p class="testi-text">Excelente servicio, siempre salgo muy contenta con mi cabello. El personal es muy amable y profesional. Totalmente recomendado.</p>
+      <div class="testi-sep"></div>
+      <div class="testi-name">Clienta frecuente · Sucursal Jiquilpan</div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote-mark">"</div>
+      <div class="testi-stars-sm">★★★★★</div>
+      <p class="testi-text">Me hice la keratina y quedé encantada. Muy buen precio y el resultado duró muchísimo. Ya es mi estética de confianza.</p>
+      <div class="testi-sep"></div>
+      <div class="testi-name">Clienta habitual · Sucursal Pedro Anaya</div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="testi-quote-mark">"</div>
+      <div class="testi-stars-sm">★★★★★</div>
+      <p class="testi-text">Las mejores uñas de la ciudad. El ambiente es muy cómodo y siempre tienen los últimos diseños. 100% recomendable.</p>
+      <div class="testi-sep"></div>
+      <div class="testi-name">Clienta satisfecha · Los Mochis</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<div class="cta-final" id="contacto">
+  <div class="cta-deco">ME</div>
+  <div class="cta-label reveal">¿Lista para verte increíble?</div>
+  <h2 class="cta-h2 reveal">Agenda tu cita<br/><em>hoy mismo</em></h2>
+  <p class="cta-sub reveal">Elige tu sucursal más cercana y escríbenos por WhatsApp. Te respondemos al momento.</p>
+  <div class="cta-btns">
+    <a href="https://wa.me/526688128127?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Mar%C3%ADa%20Elena" target="_blank" class="btn-ink reveal" style="background:var(--cream);color:var(--ink);">
+      💬 Sucursal Jiquilpan
+    </a>
+    <a href="https://wa.me/526688249968?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20Mar%C3%ADa%20Elena" target="_blank" class="btn-outline-ink reveal" style="border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.7);">
+      💬 Sucursal Pedro Anaya
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-name">María Elena</div>
+      <div class="footer-brand-sub">Unisex &amp; Spa Select</div>
+      <p class="footer-brand-p">Tu estética de confianza en Los Mochis, Sinaloa. Dos sucursales para estar siempre cerca de ti.</p>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Servicios</div>
+      <ul>
+        <li><a href="#servicios">Corte de cabello</a></li>
+        <li><a href="#servicios">Coloración &amp; Mechas</a></li>
+        <li><a href="#servicios">Keratina &amp; Tratamientos</a></li>
+        <li><a href="#servicios">Manicure &amp; Pedicure</a></li>
+        <li><a href="#servicios">Facial &amp; Spa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <div class="footer-col-title">Sucursales</div>
+      <ul>
+        <li><a href="#sucursales">Blvd. Antonio Rosales</a></li>
+        <li><a href="tel:6688128127">668 812 8127</a></li>
+        <li><a href="#sucursales" style="margin-top:0.5rem;display:block;">Blvd. Pedro Anaya 902A</a></li>
+        <li><a href="tel:6688249968">668 824 9968</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Estética María Elena · Los Mochis, Sinaloa</span>
+    <span class="footer-credit">Sitio web por <a href="https://prolink365.com.mx" target="_blank">ProLink</a></span>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a class="wa-float" href="https://wa.me/526688128127?text=Hola%2C%20vi%20su%20p%C3%A1gina%20web%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const rev=document.querySelectorAll('.reveal,.reveal-left');
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*60);
+      obs.unobserve(e.target);
+    }
+  });
+},{threshold:0.06});
+rev.forEach(el=>obs.observe(el));
+const nav=document.getElementById('main-nav');
+window.addEventListener('scroll',()=>{
+  nav.style.boxShadow=window.scrollY>60?'0 1px 0 rgba(0,0,0,0.08)':'none';
+});
+</script>
+</body>
+</html>
