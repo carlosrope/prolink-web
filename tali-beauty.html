@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tali Beauty — Salón & Academia</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0e0a0a;
+  --bg2:#141010;
+  --rose:#f2a0b0;
+  --rose2:#e87a90;
+  --rose-glow:rgba(242,160,176,0.1);
+  --gold:#e8c97a;
+  --white:#fdf8f5;
+  --gray:#9a8a87;
+  --border:rgba(242,160,176,0.15);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--white);overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(14,10,10,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:'Bodoni Moda',serif;font-size:22px;letter-spacing:.06em;color:var(--white)}
+.nav-logo span{color:var(--rose)}
+.nav-links{display:flex;gap:36px}
+.nav-links a{font-size:13px;font-weight:400;color:var(--gray);text-decoration:none;letter-spacing:.1em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--rose)}
+.nav-cta{background:var(--rose);color:var(--bg);padding:9px 22px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.nav-cta:hover{background:var(--rose2)}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:120px 60px 80px;position:relative;z-index:2}
+.hero-deco{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg,rgba(242,160,176,0.04) 0%,transparent 60%);pointer-events:none}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--rose)}
+.hero-h1{font-family:'Bodoni Moda',serif;font-size:clamp(46px,5.5vw,78px);line-height:1.05;color:var(--white);margin-bottom:8px}
+.hero-h1 em{font-style:italic;color:var(--rose)}
+.hero-tagline{font-family:'Bodoni Moda',serif;font-size:18px;font-style:italic;color:var(--gray);margin-bottom:32px}
+.hero-desc{font-size:15px;line-height:1.75;color:var(--gray);max-width:440px;margin-bottom:48px;font-weight:300}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn-rose{background:var(--rose);color:var(--bg);padding:14px 28px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn-rose:hover{background:var(--rose2)}
+.btn-outline{border:1px solid rgba(255,255,255,.2);color:var(--white);padding:14px 28px;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.btn-outline:hover{border-color:var(--rose);color:var(--rose)}
+.hero-right{background:var(--bg2);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-right::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(242,160,176,0.08) 0%,transparent 65%)}
+.hero-visual{position:relative;z-index:2;text-align:center;padding:60px}
+.hero-circle{width:260px;height:260px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 32px;position:relative}
+.hero-circle::before{content:'';position:absolute;inset:12px;border:1px solid rgba(242,160,176,0.08);border-radius:50%}
+.hero-circle-emoji{font-size:80px}
+.hero-visual-name{font-family:'Bodoni Moda',serif;font-size:24px;color:var(--white);margin-bottom:8px}
+.hero-visual-sub{font-size:13px;font-weight:300;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:24px}
+.hero-badges{display:flex;flex-direction:column;gap:10px}
+.h-badge{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);padding:10px 18px;font-size:13px;color:var(--white)}
+.h-badge span{color:var(--rose)}
+
+/* SERVICIOS */
+#servicios{padding:100px 60px;background:var(--bg)}
+.sec-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;display:flex;align-items:center;gap:12px}
+.sec-eyebrow::before{content:'';width:24px;height:1px;background:var(--rose)}
+.sec-h2{font-family:'Bodoni Moda',serif;font-size:clamp(32px,4vw,52px);line-height:1.15;color:var(--white);margin-bottom:16px}
+.sec-h2 em{font-style:italic;color:var(--rose)}
+.sec-sub{font-size:14px;color:var(--gray);line-height:1.7;max-width:500px;margin-bottom:64px;font-weight:300}
+.tabs{display:flex;gap:2px;margin-bottom:40px}
+.tab{padding:10px 24px;font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:transparent;border:1px solid var(--border);color:var(--gray);transition:all .3s}
+.tab.active{background:var(--rose);color:var(--bg);border-color:var(--rose)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
+.svc-card{background:var(--bg);padding:36px 28px;transition:background .3s}
+.svc-card:hover{background:var(--bg2)}
+.svc-icon{font-size:28px;margin-bottom:16px;display:block}
+.svc-name{font-family:'Bodoni Moda',serif;font-size:18px;color:var(--white);margin-bottom:8px}
+.svc-desc{font-size:13px;color:var(--gray);line-height:1.65;font-weight:300}
+
+/* ACADEMIA */
+#academia{padding:80px 60px;background:linear-gradient(135deg,#1a0e10 0%,#0e0a0a 100%);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.academia-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.academia-tag{display:inline-block;background:var(--gold);color:var(--bg);padding:6px 16px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:20px}
+.academia-h2{font-family:'Bodoni Moda',serif;font-size:clamp(28px,4vw,48px);color:var(--white);line-height:1.15;margin-bottom:20px}
+.academia-h2 em{font-style:italic;color:var(--gold)}
+.academia-desc{font-size:15px;color:var(--gray);line-height:1.75;font-weight:300;margin-bottom:36px}
+.academia-points{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.a-point{display:flex;align-items:center;gap:12px;font-size:14px;color:rgba(255,255,255,.75)}
+.a-point::before{content:'✦';color:var(--gold);font-size:10px;flex-shrink:0}
+.btn-gold{background:var(--gold);color:var(--bg);padding:14px 28px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-gold:hover{background:#d4b560}
+.academia-right{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.a-stat{background:rgba(232,201,122,0.06);border:1px solid rgba(232,201,122,0.15);padding:28px 24px}
+.a-stat-num{font-family:'Bodoni Moda',serif;font-size:40px;color:var(--gold);margin-bottom:6px}
+.a-stat-label{font-size:12px;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;font-weight:300}
+
+/* HORARIO */
+#horario{padding:80px 60px;display:grid;grid-template-columns:1.2fr 1fr;gap:60px;align-items:center}
+.horario-table{border:1px solid var(--border)}
+.h-header{background:var(--rose);padding:16px 24px;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);display:grid;grid-template-columns:1fr 1fr}
+.h-row{display:grid;grid-template-columns:1fr 1fr;padding:14px 24px;border-bottom:1px solid var(--border);align-items:center}
+.h-row:last-child{border:none}
+.h-day{font-size:14px;color:rgba(255,255,255,.7);font-weight:300}
+.h-time{font-size:14px;color:var(--rose);text-align:right}
+.h-time.closed{color:rgba(255,255,255,.2)}
+
+/* REVIEWS */
+#reviews{padding:80px 60px;background:var(--bg2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px}
+.rev{background:var(--bg);border:1px solid var(--border);padding:32px;transition:all .3s}
+.rev:hover{border-color:var(--rose)}
+.rev-stars{color:var(--rose);font-size:12px;letter-spacing:3px;margin-bottom:14px}
+.rev-text{font-family:'Bodoni Moda',serif;font-size:16px;font-style:italic;color:rgba(255,255,255,.7);line-height:1.65;margin-bottom:16px}
+.rev-name{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--gray)}
+
+/* CTA */
+#cta{padding:100px 60px;text-align:center;background:var(--bg);position:relative;overflow:hidden}
+#cta::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+#cta::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+#cta h2{font-family:'Bodoni Moda',serif;font-size:clamp(32px,5vw,64px);color:var(--white);margin-bottom:8px}
+#cta h2 em{font-style:italic;color:var(--rose)}
+#cta p{font-size:15px;color:var(--gray);max-width:480px;margin:16px auto 44px;line-height:1.7;font-weight:300}
+.cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-wa{display:flex;align-items:center;gap:10px;background:#25d366;color:#fff;padding:14px 32px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:all .3s}
+.cta-wa:hover{background:#1ebe5c}
+.cta-call{display:flex;align-items:center;gap:10px;background:transparent;color:var(--white);padding:14px 32px;font-size:13px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--border);transition:all .3s}
+.cta-call:hover{border-color:var(--rose);color:var(--rose)}
+
+footer{padding:28px 60px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--border)}
+.f-brand{font-family:'Bodoni Moda',serif;font-size:16px;color:var(--gray)}
+.f-copy{font-size:12px;color:rgba(255,255,255,.2)}
+.f-by{font-size:11px;color:var(--rose);opacity:.7}
+
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.4);transition:all .3s}
+.wa-float:hover{transform:scale(1.1)}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .65s,transform .65s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav,#hero .hero-left,#servicios,#academia,#horario,#reviews,#cta,footer{padding-left:24px;padding-right:24px}
+  #hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .nav-links{display:none}
+  .services-grid,.reviews-grid,.academia-inner,.academia-right,#horario{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-logo"><span>Tali</span> Beauty</div>
+  <div class="nav-links">
+    <a href="#servicios">Servicios</a>
+    <a href="#academia">Academia</a>
+    <a href="#horario">Horario</a>
+    <a href="#reviews">Reseñas</a>
+  </div>
+  <a href="https://wa.me/526681864619?text=Hola%2C%20quiero%20agendar%20un%20servicio" class="nav-cta">Reservar</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-left">
+    <div class="hero-deco"></div>
+    <p class="hero-eyebrow">Salón & Academia · Los Mochis</p>
+    <h1 class="hero-h1">Donde la<br/>belleza se<br/><em>aprende</em></h1>
+    <p class="hero-tagline">Tali Beauty Salón & Academia</p>
+    <p class="hero-desc">Servicios de belleza profesionales y formación especializada para quienes quieren hacer de la belleza su pasión. Atención excepcional, resultados que se notan.</p>
+    <div class="hero-ctas">
+      <a href="https://wa.me/526681864619?text=Hola%2C%20quiero%20agendar%20un%20servicio" class="btn-rose">💬 Reservar ahora</a>
+      <a href="#academia" class="btn-outline">Ver academia →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-visual">
+      <div class="hero-circle"><span class="hero-circle-emoji">💄</span></div>
+      <p class="hero-visual-name">Tali Beauty</p>
+      <p class="hero-visual-sub">Salón & Academia</p>
+      <div class="hero-badges">
+        <div class="h-badge"><span>⭐</span> 4.9 — 38 reseñas verificadas</div>
+        <div class="h-badge"><span>✂️</span> Salón profesional</div>
+        <div class="h-badge"><span>🎓</span> Academia de belleza</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <p class="sec-eyebrow">Lo que hacemos</p>
+  <h2 class="sec-h2">Servicios de <em>belleza</em></h2>
+  <p class="sec-sub">Tratamientos profesionales para cabello, uñas y más. Cada servicio con productos de primera calidad y técnicas actualizadas.</p>
+  <div class="services-grid">
+    <div class="svc-card reveal"><span class="svc-icon">✂️</span><h3 class="svc-name">Cortes y peinados</h3><p class="svc-desc">Cortes modernos adaptados a tu estilo. Peinados para bodas, quinceañeras y eventos especiales.</p></div>
+    <div class="svc-card reveal"><span class="svc-icon">🎨</span><h3 class="svc-name">Color y tintes</h3><p class="svc-desc">Tintes, mechas, balayage y técnicas de color con productos de alta calidad para un resultado duradero.</p></div>
+    <div class="svc-card reveal"><span class="svc-icon">💅</span><h3 class="svc-name">Uñas</h3><p class="svc-desc">Manicura, pedicura, uñas acrílicas y gel. Diseños personalizados para cada ocasión.</p></div>
+    <div class="svc-card reveal"><span class="svc-icon">✨</span><h3 class="svc-name">Tratamientos capilares</h3><p class="svc-desc">Keratina, hidratación y tratamientos reparadores para recuperar la salud y brillo de tu cabello.</p></div>
+    <div class="svc-card reveal"><span class="svc-icon">💄</span><h3 class="svc-name">Maquillaje</h3><p class="svc-desc">Maquillaje social, artístico y para eventos. Asesoría de imagen y técnicas profesionales.</p></div>
+    <div class="svc-card reveal"><span class="svc-icon">🌟</span><h3 class="svc-name">Depilación</h3><p class="svc-desc">Depilación con cera tibia y fría. Facial y corporal para un acabado suave y duradero.</p></div>
+  </div>
+</section>
+
+<section id="academia">
+  <div class="academia-inner">
+    <div class="academia-left">
+      <div class="academia-tag">🎓 Academia</div>
+      <h2 class="academia-h2">Convierte tu pasión<br/>en tu <em>profesión</em></h2>
+      <p class="academia-desc">Tali Beauty no es solo un salón — es una escuela donde formamos a los próximos profesionales de la belleza. Cursos prácticos, horarios flexibles y certificación al terminar.</p>
+      <div class="academia-points">
+        <div class="a-point">Cursos de estilismo y colorimetría</div>
+        <div class="a-point">Técnicas de uñas y nail art</div>
+        <div class="a-point">Maquillaje profesional y artístico</div>
+        <div class="a-point">Certificación reconocida al finalizar</div>
+        <div class="a-point">Horarios adaptados a tu disponibilidad</div>
+      </div>
+      <a href="https://wa.me/526681864619?text=Hola%2C%20quiero%20informes%20sobre%20los%20cursos%20de%20la%20academia" class="btn-gold">Informes de cursos →</a>
+    </div>
+    <div class="academia-right reveal">
+      <div class="a-stat"><div class="a-stat-num">4.9</div><div class="a-stat-label">Calificación Google</div></div>
+      <div class="a-stat"><div class="a-stat-num">38+</div><div class="a-stat-label">Reseñas verificadas</div></div>
+      <div class="a-stat"><div class="a-stat-num">2</div><div class="a-stat-label">Servicios: Salón + Academia</div></div>
+      <div class="a-stat"><div class="a-stat-num">100%</div><div class="a-stat-label">Recomendadas</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="horario">
+  <div>
+    <p class="sec-eyebrow">Agenda tu visita</p>
+    <h2 class="sec-h2 reveal">Horario de<br/><em>atención</em></h2>
+    <p style="font-size:14px;color:var(--gray);line-height:1.7;max-width:380px;margin-top:16px;font-weight:300">Te recomendamos reservar con anticipación para garantizar tu lugar. Escríbenos por WhatsApp y te confirmamos disponibilidad.</p>
+    <br/><br/>
+    <a href="https://wa.me/526681864619?text=Hola%2C%20quiero%20agendar%20un%20servicio" class="btn-rose">Reservar ahora</a>
+  </div>
+  <div class="horario-table reveal">
+    <div class="h-header"><span>Día</span><span style="text-align:right">Horario</span></div>
+    <div class="h-row"><span class="h-day">Lunes</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+    <div class="h-row"><span class="h-day">Martes</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+    <div class="h-row"><span class="h-day">Miércoles</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+    <div class="h-row"><span class="h-day">Jueves</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+    <div class="h-row"><span class="h-day">Viernes</span><span class="h-time">9:00 AM – 7:00 PM</span></div>
+    <div class="h-row"><span class="h-day">Sábado</span><span class="h-time">12:00 AM – 7:00 PM</span></div>
+    <div class="h-row"><span class="h-day">Domingo</span><span class="h-time closed">Cerrado</span></div>
+  </div>
+</section>
+
+<section id="reviews">
+  <p class="sec-eyebrow">Lo que dicen nuestras clientas</p>
+  <h2 class="sec-h2">Reseñas <em>reales</em></h2>
+  <div class="reviews-grid">
+    <div class="rev reveal"><div class="rev-stars">★★★★★</div><p class="rev-text">Excelente servicio y sobre todo muy amables. ¡Las recomiendo al 100%!</p><span class="rev-name">— Clienta verificada</span></div>
+    <div class="rev reveal"><div class="rev-stars">★★★★★</div><p class="rev-text">Las mejores, 100% recomendadas. Súper buen servicio y atención siempre de primera.</p><span class="rev-name">— Clienta verificada</span></div>
+    <div class="rev reveal"><div class="rev-stars">★★★★★</div><p class="rev-text">Excelente servicio y siempre la mejor atención. Su trabajo siempre es lo mejor.</p><span class="rev-name">— Clienta verificada</span></div>
+  </div>
+</section>
+
+<section id="cta">
+  <h2>¿Lista para tu<br/><em>transformación?</em></h2>
+  <p>Reserva tu cita o pregunta por los cursos de la academia. Te respondemos de inmediato.</p>
+  <div class="cta-row">
+    <a href="https://wa.me/526681864619?text=Hola%2C%20quiero%20agendar%20un%20servicio" class="cta-wa">💬 Reservar servicio</a>
+    <a href="https://wa.me/526681864619?text=Hola%2C%20quiero%20informes%20de%20la%20academia" class="cta-call">🎓 Info academia</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-brand">Tali Beauty Salón & Academia</span>
+  <span class="f-copy">© 2026 · Los Mochis, Sin.</span>
+  <span class="f-by">Sitio web por ProLink</span>
+</footer>
+
+<a href="https://wa.me/526681864619" class="wa-float">💬</a>
+<script>
+const obs=new IntersectionObserver(e=>e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*80);obs.unobserve(el.target)}}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
