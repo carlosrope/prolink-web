@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Raúl Martínez Reyna — Pediatría</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sun:#FF6B35;
+  --coral:#FF8C61;
+  --sky:#E8F4FD;
+  --teal:#2B9EB3;
+  --teal-light:#E0F5F9;
+  --dark:#1A2634;
+  --muted:#6B7D8F;
+  --white:#FFFFFF;
+  --yellow:#FFD166;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--dark);font-family:'Nunito',sans-serif;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);box-shadow:0 1px 20px rgba(0,0,0,.06)}
+.nav-brand{font-weight:800;font-size:1.1rem;color:var(--dark);display:flex;align-items:center;gap:.5rem}
+.nav-brand span{color:var(--sun)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:.85rem;font-weight:600;transition:color .3s}
+.nav-links a:hover{color:var(--sun)}
+.nav-cta{background:var(--sun);color:white;padding:.6rem 1.6rem;border-radius:50px;text-decoration:none;font-size:.82rem;font-weight:700;transition:all .3s;box-shadow:0 4px 15px rgba(255,107,53,.3)}
+.nav-cta:hover{background:var(--coral);transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,107,53,.4)}
+
+/* HERO */
+.hero{min-height:100vh;padding:90px 0 0;position:relative;overflow:hidden;background:linear-gradient(135deg,#fff8f5 0%,#fff 50%,var(--teal-light) 100%)}
+.blob1{position:absolute;width:500px;height:500px;background:radial-gradient(circle,rgba(255,107,53,.12),transparent 70%);top:-100px;right:-100px;border-radius:50%;pointer-events:none}
+.blob2{position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(43,158,179,.1),transparent 70%);bottom:-50px;left:-100px;border-radius:50%;pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;padding:4rem 4rem;display:grid;grid-template-columns:1.1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:2}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--teal-light);border:1px solid rgba(43,158,179,.2);padding:.4rem 1rem;border-radius:50px;font-size:.75rem;font-weight:700;color:var(--teal);letter-spacing:.05em;margin-bottom:1.5rem}
+.hero-badge::before{content:'👶';font-size:1rem}
+h1{font-size:clamp(2.8rem,4.5vw,4.5rem);line-height:1.1;font-weight:800;margin-bottom:1rem}
+h1 .accent{color:var(--sun);position:relative;display:inline-block}
+h1 .accent::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:4px;background:var(--yellow);border-radius:2px}
+.hero-sub{font-size:1.05rem;line-height:1.7;color:var(--muted);margin-bottom:2.5rem;font-weight:400}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.btn-sun{background:var(--sun);color:white;padding:1rem 2rem;border-radius:50px;text-decoration:none;font-size:.88rem;font-weight:700;transition:all .3s;box-shadow:0 6px 20px rgba(255,107,53,.35)}
+.btn-sun:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(255,107,53,.4)}
+.btn-ghost{border:2px solid var(--teal);color:var(--teal);padding:1rem 2rem;border-radius:50px;text-decoration:none;font-size:.88rem;font-weight:700;transition:all .3s}
+.btn-ghost:hover{background:var(--teal);color:white}
+.hero-trust{display:flex;gap:2rem;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;font-weight:700;color:var(--dark)}
+.trust-dot{width:8px;height:8px;border-radius:50%;background:var(--yellow)}
+
+/* RIGHT CARD */
+.hero-card{background:white;border-radius:24px;padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,.12);position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--sun),var(--yellow),var(--teal))}
+.card-avatar{width:90px;height:90px;border-radius:50%;background:linear-gradient(135deg,var(--sun),var(--coral));display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:1.2rem}
+.card-name{font-size:1.2rem;font-weight:800;margin-bottom:.2rem}
+.card-specialty{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+.card-stars{color:var(--sun);font-size:1rem;letter-spacing:.1em;margin-bottom:.4rem}
+.card-rating{font-size:.82rem;color:var(--muted);margin-bottom:1.5rem}
+.card-badges{display:flex;flex-direction:column;gap:.8rem}
+.badge-item{display:flex;align-items:center;gap:.8rem;padding:.8rem;background:var(--sky);border-radius:12px;font-size:.82rem;font-weight:600}
+.badge-icon{font-size:1.2rem}
+
+/* SERVICES */
+.services{padding:7rem 4rem;background:var(--sky)}
+.services-inner{max-width:1100px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:4rem}
+.section-pill{display:inline-block;background:rgba(255,107,53,.12);color:var(--sun);padding:.35rem 1.2rem;border-radius:50px;font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem}
+.section-header h2{font-size:clamp(2rem,3vw,3rem);font-weight:800;line-height:1.2}
+.section-header h2 span{color:var(--sun)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.srv-card{background:white;border-radius:20px;padding:2.2rem;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden}
+.srv-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.srv-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--sun),var(--yellow));transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.srv-card:hover::after{transform:scaleX(1)}
+.srv-icon{font-size:2.5rem;margin-bottom:1.2rem;display:block}
+.srv-name{font-size:1.1rem;font-weight:800;margin-bottom:.6rem;color:var(--dark)}
+.srv-desc{font-size:.85rem;line-height:1.6;color:var(--muted)}
+
+/* HORARIO */
+.schedule{padding:6rem 4rem;background:var(--dark)}
+.schedule-inner{max-width:1100px;margin:0 auto}
+.schedule-inner .section-pill{background:rgba(255,107,53,.2);color:var(--coral)}
+.schedule-inner h2{color:white}
+.schedule-inner h2 span{color:var(--sun)}
+.schedule-layout{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
+.days-grid{display:grid;gap:.8rem}
+.day-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(255,255,255,.05);border-radius:12px;border:1px solid rgba(255,255,255,.08)}
+.day-row.open{border-color:rgba(255,107,53,.2)}
+.day-name{font-weight:700;font-size:.88rem;color:rgba(255,255,255,.7)}
+.day-time{font-family:'Space Mono',monospace;font-size:.75rem;color:var(--coral)}
+.day-row.closed .day-name,.day-row.closed .day-time{color:rgba(255,255,255,.2)}
+.contact-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:2.5rem}
+.contact-box h3{color:white;font-size:1.3rem;margin-bottom:.5rem}
+.contact-addr{color:rgba(255,255,255,.5);font-size:.88rem;line-height:1.6;margin-bottom:2rem}
+.contact-phone{font-family:'Space Mono',monospace;font-size:1.3rem;color:var(--sun);text-decoration:none;display:block;margin-bottom:1.5rem}
+.btn-wa-big{background:#25D366;color:white;padding:1rem 2rem;border-radius:50px;text-decoration:none;font-size:.9rem;font-weight:700;display:inline-block;transition:all .3s}
+.btn-wa-big:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,211,102,.4)}
+
+/* REVIEWS */
+.reviews{padding:7rem 4rem;background:white}
+.reviews-inner{max-width:1100px;margin:0 auto}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.rev-card{background:var(--sky);border-radius:20px;padding:2rem;position:relative;transition:transform .3s}
+.rev-card:hover{transform:translateY(-4px)}
+.rev-stars{color:var(--sun);font-size:1rem;margin-bottom:.8rem}
+.rev-text{font-size:.88rem;line-height:1.7;color:var(--dark);margin-bottom:1.2rem;font-style:italic}
+.rev-author{font-size:.75rem;font-weight:800;color:var(--muted);display:flex;align-items:center;gap:.5rem}
+.rev-dot{width:6px;height:6px;background:var(--sun);border-radius:50%;display:inline-block}
+
+/* CTA FINAL */
+.cta-final{padding:6rem 4rem;background:linear-gradient(135deg,var(--sun),var(--coral));text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'👶🍼🩺💉❤️';font-size:8rem;position:absolute;opacity:.08;top:50%;left:50%;transform:translate(-50%,-50%);letter-spacing:2rem;pointer-events:none}
+.cta-final h2{font-size:clamp(2.2rem,3.5vw,3.5rem);color:white;font-weight:800;margin-bottom:1rem;position:relative;z-index:2}
+.cta-final p{color:rgba(255,255,255,.85);font-size:1rem;margin-bottom:2.5rem;position:relative;z-index:2}
+.btn-white{background:white;color:var(--sun);padding:1rem 2.5rem;border-radius:50px;text-decoration:none;font-size:.9rem;font-weight:800;transition:all .3s;box-shadow:0 6px 25px rgba(0,0,0,.2);position:relative;z-index:2}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 10px 35px rgba(0,0,0,.25)}
+
+/* FOOTER */
+footer{background:var(--dark);padding:2.5rem 4rem;display:flex;justify-content:space-between;align-items:center}
+footer .brand{font-weight:800;color:white;font-size:.95rem}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.3)}
+footer .prolink{font-size:.72rem;color:var(--coral)}
+
+/* WA */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;fill:white}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:2rem 1.5rem;gap:2rem}
+  .services{padding:4rem 1.5rem}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .schedule{padding:4rem 1.5rem}
+  .schedule-layout{grid-template-columns:1fr}
+  .reviews{padding:4rem 1.5rem}
+  .reviews-grid{grid-template-columns:1fr}
+  .cta-final{padding:4rem 1.5rem}
+  footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-brand">Dr. Raúl<span> · Pediatría</span></div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#horario">Horario</a></li>
+    <li><a href="#resenas">Reseñas</a></li>
+  </ul>
+  <a href="https://wa.me/526632954431?text=Hola%20Dr.%20Ra%C3%BAl%2C%20quiero%20agendar%20cita%20para%20mi%20hijo" class="nav-cta">Agendar cita 🗓</a>
+</nav>
+
+<section class="hero">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">Pediatría · Los Mochis, Sin.</div>
+      <h1>La salud de tu hijo en <span class="accent">manos expertas</span></h1>
+      <p class="hero-sub">Dr. Raúl Martínez Reyna — Pediatra con años de experiencia en Los Mochis. Atención cálida, diagnósticos precisos y siempre disponible para tus preguntas.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/526632954431?text=Hola%20Dr.%20Ra%C3%BAl%2C%20quiero%20agendar%20cita%20para%20mi%20hijo" class="btn-sun">💬 Agendar por WhatsApp</a>
+        <a href="tel:+526632954431" class="btn-ghost">📞 Llamar</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="trust-dot"></span> 5.0 estrellas Google</div>
+        <div class="trust-item"><span class="trust-dot"></span> 25 reseñas reales</div>
+        <div class="trust-item"><span class="trust-dot"></span> 6 días de atención</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="card-avatar">👨‍⚕️</div>
+      <div class="card-name">Dr. Raúl Martínez Reyna</div>
+      <div class="card-specialty">Médico Pediatra · Los Mochis</div>
+      <div class="card-stars">★★★★★</div>
+      <div class="card-rating">5.0 · 25 reseñas verificadas en Google</div>
+      <div class="card-badges">
+        <div class="badge-item"><span class="badge-icon">🩺</span> Atención de recién nacidos a adolescentes</div>
+        <div class="badge-item"><span class="badge-icon">💉</span> Control de vacunas y crecimiento</div>
+        <div class="badge-item"><span class="badge-icon">🕐</span> Lunes a Sábado disponible</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services reveal" id="servicios">
+  <div class="services-inner">
+    <div class="section-header">
+      <div class="section-pill">Especialidades</div>
+      <h2>Cuidado pediátrico <span>completo</span></h2>
+    </div>
+    <div class="services-grid">
+      <div class="srv-card">
+        <span class="srv-icon">👶</span>
+        <div class="srv-name">Recién nacidos</div>
+        <div class="srv-desc">Seguimiento del neonato desde los primeros días de vida. Control de peso, talla y reflejos. Orientación para mamás primerizas.</div>
+      </div>
+      <div class="srv-card">
+        <span class="srv-icon">📈</span>
+        <div class="srv-name">Control de crecimiento</div>
+        <div class="srv-desc">Monitoreo continuo del desarrollo físico y neurológico. Detección temprana de cualquier alteración.</div>
+      </div>
+      <div class="srv-card">
+        <span class="srv-icon">💉</span>
+        <div class="srv-name">Esquema de vacunación</div>
+        <div class="srv-desc">Seguimiento completo del calendario de vacunas. Aplicación en consultorio con toda seguridad.</div>
+      </div>
+      <div class="srv-card">
+        <span class="srv-icon">🤒</span>
+        <div class="srv-name">Urgencias pediátricas</div>
+        <div class="srv-desc">Atención rápida de fiebre, infecciones respiratorias, diarrea, alergias y otros cuadros agudos en niños.</div>
+      </div>
+      <div class="srv-card">
+        <span class="srv-icon">🧠</span>
+        <div class="srv-name">Desarrollo neurológico</div>
+        <div class="srv-desc">Evaluación del lenguaje, conducta y motricidad. Orientación a padres ante señales de alerta.</div>
+      </div>
+      <div class="srv-card">
+        <span class="srv-icon">🥗</span>
+        <div class="srv-name">Nutrición infantil</div>
+        <div class="srv-desc">Guía en alimentación complementaria, lactancia, y manejo de problemas de peso en niños y adolescentes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule reveal" id="horario">
+  <div class="schedule-inner">
+    <div class="section-header" style="text-align:left">
+      <div class="section-pill">Horario</div>
+      <h2 style="color:white">Atención <span>semanal</span></h2>
+    </div>
+    <div class="schedule-layout">
+      <div class="days-grid">
+        <div class="day-row open"><span class="day-name">Lunes</span><span class="day-time">9:00 AM – 7:30 PM</span></div>
+        <div class="day-row open"><span class="day-name">Martes</span><span class="day-time">9:00 AM – 7:30 PM</span></div>
+        <div class="day-row open"><span class="day-name">Miércoles</span><span class="day-time">9:00 AM – 7:30 PM</span></div>
+        <div class="day-row open"><span class="day-name">Jueves</span><span class="day-time">9:00 AM – 7:30 PM</span></div>
+        <div class="day-row open"><span class="day-name">Viernes</span><span class="day-time">9:00 AM – 7:30 PM</span></div>
+        <div class="day-row open"><span class="day-name">Sábado</span><span class="day-time">9:00 AM – 2:00 PM</span></div>
+        <div class="day-row closed"><span class="day-name">Domingo</span><span class="day-time">Cerrado</span></div>
+      </div>
+      <div class="contact-box">
+        <h3>¿Tienes dudas?</h3>
+        <p class="contact-addr">Calle Ignacio Allende 523,<br>Centro, Los Mochis, Sinaloa</p>
+        <a href="tel:+526632954431" class="contact-phone">663 295 4431</a>
+        <a href="https://wa.me/526632954431?text=Hola%20Dr.%20Ra%C3%BAl%2C%20quiero%20agendar%20cita%20para%20mi%20hijo" class="btn-wa-big">💬 Escribir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews reveal" id="resenas">
+  <div class="reviews-inner">
+    <div class="section-header">
+      <div class="section-pill">Testimonios</div>
+      <h2>Papás que confían en <span>el Dr. Raúl</span></h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Excelente doctor, amable, un muy buen pediatra. Llevé a mis hijos y el trato fue muy agradable. Muy recomendado."</p>
+        <div class="rev-author"><span class="rev-dot"></span> Mamá verificada · Google</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Muy buen pediatra, mis hijos siempre se sienten bien y seguros con él. El doctor los conoce y los trata de maravilla."</p>
+        <div class="rev-author"><span class="rev-dot"></span> Papá verificado · Google</div>
+      </div>
+      <div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p class="rev-text">"Excelente pediatra, muy recomendado. La mejor atención para los pequeños. Siempre sale uno tranquilo y con todas las dudas resueltas."</p>
+        <div class="rev-author"><span class="rev-dot"></span> Mamá verificada · Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <h2>¿Tu pequeño necesita atención?</h2>
+  <p>Agenda hoy en unos segundos. El Dr. Raúl te espera.</p>
+  <a href="https://wa.me/526632954431?text=Hola%20Dr.%20Ra%C3%BAl%2C%20quiero%20agendar%20cita%20para%20mi%20hijo" class="btn-white">💬 Agendar por WhatsApp</a>
+</section>
+
+<footer>
+  <span class="brand">Dr. Raúl Martínez Reyna · Pediatría</span>
+  <span class="copy">© 2026 · Los Mochis, Sinaloa</span>
+  <span class="prolink">Sitio web por ProLink</span>
+</footer>
+
+<a href="https://wa.me/526632954431?text=Hola%20Dr.%20Ra%C3%BAl%2C%20quiero%20agendar%20cita%20para%20mi%20hijo" class="wa-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const obs = new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

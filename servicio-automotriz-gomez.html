@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Servicio Automotriz Gómez — Los Mochis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#09090B;
+  --dark:#111114;
+  --card:#1A1A1F;
+  --steel:#2C2C35;
+  --orange:#F97316;
+  --orange-dim:#C65D0D;
+  --orange-light:#FFF3E8;
+  --silver:#A8B0BE;
+  --light:#E8EAF0;
+  --white:#FFFFFF;
+  --yellow:#FFC107;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--light);font-family:'Barlow',sans-serif;font-weight:400;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:1rem 3.5rem;display:flex;justify-content:space-between;align-items:center;background:rgba(9,9,11,.97);border-bottom:1px solid rgba(249,115,22,.15)}
+.nav-logo{display:flex;align-items:center;gap:.8rem}
+.nav-logo-badge{background:var(--orange);padding:.3rem .7rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.05em;clip-path:polygon(4px 0,100% 0,calc(100% - 4px) 100%,0 100%)}
+.nav-logo-text{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.1em;text-transform:uppercase;color:var(--light)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--silver);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:var(--orange)}
+.nav-btn{background:var(--orange);color:white;padding:.55rem 1.5rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.88rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);transition:all .3s}
+.nav-btn:hover{background:var(--orange-dim)}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:64px;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(249,115,22,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(249,115,22,.04) 1px,transparent 1px);background-size:60px 60px;z-index:0}
+.hero-glow{position:absolute;top:20%;left:10%;width:500px;height:500px;background:radial-gradient(circle,rgba(249,115,22,.08),transparent 60%);border-radius:50%;pointer-events:none;z-index:0}
+.hero-inner{max-width:1200px;margin:0 auto;padding:4rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:2;width:100%}
+.hero-tag{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--orange);margin-bottom:1.5rem;display:flex;align-items:center;gap.8rem}
+.hero-tag::before{content:'//';margin-right:.5rem;opacity:.5}
+h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(4rem,7vw,7rem);font-weight:800;line-height:.95;text-transform:uppercase;letter-spacing:-.02em;margin-bottom:1.5rem;color:white}
+h1 .highlight{color:var(--orange);display:block}
+.hero-sub{font-size:.95rem;line-height:1.8;color:var(--silver);margin-bottom:2.5rem;max-width:420px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem}
+.btn-orange{background:var(--orange);color:white;padding:.9rem 2.2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);transition:all .3s;box-shadow:0 4px 20px rgba(249,115,22,.3)}
+.btn-orange:hover{background:var(--orange-dim);transform:translateY(-2px)}
+.btn-wire{border:1.5px solid rgba(249,115,22,.35);color:var(--light);padding:.9rem 2.2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);transition:all .3s}
+.btn-wire:hover{border-color:var(--orange);color:var(--orange)}
+.hero-specs{display:flex;gap:3rem}
+.spec{text-align:left}
+.spec-num{font-family:'Barlow Condensed',sans-serif;font-size:2.8rem;font-weight:800;color:var(--orange);line-height:1}
+.spec-lbl{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--silver);margin-top.3rem}
+
+/* HERO RIGHT */
+.hero-right{display:flex;flex-direction:column;gap:1.5rem}
+.metric-card{background:var(--card);border:1px solid rgba(249,115,22,.15);padding:1.8rem;position:relative;overflow:hidden}
+.metric-card::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--orange)}
+.mc-label{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--silver);margin-bottom.5rem}
+.mc-value{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:white;line-height:1}
+.mc-sub{font-size:.78rem;color:var(--silver);margin-top.3rem}
+.rev-strip{background:var(--card);border:1px solid rgba(249,115,22,.12);padding:1.8rem;border-left:3px solid var(--yellow)}
+.rs-stars{color:var(--yellow);font-size:.85rem;margin-bottom.5rem}
+.rs-text{font-size:.82rem;color:rgba(255,255,255,.6);line-height:1.6;font-style:italic;margin-bottom.8rem}
+.rs-from{font-size:.62rem;letter-spacing.2em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* SERVICES */
+.services{padding:7rem 5rem;background:var(--dark)}
+.sec-tag{font-family:'Barlow Condensed',sans-serif;font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--orange);margin-bottom.8rem;display:flex;align-items:center;gap.8rem}
+.sec-tag::before{content:'//';opacity:.5}
+.sec-h{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:800;text-transform:uppercase;line-height:1;color:white;margin-bottom:4rem}
+.sec-h span{color:var(--orange)}
+.srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--steel)}
+.srv-c{background:var(--dark);padding:2.5rem 2rem;position:relative;overflow:hidden;transition:background .3s}
+.srv-c:hover{background:var(--card)}
+.srv-c::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.srv-c:hover::after{transform:scaleX(1)}
+.srv-num{font-family:'Barlow Condensed',sans-serif;font-size:.6rem;letter-spacing.3em;color:rgba(249,115,22,.5);margin-bottom:1.2rem}
+.srv-ico{font-size:2rem;margin-bottom:1rem;display:block}
+.srv-n{font-family:'Barlow Condensed',sans-serif;font-size:1.5rem;font-weight:800;text-transform:uppercase;color:white;margin-bottom.5rem;letter-spacing.02em}
+.srv-d{font-size:.8rem;line-height:1.65;color:var(--silver)}
+
+/* GALERÍA */
+.gallery{padding:7rem 5rem;background:var(--black)}
+.gallery-header{margin-bottom:3rem}
+.gallery-desc{font-size:.9rem;color:var(--silver);margin-top:.8rem;max-width:500px;line-height:1.7}
+.gallery-upload-zone{border:2px dashed rgba(249,115,22,.3);background:rgba(249,115,22,.03);padding:2.5rem;text-align:center;margin-bottom:2.5rem;cursor:pointer;transition:all .3s;position:relative}
+.gallery-upload-zone:hover,.gallery-upload-zone.drag-over{border-color:var(--orange);background:rgba(249,115,22,.07)}
+.gallery-upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.upload-ico{font-size:2.5rem;margin-bottom:.8rem}
+.upload-text{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing.1em;color:var(--silver)}
+.upload-sub{font-size.75rem;color:rgba(255,255,255,.25);margin-top.3rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;min-height:100px}
+.gallery-empty{grid-column:1/-1;text-align:center;padding:3rem;color:rgba(255,255,255,.15);font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;font-family:'Barlow Condensed',sans-serif;border:1px dashed rgba(255,255,255,.06);display:none}
+.gallery-img-wrap{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--card)}
+.gallery-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.gallery-img-wrap:hover img{transform:scale(1.06)}
+.gallery-img-wrap .del-btn{position:absolute;top:.5rem;right:.5rem;background:rgba(249,115,22,.9);border:none;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;font-size.9rem;opacity:0;transition:opacity .3s}
+.gallery-img-wrap:hover .del-btn{opacity:1}
+
+/* HORARIO */
+.horario{padding:6rem 5rem;background:var(--dark)}
+.horario-inner{display:grid;grid-template-columns:1.3fr 1fr;gap:6rem;align-items:start}
+.h-row{display:flex;justify-content:space-between;align-items:center;padding:1rem 1.2rem;border-bottom:1px solid rgba(255,255,255,.04);transition:background .2s}
+.h-row:hover{background:rgba(249,115,22,.04)}
+.h-day{font-size:.87rem;font-weight:600;color:rgba(255,255,255,.6)}
+.h-time{font-family:'Barlow Condensed',sans-serif;font-size:.9rem;letter-spacing.08em;color:var(--orange)}
+.h-row.off .h-day,.h-row.off .h-time{color:rgba(255,255,255,.15)}
+.contact-card{background:var(--card);border:1px solid rgba(249,115,22,.15);padding:3rem;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--orange),transparent)}
+.cc-icon{font-size:3rem;margin-bottom:1.5rem}
+.cc-title{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;text-transform:uppercase;letter-spacing.05em;color:white;margin-bottom.3rem}
+.cc-sub{font-size:.83rem;color:var(--silver);line-height:1.65;margin-bottom:1.5rem}
+.cc-phone{font-family:'Barlow Condensed',sans-serif;font-size:1.6rem;font-weight:700;color:var(--orange);text-decoration:none;display:block;margin-bottom.3rem}
+.cc-addr{font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:2rem}
+.btn-wa-o{background:var(--orange);color:white;padding:.9rem 2rem;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);display:inline-block;transition:all .3s}
+.btn-wa-o:hover{background:var(--orange-dim)}
+
+/* REVIEWS */
+.reviews{padding:7rem 5rem;background:var(--black)}
+.reviews-inner{max-width:1100px;margin:0 auto}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(249,115,22,.08);margin-top:3.5rem}
+.rev-c{background:var(--black);padding:2.5rem;border-top:2px solid transparent;transition:border-color .3s}
+.rev-c:hover{border-color:var(--orange)}
+.rev-stars{color:var(--yellow);font-size:.85rem;margin-bottom.8rem}
+.rev-text{font-size:.87rem;line-height:1.75;color:var(--silver);font-style:italic;margin-bottom:1.2rem}
+.rev-auth{font-family:'Barlow Condensed',sans-serif;font-size:.7rem;letter-spacing.25em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+
+/* CTA */
+.cta{padding:7rem 5rem;background:var(--orange);position:relative;overflow:hidden}
+.cta-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,0,0,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.04) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.cta-inner{text-align:center;position:relative;z-index:2}
+.cta h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3rem,6vw,6rem);font-weight:800;text-transform:uppercase;color:white;line-height:.95;margin-bottom:1.5rem;letter-spacing:-.02em}
+.cta h2 span{color:rgba(0,0,0,.25)}
+.cta p{color:rgba(255,255,255,.8);font-size:.95rem;margin-bottom:2.5rem}
+.btn-black{background:black;color:white;padding:1rem 3rem;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:1rem;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);display:inline-block;transition:all .3s}
+.btn-black:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.4)}
+
+footer{background:var(--dark);padding:2.5rem 5rem;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(249,115,22,.1)}
+.fl{font-family:'Barlow Condensed',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing.1em;color:var(--orange);font-size:.95rem}
+.fc{font-size:.68rem;color:rgba(255,255,255,.2);letter-spacing.1em}
+.fp{font-size:.68rem;color:var(--orange)}
+
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:200;width:56px;height:56px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa-float:hover{transform:scale(1.1)}
+.wa-float svg{width:28px;height:28px;fill:white}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .hero-inner{grid-template-columns:1fr;padding:2rem 1.5rem;gap:2rem}
+  .services,.gallery,.horario,.reviews,.cta{padding:4rem 1.5rem}
+  .srv-grid{grid-template-columns:1fr 1fr}
+  .gallery-grid{grid-template-columns:1fr 1fr}
+  .horario-inner{grid-template-columns:1fr}
+  .reviews-grid{grid-template-columns:1fr;gap:2px}
+  footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-badge">SAG</div>
+    <span class="nav-logo-text">Automotriz Gómez</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#horario">Horario</a></li>
+  </ul>
+  <a href="https://wa.me/526681652547?text=Hola%2C%20quiero%20llevar%20mi%20auto%20a%20Servicio%20Automotriz%20G%C3%B3mez" class="nav-btn">Contáctanos</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Taller Mecánico · Los Mochis, Sin.</div>
+      <h1>Tu auto<br><span class="highlight">en manos</span><br>expertas</h1>
+      <p class="hero-sub">Servicio Automotriz Gómez — diagnóstico preciso, precios honestos y trabajo garantizado. El taller que Los Mochis recomienda.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/526681652547?text=Hola%2C%20quiero%20llevar%20mi%20auto%20a%20Servicio%20Automotriz%20G%C3%B3mez" class="btn-orange">💬 Agendar por WhatsApp</a>
+        <a href="tel:+526681652547" class="btn-wire">📞 668 165 2547</a>
+      </div>
+      <div class="hero-specs">
+        <div class="spec"><div class="spec-num">4.8★</div><div class="spec-lbl">Calificación</div></div>
+        <div class="spec"><div class="spec-num">29</div><div class="spec-lbl">Reseñas</div></div>
+        <div class="spec"><div class="spec-num">6 días</div><div class="spec-lbl">de atención</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="metric-card">
+        <div class="mc-label">Reputación verificada</div>
+        <div class="mc-value">4.8 / 5.0</div>
+        <div class="mc-sub">★★★★★ · 29 reseñas reales en Google</div>
+      </div>
+      <div class="metric-card">
+        <div class="mc-label">Disponibilidad</div>
+        <div class="mc-value">Lun – Sáb</div>
+        <div class="mc-sub">8:00 AM – 6:00 PM · Horario partido</div>
+      </div>
+      <div class="rev-strip">
+        <div class="rs-stars">★★★★★</div>
+        <p class="rs-text">"Excelente servicio. No cobran de más. Hasta fue un placer ir porque son muy atentos cuando explicas lo que necesita tu auto."</p>
+        <div class="rs-from">Cliente verificado · Google</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services reveal" id="servicios">
+  <div class="sec-tag">Servicios</div>
+  <h2 class="sec-h">Todo lo que<br>tu auto <span>necesita</span></h2>
+  <div class="srv-grid">
+    <div class="srv-c"><div class="srv-num">01</div><span class="srv-ico">🔧</span><div class="srv-n">Mecánica General</div><p class="srv-d">Afinaciones, frenos, suspensión, embrague, clutch y revisión completa del sistema mecánico.</p></div>
+    <div class="srv-c"><div class="srv-num">02</div><span class="srv-ico">⚡</span><div class="srv-n">Servicio Eléctrico</div><p class="srv-d">Diagnóstico y reparación del sistema eléctrico: batería, alternador, motor de arranque y más.</p></div>
+    <div class="srv-c"><div class="srv-num">03</div><span class="srv-ico">🛢️</span><div class="srv-n">Cambio de Aceite</div><p class="srv-d">Cambio de aceite y filtros. Aceites sintéticos, semi-sintéticos y convencionales. Todas las marcas.</p></div>
+    <div class="srv-c"><div class="srv-num">04</div><span class="srv-ico">🔩</span><div class="srv-n">Transmisión</div><p class="srv-d">Revisión, reparación y cambio de aceite de transmisión automática y mecánica.</p></div>
+    <div class="srv-c"><div class="srv-num">05</div><span class="srv-ico">❄️</span><div class="srv-n">Aire Acondicionado</div><p class="srv-d">Recarga, diagnóstico y reparación del sistema de aire acondicionado. Ideal para el calor de Sinaloa.</p></div>
+    <div class="srv-c"><div class="srv-num">06</div><span class="srv-ico">🔍</span><div class="srv-n">Diagnóstico Electrónico</div><p class="srv-d">Lectura de fallas con scanner computarizado. Revisión de sensores, inyectores y sistemas OBD.</p></div>
+  </div>
+</section>
+
+<!-- GALERÍA CON SUBIDA DE IMÁGENES -->
+<section class="gallery reveal" id="galeria">
+  <div class="gallery-header">
+    <div class="sec-tag">Galería</div>
+    <h2 class="sec-h" style="margin-bottom:.5rem">Nuestro trabajo<br><span>habla por nosotros</span></h2>
+    <p class="gallery-desc">Fotos del taller, trabajos realizados y el equipo de Gómez. Haz clic en "Agregar fotos" o arrastra imágenes aquí.</p>
+  </div>
+
+  <div class="gallery-upload-zone" id="uploadZone">
+    <input type="file" id="fileInput" multiple accept="image/*">
+    <div class="upload-ico">📷</div>
+    <div class="upload-text">Agregar fotos del taller</div>
+    <div class="upload-sub">Arrastra imágenes aquí o haz clic para seleccionar · JPG, PNG, WEBP</div>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <div class="gallery-empty" id="galleryEmpty" style="display:flex;align-items:center;justify-content:center;font-size:.78rem">
+      Las fotos del taller aparecerán aquí
+    </div>
+  </div>
+</section>
+
+<section class="horario reveal" id="horario">
+  <div class="horario-inner">
+    <div>
+      <div class="sec-tag">Horario</div>
+      <h2 class="sec-h" style="margin-bottom:2rem">Horario de<br><span>Atención</span></h2>
+      <div class="h-row"><span class="h-day">Lunes</span><span class="h-time">8:00 AM – 1:00 PM · 3:00 – 6:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Martes</span><span class="h-time">8:00 AM – 1:00 PM · 3:00 – 6:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Miércoles</span><span class="h-time">8:00 AM – 1:00 PM · 3:00 – 6:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Jueves</span><span class="h-time">8:00 AM – 1:00 PM · 3:00 – 6:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Viernes</span><span class="h-time">8:00 AM – 1:00 PM · 3:00 – 6:00 PM</span></div>
+      <div class="h-row"><span class="h-day">Sábado</span><span class="h-time">8:00 AM – 1:00 PM</span></div>
+      <div class="h-row off"><span class="h-day">Domingo</span><span class="h-time">Cerrado</span></div>
+    </div>
+    <div class="contact-card">
+      <div class="cc-icon">🔧</div>
+      <div class="cc-title">Contáctanos</div>
+      <p class="cc-sub">Llama o escribe por WhatsApp. Te atendemos con honestidad y precio justo.</p>
+      <a href="tel:+526681652547" class="cc-phone">668 165 2547</a>
+      <p class="cc-addr">Av Ignacio Zaragoza 538 Nte,<br>Centro, Los Mochis, Sinaloa</p>
+      <a href="https://wa.me/526681652547?text=Hola%2C%20quiero%20llevar%20mi%20auto%20a%20Servicio%20Automotriz%20G%C3%B3mez" class="btn-wa-o">💬 WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<section class="reviews reveal" id="resenas">
+  <div class="reviews-inner">
+    <div class="sec-tag">Testimonios</div>
+    <h2 class="sec-h">Lo que dice<br><span>la gente</span></h2>
+    <div class="reviews-grid">
+      <div class="rev-c"><div class="rev-stars">★★★★★</div><p class="rev-text">"Excelente servicio. No cobran de más. Fue un placer ir porque son muy atentos cuando explicas lo que necesita tu auto."</p><div class="rev-auth">Cliente verificado · Google</div></div>
+      <div class="rev-c"><div class="rev-stars">★★★★★</div><p class="rev-text">"Excelente servicio y muy honestos. Me ayudaron con una emergencia mecánica y hasta salió más barato de lo estimado."</p><div class="rev-auth">Cliente verificado · Google</div></div>
+      <div class="rev-c"><div class="rev-stars">★★★★★</div><p class="rev-text">"Si tienes problemas mecánicos llévatelo con ellos. Son muy buenos en lo que hacen y sobre todo brindan excelente trato personal."</p><div class="rev-auth">Cliente verificado · Google</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-grid-bg"></div>
+  <div class="cta-inner">
+    <h2>Tu auto<br><span>merece</span> lo mejor</h2>
+    <p>Diagnóstico honesto, precios justos, trabajo garantizado. Lunes a sábado en el centro de Los Mochis.</p>
+    <a href="https://wa.me/526681652547?text=Hola%2C%20quiero%20llevar%20mi%20auto%20a%20Servicio%20Automotriz%20G%C3%B3mez" class="btn-black">💬 Agendar por WhatsApp</a>
+  </div>
+</section>
+
+<footer>
+  <span class="fl">Servicio Automotriz Gómez</span>
+  <span class="fc">© 2026 · Los Mochis, Sinaloa</span>
+  <span class="fp">Sitio web por ProLink</span>
+</footer>
+
+<a href="https://wa.me/526681652547?text=Hola%2C%20quiero%20llevar%20mi%20auto%20a%20Servicio%20Automotriz%20G%C3%B3mez" class="wa-float">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// REVEAL
+const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
+
+// GALERÍA
+const fileInput = document.getElementById('fileInput');
+const galleryGrid = document.getElementById('galleryGrid');
+const galleryEmpty = document.getElementById('galleryEmpty');
+const uploadZone = document.getElementById('uploadZone');
+
+let images = [];
+
+function renderGallery() {
+  // Limpiar grid
+  galleryGrid.innerHTML = '';
+  if (images.length === 0) {
+    galleryGrid.appendChild(galleryEmpty);
+    galleryEmpty.style.display = 'flex';
+    return;
+  }
+  galleryEmpty.style.display = 'none';
+  images.forEach((src, idx) => {
+    const wrap = document.createElement('div');
+    wrap.className = 'gallery-img-wrap';
+    wrap.innerHTML = `<img src="${src}" alt="Foto del taller ${idx+1}" loading="lazy">
+      <button class="del-btn" data-idx="${idx}" title="Eliminar">✕</button>`;
+    galleryGrid.appendChild(wrap);
+  });
+  galleryGrid.querySelectorAll('.del-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      images.splice(parseInt(btn.dataset.idx), 1);
+      renderGallery();
+    });
+  });
+}
+
+fileInput.addEventListener('change', e => {
+  const files = Array.from(e.target.files);
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      images.push(ev.target.result);
+      renderGallery();
+    };
+    reader.readAsDataURL(file);
+  });
+  fileInput.value = '';
+});
+
+// Drag & Drop
+uploadZone.addEventListener('dragover', e => { e.preventDefault(); uploadZone.classList.add('drag-over'); });
+uploadZone.addEventListener('dragleave', () => uploadZone.classList.remove('drag-over'));
+uploadZone.addEventListener('drop', e => {
+  e.preventDefault();
+  uploadZone.classList.remove('drag-over');
+  const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => { images.push(ev.target.result); renderGallery(); };
+    reader.readAsDataURL(file);
+  });
+});
+
+renderGallery();
+</script>
+</body>
+</html>
