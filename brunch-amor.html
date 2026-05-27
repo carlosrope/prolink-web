@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brunch Amor — Los Mochis</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Mulish:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --terra:#C4622A;
+  --terra-light:#E8A882;
+  --cream:#FAF5EE;
+  --warm:#F0E8D8;
+  --espresso:#1E0E06;
+  --brown:#3D1E0A;
+  --mid:#8C7060;
+  --ink:#1A0E06;
+  --sage:#7A8C60;
+}
+body{background:var(--cream);color:var(--ink);font-family:'Mulish',sans-serif;font-weight:300;overflow-x:hidden}
+
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 3.5rem;height:58px;display:flex;align-items:center;justify-content:space-between;background:var(--cream);border-bottom:1px solid rgba(0,0,0,.07)}
+.nav-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.25rem;font-weight:700;color:var(--terra)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--terra)}
+.nav-info{font-size:.75rem;color:var(--mid);}
+
+/* HERO — editorial magazine */
+.hero{margin-top:58px;display:grid;grid-template-columns:1fr 1.2fr;min-height:calc(100vh - 58px)}
+.hero-left{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:space-between;background:var(--warm);border-right:1px solid rgba(0,0,0,.07)}
+.hl-top .eyebrow{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--mid);margin-bottom:2.5rem;display:block}
+.hl-top h1{font-family:'Fraunces',serif;font-size:clamp(4rem,6vw,8rem);font-weight:900;line-height:.88;letter-spacing:-.03em;color:var(--espresso)}
+.hl-top h1 em{font-style:italic;color:var(--terra);display:block}
+.hl-mid{padding:3rem 0;border-top:1px solid rgba(0,0,0,.08);border-bottom:1px solid rgba(0,0,0,.08)}
+.hl-mid p{font-size:.95rem;line-height:1.8;color:var(--mid);max-width:380px;margin-bottom:2rem}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-terra{background:var(--terra);color:white;padding:.85rem 2.2rem;border-radius:3px;text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:all .3s}
+.btn-terra:hover{background:var(--brown);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid var(--terra);color:var(--terra);padding:.85rem 2.2rem;border-radius:3px;text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:all .3s}
+.btn-outline:hover{background:var(--terra);color:white}
+.hl-bottom{font-size:.7rem;color:var(--mid);letter-spacing:.1em}
+
+.hero-right{position:relative;overflow:hidden;background:var(--espresso)}
+.hero-right img{width:100%;height:100%;object-fit:cover;opacity:.85;filter:saturate(.9)}
+.hero-badge{position:absolute;top:2.5rem;right:2.5rem;background:var(--terra);color:white;width:100px;height:100px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:.6rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;line-height:1.4}
+.hero-badge span{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:900;display:block;line-height:1}
+
+/* MARQUEE */
+.marquee{background:var(--terra);overflow:hidden;padding:.8rem 0;white-space:nowrap}
+.mt{display:inline-block;animation:mq 18s linear infinite}
+.mt span{font-size:.7rem;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.85);padding:0 2rem}
+.mt span.sep{color:rgba(255,255,255,.3)}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* MENÚ DESTACADO */
+.menu{padding:6rem 3.5rem;background:var(--cream)}
+.menu-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:4rem}
+.mh-title{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4vw,5rem);font-weight:700;line-height:.95;letter-spacing:-.02em;color:var(--espresso)}
+.mh-title em{font-style:italic;color:var(--terra)}
+.mh-desc{font-size:.9rem;line-height:1.8;color:var(--mid)}
+.menu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.mi{background:var(--warm);padding:2.5rem 2rem;border-radius:4px;transition:all .3s;border-bottom:3px solid transparent}
+.mi:hover{border-bottom-color:var(--terra);transform:translateY(-4px)}
+.mi-ico{font-size:2.5rem;margin-bottom:1.2rem;display:block}
+.mi-name{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--espresso);margin-bottom:.7rem}
+.mi-name em{font-style:italic}
+.mi-desc{font-size:.82rem;color:var(--mid);line-height:1.65}
+
+/* GALERÍA — bento grid */
+.galeria{padding:0;background:var(--espresso);display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:350px 280px;gap:3px}
+.gi{overflow:hidden;position:relative}
+.gi img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.9);transition:all .6s}
+.gi:hover img{filter:brightness(1) saturate(1);transform:scale(1.04)}
+.gi.big{grid-row:1/3}
+.gi-cap{position:absolute;bottom:0;left:0;right:0;padding:1.5rem;background:linear-gradient(transparent,rgba(30,14,6,.8))}
+.gi-cap-text{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:white;font-weight:300}
+
+/* SOBRE */
+.sobre{padding:7rem 3.5rem;background:var(--warm);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.sobre-img{overflow:hidden;border-radius:4px;height:500px}
+.sobre-img img{width:100%;height:100%;object-fit:cover;filter:saturate(.9)}
+.sobre-text .tag{font-size:.65rem;letter-spacing:.4em;text-transform:uppercase;color:var(--terra);margin-bottom:1.5rem}
+.sobre-text h2{font-family:'Fraunces',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--espresso);margin-bottom:2rem}
+.sobre-text h2 em{font-style:italic}
+.sobre-text p{font-size:.9rem;line-height:1.85;color:var(--mid);margin-bottom:1.5rem}
+.reviews-mini{display:flex;flex-direction:column;gap:1.5rem;margin-top:2.5rem}
+.rm{border-left:3px solid var(--terra);padding-left:1.2rem}
+.rm-stars{color:var(--terra);font-size:.8rem;margin-bottom.4rem}
+.rm-text{font-size:.85rem;line-height:1.65;color:var(--ink);font-style:italic;margin-bottom.4rem}
+.rm-auth{font-size:.65rem;letter-spacing.15em;text-transform:uppercase;color:var(--mid)}
+
+/* HORARIO */
+.horario{background:var(--espresso);color:white;padding:6rem 3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.h-title{font-family:'Fraunces',serif;font-size:clamp(3rem,5vw,6rem);font-weight:900;font-style:italic;line-height:.9;color:white;margin-bottom:3rem}
+.h-table{width:100%}
+.h-table tr{border-bottom:1px solid rgba(255,255,255,.08)}
+.h-table td{padding:1rem 0;font-size:.9rem;color:rgba(255,255,255,.55)}
+.h-table td:last-child{text-align:right;color:rgba(255,255,255,.85);font-weight:500}
+.h-table tr.off td{opacity:.2}
+.h-contact{display:flex;flex-direction:column;gap:2rem}
+.h-addr{font-size:.9rem;color:rgba(255,255,255,.45);line-height:1.75}
+.h-phone{font-family:'Fraunces',serif;font-size:3rem;font-weight:900;color:var(--terra-light);text-decoration:none;line-height:1;display:block;transition:color .3s}
+.h-phone:hover{color:white}
+.btn-wa{background:var(--terra);color:white;padding:.9rem 2.2rem;border-radius:3px;text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:inline-block;transition:all .3s;width:fit-content}
+.btn-wa:hover{background:#a34d20}
+
+footer{background:var(--ink);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center}
+.f-logo{font-family:'Fraunces',serif;font-style:italic;font-size:1.1rem;color:var(--terra-light)}
+.f-copy{font-size:.65rem;color:rgba(255,255,255,.2)}
+.f-prolink{font-size:.65rem;color:rgba(255,255,255,.25)}
+
+.wa-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa-fab:hover{transform:scale(1.1)}.wa-fab svg{width:27px;height:27px;fill:white}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  nav{padding:0 1.5rem}.nav-links{display:none}.nav-info{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{height:60vw}
+  .hero-left{padding:3rem 1.5rem}
+  .menu,.sobre,.horario{padding:4rem 1.5rem}
+  .menu-header,.sobre,.horario{grid-template-columns:1fr}
+  .menu-grid{grid-template-columns:1fr 1fr}
+  .galeria{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi.big{grid-row:auto}
+  .sobre-img{height:300px}
+  footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Brunch Amor</span>
+  <ul class="nav-links">
+    <li><a href="#menu">Menú</a></li>
+    <li><a href="#galeria">Fotos</a></li>
+    <li><a href="#horario">Horario</a></li>
+  </ul>
+  <span class="nav-info">Mar–Sáb · 8 AM – 2 PM</span>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hl-top">
+      <span class="eyebrow">Brunch · Desayunos · Los Mochis</span>
+      <h1>El brunch<br>que <em>amarás</em></h1>
+    </div>
+    <div class="hl-mid">
+      <p>Brunch Amor — el lugar favorito para desayunar en Los Mochis. Platillos hechos con amor, café de especialidad y un ambiente que te hace querer quedarte.</p>
+      <div class="hero-btns">
+        <a href="https://wa.me/526681903952?text=Hola%20Brunch%20Amor%2C%20quiero%20saber%20c%C3%B3mo%20llegar" class="btn-terra">📍 ¿Cómo llegar?</a>
+        <a href="tel:+526681903952" class="btn-outline">668 190 3952</a>
+      </div>
+    </div>
+    <div class="hl-bottom">G. Estrada 1031-Pte · Ernesto Hayss Borboa · Los Mochis</div>
+  </div>
+  <div class="hero-right">
+    <img src="brunch-hero.jpg" alt="Brunch Amor">
+    <div class="hero-badge"><span>4.8</span>★ Google</div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="mt">
+    <span>Pancakes</span><span class="sep">·</span><span>Huevos</span><span class="sep">·</span><span>Café Especial</span><span class="sep">·</span><span>Bowls Saludables</span><span class="sep">·</span><span>Repostería</span><span class="sep">·</span><span>Jugos Naturales</span><span class="sep">·</span><span>Smoothies</span><span class="sep">·</span>
+    <span>Pancakes</span><span class="sep">·</span><span>Huevos</span><span class="sep">·</span><span>Café Especial</span><span class="sep">·</span><span>Bowls Saludables</span><span class="sep">·</span><span>Repostería</span><span class="sep">·</span><span>Jugos Naturales</span><span class="sep">·</span><span>Smoothies</span><span class="sep">·</span>
+  </div>
+</div>
+
+<section class="menu reveal" id="menu">
+  <div class="menu-header">
+    <div class="mh-title">Un menú<br>hecho con<br><em>amor</em></div>
+    <p class="mh-desc">Ingredientes frescos, recetas propias y el cuidado que se nota en cada platillo. Así es Brunch Amor.</p>
+  </div>
+  <div class="menu-grid">
+    <div class="mi"><span class="mi-ico">🥞</span><div class="mi-name"><em>Pancakes</em> & Waffles</div><p class="mi-desc">Esponjosos, con frutas, Nutella, maple o lo que se te antoje. El favorito absoluto de todos.</p></div>
+    <div class="mi"><span class="mi-ico">🍳</span><div class="mi-name">Desayunos <em>Completos</em></div><p class="mi-desc">Huevos en todas sus formas, chilaquiles y platillos clásicos con el toque especial de Brunch Amor.</p></div>
+    <div class="mi"><span class="mi-ico">🥑</span><div class="mi-name">Opciones <em>Saludables</em></div><p class="mi-desc">Bowls, tostadas de aguacate y platillos fit. Come rico y cuídate al mismo tiempo.</p></div>
+    <div class="mi"><span class="mi-ico">☕</span><div class="mi-name">Café de <em>Especialidad</em></div><p class="mi-desc">Americano, latte, cold brew, frappé y más. El acompañamiento perfecto para cualquier hora.</p></div>
+    <div class="mi"><span class="mi-ico">🍰</span><div class="mi-name">Repostería <em>Artesanal</em></div><p class="mi-desc">Pan dulce, muffins y roles de canela hechos en casa todos los días. Frescos, siempre.</p></div>
+    <div class="mi"><span class="mi-ico">🥤</span><div class="mi-name">Jugos & <em>Smoothies</em></div><p class="mi-desc">Jugos naturales y smoothies de frutas preparados al momento. Energía pura en cada sorbo.</p></div>
+  </div>
+</section>
+
+<section id="galeria">
+  <div class="galeria">
+    <div class="gi big"><img src="brunch-1.jpg" alt="Brunch"><div class="gi-cap"><span class="gi-cap-text">El lugar favorito de Los Mochis</span></div></div>
+    <div class="gi"><img src="brunch-2.jpg" alt="Pancakes"></div>
+    <div class="gi"><img src="brunch-3.jpg" alt="Desayuno"></div>
+    <div class="gi"><img src="brunch-4.jpg" alt="Saludable"></div>
+    <div class="gi"><img src="brunch-5.jpg" alt="Café"></div>
+  </div>
+</section>
+
+<section class="sobre reveal">
+  <div class="sobre-img">
+    <img src="brunch-sobre.jpg" alt="Brunch Amor">
+  </div>
+  <div class="sobre-text">
+    <div class="tag">Lo que dicen</div>
+    <h2>279 razones<br>para <em>venir</em></h2>
+    <p>Brunch Amor se convirtió en el lugar favorito de los mochitenses no por suerte, sino porque cada platillo sale con dedicación y cada clienta sale feliz.</p>
+    <div class="reviews-mini">
+      <div class="rm"><div class="rm-stars">★★★★★</div><p class="rm-text">"El mejor lugar para brunchar en la ciudad. La comida deliciosa y el servicio excelente. Definitivamente volvería."</p><div class="rm-auth">Cliente verificado · Google</div></div>
+      <div class="rm"><div class="rm-stars">★★★★★</div><p class="rm-text">"El ambiente y la vibra del restaurante son muy agradables. La comida es espectacular y los postres también."</p><div class="rm-auth">Cliente verificado · Google</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="horario reveal" id="horario">
+  <div>
+    <h2 class="h-title">Ven a<br>desayunar</h2>
+    <table class="h-table">
+      <tr class="off"><td>Lunes</td><td>Cerrado</td></tr>
+      <tr><td>Martes – Sábado</td><td>8:00 AM – 2:00 PM</td></tr>
+      <tr class="off"><td>Domingo</td><td>Cerrado</td></tr>
+    </table>
+  </div>
+  <div class="h-contact">
+    <p class="h-addr">G. Estrada 1031-Pte<br>Ernesto Hayss Borboa<br>Los Mochis, Sinaloa</p>
+    <a href="tel:+526681903952" class="h-phone">668 190 3952</a>
+    <a href="https://wa.me/526681903952?text=Hola%20Brunch%20Amor%2C%20quiero%20saber%20c%C3%B3mo%20llegar" class="btn-wa">📍 ¿Cómo llegar?</a>
+  </div>
+</section>
+
+<footer>
+  <span class="f-logo">Brunch Amor</span>
+  <span class="f-copy">© 2026 · Los Mochis, Sinaloa</span>
+  <span class="f-prolink">Sitio por ProLink</span>
+</footer>
+
+<a href="https://wa.me/526681903952" class="wa-fab"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script>
+const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
+</script>
+</body>
+</html>
