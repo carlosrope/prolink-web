@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belwaffel — Waffles Belgas Los Mochis</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+:root{--ivory:#FDF8F0;--warm:#F5EDD8;--caramel:#C8852A;--caramel-d:#9E6315;--choco:#2A1A08;--mid:#8C7848;--cream:#FAF5EB;--sage:#7A8C60}
+body{background:var(--ivory);color:var(--choco);font-family:'Inter',sans-serif;font-weight:300;overflow-x:hidden}
+nav{position:fixed;top:0;width:100%;z-index:100;padding:0 3.5rem;height:56px;display:flex;align-items:center;justify-content:space-between;background:rgba(253,248,240,.97);border-bottom:1px solid rgba(200,133,42,.1)}
+.nav-logo{font-family:'Playfair Display',serif;font-style:italic;font-size:1.2rem;font-weight:700;color:var(--caramel)}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--caramel)}
+.nav-schedule{font-size:.73rem;color:var(--mid)}
+
+/* HERO — café belga boutique, tipografía display grande */
+.hero{margin-top:56px;background:var(--choco);min-height:calc(100vh - 56px);display:grid;grid-template-rows:1fr auto}
+.hero-main{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{padding:5rem 4rem;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.hero-left::before{content:'🧇';position:absolute;right:-1rem;bottom:-3rem;font-size:20rem;opacity:.04;pointer-events:none}
+.hl-tag{font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(200,133,42,.7);margin-bottom:3rem;display:block}
+.hl-h1{font-family:'Playfair Display',serif;font-size:clamp(4rem,6.5vw,9rem);font-weight:900;line-height:.85;letter-spacing:-.02em;color:white;margin-bottom:3rem}
+.hl-h1 em{font-style:italic;color:var(--caramel);display:block}
+.hl-sub{font-size:.95rem;line-height:1.8;color:rgba(255,255,255,.4);max-width:360px;margin-bottom:3rem}
+.hero-btns{display:flex;gap:1rem}
+.btn-c{background:var(--caramel);color:white;padding:.9rem 2.5rem;text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:all .3s}
+.btn-c:hover{background:var(--caramel-d);transform:translateY(-2px)}
+.btn-o{border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);padding:.9rem 2.5rem;text-decoration:none;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;transition:all .3s}
+.btn-o:hover{border-color:var(--caramel);color:var(--caramel)}
+.hero-right{display:grid;grid-template-rows:1fr 1fr;gap:3px;background:var(--choco)}
+.hr-img{overflow:hidden}
+.hr-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.7) saturate(.85);transition:all .5s}
+.hr-img:hover img{filter:brightness(.85) saturate(1)}
+.hero-bottom{background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.06);padding:1.5rem 4rem;display:flex;justify-content:space-between;align-items:center}
+.hb-item{text-align:center}
+.hb-num{font-family:'Playfair Display',serif;font-style:italic;font-size:1.8rem;color:var(--caramel);line-height:1}
+.hb-lbl{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top.2rem}
+
+/* WAFFLES */
+.waffles{padding:6rem 3.5rem;background:var(--ivory)}
+.wf-header{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:end;margin-bottom:5rem;padding-bottom:2rem;border-bottom:1px solid rgba(200,133,42,.15)}
+.wfh-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,5vw,5.5rem);font-weight:900;line-height:.92;letter-spacing:-.02em;color:var(--choco)}
+.wfh-title em{font-style:italic;color:var(--caramel)}
+.wfh-desc{font-size:.9rem;line-height:1.8;color:var(--mid)}
+.wf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.wi{border-top:2px solid transparent;padding-top:2rem;transition:all .3s;cursor:default}
+.wi:hover{border-top-color:var(--caramel)}
+.wi-ico{font-size:3rem;margin-bottom:1.2rem;display:block}
+.wi-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--choco);margin-bottom.8rem}
+.wi-name em{font-style:italic}
+.wi-desc{font-size:.82rem;color:var(--mid);line-height:1.65}
+
+/* GALERÍA INMERSIVA */
+.galeria{background:var(--warm);padding:5rem 3.5rem}
+.gal-title{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(2.5rem,4vw,4.5rem);color:var(--choco);margin-bottom:3rem;text-align:center}
+.gal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:280px 180px;gap:1rem}
+.gi{overflow:hidden;border-radius:4px}
+.gi img{width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:all .5s}
+.gi:hover img{filter:saturate(1.1);transform:scale(1.05)}
+.gi.wide{grid-column:1/3}
+
+/* TERRAZA + REVIEWS */
+.terraza{padding:6rem 3.5rem;background:var(--choco);display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.t-img{overflow:hidden;border-radius:4px;height:480px}
+.t-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.75) saturate(.8)}
+.t-text .tag{font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--caramel);margin-bottom:1.5rem}
+.t-text h2{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:700;color:white;margin-bottom:2rem;line-height:1.05}
+.t-text h2 em{font-style:italic;color:var(--caramel)}
+.t-text p{font-size:.9rem;line-height:1.85;color:rgba(255,255,255,.45);margin-bottom:2rem}
+.reviews{display:flex;flex-direction:column;gap:1.5rem}
+.rv{border-left:2px solid var(--caramel);padding-left:1.2rem}
+.rv-stars{color:var(--caramel);font-size:.88rem;margin-bottom.5rem}
+.rv-text{font-size:.85rem;line-height:1.7;color:rgba(255,255,255,.55);font-style:italic;margin-bottom.5rem}
+.rv-auth{font-size:.62rem;letter-spacing.15em;text-transform:uppercase;color:rgba(200,133,42,.6)}
+
+/* HORARIO */
+.horario{padding:6rem 3.5rem;background:var(--warm);display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:900;color:var(--choco);margin-bottom:3rem;line-height:.95}
+.h-title em{font-style:italic}
+.h-table{width:100%}
+.h-table tr{border-bottom:1px solid rgba(200,133,42,.15)}
+.h-table td{padding:.95rem 0;font-size:.88rem;color:var(--mid)}
+.h-table td:last-child{text-align:right;color:var(--choco);font-weight:600}
+.h-table tr.off td{opacity:.3}
+.h-contact{display:flex;flex-direction:column;gap:2.5rem}
+.h-addr{font-size:.9rem;color:var(--mid);line-height:1.75;padding-left:1rem;border-left:2px solid var(--caramel)}
+.h-phone{font-family:'Playfair Display',serif;font-size:2.8rem;font-style:italic;color:var(--caramel);text-decoration:none;display:block;line-height:1;transition:color .3s}
+.h-phone:hover{color:var(--caramel-d)}
+.btn-wa{background:var(--caramel);color:white;padding:.9rem 2.2rem;text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:inline-block;transition:all .3s;width:fit-content}
+.btn-wa:hover{background:var(--caramel-d)}
+
+footer{background:var(--choco);padding:2rem 3.5rem;display:flex;justify-content:space-between;align-items:center}
+.f-logo{font-family:'Playfair Display',serif;font-style:italic;color:var(--caramel);font-size:1.1rem}
+.f-copy{font-size:.65rem;color:rgba(255,255,255,.2)}.f-prolink{font-size:.65rem;color:rgba(200,133,42,.4)}
+.wa-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
+.wa-fab:hover{transform:scale(1.1)}.wa-fab svg{width:27px;height:27px;fill:white}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){nav{padding:0 1.5rem}.nav-links{display:none}.nav-schedule{display:none}.hero-main{grid-template-columns:1fr}.hero-right{height:55vw}.hero-left{padding:3rem 1.5rem}.hero-bottom{padding:1.5rem;flex-wrap:wrap;gap:1.5rem}.waffles,.galeria,.terraza,.horario{padding:4rem 1.5rem}.wf-header,.terraza,.horario{grid-template-columns:1fr}.wf-grid{grid-template-columns:1fr 1fr}.gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}.gi{height:180px}.gi.wide{grid-column:auto}.t-img{height:250px}footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.5rem}}
+</style></head>
+<body>
+<nav>
+  <span class="nav-logo">Belwaffel</span>
+  <ul class="nav-links"><li><a href="#waffles">Waffles</a></li><li><a href="#galeria">Fotos</a></li><li><a href="#horario">Horario</a></li></ul>
+  <span class="nav-schedule">Mar–Dom · Doble turno</span>
+</nav>
+<section class="hero">
+  <div class="hero-main">
+    <div class="hero-left">
+      <span class="hl-tag">Waffles Belgas · Café · Los Mochis</span>
+      <div>
+        <h1 class="hl-h1">Los únicos<br>waffles<br><em>auténticos</em></h1>
+        <p class="hl-sub">Belwaffel — waffles belgas crujientes y frescos hechos al momento. Con los toppings que quieras, en nuestra terraza única en Los Mochis.</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/523345931181?text=Hola%20Belwaffel%2C%20c%C3%B3mo%20llegar" class="btn-c">📍 ¿Cómo llegar?</a>
+          <a href="tel:+523345931181" class="btn-o">33 4593 1181</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hr-img"><img src="belwaffel-1.jpg" alt="Waffle"></div>
+      <div class="hr-img"><img src="belwaffel-2.jpg" alt="Waffle frutas"></div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="hb-item"><div class="hb-num">4.7★</div><div class="hb-lbl">Google</div></div>
+    <div class="hb-item"><div class="hb-num">126</div><div class="hb-lbl">Reseñas</div></div>
+    <div class="hb-item"><div class="hb-num">Av. Obregón</div><div class="hb-lbl">Centro · Los Mochis</div></div>
+    <div class="hb-item"><div class="hb-num">2 turnos</div><div class="hb-lbl">Mar–Dom</div></div>
+  </div>
+</section>
+
+<section class="waffles reveal" id="waffles">
+  <div class="wf-header">
+    <div class="wfh-title">Waffles<br>para cada<br><em>antojo</em></div>
+    <p class="wfh-desc">Waffles belgas auténticos hechos al momento. Crujientes por fuera, suaves por dentro. Con los toppings que tú eliges.</p>
+  </div>
+  <div class="wf-grid">
+    <div class="wi"><span class="wi-ico">🧇</span><div class="wi-name"><em>Clásico</em> Belga</div><p class="wi-desc">El original. Crujiente, suave por dentro. Con Nutella, maple o mantequilla. Simple y perfecto.</p></div>
+    <div class="wi"><span class="wi-ico">🍓</span><div class="wi-name">Con <em>Frutas</em></div><p class="wi-desc">Fresas, plátano, frutos rojos y crema. Una explosión de sabor fresco en cada mordida.</p></div>
+    <div class="wi"><span class="wi-ico">🍫</span><div class="wi-name">De <em>Chocolate</em></div><p class="wi-desc">Ganache, chispas de chocolate y toppings irresistibles. Para los que no se conforman con poco.</p></div>
+    <div class="wi"><span class="wi-ico">☕</span><div class="wi-name">Café & <em>Bebidas</em></div><p class="wi-desc">Americano, latte y opciones especiales para acompañar. La combinación perfecta para cualquier hora.</p></div>
+    <div class="wi"><span class="wi-ico">🧁</span><div class="wi-name">Postres <em>del Día</em></div><p class="wi-desc">Postres artesanales que cambian cada día. Siempre frescos, siempre sorprendentes.</p></div>
+    <div class="wi"><span class="wi-ico">🌳</span><div class="wi-name">Terraza & <em>Jardín</em></div><p class="wi-desc">Come rodeado de plantas en nuestra terraza única. El ambiente más relajante de Los Mochis.</p></div>
+  </div>
+</section>
+
+<section class="galeria reveal" id="galeria">
+  <div class="gal-title">Así saben los mejores waffles</div>
+  <div class="gal-grid">
+    <div class="gi wide"><img src="belwaffel-g1.jpg" alt="Waffle"></div>
+    <div class="gi"><img src="belwaffel-g2.jpg" alt="Topping"></div>
+    <div class="gi"><img src="belwaffel-g3.jpg" alt="Café"></div>
+    <div class="gi"><img src="belwaffel-g4.jpg" alt="Mesa"></div>
+  </div>
+</section>
+
+<section class="terraza reveal">
+  <div class="t-img"><img src="belwaffel-terraza.jpg" alt="Terraza"></div>
+  <div class="t-text">
+    <div class="tag">Lo que dicen</div>
+    <h2>El secreto mejor<br>guardado de<br><em>Los Mochis</em></h2>
+    <p>Belwaffel tiene algo especial que los que lo conocen no quieren decirle a todos. Por eso regresan. Y por eso traen a sus amigos.</p>
+    <div class="reviews">
+      <div class="rv"><div class="rv-stars">★★★★★</div><p class="rv-text">"Los mejores waffles que he probado. El de fresa y Nutella fue increíble. El lugar limpio y relajante."</p><div class="rv-auth">Cliente verificado · Google</div></div>
+      <div class="rv"><div class="rv-stars">★★★★★</div><p class="rv-text">"Viniendo de BC, un gran hallazgo. El personal muy amable y la comida deliciosa. Regresaré."</p><div class="rv-auth">Visitante verificado · Google</div></div>
+      <div class="rv"><div class="rv-stars">★★★★★</div><p class="rv-text">"Excelente. Los waffles son auténticos belgas y el ambiente muy agradable. Recomiendo ir temprano."</p><div class="rv-auth">Cliente verificado · Google</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="horario reveal" id="horario">
+  <div>
+    <h2 class="h-title">Horario de<br><em>doble turno</em></h2>
+    <table class="h-table">
+      <tr class="off"><td>Lunes</td><td>Cerrado</td></tr>
+      <tr><td>Martes – Viernes</td><td>8:00 AM – 12:00 PM · 5:00 – 9:00 PM</td></tr>
+      <tr><td>Sábado</td><td>8:00 AM – 12:00 PM · 4:00 – 8:00 PM</td></tr>
+      <tr><td>Domingo</td><td>8:30 AM – 12:30 PM · 4:00 – 8:00 PM</td></tr>
+    </table>
+  </div>
+  <div class="h-contact">
+    <p class="h-addr">Av. Gral. Álvaro Obregón s/n<br>Centro, Los Mochis, Sinaloa</p>
+    <a href="tel:+523345931181" class="h-phone">33 4593 1181</a>
+    <a href="https://wa.me/523345931181?text=Hola%20Belwaffel%2C%20c%C3%B3mo%20llegar" class="btn-wa">📍 ¿Cómo llegar?</a>
+  </div>
+</section>
+<footer>
+  <span class="f-logo">Belwaffel</span>
+  <span class="f-copy">© 2026 · Los Mochis, Sinaloa</span>
+  <span class="f-prolink">Sitio por ProLink</span>
+</footer>
+<a href="https://wa.me/523345931181" class="wa-fab"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+<script>const ob=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')}),{threshold:.1});document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));</script>
+</body></html>
