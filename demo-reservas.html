@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Reservas y salones por WhatsApp — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva: un asistente de IA toma reservas por WhatsApp, ofrece alternativas, confirma 24 horas antes, llena mesas con lista de espera y aparta salones privados con anticipo."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-reservas.html"/>
+  <meta property="og:title" content="Reservas y salones por WhatsApp — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva: un asistente de IA toma reservas por WhatsApp, ofrece alternativas, confirma 24 horas antes, llena mesas con lista de espera y aparta salones privados con anticipo."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+</head>
+<body>
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html" aria-current="page">Reservas</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Atención 24/7: reservas</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Reservas que se confirman <em>solas</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">El asistente toma la reserva por WhatsApp, ofrece otra hora cuando no hay lugar, confirma un día antes y, si alguien cancela, le da la mesa a la lista de espera. Los salones privados se apartan con anticipo.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con datos ficticios.</b> Toca los botones para conversar. Conectado a tu empresa, el asistente responde con tu inventario, tus precios y tus clientes reales, y una persona de tu equipo revisa lo que haga falta.</span></p>
+    <div class="demo-layout">
+      <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
+        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">AD</div><div><b>Asador Demo</b><small>en línea</small></div></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="quick" id="quick"></div>
+      </div>
+      <div>
+        <div class="panel">
+          <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
+          <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
+          <div class="kpis"><div class="kpi"><b id="kRes">0</b><span>Reservas por WhatsApp</span></div><div class="kpi"><b id="kConf">0</b><span>Confirmadas un día antes</span></div><div class="kpi"><b id="kRec">0</b><span>Mesas recuperadas</span></div><div class="kpi"><b id="kHum">0</b><span>Pasó a una persona</span></div></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">📋</span> Agenda del sábado</h3>
+          <p class="muted small" style="margin-bottom:0.6rem;">Sincronizada con el sistema de reservas del restaurante: lo que pasa en WhatsApp aparece aquí al momento.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Hora</th><th>Mesa</th><th>Pers.</th><th>Nombre</th><th>Estado</th></tr></thead><tbody id="agenda"></tbody></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente de WhatsApp conectado a tu sistema de reservas (OpenTable, el que ya uses o Google Calendar) para crear, mover y cancelar.</li><li>Confirmación automática 24 horas antes y lista de espera que se llena sola.</li><li>Salones privados con menús de grupo, anticipo y aviso al gerente de eventos.</li><li>Fines de semana para empezar y capacitación a tu equipo de piso.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20reservas%20y%20quiero%20verla%20con%20mi%20restaurante" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20reservas%20y%20quiero%20verla%20con%20mi%20restaurante" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+  <script src="demo.js"></script>
+  <script>
+
+  const agendaBase = [
+    { hora: '8:00 p. m.', mesa: 'T-2 · Terraza', pax: 2, nombre: 'García', estado: 'Confirmada' },
+    { hora: '8:30 p. m.', mesa: 'S-4 · Salón', pax: 6, nombre: 'Valenzuela', estado: 'Confirmada' },
+    { hora: '9:00 p. m.', mesa: 'T-1 · Terraza', pax: 4, nombre: 'Osuna', estado: 'Por confirmar' },
+    { hora: '9:00 p. m.', mesa: 'T-3 · Terraza', pax: 4, nombre: 'Félix', estado: 'Confirmada' }
+  ];
+  let agenda = [], miReserva = null, enEspera = false;
+  const tbody = document.getElementById('agenda');
+  const color = e => e.startsWith('Confirmada') ? 'stock-ok' : (e.startsWith('Cancelada') || e.startsWith('Liberada') ? 'stock-no' : 'stock-low');
+  function pintar() {
+    tbody.innerHTML = agenda.map(r => '<tr' + (r.nueva ? ' style="background:rgba(0,232,122,0.07)"' : '') + '><td>' + r.hora + '</td><td>' + r.mesa + '</td><td class="num">' + r.pax + '</td><td>' + r.nombre + '</td><td class="' + color(r.estado) + '">' + r.estado + '</td></tr>').join('');
+  }
+  function reservar(hora, mesa, pax) {
+    miReserva = { hora, mesa, pax, nombre: 'Laura (WhatsApp)', estado: 'Reservada', nueva: true };
+    agenda.push(miReserva); agenda.sort((a, b) => a.hora.localeCompare(b.hora)); pintar();
+  }
+  function estado(e, extra) { if (miReserva) { miReserva.estado = e; Object.assign(miReserva, extra || {}); pintar(); } }
+
+  ProDemo.iniciar({
+    kpiInicial: { kRes: '0', kConf: '0', kRec: '0', kHum: '0' },
+    alReiniciar: () => { agenda = agendaBase.map(r => Object.assign({}, r)); miReserva = null; enEspera = false; pintar(); },
+    nodos: {
+      inicio: {
+        bot: [{ text: '¡Hola! Bienvenido a Asador Demo 🥩🦐\n¿En qué te ayudo?' }],
+        opciones: [
+          { label: '📅 Reservar mesa', next: 'cuantos' },
+          { label: '🎉 Salón privado para evento', next: 'salon' },
+          { label: '🕐 Horario y ubicación', next: 'horario' }
+        ]
+      },
+      horario: {
+        bot: [{ text: 'Abrimos todos los días de 1:00 p. m. a 12:00 a. m. 📍 Bulevar Demo 123, Los Mochis. Hay valet parking.\n¿Te aparto una mesa?' }],
+        opciones: [{ label: '📅 Reservar mesa', next: 'cuantos' }]
+      },
+      cuantos: {
+        bot: [{ text: '¡Claro! ¿Para cuántas personas y qué día?' }],
+        opciones: [
+          { label: '4 personas, sábado 9:00 p. m.', next: 'sabado' },
+          { label: '2 personas, hoy 8:00 p. m.', next: 'hoy' }
+        ]
+      },
+      hoy: {
+        bot: [{ text: 'Listo ✅ Mesa para 2 hoy a las 8:00 p. m. en terraza, a tu nombre. ¡Te esperamos!', espera: 1100,
+                despues: () => reservar('8:00 p. m.', 'T-5 · Terraza', 2),
+                log: [{ text: '<b>Consultó disponibilidad</b> en el sistema de reservas y <b>bloqueó la mesa T-5</b>.' }],
+                kpi: { kRes: '1' } }],
+        fin: true
+      },
+      sabado: {
+        bot: [{ text: 'El sábado a las 9:00 p. m. ya no me queda mesa para 4 en terraza 😕 Te puedo ofrecer:\n• 8:30 p. m. en terraza\n• 9:00 p. m. en el salón principal\n• Lista de espera para las 9:00 en terraza', espera: 1300,
+                log: [{ text: '<b>Consultó la agenda del sábado</b>: terraza llena a las 9:00; propuso alternativas en lugar de decir que no.' }] }],
+        opciones: [
+          { label: '8:30 en terraza', next: 'nombre' },
+          { label: '9:00 en salón principal', next: 'nombreSalon' },
+          { label: 'Lista de espera para las 9:00', next: 'espera' }
+        ]
+      },
+      nombre: {
+        bot: [{ text: 'Perfecto. ¿A nombre de quién la registro?' }],
+        opciones: [{ label: 'A nombre de Laura', next: 'confirmada', accion: () => reservar('8:30 p. m.', 'T-6 · Terraza', 4) }]
+      },
+      nombreSalon: {
+        bot: [{ text: 'Perfecto. ¿A nombre de quién la registro?' }],
+        opciones: [{ label: 'A nombre de Laura', next: 'confirmada', accion: () => reservar('9:00 p. m.', 'S-2 · Salón', 4) }]
+      },
+      confirmada: {
+        bot: [{ tarjeta: true, html: () => '<b>Reserva lista ✅</b><table><tr><td>Personas</td><td>' + miReserva.pax + '</td></tr><tr><td>Día y hora</td><td>Sábado, ' + miReserva.hora + '</td></tr><tr><td>Mesa</td><td>' + miReserva.mesa + '</td></tr><tr><td>Nombre</td><td>Laura</td></tr><tr><td>Código</td><td>R-5521</td></tr></table>Un día antes te escribo para confirmar.',
+                log: [{ text: '<b>Creó la reserva</b> en el sistema de reservas del restaurante y la marcó como hecha por WhatsApp.' }],
+                kpi: { kRes: '1' } },
+              { espera: 1800, html: '<i class="muted">📅 Viernes, 7:00 p. m. (un día antes)</i>\nHola Laura 👋 Te esperamos mañana a las ' + '<span id="horaConf"></span>' + ' ¿Confirmas tu mesa? Responde SÍ, CAMBIAR o CANCELAR.',
+                despues: () => { const h = document.getElementById('horaConf'); if (h && miReserva) { h.id = ''; h.textContent = miReserva.hora; } },
+                log: [{ text: '<b>Mandó la confirmación automática</b> 24 horas antes.', warn: true }] }],
+        opciones: [
+          { label: 'SÍ, ahí estaremos', next: 'si' },
+          { label: 'Ahora somos 6', next: 'seis' },
+          { label: 'Cancelar', next: 'cancelar' }
+        ]
+      },
+      si: {
+        bot: [{ text: '¡Perfecto! 🙌 Tu mesa queda confirmada. Si se te hace tarde, avísame por aquí y te la guardo 15 minutos más.',
+                despues: () => estado('Confirmada'),
+                log: [{ text: '<b>Marcó la reserva como confirmada.</b> Si alguien no confirma, libera la mesa 3 horas antes y avisa a la lista de espera.' }],
+                kpi: { kConf: '1' } }],
+        fin: true
+      },
+      seis: {
+        bot: [{ text: 'Sin problema. Para 6 tengo mesa a la misma hora en el salón principal (S-5). ¿Te la cambio?' }],
+        opciones: [{ label: 'Sí, cámbiala', next: 'cambiada' }]
+      },
+      cambiada: {
+        bot: [{ text: 'Listo ✅ Mesa para 6 en el salón principal, misma hora. ¡Los esperamos!',
+                despues: () => estado('Confirmada', { pax: 6, mesa: 'S-5 · Salón' }),
+                log: [{ text: '<b>Movió la reserva</b> a una mesa para 6 y liberó la mesa anterior.' }],
+                kpi: { kConf: '1' } }],
+        fin: true
+      },
+      cancelar: {
+        bot: [{ text: 'Listo, la cancelé. Gracias por avisar 🙏 ¡Te esperamos otro día!',
+                despues: () => estado('Liberada → lista de espera'),
+                log: [{ text: '<b>Liberó la mesa</b> y se la ofreció a la primera persona de la lista de espera.' }],
+                kpi: { kRec: '1' } }],
+        fin: true
+      },
+      espera: {
+        bot: [{ text: 'Te anoté en la lista de espera para las 9:00 p. m. en terraza. Si se libera una mesa, te escribo al momento 📲',
+                despues: () => { enEspera = true; },
+                log: [{ text: '<b>Agregó a Laura a la lista de espera</b> del sábado a las 9:00.' }] },
+              { espera: 1800, html: '<i class="muted">📲 Sábado, 5:40 p. m.</i>\n¡Buenas noticias! Se liberó una mesa para 4 a las 9:00 p. m. en terraza. ¿La quieres?',
+                log: [{ text: 'Otra reserva no confirmó a tiempo: <b>liberó la mesa T-1</b> y avisó a la lista de espera.', warn: true }],
+                despues: () => { const o = agenda.find(r => r.nombre === 'Osuna'); if (o) { o.estado = 'Liberada (no confirmó)'; pintar(); } } }],
+        opciones: [{ label: 'Sí, la tomo', next: 'esperaOk', accion: () => reservar('9:00 p. m.', 'T-1 · Terraza', 4) }]
+      },
+      esperaOk: {
+        bot: [{ text: '¡Es tuya! ✅ Mesa para 4 hoy a las 9:00 p. m. en terraza, a nombre de Laura.',
+                despues: () => estado('Confirmada'),
+                log: [{ text: '<b>Reasignó la mesa liberada</b>: una mesa que se habría quedado vacía se volvió a llenar.' }],
+                kpi: { kRes: '1', kRec: '1' } }],
+        fin: true
+      },
+      salon: {
+        bot: [{ text: '¡Con gusto! Tenemos 4 salones privados, de 12 a 60 personas. ¿Cuántos invitados serían?' }],
+        opciones: [{ label: '25 personas, cena de empresa', next: 'salon25' }]
+      },
+      salon25: {
+        bot: [{ text: 'Para 25 te recomiendo el Salón Pacífico (hasta 30 personas, con pantalla). Los menús de grupo van desde $650 por persona y para apartarlo pedimos un anticipo de $3,000.' }],
+        opciones: [{ label: 'Ver menús de grupo', next: 'menus' }, { label: 'Apartar con anticipo', next: 'anticipo' }]
+      },
+      menus: {
+        bot: [{ tarjeta: true, html: '<b>Menús de grupo</b> (por persona)<table><tr><td>Clásico: entrada, corte 300 g, postre</td><td>$650</td></tr><tr><td>Mar y tierra: entrada, surf &amp; turf, postre</td><td>$890</td></tr><tr><td>Premium: 3 tiempos y maridaje</td><td>$1,250</td></tr></table>Precios de ejemplo.',
+                log: [{ text: '<b>Mandó los menús de grupo</b> que el restaurante tiene cargados.' }] }],
+        opciones: [{ label: 'Apartar con anticipo', next: 'anticipo' }]
+      },
+      anticipo: {
+        bot: [{ text: 'Te mando el enlace de pago del anticipo de $3,000 (válido 24 horas):\n🔗 pago-demo.prolink365 (enlace de ejemplo)\nEn cuanto se acredite, el salón queda tuyo y el gerente de eventos te escribe para afinar menú y horarios.',
+                log: [{ text: '<b>Bloqueó el Salón Pacífico</b> como "por confirmar" durante 24 horas.' }, { text: '<b>Pasó el evento al gerente de eventos</b> con el resumen: 25 personas, cena de empresa (persona en el circuito).', warn: true }],
+                kpi: { kHum: '1 (gerente de eventos)' } }],
+        fin: true
+      }
+    }
+  });
+
+  </script>
+</body>
+</html>
