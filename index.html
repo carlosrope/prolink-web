@@ -1,802 +1,298 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ProLink — Automatizaciones para tu negocio</title>
-  <meta name="description" content="Automatizaciones para negocios en Los Mochis. Recepcionista virtual IA, páginas web profesionales y más. Sin que hagas nada."/>
-
-  <!-- Meta tags Open Graph (para compartir en WhatsApp/Facebook) -->
-  <meta property="og:title" content="ProLink — Automatizaciones para tu negocio"/>
-  <meta property="og:description" content="Recepcionista virtual IA y páginas web profesionales para negocios en Los Mochis, Sinaloa. Sin que hagas nada."/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <title>ProLink365 — Automatización empresarial con IA en Sinaloa</title>
+  <meta name="description" content="Automatizamos con IA los procesos que le quitan horas a tu empresa: cotizar y vender por WhatsApp, atención 24/7, facturación, inventario, refacciones y capacitación. Pilotos de 4 a 6 semanas con una métrica. Los Mochis, Sinaloa."/>
+  <link rel="canonical" href="https://prolink365.com.mx/"/>
+  <meta property="og:title" content="ProLink365 — Automatización empresarial con IA"/>
+  <meta property="og:description" content="Cotizar por WhatsApp, atención 24/7, facturación, inventario y refacciones con IA. Piloto de 4 a 6 semanas con una métrica clara."/>
   <meta property="og:type" content="website"/>
-  <meta property="og:url" content="https://prolink365.com.mx"/>
-  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="ProLink — Automatizaciones para tu negocio"/>
-  <meta name="twitter:description" content="Recepcionista virtual IA y páginas web profesionales para negocios en Los Mochis, Sinaloa."/>
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-
+  <meta property="og:url" content="https://prolink365.com.mx/"/>
+  <meta name="twitter:card" content="summary"/>
+  <!-- Google Analytics: pega aquí tu ID real de GA4 (G-…) y descomenta. El ID de ejemplo anterior no medía nada.
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TU_ID"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TU_ID');</script>
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <script>
+    // Enlaces viejos a secciones que ahora viven en su propia página.
+    (function () {
+      var h = location.hash, mapa = { '#como-funciona': 'recepcionista.html#como-funciona', '#funciones': 'recepcionista.html#funciones', '#precios': 'recepcionista.html#precios', '#paginas-web': 'paginas-web.html' };
+      if (mapa[h]) location.replace(mapa[h]);
+    })();
+  </script>
   <style>
-    :root {
-      --bg: #0a0f0d;
-      --bg2: #0f1a15;
-      --green: #00e87a;
-      --green-dim: #00c965;
-      --green-glow: rgba(0,232,122,0.15);
-      --white: #f0f5f2;
-      --gray: #7a8f84;
-      --border: rgba(0,232,122,0.12);
-      --card: rgba(15,26,21,0.8);
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      background: var(--bg);
-      color: var(--white);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(0,232,122,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(0,232,122,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 1.2rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(10,15,13,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-    .logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.4rem; color: var(--green); letter-spacing: -0.5px; }
-    .logo span { color: var(--white); }
-    nav a { color: var(--gray); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
-    nav a:hover { color: var(--green); }
-    .nav-actions { display: flex; align-items: center; gap: 0.6rem; }
-    .btn-roi {
-      background: transparent; color: var(--green) !important; font-weight: 500; font-size: 0.88rem;
-      padding: 0.5rem 1.1rem; border-radius: 6px; border: 1px solid rgba(0,232,122,0.35);
-      cursor: pointer; transition: background 0.2s, border-color 0.2s !important;
-      font-family: 'DM Sans', sans-serif; display: flex; align-items: center; gap: 0.4rem; letter-spacing: 0;
-    }
-    .btn-roi:hover { background: rgba(0,232,122,0.08); border-color: var(--green) !important; }
-    .btn-roi .roi-icon { font-size: 0.9rem; }
-    .nav-cta { background: var(--green); color: #0a0f0d !important; font-weight: 500; padding: 0.5rem 1.2rem; border-radius: 6px; transition: background 0.2s !important; }
-    .nav-cta:hover { background: var(--green-dim) !important; }
-
-    /* ── MODAL ROI ── */
-    .roi-overlay { position: fixed; inset: 0; z-index: 999; background: rgba(5,10,8,0.88); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-    .roi-overlay.open { opacity: 1; pointer-events: all; }
-    .roi-modal { background: #0d1a12; border: 1px solid rgba(0,232,122,0.25); border-radius: 20px; width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; position: relative; transform: translateY(28px) scale(0.97); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); scrollbar-width: thin; scrollbar-color: rgba(0,232,122,0.2) transparent; }
-    .roi-overlay.open .roi-modal { transform: translateY(0) scale(1); }
-    .roi-modal::-webkit-scrollbar { width: 4px; }
-    .roi-modal::-webkit-scrollbar-thumb { background: rgba(0,232,122,0.2); border-radius: 4px; }
-    .roi-header { padding: 1.8rem 2rem 0; display: flex; justify-content: space-between; align-items: flex-start; }
-    .roi-modal-badge { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(0,232,122,0.1); border: 1px solid rgba(0,232,122,0.2); border-radius: 100px; padding: 0.25rem 0.8rem; font-size: 0.72rem; color: var(--green); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem; }
-    .roi-modal-badge::before { content:''; width:5px; height:5px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
-    .roi-modal h2 { font-family:'Exo 2',sans-serif; font-weight:900; font-size:1.6rem; letter-spacing:-0.5px; color:var(--white); line-height:1.15; margin-bottom:0.3rem; }
-    .roi-modal h2 em { font-style:normal; color:var(--green); }
-    .roi-modal-sub { font-size:0.85rem; color:var(--gray); }
-    .roi-close { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:8px; color:var(--gray); width:36px; height:36px; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.1rem; transition:background 0.2s,color 0.2s; flex-shrink:0; margin-left:1rem; }
-    .roi-close:hover { background:rgba(255,255,255,0.1); color:var(--white); }
-    .roi-body { padding: 1.8rem 2rem; }
-    .roi-field { margin-bottom: 1.4rem; }
-    .roi-label { display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; font-weight:500; color:var(--gray); text-transform:uppercase; letter-spacing:0.08em; margin-bottom:0.6rem; }
-    .roi-label-dot { width:6px; height:6px; background:var(--green); border-radius:50%; opacity:0.7; }
-    .spinner-wrap { display:flex; align-items:center; gap:0; background:rgba(15,26,21,0.9); border:1px solid rgba(0,232,122,0.18); border-radius:10px; overflow:hidden; width:fit-content; }
-    .spinner-btn { width:44px; height:48px; background:transparent; border:none; color:var(--green); font-size:1.3rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s; flex-shrink:0; font-family:'DM Sans',sans-serif; }
-    .spinner-btn:hover { background:rgba(0,232,122,0.08); }
-    .spinner-val { min-width:60px; height:48px; display:flex; align-items:center; justify-content:center; font-family:'Exo 2',sans-serif; font-weight:900; font-size:1.4rem; color:var(--white); border-left:1px solid rgba(0,232,122,0.12); border-right:1px solid rgba(0,232,122,0.12); user-select:none; }
-    .spinner-unit { padding:0 0.9rem; font-size:0.78rem; color:var(--gray); white-space:nowrap; }
-    .roi-input-wrap { display:flex; align-items:center; background:rgba(15,26,21,0.9); border:1px solid rgba(0,232,122,0.18); border-radius:10px; overflow:hidden; transition:border-color 0.2s; }
-    .roi-input-wrap:focus-within { border-color:rgba(0,232,122,0.5); }
-    .roi-prefix { padding:0 0.9rem; font-family:'Exo 2',sans-serif; font-weight:700; font-size:1rem; color:var(--green); opacity:0.8; border-right:1px solid rgba(0,232,122,0.12); height:48px; display:flex; align-items:center; flex-shrink:0; }
-    .roi-suffix { padding:0 0.9rem; font-size:0.78rem; color:var(--gray); border-left:1px solid rgba(0,232,122,0.12); height:48px; display:flex; align-items:center; flex-shrink:0; }
-    .roi-input { background:transparent; border:none; outline:none; color:var(--white); font-family:'Exo 2',sans-serif; font-weight:900; font-size:1.3rem; padding:0 0.8rem; width:100%; height:48px; -moz-appearance:textfield; }
-    .roi-input::-webkit-outer-spin-button,.roi-input::-webkit-inner-spin-button { -webkit-appearance:none; }
-    .roi-input::placeholder { color:rgba(240,245,242,0.2); font-weight:700; }
-    .roi-toggle-wrap { display:flex; gap:0.5rem; }
-    .roi-toggle-opt { flex:1; padding:0.75rem; border-radius:10px; border:1px solid rgba(0,232,122,0.15); background:rgba(15,26,21,0.7); color:var(--gray); font-family:'DM Sans',sans-serif; font-size:0.9rem; font-weight:500; text-align:center; cursor:pointer; transition:all 0.2s; user-select:none; }
-    .roi-toggle-opt:hover { border-color:rgba(0,232,122,0.3); color:var(--white); }
-    .roi-toggle-opt.selected { background:rgba(0,232,122,0.12); border-color:var(--green); color:var(--green); }
-    .roi-cond-field { overflow:hidden; max-height:0; opacity:0; transition:max-height 0.35s ease,opacity 0.3s ease,margin 0.3s ease; margin-top:0; }
-    .roi-cond-field.visible { max-height:120px; opacity:1; margin-top:1.4rem; }
-    .roi-divider { height:1px; background:rgba(0,232,122,0.1); margin:1.6rem 0; }
-    .roi-result { background:rgba(0,232,122,0.05); border:1px solid rgba(0,232,122,0.2); border-radius:14px; padding:1.5rem; opacity:0; transform:translateY(10px); transition:opacity 0.4s ease,transform 0.4s ease; pointer-events:none; }
-    .roi-result.show { opacity:1; transform:translateY(0); pointer-events:all; }
-    .roi-result-label { font-size:0.72rem; color:var(--gray); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:0.4rem; }
-    .roi-result-main { font-family:'Exo 2',sans-serif; font-weight:900; font-size:3rem; color:var(--green); line-height:1; letter-spacing:-1px; text-shadow:0 0 32px rgba(0,232,122,0.3); margin-bottom:0.25rem; }
-    .roi-result-period { font-size:0.82rem; color:var(--gray); margin-bottom:1.2rem; }
-    .roi-rows { display:flex; flex-direction:column; gap:0; }
-    .roi-row { display:flex; justify-content:space-between; align-items:center; padding:0.55rem 0; border-bottom:1px solid rgba(0,232,122,0.07); font-size:0.85rem; }
-    .roi-row:last-child { border-bottom:none; }
-    .roi-row-label { color:var(--gray); }
-    .roi-row-val { font-weight:500; color:var(--white); font-family:'DM Sans',sans-serif; }
-    .roi-row-val.green { color:var(--green); }
-    .roi-row-val.dim { color:rgba(240,245,242,0.45); }
-    .roi-plan-badge { display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,232,122,0.12); border:1px solid rgba(0,232,122,0.25); color:var(--green); font-size:0.78rem; font-weight:500; padding:0.25rem 0.7rem; border-radius:100px; }
-    .roi-annual { margin-top:1rem; background:rgba(0,232,122,0.06); border-radius:8px; padding:0.7rem 0.9rem; display:flex; justify-content:space-between; align-items:center; font-size:0.82rem; }
-    .roi-annual-label { color:var(--gray); }
-    .roi-annual-val { font-family:'Exo 2',sans-serif; font-weight:900; font-size:1.1rem; color:var(--green); }
-    .roi-credibility { margin-top:0.8rem; font-size:0.75rem; color:rgba(122,143,132,0.7); text-align:center; display:none; }
-    .roi-credibility.show { display:block; }
-    .roi-modal-cta { display:block; margin-top:1.2rem; background:var(--green); color:#0a0f0d; font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; text-align:center; padding:0.85rem; border-radius:10px; text-decoration:none; opacity:0; pointer-events:none; transition:background 0.2s,transform 0.15s,opacity 0.4s ease; }
-    .roi-modal-cta.show { opacity:1; pointer-events:all; }
-    .roi-modal-cta:hover { background:var(--green-dim); transform:translateY(-1px); }
-
-    /* ── HERO ── */
-    .hero { position:relative; z-index:1; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:8rem 2rem 4rem; }
-    .hero-badge { display:inline-flex; align-items:center; gap:0.5rem; background:var(--green-glow); border:1px solid var(--border); border-radius:100px; padding:0.35rem 1rem; font-size:0.8rem; color:var(--green); margin-bottom:2rem; animation:fadeDown 0.6s ease both; }
-    .hero-badge::before { content:''; width:6px; height:6px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.8);} }
-    h1 { font-family:'Exo 2',sans-serif; font-weight:900; font-size:clamp(2.8rem,7vw,5.5rem); line-height:1.05; letter-spacing:-2px; margin-bottom:1.5rem; }
-    h1 em { font-style:normal; color:var(--green); }
-    h1 .hw { display:inline-block; opacity:0; transform:translateY(32px); }
-    h1 .hw.visible-word { animation:wordCascade 0.65s cubic-bezier(0.22,1,0.36,1) forwards; }
-    @keyframes wordCascade { to { opacity:1; transform:translateY(0); } }
-    .hero-sub { font-size:clamp(1rem,2vw,1.2rem); color:var(--gray); max-width:520px; margin-bottom:2.5rem; animation:fadeUp 0.7s ease 0.2s both; }
-    .hero-actions { display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; animation:fadeUp 0.7s ease 0.3s both; }
-    .btn-primary { background:var(--green); color:#0a0f0d; font-family:'DM Sans',sans-serif; font-weight:500; font-size:1rem; padding:0.85rem 2rem; border-radius:8px; text-decoration:none; transition:background 0.2s,transform 0.2s; }
-    .btn-primary:hover { background:var(--green-dim); transform:translateY(-2px); }
-    .btn-ghost { background:transparent; color:var(--white); font-family:'DM Sans',sans-serif; font-weight:400; font-size:1rem; padding:0.85rem 2rem; border-radius:8px; border:1px solid var(--border); text-decoration:none; transition:border-color 0.2s,color 0.2s; }
-    .btn-ghost:hover { border-color:var(--green); color:var(--green); }
-    .orb { position:absolute; width:600px; height:600px; background:radial-gradient(circle,rgba(0,232,122,.08) 0%,transparent 70%); border-radius:50%; top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
-
-    /* ── STATS ── */
-    .stats { position:relative; z-index:1; display:flex; justify-content:center; border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg2); flex-wrap:wrap; }
-    .stat { flex:1; min-width:160px; padding:2rem 1.5rem; text-align:center; border-right:1px solid var(--border); }
-    .stat:last-child { border-right:none; }
-    .stat-num { font-family:'Exo 2',sans-serif; font-weight:900; font-size:3rem; color:var(--green); line-height:1; margin-bottom:.3rem; letter-spacing:-1px; text-shadow:0 0 24px rgba(0,232,122,.35); }
-    .stat-label { font-size:.75rem; color:var(--gray); text-transform:uppercase; letter-spacing:.1em; }
-
-    /* ── SECTIONS ── */
-    section { position:relative; z-index:1; padding:6rem 2rem; max-width:1100px; margin:0 auto; }
-    .section-tag { font-size:.75rem; color:var(--green); text-transform:uppercase; letter-spacing:.15em; margin-bottom:1rem; font-weight:500; }
-    h2 { font-family:'Syne',sans-serif; font-weight:700; font-size:clamp(2rem,4vw,3rem); letter-spacing:-1px; line-height:1.1; margin-bottom:1rem; }
-    .section-sub { color:var(--gray); font-size:1.05rem; max-width:500px; margin-bottom:3rem; }
-
-    /* ── SERVICIOS ── */
-    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
-    .service-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; position:relative; transition:border-color .3s,transform .2s; display:flex; flex-direction:column; gap:1rem; }
-    .service-card:hover { border-color:rgba(0,232,122,.35); transform:translateY(-4px); }
-    .service-card.active { border-color:var(--green); }
-    .service-card.soon { opacity:0.7; }
-    .service-badge { position:absolute; top:1.2rem; right:1.2rem; font-size:0.65rem; font-weight:600; text-transform:uppercase; letter-spacing:0.1em; padding:0.2rem 0.6rem; border-radius:100px; }
-    .service-badge.live { background:rgba(0,232,122,0.12); color:var(--green); border:1px solid rgba(0,232,122,0.25); }
-    .service-badge.soon-badge { background:rgba(255,200,0,0.08); color:#ffe87a; border:1px solid rgba(255,200,0,0.2); }
-    .service-icon { font-size:2.5rem; line-height:1; }
-    .service-card h3 { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; }
-    .service-card p { color:var(--gray); font-size:0.9rem; line-height:1.6; flex:1; }
-    .service-link { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.85rem; font-weight:500; color:var(--green); text-decoration:none; transition:gap 0.2s; }
-    .service-link:hover { gap:0.7rem; }
-    .service-link.disabled { color:var(--gray); pointer-events:none; }
-
-    /* ── STEPS ── */
-    .steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; }
-    .step { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2rem; position:relative; transition:border-color .3s,transform .2s; cursor:pointer; overflow:hidden; }
-    .step:hover { border-color:rgba(0,232,122,.35); transform:translateY(-2px); }
-    .step.active { border-color:var(--green); }
-    .step-num { font-family:'Exo 2',sans-serif; font-weight:900; font-size:3.5rem; line-height:1; margin-bottom:1rem; -webkit-text-stroke:1px rgba(0,232,122,.4); color:transparent; letter-spacing:-2px; }
-    .step h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
-    .step p { color:var(--gray); font-size:.9rem; }
-    .step-cta { margin-top:1rem; font-size:.8rem; color:var(--green); opacity:.7; letter-spacing:.05em; }
-    .step-demo { display:none; margin-top:1.2rem; flex-direction:column; gap:.6rem; }
-    .step-demo.show { display:flex; }
-    .chat-bubble { padding:.6rem .9rem; border-radius:10px; font-size:.82rem; line-height:1.4; animation:bubbleIn .4s ease both; }
-    .chat-bubble.incoming { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); align-self:flex-start; color:var(--white); }
-    .chat-bubble.outgoing { background:rgba(0,232,122,.12); border:1px solid rgba(0,232,122,.2); align-self:flex-end; color:var(--green); }
-    .chat-bubble.wa { background:rgba(37,211,102,.1); border:1px solid rgba(37,211,102,.2); color:#afffcf; font-size:.78rem; }
-    .chat-bubble.wa-owner { background:rgba(255,200,0,.08); border:1px solid rgba(255,200,0,.15); color:#ffe87a; font-size:.78rem; }
-    @keyframes bubbleIn { from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);} }
-
-    /* ── FEATURES ── */
-    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
-    .feature-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2rem; transition:border-color .3s,transform .3s; }
-    .feature-card:hover { border-color:rgba(0,232,122,.35); transform:translateY(-4px); }
-    .feature-icon { font-size:2rem; margin-bottom:1rem; }
-    .feature-card h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
-    .feature-card p { color:var(--gray); font-size:.9rem; line-height:1.6; }
-
-    /* ── PRICING RECEPCIONISTA ── */
-    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
-    .price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; }
-    .price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); position:relative; }
-    .featured-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--green); color:#0a0f0d; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; padding:.25rem .8rem; border-radius:100px; white-space:nowrap; }
-    .price-plan { font-family:'Syne',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:.5rem; }
-    .price-amount { font-family:'Exo 2',sans-serif; font-weight:900; font-size:2.8rem; color:var(--green); line-height:1; margin-bottom:.2rem; text-shadow:0 0 20px rgba(0,232,122,.25); }
-    .price-period { color:var(--gray); font-size:.85rem; margin-bottom:1.5rem; }
-    .price-calls { display:inline-block; background:var(--green-glow); border:1px solid var(--border); color:var(--green); font-size:.8rem; padding:.25rem .7rem; border-radius:100px; margin-bottom:1.5rem; }
-    .price-features { list-style:none; margin-bottom:2rem; }
-    .price-features li { padding:.5rem 0; border-bottom:1px solid var(--border); font-size:.9rem; color:var(--gray); display:flex; align-items:center; gap:.6rem; }
-    .price-features li::before { content:'✓'; color:var(--green); font-weight:700; }
-    .price-btn { display:block; text-align:center; padding:.85rem; border-radius:8px; text-decoration:none; font-weight:500; font-size:.95rem; transition:all .2s; }
-    .price-btn-outline { border:1px solid var(--border); color:var(--white); }
-    .price-btn-outline:hover { border-color:var(--green); color:var(--green); }
-    .price-btn-solid { background:var(--green); color:#0a0f0d; }
-    .price-btn-solid:hover { background:var(--green-dim); }
-
-    /* ── PRICING PÁGINAS WEB ── */
-    .web-pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
-    .web-price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; position:relative; }
-    .web-price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); }
-    .web-setup { font-family:'Exo 2',sans-serif; font-weight:900; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.15rem; text-shadow:0 0 20px rgba(0,232,122,.25); }
-    .web-setup-label { color:var(--gray); font-size:0.78rem; margin-bottom:0.6rem; }
-    .web-maint { display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,232,122,0.08); border:1px solid rgba(0,232,122,0.18); color:var(--green); font-size:0.78rem; padding:0.25rem 0.7rem; border-radius:100px; margin-bottom:1.5rem; }
-    .web-note { font-size:0.75rem; color:var(--gray); margin-top:0.5rem; margin-bottom:1.5rem; font-style:italic; }
-    .web-extra-note { margin-top:1.2rem; font-size:0.75rem; color:rgba(122,143,132,0.7); text-align:center; padding-top:1rem; border-top:1px solid var(--border); }
-
-    /* ── DIVIDERS ── */
-    .full-divider { width:100%; height:1px; background:var(--border); position:relative; z-index:1; }
-
-    /* ── CTA ── */
-    .cta-section { text-align:center; padding:8rem 2rem; position:relative; z-index:1; }
-    .cta-section h2 { margin-bottom:1rem; }
-    .cta-section p { color:var(--gray); margin-bottom:2.5rem; max-width:460px; margin-left:auto; margin-right:auto; }
-
-    /* ── FOOTER ── */
-    footer { position:relative; z-index:1; border-top:1px solid var(--border); padding:2rem; text-align:center; color:var(--gray); font-size:.85rem; }
-    footer strong { color:var(--green); }
-
-    /* ── WA FLOAT ── */
-    .wa-float { position:fixed; bottom:2rem; right:2rem; z-index:200; background:#25d366; border-radius:50%; width:56px; height:56px; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(37,211,102,.4); text-decoration:none; transition:transform .2s; }
-    .wa-float:hover { transform:scale(1.1); }
-    .wa-float svg { width:28px; height:28px; fill:white; }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
-    @keyframes starAppear { from{opacity:0;transform:scale(0.4) rotate(-20deg);}to{opacity:1;transform:scale(1) rotate(0deg);} }
-    @keyframes fadeDown { from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);} }
-    .reveal { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
-    .reveal.visible { opacity:1; transform:translateY(0); }
-
-    @media(max-width:600px) {
-      nav { padding:1rem; }
-      .nav-actions { gap:0.4rem; }
-      .btn-roi { padding:0.45rem 0.75rem; font-size:0.8rem; }
-      .btn-roi .roi-icon { display:none; }
-      .stat { min-width:140px; }
-      h1 { letter-spacing:-1px; }
-      .roi-modal { border-radius:16px; }
-      .roi-result-main { font-size:2.4rem; }
-    }
+    .hero h1 .line { display: block; }
+    .sector-card h3 { display: flex; align-items: center; gap: 0.55rem; }
+    .demo-card { border-color: rgba(37,211,102,0.25); }
+    .demo-card .who { font-size: 0.8rem; color: var(--gray); }
+    .pymes { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+    .price-tag { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 2rem; color: var(--green); line-height: 1; }
+    .price-tag small { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.85rem; color: var(--gray); }
+    .alianza { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem; background: linear-gradient(135deg, rgba(0,232,122,0.06), var(--card)); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; }
+    .alianza p { color: var(--gray); max-width: 620px; }
+    .tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
+    .tools span { font-size: 0.8rem; color: var(--gray); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.8rem; }
   </style>
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav>
-    <div class="logo">Pro<span>Link</span></div>
-    <div class="nav-actions">
-      <button class="btn-roi" onclick="openROI()" aria-label="Calcular ROI">
-        <span class="roi-icon">📊</span> Calcular ROI
-      </button>
-      <a href="#contacto" class="nav-cta">Solicitar demo</a>
-    </div>
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span><sup>365</sup></a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sectores">Sectores</a></li>
+      <li><a href="#demos">Demos</a></li>
+      <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+      <li><a href="#pymes">Pymes</a></li>
+      <li class="mobile-only"><a href="#contacto">Agenda un diagnóstico</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta desktop">Agenda un diagnóstico</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </nav>
 
-  <!-- ── MODAL ROI ── -->
-  <div class="roi-overlay" id="roiOverlay" onclick="handleOverlayClick(event)">
-    <div class="roi-modal" id="roiModal">
-      <div class="roi-header">
-        <div class="roi-header-text">
-          <div class="roi-modal-badge">Calculadora de retorno</div>
-          <h2>¿Cuánto te cuesta<br/><em>no tener</em> ProLink?</h2>
-          <p class="roi-modal-sub">Ingresa los datos de tu consultorio y ve tu ahorro real en segundos.</p>
-        </div>
-        <button class="roi-close" onclick="closeROI()" aria-label="Cerrar">✕</button>
-      </div>
-      <div class="roi-body">
-        <div class="roi-field">
-          <div class="roi-label"><span class="roi-label-dot"></span>Llamadas que recibes al día</div>
-          <div class="spinner-wrap">
-            <button class="spinner-btn" onclick="changeSpinner(-1)" aria-label="Menos">−</button>
-            <div class="spinner-val" id="spinnerVal">10</div>
-            <button class="spinner-btn" onclick="changeSpinner(1)" aria-label="Más">+</button>
-            <span class="spinner-unit">llamadas / día</span>
-          </div>
-        </div>
-        <div class="roi-field">
-          <div class="roi-label"><span class="roi-label-dot"></span>Precio de consulta</div>
-          <div class="roi-input-wrap">
-            <span class="roi-prefix">$</span>
-            <input type="number" class="roi-input" id="precioConsulta" placeholder="800" min="0" oninput="calcROI()">
-            <span class="roi-suffix">MXN</span>
-          </div>
-        </div>
-        <div class="roi-field">
-          <div class="roi-label"><span class="roi-label-dot"></span>¿Tienes recepcionista actualmente?</div>
-          <div class="roi-toggle-wrap">
-            <div class="roi-toggle-opt selected" id="togSi" onclick="setRecep(true)">✓ &nbsp;Sí tengo</div>
-            <div class="roi-toggle-opt" id="togNo" onclick="setRecep(false)">✗ &nbsp;No tengo</div>
-          </div>
-        </div>
-        <div class="roi-cond-field visible" id="sueldoField">
-          <div class="roi-label"><span class="roi-label-dot"></span>Sueldo mensual de tu recepcionista</div>
-          <div class="roi-input-wrap">
-            <span class="roi-prefix">$</span>
-            <input type="number" class="roi-input" id="sueldoRecep" placeholder="6500" min="0" oninput="calcROI()">
-            <span class="roi-suffix">MXN / mes</span>
-          </div>
-        </div>
-        <div class="roi-divider"></div>
-        <div class="roi-result" id="roiResult">
-          <div class="roi-result-label">Tu ahorro mensual estimado con ProLink</div>
-          <div class="roi-result-main" id="roiNum">$0</div>
-          <div class="roi-result-period">pesos mexicanos por mes</div>
-          <div class="roi-rows">
-            <div class="roi-row"><span class="roi-row-label">Plan recomendado</span><span class="roi-row-val"><span class="roi-plan-badge" id="planBadge">Básico</span></span></div>
-            <div class="roi-row"><span class="roi-row-label">Costo mensual ProLink</span><span class="roi-row-val dim" id="planCosto">$2,500 MXN</span></div>
-            <div class="roi-row"><span class="roi-row-label">Citas recuperadas est.</span><span class="roi-row-val" id="citasRec">—</span></div>
-            <div class="roi-row"><span class="roi-row-label">vs. recepcionista humana</span><span class="roi-row-val green" id="vsHumana">—</span></div>
-          </div>
-          <div class="roi-annual">
-            <span class="roi-annual-label">Proyección anual de ahorro</span>
-            <span class="roi-annual-val" id="roiAnual">$0</span>
-          </div>
-        </div>
-        <p class="roi-credibility" id="roiCredibility">* Estimado conservador: recuperación del 40% de llamadas fuera de horario.</p>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="roi-modal-cta" id="roiCta">
-          Quiero empezar — hablar por WhatsApp →
-        </a>
-      </div>
-    </div>
-  </div>
-
   <!-- ── HERO ── -->
-  <div class="hero">
+  <header class="hero">
     <div class="orb"></div>
-    <div class="hero-badge">Automatizaciones · Los Mochis, Sinaloa</div>
-    <h1>
-      <span class="hw">Tu&nbsp;</span><span class="hw">negocio&nbsp;</span><span class="hw">disponible</span><br/>
-      <span class="hw">los&nbsp;</span><span class="hw"><em>365&nbsp;</em></span><span class="hw"><em>días&nbsp;</em></span><span class="hw">del&nbsp;</span><span class="hw">año</span>
-    </h1>
-    <p class="hero-sub">Automatizaciones para negocios locales — recepcionista virtual con IA, páginas web profesionales y más. Sin que hagas nada.</p>
+    <div class="hero-badge">Automatización empresarial con IA · Los Mochis, Sinaloa</div>
+    <h1><span class="line">Tu empresa operando</span><span class="line"><em>los 365 días</em> del año</span></h1>
+    <p class="hero-sub">Automatizamos con IA los procesos que hoy le quitan horas a tu equipo: cotizar y vender por WhatsApp, atender clientes, facturar, controlar inventario, resolver dudas técnicas y capacitar a tu gente. Empezamos con un piloto de 4 a 6 semanas y una métrica clara.</p>
     <div class="hero-actions">
-      <a href="#servicios" class="btn-primary">Ver servicios</a>
-      <a href="#contacto" class="btn-ghost">Solicitar demo gratis</a>
+      <a href="#demos" class="btn-primary">Ver demos en vivo</a>
+      <a href="#contacto" class="btn-ghost">Agenda un diagnóstico</a>
     </div>
+  </header>
+
+  <!-- ── CONFIANZA ── -->
+  <div class="trust" role="list">
+    <div role="listitem"><strong>Piloto con una métrica</strong><span>4 a 6 semanas, alcance acotado y precio cerrado antes de empezar.</span></div>
+    <div role="listitem"><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Google, Odoo, Shopify, tu ERP o tus hojas de cálculo.</span></div>
+    <div role="listitem"><strong>Tu equipo aprende a usarlo</strong><span>Cada proyecto incluye capacitación práctica para quien lo va a operar.</span></div>
+    <div role="listitem"><strong>Soporte local</strong><span>Estamos en Los Mochis y atendemos en persona en Sinaloa.</span></div>
   </div>
 
-  <!-- ── STATS HEADER ── -->
-  <style>
-    #insigniaWrap { position:relative; z-index:1; background:var(--bg2); border-top:none; border-bottom:1px solid var(--border); padding:2rem 2rem 1.8rem; text-align:center; overflow:hidden; }
-    #insigniaWrap::before { content:''; position:absolute; top:0; left:0; right:0; height:90px; background:linear-gradient(to bottom,#0a0f0d 0%,transparent 100%); pointer-events:none; z-index:1; }
-    #insigniaWrap::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 65% 85% at 50% 45%,transparent 25%,rgba(5,10,8,0.72) 100%); pointer-events:none; z-index:0; }
-    #insigniaGreenParts { position:absolute; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
-    .insignia-star-outer { display:inline-block; margin-bottom:0.6rem; position:relative; z-index:2; animation:starAppear 1s cubic-bezier(0.22,1,0.36,1) both, floatStar 3.8s ease-in-out 1s infinite; }
-    @keyframes floatStar { 0%,100%{transform:translateY(0px);} 50%{transform:translateY(-9px);} }
-    .insignia-title { position:relative; z-index:2; font-family:'Syne',sans-serif; font-weight:700; font-size:clamp(1.3rem,3vw,1.75rem); color:var(--white); letter-spacing:-0.5px; margin-bottom:0.3rem; animation:fadeUp 0.7s ease 0.5s both; }
-    .insignia-sub { position:relative; z-index:2; font-size:0.85rem; color:var(--gray); animation:fadeUp 0.7s ease 0.65s both; }
-    #insigniaSparkles { position:absolute; inset:0; pointer-events:none; z-index:2; }
-  </style>
-  <div id="insigniaWrap">
-    <div id="insigniaGreenParts"></div>
-    <div class="insignia-star-outer">
-      <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <filter id="textDepth" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="0" dy="1.8" stdDeviation="1.2" flood-color="#7a5500" flood-opacity="0.75"/>
-            <feDropShadow dx="0" dy="-0.6" stdDeviation="0.5" flood-color="#fff8c0" flood-opacity="0.4"/>
-          </filter>
-        </defs>
-        <polygon points="110,10 138,82 214,82 152,126 174,198 110,154 46,198 68,126 6,82 82,82" fill="#7a4f00" opacity="0.28" transform="translate(2,4)"/>
-        <polygon points="110,10 138,82 214,82 152,126 174,198 110,154 46,198 68,126 6,82 82,82" fill="#f5c842" stroke="#c98f00" stroke-width="1.8" stroke-linejoin="round"/>
-        <polygon points="110,30 132,88 200,88 148,126 166,182 110,148 54,182 72,126 20,88 88,88" fill="#ffe97a" opacity="0.32"/>
-        <text x="110" y="108" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="600" font-size="16" letter-spacing="2.5" fill="rgba(255,255,255,0.88)" filter="url(#textDepth)">SERVICIO</text>
-        <text x="110" y="136" text-anchor="middle" font-family="'Syne',sans-serif" font-weight="700" font-size="23" letter-spacing="2" fill="white" filter="url(#textDepth)">INSIGNIA</text>
-      </svg>
-    </div>
-    <div class="insignia-title">Recepcionista Virtual</div>
-    <div class="insignia-sub">El único servicio de recepción inteligente en todo México.</div>
-    <div id="insigniaSparkles"></div>
-  </div>
-
-  <!-- ── STATS ── -->
-  <div class="stats">
-    <div class="stat"><div class="stat-num" data-type="static">24/7</div><div class="stat-label">Disponibilidad</div></div>
-    <div class="stat"><div class="stat-num" data-type="static">&lt;2s</div><div class="stat-label">Tiempo de respuesta</div></div>
-    <div class="stat"><div class="stat-num" data-type="number" data-target="100" data-suffix="%">0%</div><div class="stat-label">Llamadas atendidas</div></div>
-    <div class="stat"><div class="stat-num" data-type="number" data-target="0" data-suffix="" data-from="999">999</div><div class="stat-label">Llamadas perdidas</div></div>
-  </div>
-
-  <!-- ════════════════════════════════════
-       SERVICIOS
-  ════════════════════════════════════ -->
+  <!-- ── SERVICIOS ── -->
   <section id="servicios">
     <div class="section-tag reveal">Servicios</div>
-    <h2 class="reveal">Una empresa.<br/>Tres soluciones.</h2>
-    <p class="section-sub reveal">Automatizamos los procesos que más tiempo te quitan para que puedas enfocarte en lo que importa.</p>
-    <div class="services-grid">
-      <div class="service-card active reveal">
-        <span class="service-badge live">● Disponible</span>
-        <div class="service-icon">🎙️</div>
-        <h3>Recepcionista Virtual</h3>
-        <p>Tu agente IA atiende llamadas, agenda citas y envía confirmaciones por WhatsApp — las 24 horas, los 7 días, los 365 días del año. Tú solo ves tu agenda llena.</p>
-        <a href="#como-funciona" class="service-link">Ver cómo funciona →</a>
-      </div>
-      <div class="service-card reveal">
-        <span class="service-badge live">● Disponible</span>
-        <div class="service-icon">🌐</div>
-        <h3>Páginas Web Profesionales</h3>
-        <p>Sitios web modernos y rápidos para tu negocio. Desde una landing page hasta un sitio completo con posicionamiento en Google y Google Business. Tu presencia en internet lista en menos de 24 horas.</p>
-        <a href="#paginas-web" class="service-link">Tu negocio en la web →</a>
-      </div>
-      <div class="service-card soon reveal">
-        <span class="service-badge soon-badge">⏳ Próximamente</span>
-        <div class="service-icon">🧾</div>
-        <h3>Contador Virtual</h3>
-        <p>Automatización de facturación por WhatsApp. Tu cliente recibe su factura CFDI al instante, sin que muevas un dedo. Integración directa con el SAT.</p>
-        <span class="service-link disabled">En desarrollo →</span>
-      </div>
+    <h2 class="reveal">Una sola empresa,<br/><em>muchas automatizaciones</em></h2>
+    <p class="section-sub reveal">No vendemos una herramienta: resolvemos el proceso que más le cuesta a tu empresa y lo conectamos con lo que ya usas. Cuando funciona, seguimos con el siguiente.</p>
+    <div class="grid">
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">💬</div>
+        <h3>Ventas y cotización por WhatsApp</h3>
+        <p>Responde existencia y precio, cotiza desde fotos, listas o planos, y da seguimiento a las cotizaciones que no se cerraron.</p>
+        <a class="link" href="demo-cotizador.html">Ver demo →</a>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">🗓️</div>
+        <h3>Atención 24/7: citas, reservas y facturas</h3>
+        <p>Agenda, confirma, factura y atiende flotillas o trámites a cualquier hora, por WhatsApp o por teléfono con nuestra recepcionista virtual.</p>
+        <a class="link" href="demo-flotillas.html">Ver demo →</a>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">🛠️</div>
+        <h3>Copiloto técnico y de refacciones</h3>
+        <p>Identifica la pieza por modelo, serie o foto, revisa existencias por sucursal y responde con tus manuales e historiales.</p>
+        <a class="link" href="demo-refacciones.html">Ver demo →</a>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">📦</div>
+        <h3>Pronóstico de demanda e inventario</h3>
+        <p>Sugiere compras, reabasto y traspasos por sucursal y temporada, con tus ventas históricas, el clima o el ciclo agrícola.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">🧾</div>
+        <h3>Documentos y contabilidad automáticos</h3>
+        <p>Lee y concilia facturas electrónicas, arma expedientes y reportes con revisión humana. Facturación por WhatsApp (Contador Virtual) en desarrollo.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">🖼️</div>
+        <h3>Catálogo y contenido con IA</h3>
+        <p>Fichas de producto desde los catálogos de tus proveedores, fotos mejoradas y contenido para cada marca y canal.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">🎓</div>
+        <h3>Capacitación "IA en tu puesto"</h3>
+        <p>Talleres prácticos por área (ventas, administración, técnicos) con casos de tu propia empresa y un piloto implementado.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">📡</div>
+        <h3>Monitoreo inteligente de la operación</h3>
+        <p>Alertas con sensores, cámaras o tus datos: calidad del agua, consumo de flotillas, control de calidad en producción.</p>
+      </article>
+      <article class="card reveal">
+        <div class="icon" aria-hidden="true">🌐</div>
+        <h3>Páginas web y presencia en Google</h3>
+        <p>Sitios rápidos, adaptados al celular y listos para recibir clientes por WhatsApp y aparecer en Google Maps.</p>
+        <a class="link" href="paginas-web.html">Ver planes →</a>
+      </article>
+    </div>
+    <div class="tools reveal" aria-label="Herramientas con las que trabajamos">
+      <span>WhatsApp Business</span><span>Google Workspace</span><span>Odoo</span><span>Shopify</span><span>OpenTable</span><span>Facturación CFDI</span><span>Hojas de cálculo</span><span>Tu ERP</span>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
-  <!-- ════════════════════════════════════
-       CÓMO FUNCIONA — RECEPCIONISTA
-  ════════════════════════════════════ -->
-  <section id="como-funciona">
-    <div class="section-tag reveal">Recepcionista Virtual</div>
-    <h2 class="reveal">Cuatro pasos.<br/>Sin complicaciones.</h2>
-    <p class="section-sub reveal">Tu paciente llama. Tu recepcionista IA atiende, agenda y confirma. Tú solo ves las citas en tu calendario.</p>
+  <!-- ── SECTORES ── -->
+  <section id="sectores">
+    <div class="section-tag reveal">Sectores</div>
+    <h2 class="reveal">Hecho para cómo trabajan<br/>las empresas de Sinaloa</h2>
+    <p class="section-sub reveal">Estos son los procesos que más nos piden. Si el tuyo no está, cuéntanos: casi siempre empieza por un WhatsApp saturado o una hoja de cálculo.</p>
+    <div class="grid">
+      <article class="card sector-card reveal">
+        <h3><span aria-hidden="true">🌾</span> Agro y agroindustria</h3>
+        <ul><li>Refacciones y soporte técnico por WhatsApp</li><li>Cotización de maquinaria e implementos</li><li>Pronóstico de insumos por ciclo</li><li>Capacitación para técnicos y vendedores</li></ul>
+      </article>
+      <article class="card sector-card reveal">
+        <h3><span aria-hidden="true">🏗️</span> Construcción, acero y ferretería</h3>
+        <ul><li>Cotizar desde la foto de una lista o un plano</li><li>Existencias y precios por sucursal</li><li>Seguimiento de cotizaciones abiertas</li><li>Fichas de producto automáticas</li></ul>
+      </article>
+      <article class="card sector-card reveal">
+        <h3><span aria-hidden="true">🛒</span> Comercio y distribución</h3>
+        <ul><li>Pedidos y cobranza por WhatsApp</li><li>Pronóstico de inventario por tienda</li><li>Contenido para marcas y temporadas</li></ul>
+      </article>
+      <article class="card sector-card reveal">
+        <h3><span aria-hidden="true">⛽</span> Gasolineras y flotillas</h3>
+        <ul><li>Factura CFDI desde la foto del ticket</li><li>Saldo y consumo por unidad</li><li>Alertas de cargas fuera de lo normal</li></ul>
+      </article>
+      <article class="card sector-card reveal">
+        <h3><span aria-hidden="true">🩺</span> Salud y servicios profesionales</h3>
+        <ul><li>Citas, recordatorios e indicaciones</li><li>Expedientes y documentos con revisión</li><li>Conciliación contable y reportes</li></ul>
+      </article>
+      <article class="card sector-card reveal">
+        <h3><span aria-hidden="true">🍽️</span> Restaurantes, hoteles y eventos</h3>
+        <ul><li>Reservas conectadas a tu sistema</li><li>Venta de boletos y dudas por WhatsApp</li><li>Redes y contenido de temporada</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── DEMOS ── -->
+  <section id="demos">
+    <div class="section-tag reveal">Demos en vivo</div>
+    <h2 class="reveal">Pruébalo antes<br/>de hablar con nosotros</h2>
+    <p class="section-sub reveal">Demostraciones interactivas con datos de ejemplo. Así funcionaría conectado a tu inventario, tus precios y tu WhatsApp.</p>
+    <div class="grid">
+      <article class="card demo-card reveal">
+        <span class="badge demo">Demo</span>
+        <h3>Refacciones por WhatsApp</h3>
+        <p>Un cliente pide una pieza por modelo o foto; el asistente la identifica, revisa existencias en tus sucursales y la aparta.</p>
+        <p class="who">Para distribuidores de maquinaria, refaccionarias y talleres.</p>
+        <a class="link" href="demo-refacciones.html">Probar demo →</a>
+      </article>
+      <article class="card demo-card reveal">
+        <span class="badge demo">Demo</span>
+        <h3>Cotización desde la foto de una lista</h3>
+        <p>El cliente manda su lista escrita a mano; la IA la lee, arma la cotización con tus precios y le da seguimiento.</p>
+        <p class="who">Para materiales, acero, ferreterías y equipo comercial.</p>
+        <a class="link" href="demo-cotizador.html">Probar demo →</a>
+      </article>
+      <article class="card demo-card reveal">
+        <span class="badge demo">Demo</span>
+        <h3>Facturas y flotillas por WhatsApp</h3>
+        <p>El cliente manda la foto del ticket y recibe su factura; las flotillas consultan saldo y reciben alertas de consumo.</p>
+        <p class="who">Para gasolineras, distribuidores y empresas con flotilla.</p>
+        <a class="link" href="demo-flotillas.html">Probar demo →</a>
+      </article>
+      <article class="card demo-card reveal">
+        <span class="badge demo">Demo</span>
+        <h3>Festivales: contenido y boletos</h3>
+        <p>La IA arma el plan de contenido del evento para que tu equipo lo apruebe, y un asistente responde dudas y aparta boletos por WhatsApp.</p>
+        <p class="who">Para eventos, restaurantes, hoteles y marcas de consumo.</p>
+        <a class="link" href="demo-festival.html">Probar demo →</a>
+      </article>
+      <article class="card demo-card reveal">
+        <span class="badge demo">Demo</span>
+        <h3>Recepcionista virtual</h3>
+        <p>Contesta llamadas, agenda en Google Calendar y confirma por WhatsApp, también de noche y en fin de semana.</p>
+        <p class="who">Para consultorios, clínicas y negocios con citas.</p>
+        <a class="link" href="recepcionista.html#como-funciona">Ver cómo funciona →</a>
+      </article>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── CÓMO TRABAJAMOS ── -->
+  <section id="como-trabajamos">
+    <div class="section-tag reveal">Cómo trabajamos</div>
+    <h2 class="reveal">Primero un piloto.<br/><em>Después, si funciona, crecemos.</em></h2>
+    <p class="section-sub reveal">La mayoría de los proyectos de IA fallan por querer abarcar todo al inicio. Nosotros empezamos por un proceso y lo medimos.</p>
     <div class="steps">
-      <div class="step reveal" onclick="playStep(this,'s1')">
-        <div class="step-num">01</div>
-        <h3>El paciente llama</h3>
-        <p>A cualquier hora, cualquier día. Tu recepcionista contesta en menos de 2 segundos con el nombre de tu consultorio.</p>
-        <div class="step-demo" id="s1">
-          <div class="chat-bubble incoming">📞 Buenas tardes, llamo para agendar una cita...</div>
-          <div class="chat-bubble outgoing">🤖 ¡Buenas tardes! Con gusto le ayudo. ¿Me puede dar su nombre completo?</div>
-        </div>
-        <div class="step-cta">▶ Ver en acción</div>
-      </div>
-      <div class="step reveal" onclick="playStep(this,'s2')">
-        <div class="step-num">02</div>
-        <h3>Agenda la cita</h3>
-        <p>Pregunta nombre, motivo y fecha. Registra la cita en tu Google Calendar en tiempo real.</p>
-        <div class="step-demo" id="s2">
-          <div class="chat-bubble incoming">📋 Soy Juan García, quiero cita para el lunes a las 3</div>
-          <div class="chat-bubble outgoing">✅ Perfecto Juan. Cita confirmada el lunes 12 de mayo a las 3:00pm. ¿Le mando confirmación por WhatsApp?</div>
-        </div>
-        <div class="step-cta">▶ Ver en acción</div>
-      </div>
-      <div class="step reveal" onclick="playStep(this,'s3')">
-        <div class="step-num">03</div>
-        <h3>Confirmación por WhatsApp</h3>
-        <p>El paciente recibe confirmación automática. Tú recibes notificación. Sin hacer nada.</p>
-        <div class="step-demo" id="s3">
-          <div class="chat-bubble wa">💬 Hola Juan, tu cita ha sido confirmada para el 12-05-2026 a las 15:00. Motivo: Consulta general.</div>
-          <div class="chat-bubble wa-owner">🔔 Para ti: Nueva cita — Juan García, lunes 12 mayo, 3:00pm.</div>
-        </div>
-        <div class="step-cta">▶ Ver en acción</div>
-      </div>
-      <div class="step reveal" onclick="playStep(this,'s4')">
-        <div class="step-num">04</div>
-        <h3>Recordatorio automático</h3>
-        <p>24 horas antes, el paciente recibe un recordatorio por WhatsApp. Menos ausencias, más ingresos.</p>
-        <div class="step-demo" id="s4">
-          <div class="chat-bubble wa">⏰ Hola Juan, mañana tienes cita a las 3:00pm. Responde SÍ para confirmar.</div>
-          <div class="chat-bubble incoming">SÍ, ahí estaré 👍</div>
-        </div>
-        <div class="step-cta">▶ Ver en acción</div>
-      </div>
+      <div class="step reveal"><div class="step-num">01</div><h3>Diagnóstico</h3><p>Una llamada de 30 minutos, sin costo. Elegimos un proceso con dolor visible: cotizar, contestar WhatsApp, facturar, identificar refacciones.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h3>Piloto de 4 a 6 semanas</h3><p>Precio cerrado, alcance acotado (una sucursal o un canal) y una sola métrica con su línea base: tiempo de respuesta, cotizaciones cerradas, horas ahorradas.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h3>Medimos juntos</h3><p>Al final comparamos contra la línea base, con una persona de tu equipo revisando lo que hace la IA. Tú decides si seguimos.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h3>Operación y mejora</h3><p>Mensualidad de operación y soporte, capacitación de tu equipo y nuevas automatizaciones cuando tengan sentido.</p></div>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
-  <!-- ── FUNCIONES RECEPCIONISTA ── -->
-  <section id="funciones">
-    <div class="section-tag reveal">Funciones</div>
-    <h2 class="reveal">Todo lo que necesita<br/>tu consultorio</h2>
-    <p class="section-sub reveal">Diseñado específicamente para negocios locales en Los Mochis y Sinaloa.</p>
-    <div class="features-grid">
-      <div class="feature-card reveal"><div class="feature-icon">🎙️</div><h3>Voz natural en español</h3><p>Tu recepcionista habla como una persona real. Tus pacientes no notarán la diferencia.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📅</div><h3>Google Calendar integrado</h3><p>Las citas aparecen directo en tu calendario. Sin apps nuevas que aprender.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">💬</div><h3>WhatsApp automático</h3><p>Confirmaciones y recordatorios al paciente y notificaciones a ti, sin intervención manual.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🌙</div><h3>Atiende de noche y fines de semana</h3><p>Las llamadas que antes perdías ahora se convierten en citas agendadas.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Listo en 7 días</h3><p>Configuramos todo nosotros. Tú solo nos das los datos de tu consultorio.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📍</div><h3>Soporte local presencial</h3><p>Estamos en Los Mochis. Si algo falla, lo resolvemos ese mismo día.</p></div>
+  <!-- ── PYMES ── -->
+  <section id="pymes">
+    <div class="section-tag reveal">Pymes y consultorios</div>
+    <h2 class="reveal">¿Negocio pequeño?<br/>También tenemos planes listos</h2>
+    <p class="section-sub reveal">Servicios con precio fijo, listos en días, para consultorios, salones, restaurantes y negocios locales.</p>
+    <div class="pymes">
+      <article class="card reveal">
+        <span class="badge">Servicio insignia</span>
+        <h3>Recepcionista virtual con IA</h3>
+        <p>Contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas.</p>
+        <div class="price-tag">$3,000 <small>MXN al mes, desde</small></div>
+        <a class="link" href="recepcionista.html">Ver planes y calculadora →</a>
+      </article>
+      <article class="card reveal">
+        <span class="badge">Presencia en internet</span>
+        <h3>Páginas web profesionales</h3>
+        <p>Landing o sitio completo, adaptado al celular, con botón de WhatsApp y Google Business Profile.</p>
+        <div class="price-tag">$500 <small>MXN pago único, desde · + soporte anual</small></div>
+        <a class="link" href="paginas-web.html">Ver planes y ejemplos →</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- ── ALIANZAS ── -->
+  <section style="padding-top:0;">
+    <div class="alianza reveal">
+      <div>
+        <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">¿Eres despacho contable, escuela o agencia?</h3>
+        <p>Llevemos automatización a tus clientes: tú conoces su negocio y nosotros la implementamos. Co-venta, referidos o capacitación conjunta.</p>
+      </div>
+      <a class="btn-ghost btn-sm" href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20una%20alianza%20con%20ProLink365" target="_blank" rel="noopener">Hablemos de una alianza</a>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
-  <!-- ── PRECIOS RECEPCIONISTA ── -->
-  <section id="precios">
-    <div class="section-tag reveal">Recepcionista Virtual — Planes</div>
-    <h2 class="reveal">Una cita perdida cuesta más<br/>que todo el mes.</h2>
-    <p class="section-sub reveal">Inversión mensual. Cancelas cuando quieras con 15 días de aviso.</p>
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="price-plan">Básico</div>
-        <div class="price-amount">$3,000</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-calls">Hasta 100 llamadas/mes</div>
-        <ul class="price-features">
-          <li>Recepcionista virtual 24/7</li>
-          <li>Agendado en Google Calendar</li>
-          <li>Confirmación WhatsApp al paciente</li>
-          <li>Notificación al dueño</li>
-          <li>Soporte local</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
-      </div>
-      <div class="price-card featured reveal">
-        <div class="featured-badge">Más popular</div>
-        <div class="price-plan">Profesional</div>
-        <div class="price-amount">$4,000</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-calls">101–200 llamadas/mes</div>
-        <ul class="price-features">
-          <li>Todo lo del plan Básico</li>
-          <li>Recordatorio automático 24h antes</li>
-          <li>Confirmación o cancelación por WhatsApp</li>
-          <li>Cancelación automática en calendario</li>
-          <li>Reporte semanal de citas al dueño</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-solid">Solicitar demo</a>
-      </div>
-      <div class="price-card reveal">
-        <div class="price-plan">Premium</div>
-        <div class="price-amount">$4,900</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-calls">201–400 llamadas/mes</div>
-        <ul class="price-features">
-          <li>Todo lo del plan Profesional</li>
-          <li>Número de WhatsApp Business exclusivo</li>
-          <li>Nombre y logo del negocio en WhatsApp</li>
-          <li>Asistente IA responde mensajes de texto</li>
-          <li>Perfil de negocio personalizado</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
-      </div>
-    </div>
-  </section>
-
-  <div class="full-divider"></div>
-
-  <!-- ════════════════════════════════════
-       PÁGINAS WEB — SECCIÓN COMPLETA
-  ════════════════════════════════════ -->
-  <section id="paginas-web">
-    <div class="section-tag reveal">¿Qué ofrece?</div>
-    <h2 class="reveal">Tu negocio merece<br/>estar en internet.</h2>
-    <p class="section-sub reveal">Sitios modernos, rápidos y listos para vender. Tú solo nos das la información, nosotros hacemos todo lo demás.</p>
-
-    <!-- Features web -->
-    <div class="features-grid" style="margin-bottom:4rem;">
-      <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Rápido y profesional</h3><p>Sitios optimizados para cargar en menos de 2 segundos. Primera impresión que convierte visitantes en clientes.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📱</div><h3>100% adaptado al celular</h3><p>Se ve perfecto en celular, tablet y computadora. El 80% de tus clientes te busca desde el teléfono.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🔍</div><h3>Posicionamiento en Google incluido en Premium</h3><p>Configuración de Google Business Profile para que aparezcas en el mapa cuando te busquen en tu ciudad.</p></div>
-    </div>
-
-    <!-- Precios web -->
-    <div class="section-tag reveal" style="margin-bottom:0.5rem;">Páginas Web Profesionales — Planes</div>
-    <h2 class="reveal" style="font-size:clamp(1.5rem,3vw,2rem);margin-bottom:0.8rem;">Presencia en internet<br/>desde $0 al mes.</h2>
-    <p class="section-sub reveal" style="margin-bottom:2.5rem;">Inversión única de setup. Sin mensualidades innecesarias. Nombre de dominio no incluido; disponibilidad sujeta al proveedor correspondiente.</p>
-<div class="reveal" style="display:flex;justify-content:flex-end;margin-top:-1.5rem;margin-bottom:2rem;">
-      <a href="demo-paginas-web.html" target="_blank"
-         style="display:inline-flex;align-items:center;gap:0.5rem;
-                background:transparent;color:var(--green);
-                border:1px solid rgba(0,232,122,0.35);
-                padding:0.75rem 1.4rem;border-radius:8px;
-                font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.9rem;
-                text-decoration:none;white-space:nowrap;">
-        🌐 Ver plan para mi negocio →
-      </a>
-    </div>
-    <div class="web-pricing-grid">
-
-      <!-- Básico Web -->
-      <div class="web-price-card reveal">
-        <div class="price-plan">Básico</div>
-        <div class="web-setup">$500</div>
-        <div class="web-setup-label">MXN — pago único</div>
-        <div class="web-maint">Soporte anual $500 MXN</div>
-        <p class="web-note">Dominio se gestiona por separado según disponibilidad</p>
-        <ul class="price-features">
-          <li>Landing page 1 página</li>
-          <li>Diseño personalizado con tu marca</li>
-          <li>100% adaptado a celular</li>
-          <li>Botón de WhatsApp flotante</li>
-          <li>Ícono personalizado en el navegador</li>
-          <li>Verificación en Google Search Console</li>
-          <li>Hosting en GitHub Pages (gratis)</li>
-          <li>Dominio propio configurado</li>
-          <li>Soporte técnico anual incluido</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20B%C3%A1sico%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-outline">Quiero mi landing</a>
-        <p class="web-extra-note">Cambios adicionales con costo extra</p>
-      </div>
-
-      <!-- Negocio Web -->
-      <div class="web-price-card featured reveal">
-        <div class="featured-badge">Más solicitado</div>
-        <div class="price-plan">Negocio</div>
-        <div class="web-setup">$1,000</div>
-        <div class="web-setup-label">MXN — pago único</div>
-        <div class="web-maint">Soporte anual $500 MXN</div>
-        <p class="web-note">Dominio se gestiona por separado según disponibilidad.</p>
-        <ul class="price-features">
-          <li>Todo lo del plan Básico</li>
-          <li>Sitio 3–5 páginas completo</li>
-          <li>Formulario de contacto funcional</li>
-          <li>Mapa de Google Maps integrado</li>
-          <li>Botón de llamada directa desde celular</li>
-          <li>Galería de fotos del negocio</li>
-          <li>Sección de testimonios</li>
-          <li>Política de privacidad incluida</li>
-          <li>2 revisiones de diseño incluidas</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20Negocio%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-solid">Quiero mi sitio</a>
-        <p class="web-extra-note">Cambios adicionales con costo extra</p>
-      </div>
-
-      <!-- Premium Web -->
-      <div class="web-price-card reveal">
-        <div class="price-plan">Premium</div>
-        <div class="web-setup">$2,000</div>
-        <div class="web-setup-label">MXN — pago único</div>
-        <div class="web-maint">Soporte anual $500 MXN</div>
-        <p class="web-note">Dominio se gestiona por separado según disponibilidad.</p>
-        <ul class="price-features">
-          <li>Todo lo del plan Negocio</li>
-          <li>Posicionamiento en Google configurado</li>
-          <li>Google Business Profile con fotos</li>
-          <li>Google Analytics instalado</li>
-          <li>Vista previa al compartir en WhatsApp y redes</li>
-          <li>QR code del sitio en PDF para imprimir</li>
-          <li>5 fotos del negocio optimizadas</li>
-          <li>2 revisiones de diseño incluidas</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20Premium%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-outline">Quiero el Premium</a>
-        <p class="web-extra-note">Cambios fuera del plan con costo extra</p>
-      </div>
-
-    </div>
-  </section>
-
-  <div class="full-divider"></div>
-
-  <!-- ── CTA FINAL ── -->
+  <!-- ── CTA ── -->
   <div class="cta-section" id="contacto">
-    <div class="section-tag reveal">¿Listo para empezar?</div>
-    <h2 class="reveal">Cuéntanos qué necesita<br/>tu negocio</h2>
-    <p class="reveal">Te mostramos cómo ProLink puede automatizar tu recepción o ponerte en internet — en menos de 20 minutos por WhatsApp.</p>
-    <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" class="btn-primary reveal" target="_blank">Escribir por WhatsApp</a>
+    <div class="section-tag reveal">Diagnóstico sin costo</div>
+    <h2 class="reveal">¿Qué proceso le quita<br/>más horas a tu equipo?</h2>
+    <p class="reveal">Cuéntanos en un mensaje. En 30 minutos te decimos si se puede automatizar, cómo mediríamos el resultado y cuánto costaría el piloto.</p>
+    <div class="hero-actions reveal">
+      <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20para%20automatizar%20un%20proceso%20de%20mi%20empresa" class="btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a href="mailto:carlosrope@prolink365.com.mx?subject=Diagn%C3%B3stico%20ProLink365" class="btn-ghost">Escribir por correo</a>
+    </div>
   </div>
 
-  <!-- ── FOOTER ── -->
   <footer>
-    <p><strong>ProLink</strong> — Automatizaciones para tu negocio · Los Mochis, Sinaloa, México</p>
-    <p style="margin-top:0.5rem;">carlosrope@prolink365.com.mx</p>
-    <div style="margin-top:1rem;display:flex;justify-content:center;gap:1.5rem;">
-      <a href="privacidad.html" style="color:var(--gray);text-decoration:none;font-size:0.8rem;transition:color 0.2s;" onmouseover="this.style.color='#00e87a'" onmouseout="this.style.color='#7a8f84'">Política de Privacidad</a>
-      <a href="terminos.html" style="color:var(--gray);text-decoration:none;font-size:0.8rem;transition:color 0.2s;" onmouseover="this.style.color='#00e87a'" onmouseout="this.style.color='#7a8f84'">Términos de Servicio</a>
-    </div>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
+    <nav aria-label="Legal"><a href="recepcionista.html">Recepcionista virtual</a><a href="paginas-web.html">Páginas web</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
   </footer>
 
-  <!-- ── WA FLOAT ── -->
-  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
-
-  <script>
-  // ── ROI MODAL ──
-  let spinnerVal = 10;
-  let tieneRecep = true;
-  function openROI() { document.getElementById('roiOverlay').classList.add('open'); document.body.style.overflow='hidden'; calcROI(); }
-  function closeROI() { document.getElementById('roiOverlay').classList.remove('open'); document.body.style.overflow=''; }
-  function handleOverlayClick(e) { if(e.target===document.getElementById('roiOverlay')) closeROI(); }
-  document.addEventListener('keydown', e => { if(e.key==='Escape') closeROI(); });
-  function changeSpinner(delta) { spinnerVal = Math.max(1, Math.min(50, spinnerVal + delta)); document.getElementById('spinnerVal').textContent = spinnerVal; calcROI(); }
-  function setRecep(val) { tieneRecep = val; document.getElementById('togSi').classList.toggle('selected', val); document.getElementById('togNo').classList.toggle('selected', !val); document.getElementById('sueldoField').classList.toggle('visible', val); calcROI(); }
-  function fmt(n) { return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN'; }
-  function calcROI() {
-    const precio = parseFloat(document.getElementById('precioConsulta').value) || 0;
-    const sueldo = parseFloat(document.getElementById('sueldoRecep').value) || 0;
-    const llamadasMes = spinnerVal * 22;
-    let planNombre, planCosto;
-    if(llamadasMes<=100){planNombre='Básico';planCosto=3000;}
-    else if(llamadasMes<=200){planNombre='Profesional';planCosto=4000;}
-    else{planNombre='Premium';planCosto=4900;}
-    const citasPerdidas = Math.round(llamadasMes * 0.40);
-    const ingresoRecuperable = citasPerdidas * precio;
-    const costoRecep = tieneRecep ? sueldo : 6500;
-    const ahorroBruto = costoRecep + ingresoRecuperable;
-    const roiNeto = ahorroBruto - planCosto;
-    const esMuyAlto = roiNeto > 80000;
-    const tieneData = precio > 0 || (tieneRecep && sueldo > 0);
-    if(!tieneData){ document.getElementById('roiResult').classList.remove('show'); document.getElementById('roiCta').classList.remove('show'); document.getElementById('roiCredibility').classList.remove('show'); return; }
-    document.getElementById('roiNum').textContent = fmt(roiNeto);
-    document.getElementById('planBadge').textContent = planNombre + ' — ' + fmt(planCosto).replace(' MXN','');
-    document.getElementById('planCosto').textContent = fmt(planCosto);
-    document.getElementById('citasRec').textContent = citasPerdidas + ' citas / mes';
-    document.getElementById('roiAnual').textContent = fmt(roiNeto * 12);
-    const vsTexto = tieneRecep ? 'Ahorras ' + fmt(sueldo - planCosto) + ' / mes' : 'vs $6,500 recepcionista de mercado';
-    document.getElementById('vsHumana').textContent = vsTexto;
-    document.getElementById('roiResult').classList.add('show');
-    document.getElementById('roiCta').classList.add('show');
-    document.getElementById('roiCredibility').classList.toggle('show', esMuyAlto);
-  }
-
-  // ── REVEAL ON SCROLL ──
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => { if(entry.isIntersecting){ setTimeout(()=>entry.target.classList.add('visible'), i*80); revealObserver.unobserve(entry.target); } });
-  }, { threshold: 0.1 });
-  reveals.forEach(el => revealObserver.observe(el));
-
-  // ── WORD CASCADE ──
-  const words = document.querySelectorAll('.hero h1 .hw');
-  words.forEach((w,i) => { setTimeout(()=>w.classList.add('visible-word'), 300+i*95); });
-
-  // ── COUNTER ──
-  function animateCounter(el) {
-    const target = parseInt(el.dataset.target); const suffix = el.dataset.suffix || ''; const from = el.dataset.from ? parseInt(el.dataset.from) : 0;
-    const duration = 1800; const steps = 60; const interval = duration/steps; let step=0, scrambleCount=0;
-    const scramble = setInterval(()=>{ const rand = Math.floor(Math.random()*(from>target?from:100)); el.textContent = rand+suffix; scrambleCount++; if(scrambleCount>=18){ clearInterval(scramble); const counter = setInterval(()=>{ step++; const progress=step/steps; const ease=1-Math.pow(1-progress,3); const current=Math.round(from+(target-from)*ease); el.textContent=current+suffix; if(step>=steps){clearInterval(counter);el.textContent=target+suffix;} }, interval); } }, 40);
-  }
-  const statsEls = document.querySelectorAll('.stat-num[data-type="number"]');
-  const statsObserver = new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){setTimeout(()=>animateCounter(entry.target),200);statsObserver.unobserve(entry.target);} }); }, {threshold:0.5});
-  statsEls.forEach(el=>statsObserver.observe(el));
-
-  // ── PARTICLES ──
-  const particleContainer = document.createElement('div');
-  particleContainer.style.cssText='position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;';
-  document.body.appendChild(particleContainer);
-  for(let p=0;p<50;p++){ const dot=document.createElement('div'); const size=Math.random()*3+1, x=Math.random()*100, y=Math.random()*100, delay=Math.random()*6, dur=Math.random()*6+4, opacity=(Math.random()*0.3+0.55).toFixed(2); dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`; particleContainer.appendChild(dot); }
-  document.head.insertAdjacentHTML('beforeend','<style>@keyframes floatDot{from{transform:translateY(0) translateX(0);}to{transform:translateY(-18px) translateX(8px);}}</style>');
-
-  // ── STEPS ──
-  function playStep(card, demoId){ const demo=document.getElementById(demoId), cta=card.querySelector('.step-cta'), isOpen=demo.classList.contains('show'); document.querySelectorAll('.step-demo').forEach(d=>d.classList.remove('show')); document.querySelectorAll('.step').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.step-cta').forEach(c=>c.textContent='▶ Ver en acción'); if(!isOpen){demo.classList.add('show');card.classList.add('active');cta.textContent='▼ Cerrar';} }
-
-  // ── GLOW HOVER ──
-  document.querySelectorAll('.feature-card, .price-card, .step, .service-card, .web-price-card').forEach(card=>{ card.addEventListener('mousemove',(e)=>{ const rect=card.getBoundingClientRect(), x=((e.clientX-rect.left)/rect.width)*100, y=((e.clientY-rect.top)/rect.height)*100; card.style.background=`radial-gradient(circle at ${x}% ${y}%, rgba(0,232,122,0.06), rgba(15,26,21,0.9) 70%)`; }); card.addEventListener('mouseleave',()=>{card.style.background='';}); });
-
-  // ── NAV SCROLL ──
-  const nav=document.querySelector('nav');
-  window.addEventListener('scroll',()=>{ if(window.scrollY>80){nav.style.background='rgba(10,15,13,0.97)';nav.style.boxShadow='0 1px 0 rgba(0,232,122,0.15)';}else{nav.style.background='rgba(10,15,13,0.85)';nav.style.boxShadow='none';} });
-  </script>
-  <script>
-  (function(){
-    const wrap = document.getElementById('insigniaWrap'); if(!wrap) return;
-    const gp = document.getElementById('insigniaGreenParts');
-    if(gp){ for(let i=0;i<28;i++){ const dot = document.createElement('div'); const size = Math.random()*2.5+1; const x = Math.random()*100, y = Math.random()*100; const delay = Math.random()*6, dur = Math.random()*6+4; const opacity = (Math.random()*0.25+0.35).toFixed(2); dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`; gp.appendChild(dot); } }
-    const container = document.getElementById('insigniaSparkles'); if(!container) return;
-    const colors = ['#f5c842','#ffe066','#fff0a0','#e8a800','#ffffff'];
-    function makeSpark(delay){ const el = document.createElement('div'); el.style.cssText = 'position:absolute;pointer-events:none;opacity:0;'; const size = 5 + Math.random() * 7; const W = wrap.offsetWidth || 600; const H = wrap.offsetHeight || 300; const x = 20 + Math.random() * (W - 40); const y = 10 + Math.random() * (H - 20); const color = colors[Math.floor(Math.random()*colors.length)]; const dur = 600 + Math.random() * 900; const rise = 22 + Math.random() * 32; el.style.left = x + 'px'; el.style.top = y + 'px'; el.innerHTML=`<svg width="${size}" height="${size}" viewBox="0 0 10 10"><line x1="5" y1="0" x2="5" y2="10" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="0" y1="5" x2="10" y2="5" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="1.5" y1="1.5" x2="8.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/><line x1="8.5" y1="1.5" x2="1.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/></svg>`; container.appendChild(el); setTimeout(() => { el.style.transition = `opacity ${dur}ms ease, transform ${dur}ms ease`; el.style.opacity = '1'; el.style.transform = `translateY(-${rise}px) rotate(${Math.random()*60-30}deg) scale(${0.8+Math.random()*0.7})`; setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), dur+100); }, dur*0.5); }, delay); }
-    function burst(n, d){ for(let i=0;i<n;i++) makeSpark(d+i*60); }
-    setTimeout(() => { burst(14,0); burst(9,800); burst(7,1700); setInterval(() => burst(2+Math.floor(Math.random()*4),0), 2200); }, 700);
-  })();
-  </script>
+  <script src="prolink.js"></script>
 </body>
 </html>

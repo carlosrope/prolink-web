@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <title>Refacciones por WhatsApp — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva: un asistente de IA identifica refacciones por modelo o foto, revisa existencias por sucursal y aparta el pedido por WhatsApp."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-refacciones.html"/>
+  <meta property="og:title" content="Refacciones por WhatsApp — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva: un asistente de IA identifica refacciones por modelo o foto, revisa existencias por sucursal y aparta el pedido por WhatsApp."/>
+  <meta property="og:type" content="website"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+</head>
+<body>
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span><sup>365</sup></a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html" aria-current="page">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Copiloto técnico y de refacciones</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Refacciones por WhatsApp, <em>en segundos</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">El cliente manda la foto de la pieza o el modelo de su equipo. El asistente la identifica, revisa existencias en tus sucursales, cotiza con tu lista de precios y la aparta.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con datos ficticios.</b> Toca los botones para conversar. Conectado a tu empresa, el asistente responde con tu inventario, tus precios y tus clientes reales, y una persona de tu equipo revisa lo que haga falta.</span></p>
+    <div class="demo-layout">
+      <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
+        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">RA</div><div><b>Refaccionaria Agrícola Demo</b><small>en línea</small></div></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="quick" id="quick"></div>
+      </div>
+      <div>
+        <div class="panel">
+          <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
+          <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
+          <div class="kpis"><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kSuc">0</b><span>Sucursales consultadas</span></div><div class="kpi"><b id="kHum">0</b><span>Intervención de un vendedor</span></div></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;"><h3><span aria-hidden="true">📈</span> Qué se mide en el piloto</h3><p class="muted small">Tiempo de respuesta a consultas de refacciones (línea base: lo que hoy tarda tu mostrador por WhatsApp o teléfono) y cuántas consultas se resuelven sin pasar a un vendedor.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente de WhatsApp conectado a tu catálogo de partes e inventario (Odoo, tu ERP o una hoja de cálculo).</li><li>Identificación por modelo, serie o foto, con tus manuales de servicio.</li><li>Apartado y aviso al vendedor de mostrador.</li><li>Una sucursal para empezar y capacitación a tu equipo.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20refacciones%20y%20quiero%20verla%20con%20mi%20cat%C3%A1logo" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20refacciones%20y%20quiero%20verla%20con%20mi%20cat%C3%A1logo" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+  <script src="demo.js"></script>
+  <script>
+
+  let conAceite = false;
+  ProDemo.iniciar({
+    kpiInicial: { kResp: '—', kSuc: '0', kHum: '0' },
+    alReiniciar: () => { conAceite = false; },
+    nodos: {
+      inicio: {
+        bot: [{ text: '¡Hola! 👋 Soy el asistente de refacciones de Refaccionaria Agrícola Demo.\n¿Qué pieza buscas? Puedes mandarme una foto o escribirme el modelo de tu equipo.' }],
+        opciones: [
+          { label: '📷 Mandar foto de la pieza', user: '📷 Foto: filtro viejo del tractor', next: 'foto' },
+          { label: '⌨️ Escribir modelo', user: 'Tractor T-110 modelo 2019. Ocupo filtro de aceite y de combustible', next: 't110' }
+        ]
+      },
+      foto: {
+        bot: [{ text: 'Es un filtro de aceite de motor, rosca 1-1/2". Para asegurar que te quede: ¿de qué equipo es?', espera: 1300,
+                log: [{ text: '<b>Reconoció la pieza en la foto</b>: filtro de aceite, rosca 1-1/2" (catálogo de partes).' }] }],
+        opciones: [
+          { label: 'Tractor T-110 (2019)', next: 't110' },
+          { label: 'Tractor T-75 (2016)', next: 't75' }
+        ]
+      },
+      t75: {
+        bot: [{ text: 'Para el T-75 (2016) el filtro correcto es el FA-0755 ($540). Lo tengo en Guasave (3 piezas) y Los Mochis (1 pieza).\n¿Te lo aparto?',
+                log: [{ text: '<b>Buscó el modelo T-75</b> en el catálogo y validó compatibilidad por año.' }, { text: '<b>Consultó existencias</b> en 3 sucursales del ERP.' }],
+                kpi: { kResp: '38 s', kSuc: '3' } }],
+        opciones: [{ label: 'Sí, en Los Mochis', next: 'cierre75' }, { label: 'Mejor era del T-110', next: 't110' }]
+      },
+      cierre75: {
+        bot: [{ text: 'Listo ✅ Apartado el FA-0755 en Los Mochis hasta mañana 6:00 p. m.\nTotal: $540.00. Te mando la ubicación del mostrador.',
+                log: [{ text: '<b>Apartó la pieza 24 h</b> y avisó al mostrador de Los Mochis.' }, { text: 'Si no la recoge, <b>recordatorio automático</b> mañana a las 10:00.', warn: true }],
+                kpi: { kHum: '0' } }],
+        fin: true
+      },
+      t110: {
+        bot: [
+          { text: 'Encontré las dos piezas para tu T-110 (2019):', espera: 1200,
+            log: [{ text: '<b>Identificó el modelo T-110</b> y sus números de parte en el manual de servicio (pág. 84).' }, { text: '<b>Consultó existencias</b> en Los Mochis, Guasave y Guamúchil.' }, { text: '<b>Aplicó tu lista de precios</b> de cliente frecuente.' }],
+            kpi: { kResp: '42 s', kSuc: '3' } },
+          { tarjeta: true, html: '<b>Cotización</b><table><tr><td>Filtro de aceite FA-1102</td><td>$685.00</td></tr><tr><td>Filtro de combustible FC-1108</td><td>$940.00</td></tr><tr><td><b>Total</b></td><td><b>$1,625.00</b></td></tr></table>Existencias:\n✅ Los Mochis: 6 · ✅ Guasave: 2 · ❌ Guamúchil: 0' },
+          { text: '¿Te las aparto en Los Mochis o te las enviamos?' }
+        ],
+        opciones: [
+          { label: 'Apartar en Los Mochis', next: 'cierre' },
+          { label: '🚚 Envío a mi rancho', next: 'envio' },
+          { label: '¿Qué servicio le toca?', next: 'servicio' }
+        ]
+      },
+      servicio: {
+        bot: [{ text: 'Según el manual del T-110, en el servicio de 500 horas toca:\n• Cambio de aceite de motor (16 L)\n• Filtros de aceite y combustible\n• Revisar filtro de aire\n\n¿Agrego el aceite 15W-40, cubeta de 19 L ($1,890.00)?',
+                log: [{ text: '<b>Consultó la tabla de mantenimiento</b> del manual de servicio y sugirió el aceite compatible.' }] }],
+        opciones: [
+          { label: 'Sí, agrégalo', next: 'cierre', accion: () => { conAceite = true; } },
+          { label: 'Solo los filtros', next: 'cierre' }
+        ]
+      },
+      cierre: {
+        bot: [{ espera: 1000,
+                html: () => 'Listo ✅ Pedido <b>#RF-2041</b> apartado en Los Mochis hasta mañana 6:00 p. m.\nTotal: <b>' + ProDemo.pesos(conAceite ? 3515 : 1625) + '</b>' + (conAceite ? ' (incluye aceite 15W-40)' : '') + '.\nTe mando la ubicación del mostrador y un vendedor te saluda en un momento.',
+                log: [{ text: '<b>Creó la cotización en el ERP</b> y apartó las piezas por 24 h.' }, { text: '<b>Avisó al vendedor de mostrador</b> por WhatsApp interno.' }, { text: 'Si no recoge, <b>recordatorio automático</b> mañana a las 10:00.', warn: true }],
+                kpi: { kHum: '0' } }],
+        fin: true
+      },
+      envio: {
+        bot: [{ text: 'Enviamos a ranchos y ejidos del valle los martes y viernes. ¿A qué localidad?' }],
+        opciones: [{ label: 'Higuera de Zaragoza', next: 'envioOk' }, { label: 'El Carrizo', next: 'envioOk' }]
+      },
+      envioOk: {
+        bot: [{ text: 'Perfecto 🚚 Sale el viernes en la ruta del valle. Envío: $150.00\nTotal con envío: $1,775.00\nUn asesor te confirma la hora de entrega por aquí.',
+                log: [{ text: '<b>Creó el pedido con envío</b> y lo asignó a la ruta del viernes.' }, { text: '<b>Pasó el pedido a un asesor</b> para confirmar la hora (persona en el circuito).', warn: true }],
+                kpi: { kHum: '1 (confirmar ruta)' } }],
+        fin: true
+      }
+    }
+  });
+
+  </script>
+</body>
+</html>

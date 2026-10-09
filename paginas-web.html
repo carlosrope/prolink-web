@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <title>Páginas Web Profesionales — ProLink365</title>
+  <meta name="description" content="Páginas web rápidas y adaptadas al celular para negocios en Sinaloa, con Google Business Profile. Pago único desde $500 MXN más soporte anual."/>
+  <link rel="canonical" href="https://prolink365.com.mx/paginas-web.html"/>
+  <meta property="og:title" content="Páginas Web Profesionales — ProLink365"/>
+  <meta property="og:description" content="Páginas web rápidas y adaptadas al celular para negocios en Sinaloa, con Google Business Profile. Pago único desde $500 MXN más soporte anual."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prolink365.com.mx/paginas-web.html"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <style>
+    /* ── FEATURES ── */
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+    .feature-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2rem; transition:border-color .3s,transform .3s; }
+    .feature-card:hover { border-color:rgba(0,232,122,.35); transform:translateY(-4px); }
+    .feature-icon { font-size:2rem; margin-bottom:1rem; }
+    .feature-card h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
+    .feature-card p { color:var(--gray); font-size:.9rem; line-height:1.6; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
+    .price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; }
+    .price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); position:relative; }
+    .featured-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--green); color:#0a0f0d; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; padding:.25rem .8rem; border-radius:100px; white-space:nowrap; }
+    .price-plan { font-family:'Syne',sans-serif; font-weight:700; font-size:1.1rem; margin-bottom:.5rem; }
+    .price-amount { font-family:'Exo 2',sans-serif; font-weight:900; font-size:2.8rem; color:var(--green); line-height:1; margin-bottom:.2rem; text-shadow:0 0 20px rgba(0,232,122,.25); }
+    .price-period { color:var(--gray); font-size:.85rem; margin-bottom:1.5rem; }
+    .price-calls { display:inline-block; background:var(--green-glow); border:1px solid var(--border); color:var(--green); font-size:.8rem; padding:.25rem .7rem; border-radius:100px; margin-bottom:1.5rem; }
+    .price-features { list-style:none; margin-bottom:2rem; }
+    .price-features li { padding:.5rem 0; border-bottom:1px solid var(--border); font-size:.9rem; color:var(--gray); display:flex; align-items:center; gap:.6rem; }
+    .price-features li::before { content:'✓'; color:var(--green); font-weight:700; }
+    .price-btn { display:block; text-align:center; padding:.85rem; border-radius:8px; text-decoration:none; font-weight:500; font-size:.95rem; transition:all .2s; }
+    .price-btn-outline { border:1px solid var(--border); color:var(--white); }
+    .price-btn-outline:hover { border-color:var(--green); color:var(--green); }
+    .price-btn-solid { background:var(--green); color:#0a0f0d; }
+    .price-btn-solid:hover { background:var(--green-dim); }
+    /* ── PRICING PÁGINAS WEB ── */
+    .web-pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
+    .web-price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; position:relative; }
+    .web-price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); }
+    .web-setup { font-family:'Exo 2',sans-serif; font-weight:900; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.15rem; text-shadow:0 0 20px rgba(0,232,122,.25); }
+    .web-setup-label { color:var(--gray); font-size:0.78rem; margin-bottom:0.6rem; }
+    .web-maint { display:inline-flex; align-items:center; gap:0.4rem; background:rgba(0,232,122,0.08); border:1px solid rgba(0,232,122,0.18); color:var(--green); font-size:0.78rem; padding:0.25rem 0.7rem; border-radius:100px; margin-bottom:1.5rem; }
+    .web-note { font-size:0.75rem; color:var(--gray); margin-top:0.5rem; margin-bottom:1.5rem; font-style:italic; }
+    .web-extra-note { margin-top:1.2rem; font-size:0.75rem; color:rgba(122,143,132,0.7); text-align:center; padding-top:1rem; border-top:1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span><sup>365</sup></a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#sectores">Sectores</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
+      <li><a href="recepcionista.html">Recepcionista</a></li>
+      <li><a href="paginas-web.html" aria-current="page">Páginas web</a></li>
+      <li class="mobile-only"><a href="index.html#contacto">Agenda un diagnóstico</a></li>
+    </ul>
+    <a href="index.html#contacto" class="nav-cta desktop">Agenda un diagnóstico</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact">
+    <div class="orb"></div>
+    <div class="hero-badge">Pymes y negocios locales</div>
+    <h1>Tu negocio, <em>en internet</em></h1>
+    <p class="hero-sub">Sitios modernos y rápidos, listos para recibir clientes por WhatsApp y aparecer en Google Maps.</p>
+    <div class="hero-actions">
+      <a href="#planes" class="btn-primary">Ver planes</a>
+      <a href="demo-paginas-web.html" class="btn-ghost">Ver ejemplos</a>
+    </div>
+  </header>
+
+  <section id="planes">
+    <div class="section-tag reveal">¿Qué ofrece?</div>
+    <h2 class="reveal">Tu negocio merece<br/>estar en internet.</h2>
+    <p class="section-sub reveal">Sitios modernos, rápidos y listos para vender. Tú solo nos das la información, nosotros hacemos todo lo demás.</p>
+
+    <!-- Features web -->
+    <div class="features-grid" style="margin-bottom:4rem;">
+      <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Rápido y profesional</h3><p>Sitios optimizados para cargar en menos de 2 segundos. Primera impresión que convierte visitantes en clientes.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">📱</div><h3>100% adaptado al celular</h3><p>Se ve perfecto en celular, tablet y computadora, que es donde la mayoría de tus clientes te busca.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon">🔍</div><h3>Posicionamiento en Google incluido en Premium</h3><p>Configuración de Google Business Profile para que aparezcas en el mapa cuando te busquen en tu ciudad.</p></div>
+    </div>
+
+    <!-- Precios web -->
+    <div class="section-tag reveal" style="margin-bottom:0.5rem;">Páginas Web Profesionales — Planes</div>
+    <h2 class="reveal" style="font-size:clamp(1.5rem,3vw,2rem);margin-bottom:0.8rem;">Pago único<br/>más soporte anual.</h2>
+    <p class="section-sub reveal" style="margin-bottom:2.5rem;">Pagas una vez por el sitio y $500 MXN al año de soporte. Sin mensualidades. El dominio (tunegocio.com.mx) se compra aparte y nosotros lo configuramos.</p>
+<div class="reveal" style="display:flex;justify-content:flex-end;margin-top:-1.5rem;margin-bottom:2rem;">
+      <a href="demo-paginas-web.html"
+         style="display:inline-flex;align-items:center;gap:0.5rem;
+                background:transparent;color:var(--green);
+                border:1px solid rgba(0,232,122,0.35);
+                padding:0.75rem 1.4rem;border-radius:8px;
+                font-family:'DM Sans',sans-serif;font-weight:500;font-size:0.9rem;
+                text-decoration:none;white-space:nowrap;">
+        🌐 Ver plan para mi negocio →
+      </a>
+    </div>
+    <div class="web-pricing-grid">
+
+      <!-- Básico Web -->
+      <div class="web-price-card reveal">
+        <div class="price-plan">Básico</div>
+        <div class="web-setup">$500</div>
+        <div class="web-setup-label">MXN — pago único</div>
+        <div class="web-maint">Soporte anual $500 MXN</div>
+        <p class="web-note">Dominio se gestiona por separado según disponibilidad</p>
+        <ul class="price-features">
+          <li>Landing page 1 página</li>
+          <li>Diseño personalizado con tu marca</li>
+          <li>100% adaptado a celular</li>
+          <li>Botón de WhatsApp flotante</li>
+          <li>Ícono personalizado en el navegador</li>
+          <li>Verificación en Google Search Console</li>
+          <li>Hosting en GitHub Pages (gratis)</li>
+          <li>Configuración de tu dominio (se compra aparte)</li>
+        </ul>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20B%C3%A1sico%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-outline">Quiero mi landing</a>
+        <p class="web-extra-note">Cambios adicionales con costo extra</p>
+      </div>
+
+      <!-- Negocio Web -->
+      <div class="web-price-card featured reveal">
+        <div class="featured-badge">Más solicitado</div>
+        <div class="price-plan">Negocio</div>
+        <div class="web-setup">$1,000</div>
+        <div class="web-setup-label">MXN — pago único</div>
+        <div class="web-maint">Soporte anual $500 MXN</div>
+        <p class="web-note">Dominio se gestiona por separado según disponibilidad.</p>
+        <ul class="price-features">
+          <li>Todo lo del plan Básico</li>
+          <li>Sitio 3–5 páginas completo</li>
+          <li>Formulario de contacto funcional</li>
+          <li>Mapa de Google Maps integrado</li>
+          <li>Botón de llamada directa desde celular</li>
+          <li>Galería de fotos del negocio</li>
+          <li>Sección de testimonios</li>
+          <li>Política de privacidad incluida</li>
+          <li>2 revisiones de diseño incluidas</li>
+        </ul>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20Negocio%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-solid">Quiero mi sitio</a>
+        <p class="web-extra-note">Cambios adicionales con costo extra</p>
+      </div>
+
+      <!-- Premium Web -->
+      <div class="web-price-card reveal">
+        <div class="price-plan">Premium</div>
+        <div class="web-setup">$2,000</div>
+        <div class="web-setup-label">MXN — pago único</div>
+        <div class="web-maint">Soporte anual $500 MXN</div>
+        <p class="web-note">Dominio se gestiona por separado según disponibilidad.</p>
+        <ul class="price-features">
+          <li>Todo lo del plan Negocio</li>
+          <li>Posicionamiento en Google configurado</li>
+          <li>Google Business Profile con fotos</li>
+          <li>Google Analytics instalado</li>
+          <li>Vista previa al compartir en WhatsApp y redes</li>
+          <li>QR code del sitio en PDF para imprimir</li>
+          <li>5 fotos del negocio optimizadas</li>
+          <li>2 revisiones de diseño incluidas</li>
+        </ul>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20paquete%20Premium%20de%20p%C3%A1gina%20web" target="_blank" class="price-btn price-btn-outline">Quiero el Premium</a>
+        <p class="web-extra-note">Cambios fuera del plan con costo extra</p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <div class="cta-section" id="contacto">
+    <div class="section-tag reveal">¿Empezamos?</div>
+    <h2 class="reveal">Cuéntanos de tu negocio</h2>
+    <p class="reveal">Mándanos tu logo, fotos y datos por WhatsApp y te decimos qué plan te conviene.</p>
+    <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20una%20p%C3%A1gina%20web" class="btn-primary reveal" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
+    <nav aria-label="Legal"><a href="index.html">Inicio</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+  <script src="prolink.js"></script>
+</body>
+</html>
