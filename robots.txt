@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://prolink365.com.mx/sitemap.xml

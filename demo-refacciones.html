@@ -9,10 +9,10 @@
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#0a0f0d"/>
   <title>Refacciones por WhatsApp — Demo · ProLink365</title>
-  <meta name="description" content="Demo interactiva: un asistente de IA identifica refacciones por modelo o foto, revisa existencias por sucursal y aparta el pedido por WhatsApp."/>
+  <meta name="description" content="Demo interactiva: un asistente de IA identifica refacciones por modelo o foto, revisa existencias por sucursal, aparta el pedido y abre órdenes de servicio del taller por WhatsApp."/>
   <link rel="canonical" href="https://prolink365.com.mx/demo-refacciones.html"/>
   <meta property="og:title" content="Refacciones por WhatsApp — Demo ProLink365"/>
-  <meta property="og:description" content="Demo interactiva: un asistente de IA identifica refacciones por modelo o foto, revisa existencias por sucursal y aparta el pedido por WhatsApp."/>
+  <meta property="og:description" content="Demo interactiva: un asistente de IA identifica refacciones por modelo o foto, revisa existencias por sucursal, aparta el pedido y abre órdenes de servicio del taller por WhatsApp."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
   <meta property="og:image:width" content="1200"/>
@@ -48,6 +48,7 @@
       <li><a href="demo-exportadora.html">Exportadora</a></li>
       <li><a href="demo-implementos.html">Implementos</a></li>
       <li><a href="demo-despacho.html">Despacho</a></li>
+      <li><a href="demo-outdoor.html">Guía de pesca</a></li>
       <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
     </ul>
     <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
@@ -57,8 +58,8 @@
   <header class="hero compact" style="padding-bottom:2rem;">
     <div class="orb"></div>
     <div class="hero-badge">Demo · Copiloto técnico y de refacciones</div>
-    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Refacciones por WhatsApp, <em>en segundos</em></h1>
-    <p class="hero-sub" style="margin-bottom:1.4rem;">El cliente manda la foto de la pieza o el modelo de su equipo. El asistente la identifica, revisa existencias en tus sucursales, cotiza con tu lista de precios y la aparta.</p>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Refacciones y taller por WhatsApp, <em>en segundos</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">El cliente manda la foto de la pieza o el modelo de su equipo. El asistente la identifica, revisa existencias en tus sucursales, cotiza con tu lista de precios y la aparta. Si describe una falla, abre la orden de servicio del taller y le propone cita.</p>
   </header>
 
   <section style="padding-top:0;">
@@ -73,9 +74,19 @@
         <div class="panel">
           <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
           <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
-          <div class="kpis"><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kSuc">0</b><span>Sucursales consultadas</span></div><div class="kpi"><b id="kHum">0</b><span>Intervención de un vendedor</span></div></div>
+          <div class="kpis"><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kSuc">0</b><span>Sucursales consultadas</span></div><div class="kpi"><b id="kHum">0</b><span>Intervención de una persona</span></div><div class="kpi"><b id="kOS">2</b><span>Órdenes de taller hoy</span></div></div>
         </div>
-        <div class="panel" style="margin-top:1.2rem;"><h3><span aria-hidden="true">📈</span> Qué se mide en el piloto</h3><p class="muted small">Tiempo de respuesta a consultas de refacciones (línea base: lo que hoy tarda tu mostrador por WhatsApp o teléfono) y cuántas consultas se resuelven sin pasar a un vendedor.</p></div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">🔧</span> Taller · órdenes de servicio</h3>
+          <p class="muted small" style="margin-bottom:0.6rem;">Lo que ve el jefe de taller en tu ERP (por ejemplo, Odoo). Las órdenes que abre el asistente llegan con el síntoma, las horas y el historial del equipo.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Orden</th><th>Equipo</th><th>Motivo</th><th>Prioridad</th><th>Estado</th></tr></thead><tbody id="taller"></tbody></table></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;"><h3><span aria-hidden="true">📈</span> Qué se mide en el piloto</h3><p class="muted small">Tiempo de respuesta a consultas de refacciones (línea base: lo que hoy tarda tu mostrador por WhatsApp o teléfono), cuántas consultas se resuelven sin pasar a un vendedor y cuántas citas de taller se agendan fuera de horario.</p></div>
+        <style>
+          #taller td { font-size: 0.82rem; }
+          #taller tr.tu td { background: rgba(0,232,122,0.07); }
+          #taller .alta { color: var(--amber); }
+        </style>
       </div>
     </div>
   </section>
@@ -86,7 +97,7 @@
     <div class="section-tag">Cómo sería en tu empresa</div>
     <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
     <div class="grid" style="margin-top:2rem;">
-      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente de WhatsApp conectado a tu catálogo de partes e inventario (Odoo, tu ERP o una hoja de cálculo).</li><li>Identificación por modelo, serie o foto, con tus manuales de servicio.</li><li>Apartado y aviso al vendedor de mostrador.</li><li>Una sucursal para empezar y capacitación a tu equipo.</li></ul></article>
+      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente de WhatsApp conectado a tu catálogo de partes e inventario (Odoo, tu ERP o una hoja de cálculo).</li><li>Identificación por modelo, serie o foto, con tus manuales de servicio.</li><li>Apartado y aviso al vendedor de mostrador.</li><li>Órdenes de servicio del taller desde WhatsApp, con síntoma, horas, historial y cita. El diagnóstico lo hace tu técnico.</li><li>Una sucursal para empezar y capacitación a tu equipo.</li></ul></article>
       <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
       <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20refacciones%20y%20quiero%20verla%20con%20mi%20cat%C3%A1logo" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
     </div>
@@ -94,7 +105,7 @@
 
   <footer>
     <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="demos.html">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
     <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
   </footer>
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20refacciones%20y%20quiero%20verla%20con%20mi%20cat%C3%A1logo" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
@@ -102,17 +113,72 @@
   <script src="demo.js"></script>
   <script>
 
-  let conAceite = false;
+  let conAceite = false, F = {};
+  const ORDENES = [
+    { os: 'OS-3185', eq: 'Cosechadora C-200', m: 'Ruido en el cabezal', pr: 'Normal', e: 'En diagnóstico' },
+    { os: 'OS-3186', eq: 'Tractor T-75 (2016)', m: 'Servicio de 3,000 h', pr: 'Normal', e: 'Mañana 10:00' }
+  ];
+  function pintarTaller() {
+    const filas = ORDENES.concat(F.os ? [{ os: 'OS-3187', eq: 'Tractor T-110 (2019)', m: 'Humo blanco ' + (F.grave ? 'constante; baja el anticongelante' : 'al arrancar en frío'), pr: F.grave ? 'Alta' : 'Normal', e: F.estado, tu: true }] : []);
+    document.getElementById('taller').innerHTML = filas.map(r => '<tr' + (r.tu ? ' class="tu"' : '') + '><td>' + r.os + '</td><td>' + r.eq + '</td><td>' + r.m + '</td><td' + (r.pr === 'Alta' ? ' class="alta"' : '') + '>' + r.pr + '</td><td>' + r.e + '</td></tr>').join('');
+  }
   ProDemo.iniciar({
-    kpiInicial: { kResp: '—', kSuc: '0', kHum: '0' },
-    alReiniciar: () => { conAceite = false; },
+    kpiInicial: { kResp: '—', kSuc: '0', kHum: '0', kOS: '2' },
+    alReiniciar: () => { conAceite = false; F = {}; pintarTaller(); },
     nodos: {
       inicio: {
         bot: [{ text: '¡Hola! 👋 Soy el asistente de refacciones de Refaccionaria Agrícola Demo.\n¿Qué pieza buscas? Puedes mandarme una foto o escribirme el modelo de tu equipo.' }],
         opciones: [
           { label: '📷 Mandar foto de la pieza', user: '📷 Foto: filtro viejo del tractor', next: 'foto' },
-          { label: '⌨️ Escribir modelo', user: 'Tractor T-110 modelo 2019. Ocupo filtro de aceite y de combustible', next: 't110' }
+          { label: '⌨️ Escribir modelo', user: 'Tractor T-110 modelo 2019. Ocupo filtro de aceite y de combustible', next: 't110' },
+          { label: '🔧 Mi tractor tira humo blanco', next: 'falla' }
         ]
+      },
+      falla: {
+        bot: [{ text: 'Lo vemos 🔧 ¿De qué equipo es y cuántas horas marca el horómetro? También puedes mandarme foto de la placa de serie.', kpi: { kResp: '35 s' } }],
+        opciones: [
+          { label: 'Tractor T-110 (2019), 1,480 horas', next: 'sintoma' },
+          { label: '📷 Foto de la placa y el horómetro', user: '📷 Foto: placa de serie y horómetro', next: 'sintoma', accion: () => { F.foto = true; } }
+        ]
+      },
+      sintoma: {
+        bot: [{ html: () => (F.foto ? 'Leí la placa: Tractor T-110 (2019), con 1,480 horas. ' : '') + 'Su último servicio aquí fue a las 1,000 horas. ¿Cuándo sale el humo blanco?',
+                despues: a => {
+                  if (F.foto) a.registrar({ text: '<b>Leyó la placa de serie y el horómetro</b> en la foto.' });
+                  a.registrar({ text: '<b>Buscó el equipo en el ERP</b>: es cliente; último servicio a las 1,000 h en el taller de Los Mochis.' });
+                } }],
+        opciones: [
+          { label: 'Todo el tiempo, y baja el anticongelante', next: 'orden', accion: () => { F.grave = true; } },
+          { label: 'Solo al arrancar en frío; luego se quita', next: 'orden', accion: () => { F.grave = false; } }
+        ]
+      },
+      orden: {
+        bot: [
+          { espera: 1300, html: () => (F.grave
+              ? 'Gracias. Con humo blanco constante y pérdida de anticongelante, mejor no lo trabajes con carga hasta que lo revise un técnico, para que no se caliente el motor.'
+              : 'Gracias. Si solo pasa en frío y se quita al calentar, puede no ser grave, pero conviene revisarlo.') + '\n<b>No es un diagnóstico</b>: lo revisa el técnico del taller.',
+            log: [{ text: '<b>Orientó sin diagnosticar</b>: el diagnóstico lo hace el técnico.', warn: true }] },
+          { tarjeta: true, html: () => '<b>Orden de servicio OS-3187</b><table><tr><td>Equipo</td><td>Tractor T-110 (2019)</td></tr><tr><td>Horómetro</td><td>1,480 h</td></tr><tr><td>Síntoma</td><td>Humo blanco ' + (F.grave ? 'constante; baja el anticongelante' : 'al arrancar en frío') + '</td></tr><tr><td>Prioridad</td><td>' + (F.grave ? 'Alta' : 'Normal') + '</td></tr><tr><td>Además</td><td>Su servicio de 1,500 h vence en 20 horas; se puede hacer en la misma visita.</td></tr></table>',
+            log: [{ text: '<b>Abrió la orden de servicio en el ERP</b> con el síntoma en palabras del cliente, las horas y el historial.' }, { text: '<b>Revisó el plan de mantenimiento</b>: el servicio de 1,500 h vence en 20 horas.' }],
+            kpi: { kOS: '3' }, despues: () => { F.os = true; F.estado = 'Por agendar'; pintarTaller(); } },
+          { text: '¿Cómo te queda la cita?' }
+        ],
+        get opciones() {
+          const dia = F.grave ? 'Mañana 8:00' : 'Jueves 9:00';
+          return [{ label: dia + ' en el taller de Los Mochis', next: 'cita', accion: () => { F.dia = dia; } }, { label: '🚜 Que vaya el técnico al rancho', next: 'campo' }];
+        }
+      },
+      cita: {
+        bot: [{ tarjeta: true, espera: 1100, html: () => '<b>Cita confirmada ✅</b><table><tr><td>Orden</td><td>OS-3187</td></tr><tr><td>Taller</td><td>Los Mochis</td></tr><tr><td>Cuándo</td><td>' + F.dia + '</td></tr><tr><td>Técnico</td><td>Ing. Demo</td></tr></table>Si puedes, mándame un video corto del humo; se lo paso al técnico.',
+                log: [{ text: '<b>Agendó la cita en el calendario del taller</b> y le pasó al técnico la orden con el historial.' }, { text: '<b>Apartó los filtros y el aceite del servicio de 1,500 h</b>, por si el cliente lo hace en la misma visita.' }],
+                kpi: { kHum: '1 (técnico)' }, despues: () => { F.estado = F.dia; pintarTaller(); } }],
+        fin: true
+      },
+      campo: {
+        bot: [{ text: 'El técnico móvil sale martes y jueves a la ruta del valle. El costo del traslado depende de tu localidad: el jefe de taller te lo confirma por aquí antes de agendar.',
+                log: [{ text: '<b>Pasó la visita en campo al jefe de taller</b> para confirmar costo y ruta (persona en el circuito).', warn: true }],
+                kpi: { kHum: '1 (jefe de taller)' }, despues: () => { F.estado = 'Visita en campo por confirmar'; pintarTaller(); } }],
+        fin: true
       },
       foto: {
         bot: [{ text: 'Es un filtro de aceite de motor, rosca 1-1/2". Para asegurar que te quede: ¿de qué equipo es?', espera: 1300,
@@ -175,6 +241,7 @@
       }
     }
   });
+  pintarTaller();
 
   </script>
 </body>

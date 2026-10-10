@@ -9,10 +9,10 @@
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#0a0f0d"/>
   <title>ProLink365 — Automatización empresarial con IA en Sinaloa</title>
-  <meta name="description" content="Automatizamos con IA los procesos que le quitan horas a tu empresa: cotizar y vender por WhatsApp, atención 24/7, facturación, inventario, refacciones y capacitación. Pilotos de 4 a 6 semanas con una métrica. Los Mochis, Sinaloa."/>
+  <meta name="description" content="Agentes de IA, CRM y software a la medida para empresas de Sinaloa: contestan, cotizan y dan seguimiento los 365 días. Piloto de 4 a 6 semanas con una métrica y soporte en persona. Los Mochis, Sinaloa."/>
   <link rel="canonical" href="https://prolink365.com.mx/"/>
   <meta property="og:title" content="ProLink365 — Automatización empresarial con IA"/>
-  <meta property="og:description" content="Cotizar por WhatsApp, atención 24/7, facturación, inventario y refacciones con IA. Piloto de 4 a 6 semanas con una métrica clara."/>
+  <meta property="og:description" content="Tu empresa contesta y cotiza en minutos, los 365 días. Agentes de IA, CRM y software a la medida, con un piloto de 4 a 6 semanas y una métrica clara."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://prolink365.com.mx/"/>
   <!-- Google Analytics: pega aquí tu ID real de GA4 (G-…) y descomenta. El ID de ejemplo anterior no medía nada.
@@ -29,6 +29,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="prolink.css"/>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"ProLink365","url":"https://prolink365.com.mx/","image":"https://prolink365.com.mx/og-image.png","logo":"https://prolink365.com.mx/apple-touch-icon.png","description":"Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Espacios 3D para empresas de Sinaloa. Piloto de 4 a 6 semanas con una métrica.","telephone":"+52 668 130 5828","email":"carlosrope@prolink365.com.mx","address":{"@type":"PostalAddress","addressLocality":"Los Mochis","addressRegion":"Sinaloa","addressCountry":"MX"},"areaServed":{"@type":"State","name":"Sinaloa"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.instagram.com/prolink.365","https://www.facebook.com/p/ProLink365-61589518042209/"],"founder":{"@type":"Person","name":"Carlos Manuel Robles"},"knowsAbout":["Automatización con IA","Agentes de WhatsApp","CRM","Software a la medida","Planos y recorridos 3D"]}
+  </script>
   <script>
     // Enlaces viejos a secciones que ahora viven en su propia página.
     (function () {
@@ -37,35 +40,249 @@
     })();
   </script>
   <style>
-    .hero h1 .line { display: block; }
-    .sector-card h3 { display: flex; align-items: center; gap: 0.55rem; }
+    /* ── Portada: hero en dos columnas con la interfaz del CRM ── */
+    .hero.split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 3.5rem; align-items: center; text-align: left; max-width: 1180px; margin: 0 auto; min-height: 88vh; padding: 7.5rem 2rem 4rem; }
+    .hero.split .hero-badge { margin-bottom: 1.4rem; }
+    .hero.split h1 { font-size: clamp(2.1rem, 3.6vw, 3.25rem); margin-bottom: 1.2rem; hyphens: manual; }
+    .hero.split .hero-sub { margin: 0 0 2rem; max-width: 540px; }
+    .hero.split .hero-actions { justify-content: flex-start; }
+    .hero-visual { width: 100%; max-width: 620px; margin: 0 auto; justify-self: center; }
+    .hero-visual figcaption { margin-top: 0.9rem; font-size: 0.78rem; color: var(--gray); text-align: center; }
+    .hero-visual figcaption a { color: var(--green); text-decoration: none; font-weight: 500; }
+    @media (max-width: 980px) {
+      .hero.split { grid-template-columns: minmax(0, 1fr); text-align: center; gap: 2.8rem; min-height: auto; padding-top: 7rem; }
+      .hero.split .hero-sub { margin: 0 auto 2rem; }
+      .hero.split .hero-actions { justify-content: center; }
+    }
+
+    /* Interfaz de ejemplo: CRM con agente de IA (datos ficticios) */
+    .mock { background: #0d1511; border: 1px solid rgba(0,232,122,0.22); border-radius: 16px; box-shadow: 0 30px 80px rgba(0,0,0,0.55); overflow: hidden; font-size: 0.74rem; line-height: 1.4; font-weight: 400; text-align: left; }
+    .mock-bar { display: flex; align-items: center; gap: 0.4rem; padding: 0.6rem 0.9rem; border-bottom: 1px solid var(--border); background: rgba(15,26,21,0.9); color: var(--gray); font-size: 0.7rem; }
+    .mock-bar .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(240,245,242,0.16); }
+    .mock-bar .titulo { margin-left: 0.4rem; color: var(--white); font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .mock-bar .estado { margin-left: auto; color: var(--green); white-space: nowrap; display: inline-flex; align-items: center; gap: 0.35rem; }
+    .mock-bar .estado::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
+    .mock-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); }
+    .mock-chat { padding: 0.9rem; display: flex; flex-direction: column; gap: 0.45rem; background: #0b1410; border-right: 1px solid var(--border); }
+    .m { max-width: 92%; padding: 0.5rem 0.65rem; border-radius: 10px; color: var(--white); animation: aparece 0.5s ease both; }
+    .m time { display: block; font-size: 0.6rem; color: var(--gray); margin-top: 0.2rem; }
+    .m.in { background: #16211c; align-self: flex-start; border-bottom-left-radius: 3px; }
+    .m.out { background: #0f3b2a; align-self: flex-end; border-bottom-right-radius: 3px; }
+    .m.doc { border: 1px solid rgba(0,232,122,0.35); }
+    .m.doc b { color: var(--green); }
+    .m.sys { align-self: center; background: transparent; color: var(--gray); font-size: 0.64rem; border: 1px dashed var(--border); max-width: 100%; }
+    .m:nth-child(1) { animation-delay: 0.2s; } .m:nth-child(2) { animation-delay: 0.7s; } .m:nth-child(3) { animation-delay: 1.2s; } .m:nth-child(4) { animation-delay: 1.7s; } .m:nth-child(5) { animation-delay: 2.2s; }
+    .mock-side { padding: 0.9rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .mock-kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .mock-kpis div { background: rgba(0,232,122,0.06); border: 1px solid var(--border); border-radius: 8px; padding: 0.5rem 0.55rem; }
+    .mock-kpis b { display: block; font-family: 'Exo 2', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--green); line-height: 1; margin-bottom: 0.2rem; }
+    .mock-kpis span { font-size: 0.6rem; color: var(--gray); line-height: 1.2; display: block; }
+    .mock-embudo { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.4rem; }
+    .mock-embudo .col { background: rgba(15,26,21,0.8); border: 1px solid var(--border); border-radius: 8px; padding: 0.45rem; min-height: 96px; }
+    .mock-embudo h4 { font-family: 'DM Sans', sans-serif; font-size: 0.56rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gray); display: flex; justify-content: space-between; gap: 0.3rem; margin-bottom: 0.35rem; font-weight: 500; }
+    .mock-embudo h4 i { font-style: normal; color: var(--white); }
+    .tarj { background: #141f19; border: 1px solid rgba(240,245,242,0.06); border-radius: 6px; padding: 0.3rem 0.4rem; font-size: 0.6rem; color: var(--white); margin-bottom: 0.3rem; overflow-wrap: anywhere; }
+    .tarj small { display: block; color: var(--gray); font-size: 0.56rem; }
+    .tarj.viva { border-color: var(--green); box-shadow: 0 0 0 2px rgba(0,232,122,0.15); animation: aparece 0.5s ease 2s both; }
+    .mock-aviso { padding: 0.5rem 0.9rem; border-top: 1px solid var(--border); font-size: 0.62rem; color: var(--gray); }
+    @keyframes aparece { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 560px) {
+      .mock-body { grid-template-columns: minmax(0, 1fr); }
+      .mock-chat { border-right: 0; border-bottom: 1px solid var(--border); }
+      .mock-embudo { grid-template-columns: repeat(2, 1fr); }
+      .mock-bar .titulo { display: none; }
+    }
+
+    /* ── Cuatro formatos con captura ── */
+    #servicios h2, .formatos h3, #demos h3, .equipo h3 { hyphens: manual; }
+    .formatos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(400px, 100%), 1fr)); gap: 1.6rem; }
+    .card.formato { padding: 0; overflow: hidden; }
+    .card.formato .captura { display: block; border-bottom: 1px solid var(--border); background: #0b1410; }
+    .card.formato .captura img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: top left; transition: transform .4s ease; }
+    .card.formato:hover .captura img { transform: scale(1.02); }
+    .card.formato .cuerpo { padding: 1.5rem 1.8rem 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
+    .card.formato h3 { font-size: 1.25rem; }
+    .complementos { position: relative; z-index: 1; color: var(--gray); font-size: 0.95rem; margin-top: 2rem; }
+    .complementos a { color: var(--green); text-decoration: none; font-weight: 500; }
+    .tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.4rem; }
+    .tools span { font-size: 0.8rem; color: var(--gray); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.8rem; }
+
+    /* ── Sectores en una franja corta ── */
+    .sectores-compacto { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .sectores-compacto .section-sub { margin-bottom: 1.8rem; }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .chips a { text-decoration: none; color: var(--white); font-size: 0.92rem; border: 1px solid var(--border); background: var(--card); border-radius: 100px; padding: 0.6rem 1.1rem; transition: border-color .2s, color .2s, transform .2s; }
+    .chips a:hover { border-color: var(--green); color: var(--green); transform: translateY(-2px); }
+
+    /* ── Demos destacadas ── */
     .demo-card { border-color: rgba(37,211,102,0.25); }
     .demo-card .who { font-size: 0.8rem; color: var(--gray); }
+    .mas-demos { position: relative; z-index: 1; display: flex; justify-content: center; margin-top: 2.4rem; }
+
     .pymes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1.4rem; }
     .price-tag { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 2rem; color: var(--green); line-height: 1; }
     .price-tag small { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.85rem; color: var(--gray); }
     .alianza { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem; background: linear-gradient(135deg, rgba(0,232,122,0.06), var(--card)); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; }
     .alianza p { color: var(--gray); max-width: 620px; }
-    .tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
-    .tools span { font-size: 0.8rem; color: var(--gray); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.8rem; }
     .clientes { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.9rem 2rem; padding: 1.4rem 1.5rem 1.8rem; text-align: center; }
     .clientes .tag { width: 100%; max-width: none; text-align: center; font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.15em; }
     .clientes img { display: block; height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
     .clientes p { color: var(--gray); font-size: 0.9rem; max-width: 560px; text-align: left; }
     @media (max-width: 860px) { .clientes p { text-align: center; } }
     .clientes p b { color: var(--white); font-weight: 500; }
+
+    /* ── Iconos de línea (un solo set, verde) ── */
+    .ico { width: 1.4rem; height: 1.4rem; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
+    .ico.relleno { fill: var(--green); stroke: none; }
+    .icono { width: 46px; height: 46px; border-radius: 12px; background: rgba(0,232,122,0.08); border: 1px solid var(--border); display: grid; place-items: center; flex: none; }
+    .trust div { display: grid; grid-template-columns: auto 1fr; column-gap: 0.9rem; align-items: start; }
+    .trust .ico { grid-row: span 2; margin-top: 0.2rem; }
+
+    /* ── Franjas alternas: la sección ocupa todo el ancho con el fondo secundario ── */
+    .franja { background: var(--bg2); box-shadow: 0 0 0 100vmax var(--bg2); clip-path: inset(0 -100vmax); }
+
+    /* ── Formato destacado (primero, a lo ancho) y tres secundarios ── */
+    .formatos { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+    .card.formato .cabecera { display: flex; align-items: center; gap: 0.8rem; }
+    .card.formato.destacado { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+    .card.formato.destacado .captura { border-bottom: 0; border-right: 1px solid var(--border); position: relative; min-height: 300px; }
+    .card.formato.destacado .captura img { position: absolute; inset: 0; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: left top; }
+    .card.formato.destacado h3 { font-size: 1.5rem; }
+    .card.formato.destacado .cuerpo { padding: 2rem 2.2rem 2.2rem; }
+    @media (max-width: 900px) {
+      .card.formato.destacado { grid-template-columns: minmax(0, 1fr); }
+      .card.formato.destacado .captura { border-right: 0; border-bottom: 1px solid var(--border); min-height: 0; }
+      .card.formato.destacado .captura img { position: static; aspect-ratio: 3 / 2; height: auto; }
+      .card.formato.destacado .cuerpo { padding: 1.5rem 1.8rem 1.8rem; }
+    }
+
+    /* ── Integraciones: nombres con el logo de WhatsApp ── */
+    .integra { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; margin-top: 1.6rem; }
+    .integra .etq { font-size: 0.8rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.12em; margin-right: 0.4rem; }
+    .integra span:not(.etq) { display: inline-flex; align-items: center; gap: 0.45rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--white); opacity: 0.85; border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.9rem; }
+    .integra .ico { width: 1.1rem; height: 1.1rem; }
+    .integra a.marca { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.88rem; color: var(--white); opacity: 0.85; border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.9rem; text-decoration: none; transition: opacity .2s, border-color .2s; }
+    .integra a.marca:hover { opacity: 1; border-color: rgba(0,232,122,0.4); }
+    .integra a.marca img { display: block; width: auto; }
+
+    /* ── Demo destacada: una grande con captura, cinco normales ── */
+    .grid.demos { grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); }
+    .demo-card .cabecera { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
+    .demo-card.destacada { padding: 0; overflow: hidden; }
+    .demo-card.destacada .captura { display: block; flex: 1 1 230px; min-height: 230px; position: relative; border-bottom: 1px solid var(--border); background: #0b1410; }
+    .demo-card.destacada .captura img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top left; }
+    .demo-card.destacada .cuerpo { padding: 1.5rem 1.8rem 1.8rem; display: flex; flex-direction: column; gap: 0.8rem; }
+    .demo-card.destacada h3 { font-size: 1.35rem; }
+    @media (min-width: 1000px) { .grid.demos { grid-template-columns: repeat(3, minmax(0, 1fr)); } .demo-card.destacada { grid-column: span 2; grid-row: span 2; } }
+    @media (min-width: 640px) and (max-width: 999px) { .demo-card.destacada { grid-column: span 2; } }
+
+    /* ── Quién está detrás y caso real ── */
+    .equipo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 1.6rem; }
+    .persona { display: grid; grid-template-columns: auto 1fr; gap: 1.4rem; align-items: start; }
+    .avatar { width: 110px; height: 110px; border-radius: 16px; border: 2px solid rgba(0,232,122,0.45); background: var(--bg2); display: block; object-fit: cover; }
+    .avatar.vacio { border-style: dashed; background: rgba(0,232,122,0.04); }
+    .persona h3 { font-size: 1.35rem; margin-bottom: 0.15rem; }
+    .persona .rol { color: var(--green); font-size: 0.86rem; margin-bottom: 0.8rem; }
+    .persona p { color: var(--gray); font-size: 0.95rem; }
+    .persona .datos { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    .persona .datos span { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; color: var(--gray); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.75rem; }
+    .persona .datos .ico { width: 1rem; height: 1rem; }
+    @media (max-width: 480px) { .persona { grid-template-columns: minmax(0, 1fr); } .avatar { width: 90px; height: 90px; } }
+    .caso .logo-panel { background: #fff; border-radius: 12px; padding: 0.7rem 1rem; width: fit-content; max-width: 100%; margin-bottom: 0.5rem; }
+    .caso .logo-panel img { height: 46px; width: auto; max-width: 100%; display: block; }
+    .caso .sector-caso { font-size: 0.8rem; color: var(--gray); margin-bottom: 0.4rem; }
+    .caso ul { margin-top: 0.3rem; }
+    .caso blockquote { margin-top: 1rem; padding: 1rem 1.2rem; border-left: 3px solid var(--green); background: rgba(0,232,122,0.05); border-radius: 0 10px 10px 0; color: var(--white); font-size: 0.95rem; }
+    .caso blockquote footer { margin-top: 0.4rem; border: 0; padding: 0; text-align: left; font-size: 0.8rem; color: var(--gray); }
+    .clientes { gap: 0.6rem 1.6rem; padding: 1.2rem 1.5rem 1.4rem; }
+    .clientes .nota { color: var(--gray); font-size: 0.86rem; }
+
+    /* ── Menú de 4 entradas: completo desde 861 px (prolink.css lo colapsa a 1100) ── */
+    @media (min-width: 861px) and (max-width: 1100px) {
+      nav.top .nav-toggle { display: none; }
+      nav.top .nav-links { display: flex; position: static; flex-direction: row; align-items: center; gap: 1.4rem; background: transparent; border: 0; padding: 0; }
+      nav.top .nav-links > li > a { display: inline; padding: 0; border: 0; }
+      nav.top .nav-links .mobile-only { display: none; }
+      nav.top .nav-cta.desktop { display: inline-block; }
+    }
+    @media (min-width: 861px) {
+      .nav-links li.menu { position: relative; }
+      .nav-links li.menu::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 0.8rem; }
+      .nav-links .submenu { display: none; position: absolute; top: calc(100% + 0.7rem); left: -0.8rem; min-width: 240px; background: rgba(10,15,13,0.98); border: 1px solid var(--border); border-radius: 12px; padding: 0.4rem 0; box-shadow: 0 12px 30px rgba(0,0,0,0.45); list-style: none; z-index: 5; }
+      .nav-links li.menu:hover .submenu, .nav-links li.menu:focus-within .submenu { display: block; }
+      .nav-links .submenu a { display: block; padding: 0.55rem 1rem; font-size: 0.88rem; }
+      .caret { font-size: 0.7em; opacity: 0.7; }
+    }
+    @media (max-width: 860px) {
+      .caret { display: none; }
+      .nav-links .submenu { list-style: none; padding-left: 1rem; }
+      .nav-links .submenu li a { font-size: 0.86rem; color: var(--gray); }
+    }
+    .formato[id] { scroll-margin-top: 90px; }
+
+    /* ── Franjas cortas: pymes y alianzas ── */
+    .banda { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; }
+    .banda p { color: var(--gray); max-width: 620px; font-size: 0.95rem; }
+    .banda-enlaces { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+    /* ── Pie completo ── */
+    footer.pie { text-align: left; padding: 3.5rem 2rem 1.6rem; }
+    .pie-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 2.2rem; }
+    @media (max-width: 860px) { .pie-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .pie-grid { grid-template-columns: minmax(0, 1fr); } }
+    footer.pie .pie-lema { color: var(--gray); font-size: 0.9rem; max-width: 320px; }
+    footer.pie h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--green); margin-bottom: 0.8rem; }
+    footer.pie nav { display: block; margin: 0; }
+    footer.pie a, footer.pie span { display: block; color: var(--gray); text-decoration: none; font-size: 0.88rem; margin-bottom: 0.45rem; }
+    footer.pie a:hover { color: var(--green); }
+    footer.pie .logo { display: inline-block; font-size: 1.35rem; color: var(--green); margin-bottom: 0.8rem; }
+    footer.pie .logo span, footer.pie .pie-legal span { display: inline; margin: 0; font-size: inherit; color: inherit; }
+    footer.pie .redes { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.9rem; }
+    footer.pie .redes a { display: inline-flex; align-items: center; gap: 0.45rem; margin: 0; border: 1px solid var(--border); border-radius: 100px; padding: 0.4rem 0.85rem; color: var(--white); font-size: 0.85rem; }
+    footer.pie .redes a:hover { border-color: var(--green); color: var(--green); }
+    footer.pie .redes img { display: block; width: 22px; height: 22px; }
+    footer.pie .pie-legal { text-align: center; margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); color: var(--gray); }
   </style>
 </head>
 <body>
 
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 12a8.5 8.5 0 0 1-12.4 7.6L4 21l1.4-4.6A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 11h7M8.5 14h4"/></symbol>
+    <symbol id="i-panel" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+    <symbol id="i-cube" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7.3 12 12l8.7-4.7M12 22V12"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="i-link" viewBox="0 0 24 24"><path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 1 1 0 10h-2M8 12h8"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12.5v4.5c3 3 9 3 12 0v-4.5M22 10v5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L5 21"/></symbol>
+    <symbol id="i-fuel" viewBox="0 0 24 24"><path d="M3 22V5a2 2 0 0 1 2-2h7a2 2 0 0 1 2 2v17M2 22h13M3 11h11"/><path d="M14 9h2a2 2 0 0 1 2 2v6a1.5 1.5 0 0 0 3 0V10l-3-3"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z"/><path d="M2 21c0-3 1.9-5.5 5-6.4"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M9 16l2 2 4-4"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"/><path d="M8 8.5h8M8 12h5"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.8 2z"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol>
+  </svg>
+
   <nav class="top" aria-label="Principal">
     <a class="logo" href="index.html">Pro<span>Link</span>365</a>
     <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#sectores">Sectores</a></li>
+      <li class="menu"><a href="#servicios">Servicios <span class="caret" aria-hidden="true">▾</span></a>
+        <ul class="submenu" aria-label="Servicios">
+          <li><a href="#f-agente">Agente de IA + CRM</a></li>
+          <li><a href="#f-software">Software a la medida</a></li>
+          <li><a href="espacios-3d.html">Espacios 3D</a></li>
+          <li><a href="recepcionista.html">Recepcionista virtual</a></li>
+          <li><a href="taller-ia.html">Taller "IA en tu puesto"</a></li>
+          <li><a href="paginas-web.html">Páginas web</a></li>
+        </ul>
+      </li>
       <li><a href="#demos">Demos</a></li>
       <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
-      <li><a href="#pymes">Pymes</a></li>
+      <li><a href="#equipo">Quién somos</a></li>
       <li class="mobile-only"><a href="#contacto">Agenda un diagnóstico</a></li>
     </ul>
     <a href="#contacto" class="nav-cta desktop">Agenda un diagnóstico</a>
@@ -73,325 +290,288 @@
   </nav>
 
   <!-- ── HERO ── -->
-  <header class="hero">
+  <header class="hero split">
     <div class="orb"></div>
-    <div class="hero-badge">Automatización empresarial con IA · Los Mochis, Sinaloa</div>
-    <h1><span class="line">Tu empresa operando</span><span class="line"><em>los 365 días</em> del año</span></h1>
-    <p class="hero-sub">Automatizamos con IA los procesos que hoy le quitan horas a tu equipo: cotizar y vender por WhatsApp, atender clientes, facturar, controlar inventario, resolver dudas técnicas y capacitar a tu gente. Empezamos con un piloto de 4 a 6 semanas y una métrica clara.</p>
-    <div class="hero-actions">
-      <a href="#demos" class="btn-primary">Ver demos en vivo</a>
-      <a href="#contacto" class="btn-ghost">Agenda un diagnóstico</a>
+    <div class="hero-texto">
+      <div class="hero-badge">Automatización empresarial con IA · Los Mochis, Sinaloa</div>
+      <h1>Tu empresa contesta y cotiza en minutos, <em>los 365 días</em></h1>
+      <p class="hero-sub">La IA atiende WhatsApp, cotiza con tus precios, agenda y da seguimiento; tu equipo solo revisa. Lo probamos en un piloto de 4 a 6 semanas con una métrica, y damos soporte en persona en Sinaloa.</p>
+      <div class="hero-actions">
+        <a href="#demos" class="btn-primary">Ver demos en vivo</a>
+        <a href="#contacto" class="btn-ghost">Agenda un diagnóstico</a>
+      </div>
     </div>
+    <figure class="hero-visual">
+      <div class="mock" role="img" aria-label="Interfaz del CRM con agente de IA: a la izquierda una conversación de WhatsApp donde la IA cotiza un minisplit a las 11 de la noche y manda la cotización en PDF; a la derecha los indicadores y el embudo de ventas con el cliente ya en la etapa de cotizado.">
+        <div class="mock-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="titulo">Climas Demo · WhatsApp e Instagram</span><span class="estado">Agente activo</span></div>
+        <div class="mock-body">
+          <div class="mock-chat">
+            <div class="m in">Hola, ¿tienen minisplit de 1 tonelada? ¿Cuánto sale instalado?<time>11:42 p. m.</time></div>
+            <div class="m out">Sí: Inverter de 1 tonelada, $8,900 instalado en Los Mochis. ¿Te mando la cotización en PDF?<time>11:42 p. m. · respondió la IA</time></div>
+            <div class="m in">Sí, por favor. Es para una recámara.<time>11:43 p. m.</time></div>
+            <div class="m out doc"><b>Cotización #1042</b> · $8,900 con IVA · vigencia 7 días<time>11:43 p. m. · PDF enviado</time></div>
+            <div class="m sys">Seguimiento programado: mañana 10:00 a. m. · Avisar a Diana (ventas)</div>
+          </div>
+          <div class="mock-side">
+            <div class="mock-kpis">
+              <div><b>12 s</b><span>Tiempo de respuesta</span></div>
+              <div><b>8</b><span>Llegaron por anuncio hoy</span></div>
+              <div><b>3</b><span>Pasaron a vendedor</span></div>
+            </div>
+            <div class="mock-embudo">
+              <div class="col"><h4>Nuevo <i>3</i></h4><div class="tarj">Ramón V.<small>¿Precio de 1 ton?</small></div><div class="tarj">Lupita M.<small>Sala de 5 × 5 m</small></div></div>
+              <div class="col"><h4>Cotizado <i>5</i></h4><div class="tarj viva">Laura G.<small>$8,900 · PDF</small></div><div class="tarj">Héctor S.<small>2 ton · seguimiento</small></div></div>
+              <div class="col"><h4>Por pagar <i>2</i></h4><div class="tarj">Paola R.<small>1.5 ton · 6 meses</small></div></div>
+              <div class="col"><h4>Vendido <i>4</i></h4><div class="tarj">Familia T.<small>Instalación viernes</small></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-aviso">Empresa y datos de ejemplo. Conectado a tu negocio trabaja con tus precios, tus anuncios y tus vendedores.</div>
+      </div>
+      <figcaption>Así se ve el CRM con agente de IA que construimos. <a href="demo-crm.html">Probar esta demo →</a></figcaption>
+    </figure>
   </header>
 
   <!-- ── CLIENTES ── -->
   <section class="clientes" aria-label="Clientes">
     <p class="tag">Ya trabajan con nosotros</p>
     <img src="cliente-diluvium.png" alt="Diluvium, control de inundaciones" width="181" height="44"/>
-    <p><b>Diluvium · CRM con agente de IA.</b> Su equipo atiende WhatsApp e Instagram en un solo lugar. El agente contesta a toda hora, cotiza, mueve a cada cliente en el embudo y avisa al vendedor cuando hace falta.</p>
+    <p class="nota">CRM con agente de IA para su equipo de ventas · <a href="#equipo" style="color:var(--green);text-decoration:none;">ver el caso →</a></p>
   </section>
 
   <!-- ── CONFIANZA ── -->
   <div class="trust" role="list">
-    <div role="listitem"><strong>Piloto con una métrica</strong><span>4 a 6 semanas, alcance acotado y precio cerrado antes de empezar.</span></div>
-    <div role="listitem"><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Google, Odoo, Shopify, tu ERP o tus hojas de cálculo.</span></div>
-    <div role="listitem"><strong>Tu equipo aprende a usarlo</strong><span>Cada proyecto incluye capacitación práctica para quien lo va a operar.</span></div>
-    <div role="listitem"><strong>Soporte local</strong><span>Estamos en Los Mochis y atendemos en persona en Sinaloa.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-target"/></svg><strong>Piloto con una métrica</strong><span>4 a 6 semanas, alcance acotado y precio cerrado antes de empezar.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-link"/></svg><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Google, Odoo, Shopify, tu ERP o tus hojas de cálculo.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-cap"/></svg><strong>Tu equipo aprende a usarlo</strong><span>Cada proyecto incluye capacitación práctica para quien lo va a operar.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-pin"/></svg><strong>Soporte local</strong><span>Estamos en Los Mochis y atendemos en persona en Sinaloa.</span></div>
   </div>
 
-  <!-- ── SERVICIOS ── -->
+  <!-- ── FORMATOS (antes: servicios) ── -->
   <section id="servicios">
-    <div class="section-tag reveal">Servicios</div>
-    <h2 class="reveal">Una sola empresa,<br/><em>muchas automatizaciones</em></h2>
-    <p class="section-sub reveal">No vendemos una herramienta: resolvemos el proceso que más le cuesta a tu empresa y lo conectamos con lo que ya usas. Cuando funciona, seguimos con el siguiente.</p>
-    <div class="grid">
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">💬</div>
-        <h3>Ventas y cotización por WhatsApp</h3>
-        <p>Responde existencia y precio, cotiza desde fotos, listas o planos, y da seguimiento a las cotizaciones que no se cerraron.</p>
-        <a class="link" href="demo-cotizador.html">Ver demo →</a>
+    <div class="section-tag reveal">Qué hacemos</div>
+    <h2 class="reveal">Cuatro formas de automatizar,<br/><em>según cómo trabaja tu empresa</em></h2>
+    <p class="section-sub reveal">No vendemos una herramienta: elegimos el formato que le sirve a tu proceso y lo conectamos con lo que ya usas. Cuando funciona, seguimos con el siguiente.</p>
+    <div class="formatos">
+      <article class="card formato destacado" id="f-agente">
+        <a class="captura" href="demo-crm.html" aria-label="Probar la demo del CRM con agente de IA"><img src="captura-crm.jpg" alt="Pantalla del CRM demo: conversación de WhatsApp a la izquierda, indicadores y embudo de ventas a la derecha" width="960" height="689" loading="lazy"/></a>
+        <div class="cuerpo">
+          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-chat"/></svg></span><span class="badge">Agente + CRM</span></div>
+          <h3>Agente de IA en WhatsApp e Instagram, con CRM</h3>
+          <p>Contesta a toda hora, cotiza con tus precios, da seguimiento y pasa al vendedor cuando toca cerrar. Todo en una bandeja que tu equipo ve y controla.</p>
+          <ul>
+            <li>Ventas y cotización por WhatsApp, también desde fotos y listas</li>
+            <li>Copiloto de refacciones: identifica la pieza y revisa existencias</li>
+            <li>Catálogo armado desde notas de voz</li>
+            <li>Reservas, citas y facturas a cualquier hora</li>
+          </ul>
+          <a class="link" href="demo-crm.html">Probar la demo del CRM →</a>
+        </div>
       </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🗓️</div>
-        <h3>Atención 24/7: citas, reservas y facturas</h3>
-        <p>Agenda, confirma, factura y atiende flotillas o trámites a cualquier hora, por WhatsApp o por teléfono con nuestra recepcionista virtual.</p>
-        <a class="link" href="demo-flotillas.html">Ver demo →</a>
+      <article class="card formato" id="f-software">
+        <a class="captura" href="demo-gasolineras.html" aria-label="Probar la demo de la torre de control"><img src="captura-gasolineras.jpg" alt="Pantalla de la torre de control demo: litros vendidos, alertas abiertas, resumen de las 7:00 y alertas del día por estación" width="960" height="611" loading="lazy"/></a>
+        <div class="cuerpo">
+          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-panel"/></svg></span><span class="badge">Software a la medida</span></div>
+          <h3>Software a la medida con IA</h3>
+          <p>Torres de control, cotizadores y asistentes internos con tu flujo y tu imagen. La IA prepara cada noche; tu gente revisa y aprueba.</p>
+          <ul>
+            <li>Torre de control de estaciones, embarques o máquinas en campo</li>
+            <li>Expedientes y auditoría fiscal con revisión humana</li>
+            <li>Cotizadores con tus reglas de ingeniería y precio</li>
+            <li>Pronóstico de demanda e inventario por sucursal</li>
+          </ul>
+          <a class="link" href="demo-gasolineras.html">Probar la torre de control →</a>
+        </div>
       </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🛠️</div>
-        <h3>Copiloto técnico y de refacciones</h3>
-        <p>Identifica la pieza por modelo, serie o foto, revisa existencias por sucursal y responde con tus manuales e historiales.</p>
-        <a class="link" href="demo-refacciones.html">Ver demo →</a>
+      <article class="card formato">
+        <a class="captura" href="espacios-3d.html" aria-label="Ver Espacios 3D"><img src="espacios-salon-3d.jpg" alt="Vista 3D de un salón con mesas redondas, pista, escenario y cada área medida" width="800" height="575" loading="lazy"/></a>
+        <div class="cuerpo">
+          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-cube"/></svg></span><span class="badge">Espacios 3D</span></div>
+          <h3>Espacios 3D para salones y casas</h3>
+          <p>Planos 2D y recorridos 3D desde el celular: montajes e invitados para eventos, casas amuebladas para inmobiliarias, con la marca de tu negocio.</p>
+          <ul>
+            <li>Montajes, lista de invitados por mesa y hojas para imprimir</li>
+            <li>Casas desde AutoCAD, amuebladas y con visita guiada</li>
+            <li>Enlace de solo vista para que tu cliente lo recorra y comente</li>
+          </ul>
+          <a class="link" href="espacios-3d.html">Ver Espacios 3D →</a>
+        </div>
       </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">📦</div>
-        <h3>Pronóstico de demanda e inventario</h3>
-        <p>Sugiere compras, reabasto y traspasos por sucursal y temporada, con tus ventas históricas, el clima o el ciclo agrícola.</p>
-        <a class="link" href="demo-pronostico.html">Ver demo →</a>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🧾</div>
-        <h3>Documentos y contabilidad automáticos</h3>
-        <p>Lee y concilia facturas electrónicas, arma expedientes y reportes con revisión humana. Facturación por WhatsApp (Contador Virtual) en desarrollo.</p>
-        <a class="link" href="demo-expedientes.html">Ver demo →</a>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🖼️</div>
-        <h3>Catálogo y contenido con IA</h3>
-        <p>Fichas de producto desde los catálogos de tus proveedores, fotos mejoradas y contenido para cada marca y canal.</p>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🎓</div>
-        <h3>Capacitación "IA en tu puesto"</h3>
-        <p>Talleres prácticos por área (ventas, administración, técnicos) con casos de tu propia empresa y un piloto implementado.</p>
-        <a class="link" href="taller-ia.html">Ver temario →</a>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">📡</div>
-        <h3>Monitoreo inteligente de la operación</h3>
-        <p>Alertas con sensores, cámaras o tus datos: calidad del agua, consumo de flotillas, control de calidad en producción.</p>
-        <a class="link" href="demo-gasolineras.html">Ver demo →</a>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🧊</div>
-        <h3>Espacios 3D</h3>
-        <p>Planos 2D y recorridos 3D de salones y casas desde el celular: montajes e invitados para eventos, y casas amuebladas para inmobiliarias.</p>
-        <a class="link" href="espacios-3d.html">Ver Espacios 3D →</a>
-      </article>
-      <article class="card reveal">
-        <div class="icon" aria-hidden="true">🌐</div>
-        <h3>Páginas web y presencia en Google</h3>
-        <p>Sitios rápidos, adaptados al celular y listos para recibir clientes por WhatsApp y aparecer en Google Maps.</p>
-        <a class="link" href="paginas-web.html">Ver planes →</a>
+      <article class="card formato">
+        <a class="captura" href="demo-reservas.html" aria-label="Probar la demo de reservas por WhatsApp"><img src="captura-reservas.jpg" alt="Pantalla de la demo de reservas: conversación donde la IA ofrece otra hora cuando no hay mesa, y la agenda del sábado sincronizada" width="960" height="611" loading="lazy"/></a>
+        <div class="cuerpo">
+          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-headset"/></svg></span><span class="badge">Recepcionista 24/7</span></div>
+          <h3>Recepcionista virtual, llamadas y WhatsApp</h3>
+          <p>Contesta llamadas y mensajes, agenda en tu calendario, confirma un día antes y llena las cancelaciones con la lista de espera. Listo en días, con precio fijo.</p>
+          <ul>
+            <li>Consultorios, clínicas, restaurantes y salones</li>
+            <li>Google Calendar, OpenTable o tu sistema de reservas</li>
+            <li>Factura desde la foto del ticket para flotillas y gasolineras</li>
+          </ul>
+          <a class="link" href="recepcionista.html">Ver planes de recepcionista →</a>
+        </div>
       </article>
     </div>
-    <div class="tools reveal" aria-label="Herramientas con las que trabajamos">
-      <span>WhatsApp Business</span><span>Google Workspace</span><span>Odoo</span><span>Shopify</span><span>OpenTable</span><span>Facturación CFDI</span><span>Hojas de cálculo</span><span>Tu ERP</span>
+    <p class="complementos">También: <a href="taller-ia.html">Taller "IA en tu puesto"</a> para capacitar a tu equipo con casos de tu propia empresa, y <a href="paginas-web.html">páginas web</a> listas para recibir clientes por WhatsApp y aparecer en Google.</p>
+    <div class="integra" aria-label="Se conecta con">
+      <span class="etq">Se conecta con</span>
+      <!-- Logos oficiales descargados el 10 de octubre de los kits de marca: Odoo (odoo.com/page/brand-assets, versión blanca, mínimo 20 px de alto),
+           Shopify (shopify.com/brand-assets, monotono blanco, mínimo 80 px de ancho y con enlace a shopify.com) e Instagram (Meta Brand Resource Center, glifo blanco).
+           No se modifican ni recolorean. Google Calendar y OpenTable van en texto: Google reserva sus iconos y OpenTable no publica kit. -->
+      <span><svg class="ico relleno"><use href="#i-whatsapp"/></svg>WhatsApp Business</span>
+      <a class="marca" href="https://www.instagram.com/" target="_blank" rel="noopener nofollow"><img src="logo-instagram.svg" alt="" width="22" height="22" style="height:22px;"/>Instagram</a>
+      <span>Google Calendar</span>
+      <a class="marca" href="https://www.odoo.com/" target="_blank" rel="noopener nofollow" aria-label="Odoo"><img src="logo-odoo.svg" alt="Odoo" width="46" height="25" style="height:25px;"/></a>
+      <a class="marca" href="https://www.shopify.com/" target="_blank" rel="noopener nofollow" aria-label="Shopify"><img src="logo-shopify.svg" alt="Shopify" width="88" height="25" style="height:25px;"/></a>
+      <span>OpenTable</span><span>Facturación CFDI</span><span>Hojas de cálculo</span><span>Tu ERP</span>
     </div>
   </section>
-
-  <div class="full-divider"></div>
 
   <!-- ── SECTORES ── -->
-  <section id="sectores">
+  <section id="sectores" class="sectores-compacto franja">
     <div class="section-tag reveal">Sectores</div>
     <h2 class="reveal">Hecho para cómo trabajan<br/>las empresas de Sinaloa</h2>
-    <p class="section-sub reveal">Estos son los procesos que más nos piden. Si el tuyo no está, cuéntanos: casi siempre empieza por un WhatsApp saturado o una hoja de cálculo.</p>
-    <div class="grid">
-      <article class="card sector-card reveal">
-        <h3><span aria-hidden="true">🌾</span> Agro y agroindustria</h3>
-        <ul><li>Refacciones y soporte técnico por WhatsApp</li><li>Cotización de maquinaria e implementos</li><li>Pronóstico de insumos por ciclo</li><li>Capacitación para técnicos y vendedores</li></ul>
-      </article>
-      <article class="card sector-card reveal">
-        <h3><span aria-hidden="true">🏗️</span> Construcción, acero y ferretería</h3>
-        <ul><li>Cotizar desde la foto de una lista o un plano</li><li>Existencias y precios por sucursal</li><li>Seguimiento de cotizaciones abiertas</li><li>Fichas de producto automáticas</li></ul>
-      </article>
-      <article class="card sector-card reveal">
-        <h3><span aria-hidden="true">🛒</span> Comercio y distribución</h3>
-        <ul><li>Pedidos y cobranza por WhatsApp</li><li>Pronóstico de inventario por tienda</li><li>Contenido para marcas y temporadas</li></ul>
-      </article>
-      <article class="card sector-card reveal">
-        <h3><span aria-hidden="true">⛽</span> Gasolineras y flotillas</h3>
-        <ul><li>Factura CFDI desde la foto del ticket</li><li>Saldo y consumo por unidad</li><li>Alertas de cargas fuera de lo normal</li></ul>
-      </article>
-      <article class="card sector-card reveal">
-        <h3><span aria-hidden="true">🩺</span> Salud y servicios profesionales</h3>
-        <ul><li>Citas, recordatorios e indicaciones</li><li>Expedientes y documentos con revisión</li><li>Conciliación contable y reportes</li></ul>
-      </article>
-      <article class="card sector-card reveal">
-        <h3><span aria-hidden="true">🍽️</span> Restaurantes, hoteles y eventos</h3>
-        <ul><li>Reservas conectadas a tu sistema</li><li>Venta de boletos y dudas por WhatsApp</li><li>Redes y contenido de temporada</li></ul>
-      </article>
+    <p class="section-sub reveal">Casi siempre empieza por un WhatsApp saturado o una hoja de cálculo. Elige tu sector y mira las demos que ya tenemos para él; si el tuyo no está, cuéntanos.</p>
+    <div class="chips">
+      <a href="demos.html?sector=agro">Agro y agroindustria</a>
+      <a href="demos.html?sector=construccion">Construcción, acero e industria</a>
+      <a href="demos.html?sector=comercio">Comercio y distribución</a>
+      <a href="demos.html?sector=gasolineras">Gasolineras y flotillas</a>
+      <a href="demos.html?sector=inmobiliaria">Inmobiliario y notarías</a>
+      <a href="demos.html?sector=eventos">Restaurantes, hoteles y eventos</a>
+      <a href="demos.html?sector=profesionales">Despachos y consultorios</a>
     </div>
   </section>
 
-  <div class="full-divider"></div>
-
-  <!-- ── DEMOS ── -->
+  <!-- ── DEMOS DESTACADAS ── -->
   <section id="demos">
     <div class="section-tag reveal">Demos en vivo</div>
     <h2 class="reveal">Pruébalo antes<br/>de hablar con nosotros</h2>
-    <p class="section-sub reveal">Demostraciones interactivas con datos de ejemplo. Así funcionaría conectado a tu inventario, tus precios y tu WhatsApp.</p>
-    <div class="grid">
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Refacciones por WhatsApp</h3>
-        <p>Un cliente pide una pieza por modelo o foto; el asistente la identifica, revisa existencias en tus sucursales y la aparta.</p>
-        <p class="who">Para distribuidores de maquinaria, refaccionarias y talleres.</p>
-        <a class="link" href="demo-refacciones.html">Probar demo →</a>
+    <p class="section-sub reveal">Seis para empezar. Son simuladas, con empresas y datos de ejemplo; conectadas a tu empresa trabajan con tu inventario, tus precios y tu WhatsApp.</p>
+    <div class="grid demos">
+      <article class="card demo-card destacada">
+        <a class="captura" href="demo-cotizador.html" aria-label="Probar la demo de cotización desde la foto de una lista"><img src="captura-cotizador.jpg" alt="Pantalla de la demo: el cliente manda la foto de su lista escrita a mano y la IA responde con la cotización armada con los precios de la empresa" width="960" height="611" loading="lazy"/></a>
+        <div class="cuerpo">
+          <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-image"/></svg></div>
+          <h3>Cotización desde la foto de una lista</h3>
+          <p>El cliente manda su lista escrita a mano; la IA la lee, pregunta lo que falta (calibre, medida), arma la cotización con tus precios y existencias y le da seguimiento hasta que confirma.</p>
+          <p class="who">Para materiales, acero, ferreterías y equipo comercial.</p>
+          <a class="link" href="demo-cotizador.html">Probar demo →</a>
+        </div>
       </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Cotización desde la foto de una lista</h3>
-        <p>El cliente manda su lista escrita a mano; la IA la lee, arma la cotización con tus precios y le da seguimiento.</p>
-        <p class="who">Para materiales, acero, ferreterías y equipo comercial.</p>
-        <a class="link" href="demo-cotizador.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Facturas y flotillas por WhatsApp</h3>
-        <p>El cliente manda la foto del ticket y recibe su factura; las flotillas consultan saldo y reciben alertas de consumo.</p>
-        <p class="who">Para gasolineras, distribuidores y empresas con flotilla.</p>
-        <a class="link" href="demo-flotillas.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Festivales: contenido y boletos</h3>
-        <p>La IA arma el plan de contenido del evento para que tu equipo lo apruebe, y un asistente responde dudas y aparta boletos por WhatsApp.</p>
-        <p class="who">Para eventos, restaurantes, hoteles y marcas de consumo.</p>
-        <a class="link" href="demo-festival.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Reservas y salones por WhatsApp</h3>
-        <p>Toma reservas, ofrece otra hora si no hay lugar, confirma un día antes y llena las cancelaciones con la lista de espera.</p>
-        <p class="who">Para restaurantes, bares y salones de eventos.</p>
-        <a class="link" href="demo-reservas.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Pronóstico de inventario por tienda</h3>
-        <p>Cruza ventas, temporada y clima para decirte qué se va a agotar, qué traspasar entre sucursales y qué comprar.</p>
-        <p class="who">Para cadenas con sucursales, distribuidores y tiendas de temporada.</p>
-        <a class="link" href="demo-pronostico.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Inmobiliaria: califica y agenda visitas</h3>
-        <p>Contesta al momento, califica por zona, presupuesto y crédito (Infonavit, Fovissste o bancario), sugiere propiedades y agenda la visita.</p>
-        <p class="who">Para inmobiliarias, desarrolladoras y asesores.</p>
-        <a class="link" href="demo-inmobiliaria.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Expedientes: de los documentos al borrador</h3>
-        <p>La IA lee identificaciones, escrituras y boletas, marca lo que falta o no cuadra y prellena el borrador. El notario revisa y decide; todo queda en una bitácora.</p>
-        <p class="who">Para notarías, despachos y desarrolladoras inmobiliarias.</p>
-        <a class="link" href="demo-expedientes.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
+      <article class="card demo-card">
+        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-message"/></svg></div>
         <h3>CRM con agente de IA</h3>
         <p>WhatsApp e Instagram en una sola bandeja. El agente cotiza, mueve a cada cliente en el embudo, le da seguimiento y avisa al vendedor para cerrar.</p>
         <p class="who">Para negocios que venden por mensajes y anuncios. Basada en el CRM de Diluvium.</p>
         <a class="link" href="demo-crm.html">Probar demo →</a>
       </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Semilleras: asistente técnico</h3>
-        <p>Recomienda variedad por cultivo, zona y enfermedad con tu guía de resistencias, agenda parcelas demostrativas y manda las fotos de campo a tu agrónomo.</p>
-        <p class="who">Para semilleras, casas comerciales agrícolas y distribuidores de insumos.</p>
-        <a class="link" href="demo-semillas.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
+      <article class="card demo-card">
+        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-fuel"/></svg></div>
         <h3>Gasolineras: torre de control</h3>
         <p>Cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas tus estaciones, explica lo que no cuadra y te lo manda por WhatsApp.</p>
         <p class="who">Para grupos gasolineros y empresas con flotilla.</p>
         <a class="link" href="demo-gasolineras.html">Probar demo →</a>
       </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Espacios 3D: salones y casas</h3>
-        <p>Recorre en 3D un salón con boda de 240 invitados o una casa amueblada, desde el celular y con la marca del negocio.</p>
-        <p class="who">Para wedding planners, salones de eventos, inmobiliarias y desarrolladoras.</p>
-        <a class="link" href="espacios-3d.html#demos">Probar demo →</a>
+      <article class="card demo-card">
+        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-file"/></svg></div>
+        <h3>Expedientes: de los documentos al borrador</h3>
+        <p>La IA lee identificaciones, escrituras y boletas, marca lo que falta o no cuadra, prellena el borrador y precalcula impuestos. El notario revisa y decide; todo queda en una bitácora.</p>
+        <p class="who">Para notarías, despachos y desarrolladoras inmobiliarias.</p>
+        <a class="link" href="demo-expedientes.html">Probar demo →</a>
       </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Catálogo desde notas de voz</h3>
-        <p>El dueño dice qué vende y a cuánto; la IA arma su catálogo de WhatsApp y un vendedor de IA cotiza en PDF, da seguimiento y le pasa las ventas listas.</p>
-        <p class="who">Para pymes que venden por Facebook y WhatsApp sin lista digital.</p>
-        <a class="link" href="demo-catalogo.html">Probar demo →</a>
+      <article class="card demo-card">
+        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-leaf"/></svg></div>
+        <h3>Semilleras: asistente técnico</h3>
+        <p>Recomienda variedad por cultivo, zona y enfermedad con tu guía de resistencias, agenda parcelas demostrativas, manda las fotos de campo a tu agrónomo y captura tus ensayos por nota de voz.</p>
+        <p class="who">Para semilleras, casas comerciales agrícolas y distribuidores de insumos.</p>
+        <a class="link" href="demo-semillas.html">Probar demo →</a>
       </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Joyería: del boceto al Reel</h3>
-        <p>Desde el DM de Instagram, propone diseños con la piedra de la clienta, cotiza con el oro del día, crea la orden de taller y prepara el contenido para redes.</p>
-        <p class="who">Para joyerías con taller, artesanos y piezas a la medida.</p>
-        <a class="link" href="demo-joyeria.html">Probar demo →</a>
+      <article class="card demo-card">
+        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-calendar"/></svg></div>
+        <h3>Reservas y salones por WhatsApp</h3>
+        <p>Toma reservas, ofrece otra hora si no hay lugar, confirma un día antes y llena las cancelaciones con la lista de espera.</p>
+        <p class="who">Para restaurantes, bares y salones de eventos.</p>
+        <a class="link" href="demo-reservas.html">Probar demo →</a>
       </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Precisión: centro de mando</h3>
-        <p>Lee cada noche los datos de las máquinas de tus clientes, prioriza alertas y servicios, crea órdenes con refacciones apartadas y manda el resumen por WhatsApp.</p>
-        <p class="who">Para distribuidores de maquinaria agrícola y talleres.</p>
-        <a class="link" href="demo-precision.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Exportadora: torre de embarques</h3>
-        <p>Lee los pedidos de los brokers, asigna lotes, arma packing list, factura de exportación y trazabilidad, y vigila la temperatura de cada tráiler.</p>
-        <p class="who">Para agroexportadoras, empacadoras y comercializadoras.</p>
-        <a class="link" href="demo-exportadora.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Implementos: cotizador a la medida</h3>
-        <p>Configura el implemento, valida tus reglas de ingeniería, calcula acero, horas y precio, y genera la cotización con plano para que el director apruebe.</p>
-        <p class="who">Para fabricantes de implementos, maquinaria y equipo a la medida.</p>
-        <a class="link" href="demo-implementos.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Despacho: auditor fiscal continuo</h3>
-        <p>Cada noche descarga los CFDI de tu cartera, concilia con el banco, revisa la lista 69-B y las Cartas Porte, y prepara avisos que el contador aprueba.</p>
-        <p class="who">Para despachos contables y áreas de finanzas.</p>
-        <a class="link" href="demo-despacho.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card reveal">
-        <span class="badge demo">Demo</span>
-        <h3>Recepcionista virtual</h3>
-        <p>Contesta llamadas, agenda en Google Calendar y confirma por WhatsApp, también de noche y en fin de semana.</p>
-        <p class="who">Para consultorios, clínicas y negocios con citas.</p>
-        <a class="link" href="recepcionista.html#como-funciona">Ver cómo funciona →</a>
-      </article>
+    </div>
+    <div class="mas-demos">
+      <a class="btn-ghost" href="demos.html">Ver las 20 demos por sector →</a>
     </div>
   </section>
 
-  <div class="full-divider"></div>
-
   <!-- ── CÓMO TRABAJAMOS ── -->
-  <section id="como-trabajamos">
+  <section id="como-trabajamos" class="franja">
     <div class="section-tag reveal">Cómo trabajamos</div>
     <h2 class="reveal">Primero un piloto.<br/><em>Después, si funciona, crecemos.</em></h2>
     <p class="section-sub reveal">La mayoría de los proyectos de IA fallan por querer abarcar todo al inicio. Nosotros empezamos por un proceso y lo medimos.</p>
     <div class="steps">
-      <div class="step reveal"><div class="step-num">01</div><h3>Diagnóstico</h3><p>Una llamada de 30 minutos, sin costo. Elegimos un proceso con dolor visible: cotizar, contestar WhatsApp, facturar, identificar refacciones.</p></div>
-      <div class="step reveal"><div class="step-num">02</div><h3>Piloto de 4 a 6 semanas</h3><p>Precio cerrado, alcance acotado (una sucursal o un canal) y una sola métrica con su línea base: tiempo de respuesta, cotizaciones cerradas, horas ahorradas.</p></div>
-      <div class="step reveal"><div class="step-num">03</div><h3>Medimos juntos</h3><p>Al final comparamos contra la línea base, con una persona de tu equipo revisando lo que hace la IA. Tú decides si seguimos.</p></div>
-      <div class="step reveal"><div class="step-num">04</div><h3>Operación y mejora</h3><p>Mensualidad de operación y soporte, capacitación de tu equipo y nuevas automatizaciones cuando tengan sentido.</p></div>
+      <div class="step"><div class="step-num">01</div><h3>Diagnóstico</h3><p>Una llamada de 30 minutos, sin costo. Elegimos un proceso con dolor visible: cotizar, contestar WhatsApp, facturar, identificar refacciones.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>Piloto de 4 a 6 semanas</h3><p>Precio cerrado, alcance acotado (una sucursal o un canal) y una sola métrica con su línea base: tiempo de respuesta, cotizaciones cerradas, horas ahorradas.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Medimos juntos</h3><p>Al final comparamos contra la línea base, con una persona de tu equipo revisando lo que hace la IA. Tú decides si seguimos.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Operación y mejora</h3><p>Mensualidad de operación y soporte, capacitación de tu equipo y nuevas automatizaciones cuando tengan sentido.</p></div>
+    </div>
+  </section>
+
+  <!-- ── QUIÉN ESTÁ DETRÁS ── -->
+  <!-- Nombre confirmado el 10 de octubre. Falta la foto (carlos.jpg, cuadrada): mientras, va un recuadro vacío.
+       La cita de Diluvium ya está publicada con la autorización de Luis Navarro (director). -->
+  <section id="equipo">
+    <div class="section-tag reveal">Quién está detrás</div>
+    <h2 class="reveal">Hablas con quien<br/><em>construye tu proyecto</em></h2>
+    <p class="section-sub reveal">No hay intermediarios: la persona que diagnostica es la misma que programa, capacita y da soporte.</p>
+    <div class="equipo">
+      <article class="card persona">
+        <!-- Foto pendiente. Cuando la haya: <img class="avatar" src="carlos.jpg" alt="Carlos Manuel Robles" width="110" height="110"/> -->
+        <div class="avatar vacio" aria-hidden="true"></div>
+        <div>
+          <h3>Carlos Manuel Robles</h3>
+          <p class="rol">Fundador de ProLink365 · Los Mochis, Sinaloa</p>
+          <p>Diseña y programa cada proyecto: los agentes de IA, el CRM y el software a la medida que ves en las demos, incluido el CRM con agente que construyó para Diluvium. Trabaja en persona con las empresas de Sinaloa y entrega cada piloto con la capacitación de quien lo va a operar.</p>
+          <div class="datos">
+            <span><svg class="ico"><use href="#i-pin"/></svg>Los Mochis, Sinaloa</span>
+            <span><svg class="ico"><use href="#i-headset"/></svg>Soporte en persona</span>
+            <span><svg class="ico relleno"><use href="#i-whatsapp"/></svg>WhatsApp 24/7</span>
+          </div>
+        </div>
+      </article>
+      <article class="card caso">
+        <div class="logo-panel"><img src="cliente-diluvium-color.png" alt="Diluvium, control de inundaciones" width="800" height="219" loading="lazy"/></div>
+        <p class="sector-caso">Control de inundaciones · Caso real</p>
+        <h3>CRM con agente de IA para su equipo de ventas</h3>
+        <ul>
+          <li>WhatsApp e Instagram en una sola bandeja para todo el equipo.</li>
+          <li>El agente contesta a toda hora, cotiza, llena la ficha del contacto y mueve la etapa del embudo.</li>
+          <li>Avisa al vendedor cuando toca cerrar; seguimientos, plantillas y opiniones de clientes.</li>
+          <li>Roles de dueño, administrador y vendedor; versión para celular y respaldos.</li>
+        </ul>
+        <!-- Cita autorizada por Luis Navarro, director de Diluvium, el 10 de octubre de 2026 (texto tal como él lo escribió por WhatsApp). -->
+        <blockquote><p>«El CRM nos ordenó la venta, ya que cada conversación tiene su ficha, su etapa y su seguimiento, y el agente responde, cotiza y hasta hace sus ventas. Por la noche y en fin de semana. El equipo entra solo cuando toca confirmar con el cliente.»</p><footer>Luis Navarro · Director de Diluvium</footer></blockquote>
+        <a class="link" href="demo-crm.html">Ver la demo basada en este CRM →</a>
+      </article>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
   <!-- ── PYMES ── -->
-  <section id="pymes">
-    <div class="section-tag reveal">Pymes y consultorios</div>
-    <h2 class="reveal">¿Negocio pequeño?<br/>También tenemos planes listos</h2>
-    <p class="section-sub reveal">Servicios con precio fijo, listos en días, para consultorios, salones, restaurantes y negocios locales.</p>
-    <div class="pymes">
-      <article class="card reveal">
-        <span class="badge">Servicio insignia</span>
-        <h3>Recepcionista virtual con IA</h3>
-        <p>Contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas.</p>
-        <div class="price-tag">$3,000 <small>MXN al mes, desde</small></div>
-        <a class="link" href="recepcionista.html">Ver planes y calculadora →</a>
-      </article>
-      <article class="card reveal">
-        <span class="badge">Presencia en internet</span>
-        <h3>Páginas web profesionales</h3>
-        <p>Landing o sitio completo, adaptado al celular, con botón de WhatsApp y Google Business Profile.</p>
-        <div class="price-tag">$500 <small>MXN pago único, desde · + soporte anual</small></div>
-        <a class="link" href="paginas-web.html">Ver planes y ejemplos →</a>
-      </article>
+  <section id="pymes" style="padding-bottom:1.6rem;">
+    <div class="banda">
+      <div>
+        <div class="section-tag" style="margin-bottom:0.4rem;">Pymes y consultorios</div>
+        <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">¿Negocio pequeño? También tenemos planes listos, con precio fijo.</h3>
+        <p>Recepcionista virtual con IA para consultorios y negocios con citas, y páginas web listas para recibir clientes por WhatsApp y aparecer en Google.</p>
+      </div>
+      <div class="banda-enlaces">
+        <a class="btn-ghost btn-sm" href="recepcionista.html">Recepcionista virtual →</a>
+        <a class="btn-ghost btn-sm" href="paginas-web.html">Páginas web →</a>
+      </div>
     </div>
   </section>
 
   <!-- ── ALIANZAS ── -->
-  <section style="padding-top:0;">
-    <div class="alianza reveal">
+  <section id="alianzas" style="padding-top:0;">
+    <div class="alianza">
       <div>
         <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">¿Eres despacho contable, escuela o agencia?</h3>
         <p>Llevemos automatización a tus clientes: tú conoces su negocio y nosotros la implementamos. Co-venta, referidos o capacitación conjunta.</p>
@@ -406,18 +586,51 @@
   <div class="cta-section" id="contacto">
     <div class="section-tag reveal">Diagnóstico sin costo</div>
     <h2 class="reveal">¿Qué proceso le quita<br/>más horas a tu equipo?</h2>
-    <p class="reveal">Cuéntanos en un mensaje. En 30 minutos te decimos si se puede automatizar, cómo mediríamos el resultado y cuánto costaría el piloto.</p>
-    <div class="hero-actions reveal">
+    <p class="">Cuéntanos en un mensaje. En 30 minutos te decimos si se puede automatizar, cómo mediríamos el resultado y cuánto costaría el piloto.</p>
+    <div class="hero-actions">
       <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20para%20automatizar%20un%20proceso%20de%20mi%20empresa" class="btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       <a href="mailto:carlosrope@prolink365.com.mx?subject=Diagn%C3%B3stico%20ProLink365" class="btn-ghost">Escribir por correo</a>
     </div>
   </div>
 
-  <footer>
-    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
-    <nav aria-label="Legal"><a href="taller-ia.html">Taller de IA</a><a href="espacios-3d.html">Espacios 3D</a><a href="recepcionista.html">Recepcionista virtual</a><a href="paginas-web.html">Páginas web</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
-    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  <footer class="pie">
+    <div class="pie-grid">
+      <div>
+        <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Espacios 3D para empresas de Sinaloa.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener">WhatsApp: +52 668 130 5828</a>
+        <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a>
+        <span>Atención 24/7 por WhatsApp</span>
+        <span>Los Mochis, Sinaloa, México · en persona en todo Sinaloa</span>
+        <!-- Glifos oficiales: Instagram (Meta Brand Resource Center) y Facebook (Facebook Brand Asset Pack, logo primario, mínimo 16 px). -->
+        <div class="redes">
+          <a href="https://www.instagram.com/prolink.365" target="_blank" rel="noopener" aria-label="Instagram de ProLink365"><img src="logo-instagram.svg" alt="" width="22" height="22"/>Instagram</a>
+          <a href="https://www.facebook.com/p/ProLink365-61589518042209/" target="_blank" rel="noopener" aria-label="Facebook de ProLink365"><img src="logo-facebook.png" alt="" width="22" height="22"/>Facebook</a>
+        </div>
+      </div>
+      <nav aria-label="Servicios">
+        <h4>Servicios</h4>
+        <a href="#f-agente">Agente de IA + CRM</a>
+        <a href="#f-software">Software a la medida</a>
+        <a href="espacios-3d.html">Espacios 3D</a>
+        <a href="recepcionista.html">Recepcionista virtual</a>
+        <a href="taller-ia.html">Taller "IA en tu puesto"</a>
+        <a href="paginas-web.html">Páginas web</a>
+      </nav>
+      <nav aria-label="Más">
+        <h4>Más</h4>
+        <a href="demos.html">Todas las demos</a>
+        <a href="#como-trabajamos">Cómo trabajamos</a>
+        <a href="#equipo">Quién somos</a>
+        <a href="#alianzas">Alianzas</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos de servicio</a>
+      </nav>
+    </div>
+    <p class="small pie-legal">© <span data-year>2026</span> ProLink365 · Carlos Manuel Robles · Los Mochis, Sinaloa</p>
   </footer>
 
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">

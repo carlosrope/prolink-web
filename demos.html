@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Demos en vivo — ProLink365</title>
+  <meta name="description" content="20 demostraciones interactivas de automatización con IA: agentes de WhatsApp, CRM, software a la medida y Espacios 3D. Filtra por tu sector y pruébalas con datos de ejemplo."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demos.html"/>
+  <meta property="og:title" content="Demos en vivo — ProLink365"/>
+  <meta property="og:description" content="Pruébalo antes de hablar con nosotros: 20 demos interactivas por sector, con empresas y datos ficticios."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prolink365.com.mx/demos.html"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <style>
+    .hero.compact h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+    .filtros { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; margin: -1rem auto 0; max-width: 1100px; padding: 0 1.5rem; }
+    .filtros button { font-family: 'DM Sans', sans-serif; font-size: 0.86rem; font-weight: 400; color: var(--gray); background: var(--card); border: 1px solid var(--border); border-radius: 100px; padding: 0.45rem 1rem; cursor: pointer; transition: color .2s, border-color .2s, background .2s; }
+    .filtros button:hover { color: var(--green); border-color: rgba(0,232,122,0.4); }
+    .filtros button[aria-pressed="true"] { color: #0a0f0d; background: var(--green); border-color: var(--green); font-weight: 500; }
+    .conteo { position: relative; z-index: 1; text-align: center; color: var(--gray); font-size: 0.86rem; margin-top: 1.2rem; }
+    section.lista { padding-top: 2.5rem; }
+    .demo-card { border-color: rgba(37,211,102,0.25); }
+    .demo-card[hidden] { display: none; }
+    .demo-card .who { font-size: 0.8rem; color: var(--gray); }
+    .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .badge.formato { background: rgba(240,245,242,0.05); color: var(--gray); border-color: rgba(240,245,242,0.12); }
+    .vacio { display: none; text-align: center; color: var(--gray); padding: 3rem 1rem; }
+    .vacio.mostrar { display: block; }
+    .aviso-demos { position: relative; z-index: 1; max-width: 760px; margin: 2.5rem auto 0; text-align: center; color: var(--gray); font-size: 0.86rem; }
+  </style>
+</head>
+<body>
+
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="demos.html" aria-current="page">Demos</a></li>
+      <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
+      <li><a href="espacios-3d.html">Espacios 3D</a></li>
+      <li><a href="index.html#pymes">Pymes</a></li>
+      <li class="mobile-only"><a href="index.html#contacto">Agenda un diagnóstico</a></li>
+    </ul>
+    <a href="index.html#contacto" class="nav-cta desktop">Agenda un diagnóstico</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact">
+    <div class="orb"></div>
+    <div class="hero-badge">Demos en vivo · empresas y datos de ejemplo</div>
+    <h1>Pruébalo antes<br/>de <em>hablar con nosotros</em></h1>
+    <p class="hero-sub">Veinte demostraciones interactivas. Elige tu sector, entra a la demo y conversa como si fueras el cliente: verás lo que responde la IA y, a un lado, lo que hace por detrás.</p>
+  </header>
+
+  <div class="filtros" role="group" aria-label="Filtrar demos por sector">
+    <button type="button" data-sector="todos" aria-pressed="true">Todos</button>
+    <button type="button" data-sector="agro" aria-pressed="false">Agro</button>
+    <button type="button" data-sector="comercio" aria-pressed="false">Comercio y distribución</button>
+    <button type="button" data-sector="construccion" aria-pressed="false">Construcción e industria</button>
+    <button type="button" data-sector="gasolineras" aria-pressed="false">Gasolineras y flotillas</button>
+    <button type="button" data-sector="inmobiliaria" aria-pressed="false">Inmobiliario y notarías</button>
+    <button type="button" data-sector="eventos" aria-pressed="false">Restaurantes y eventos</button>
+    <button type="button" data-sector="profesionales" aria-pressed="false">Despachos y consultorios</button>
+    <button type="button" data-sector="pymes" aria-pressed="false">Pymes</button>
+  </div>
+  <p class="conteo" aria-live="polite"><span data-conteo>20</span> demos</p>
+
+  <section class="lista" id="demos">
+    <div class="grid" id="lista-demos">
+
+      <article class="card demo-card reveal" data-sector="comercio pymes inmobiliaria">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente + CRM</span></div>
+        <h3>CRM con agente de IA</h3>
+        <p>WhatsApp e Instagram en una sola bandeja. El agente cotiza, mueve a cada cliente en el embudo, le da seguimiento y avisa al vendedor para cerrar.</p>
+        <p class="who">Para negocios que venden por mensajes y anuncios. Basada en el CRM de Diluvium.</p>
+        <a class="link" href="demo-crm.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="gasolineras">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <h3>Gasolineras: torre de control</h3>
+        <p>Cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas tus estaciones, explica lo que no cuadra y te lo manda por WhatsApp.</p>
+        <p class="who">Para grupos gasolineros y empresas con flotilla.</p>
+        <a class="link" href="demo-gasolineras.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="construccion comercio">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Cotización desde la foto de una lista</h3>
+        <p>El cliente manda su lista escrita a mano; la IA la lee, arma la cotización con tus precios y le da seguimiento.</p>
+        <p class="who">Para materiales, acero, ferreterías y equipo comercial.</p>
+        <a class="link" href="demo-cotizador.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="inmobiliaria profesionales">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Asistente interno</span></div>
+        <h3>Expedientes: de los documentos al borrador</h3>
+        <p>La IA lee identificaciones, escrituras y boletas, marca lo que falta o no cuadra, prellena el borrador, precalcula impuestos y prepara la DeclaraNOT. El notario revisa y decide; todo queda en una bitácora.</p>
+        <p class="who">Para notarías, despachos y desarrolladoras inmobiliarias.</p>
+        <a class="link" href="demo-expedientes.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="agro">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Semilleras: asistente técnico</h3>
+        <p>Recomienda variedad por cultivo, zona y enfermedad con tu guía de resistencias, agenda parcelas demostrativas, manda las fotos de campo a tu agrónomo y captura tus ensayos por nota de voz.</p>
+        <p class="who">Para semilleras, casas comerciales agrícolas y distribuidores de insumos.</p>
+        <a class="link" href="demo-semillas.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="eventos inmobiliaria">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Espacios 3D</span></div>
+        <h3>Espacios 3D: salones y casas</h3>
+        <p>Recorre en 3D un salón con boda de 240 invitados o una casa amueblada, desde el celular y con la marca del negocio.</p>
+        <p class="who">Para wedding planners, salones de eventos, inmobiliarias y desarrolladoras.</p>
+        <a class="link" href="espacios-3d.html#demos">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="agro comercio">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Refacciones por WhatsApp</h3>
+        <p>Un cliente pide una pieza por modelo o foto; el asistente la identifica, revisa existencias en tus sucursales y la aparta. Si describe una falla, abre la orden de servicio del taller.</p>
+        <p class="who">Para distribuidores de maquinaria, refaccionarias y talleres.</p>
+        <a class="link" href="demo-refacciones.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="gasolineras">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Facturas y flotillas por WhatsApp</h3>
+        <p>El cliente manda la foto del ticket y recibe su factura; las flotillas consultan saldo y reciben alertas de consumo.</p>
+        <p class="who">Para gasolineras, distribuidores y empresas con flotilla.</p>
+        <a class="link" href="demo-flotillas.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="eventos">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Festivales: contenido y boletos</h3>
+        <p>La IA arma el plan de contenido del evento para que tu equipo lo apruebe, y un asistente responde dudas y aparta boletos por WhatsApp.</p>
+        <p class="who">Para eventos, restaurantes, hoteles y marcas de consumo.</p>
+        <a class="link" href="demo-festival.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="eventos">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Reservas y salones por WhatsApp</h3>
+        <p>Toma reservas, ofrece otra hora si no hay lugar, confirma un día antes y llena las cancelaciones con la lista de espera.</p>
+        <p class="who">Para restaurantes, bares y salones de eventos.</p>
+        <a class="link" href="demo-reservas.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="comercio">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Asistente interno</span></div>
+        <h3>Pronóstico de inventario por tienda</h3>
+        <p>Cruza ventas, temporada y clima para decirte qué se va a agotar, qué traspasar entre sucursales y qué comprar.</p>
+        <p class="who">Para cadenas con sucursales, distribuidores y tiendas de temporada.</p>
+        <a class="link" href="demo-pronostico.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="inmobiliaria">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Inmobiliaria: califica y agenda visitas</h3>
+        <p>Contesta al momento, califica por zona, presupuesto y crédito (Infonavit, Fovissste o bancario), sugiere propiedades y agenda la visita.</p>
+        <p class="who">Para inmobiliarias, desarrolladoras y asesores.</p>
+        <a class="link" href="demo-inmobiliaria.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="pymes comercio">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente + CRM</span></div>
+        <h3>Catálogo desde notas de voz</h3>
+        <p>El dueño dice qué vende y a cuánto; la IA arma su catálogo de WhatsApp y un vendedor de IA cotiza en PDF, da seguimiento y le pasa las ventas listas.</p>
+        <p class="who">Para pymes que venden por Facebook y WhatsApp sin lista digital.</p>
+        <a class="link" href="demo-catalogo.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="pymes comercio">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <h3>Joyería: del boceto al Reel</h3>
+        <p>Desde el DM de Instagram, propone diseños con la piedra de la clienta, cotiza con el oro del día, crea la orden de taller y prepara el contenido para redes.</p>
+        <p class="who">Para joyerías con taller, artesanos y piezas a la medida.</p>
+        <a class="link" href="demo-joyeria.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="agro">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <h3>Precisión: centro de mando</h3>
+        <p>Lee cada noche los datos de las máquinas de tus clientes, prioriza alertas y servicios, crea órdenes con refacciones apartadas y manda el resumen por WhatsApp.</p>
+        <p class="who">Para distribuidores de maquinaria agrícola y talleres.</p>
+        <a class="link" href="demo-precision.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="agro">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <h3>Exportadora: torre de embarques</h3>
+        <p>Lee los pedidos de los brokers, asigna lotes, arma packing list, factura de exportación y trazabilidad, y vigila la temperatura de cada tráiler.</p>
+        <p class="who">Para agroexportadoras, empacadoras y comercializadoras.</p>
+        <a class="link" href="demo-exportadora.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="agro construccion">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <h3>Implementos: cotizador a la medida</h3>
+        <p>Configura el implemento, valida tus reglas de ingeniería, calcula acero, horas y precio, y genera la cotización con plano para que el director apruebe.</p>
+        <p class="who">Para fabricantes de implementos, maquinaria y equipo a la medida.</p>
+        <a class="link" href="demo-implementos.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="profesionales">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <h3>Despacho: auditor fiscal continuo</h3>
+        <p>Cada noche descarga los CFDI de tu cartera, concilia con el banco, revisa la lista 69-B y las Cartas Porte, y prepara avisos que el contador aprueba.</p>
+        <p class="who">Para despachos contables y áreas de finanzas.</p>
+        <a class="link" href="demo-despacho.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="comercio">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <h3>Guía de pesca que vende</h3>
+        <p>El cliente dice destino, especie y presupuesto; el asistente revisa el clima y el nivel de la presa, arma el kit con lo que hay en su tienda de Shopify y anota lo que no había para las compras.</p>
+        <p class="who">Para tiendas de pesca, caza y outdoor.</p>
+        <a class="link" href="demo-outdoor.html">Probar demo →</a>
+      </article>
+
+      <article class="card demo-card reveal" data-sector="profesionales pymes">
+        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Recepcionista 24/7</span></div>
+        <h3>Recepcionista virtual</h3>
+        <p>Contesta llamadas, agenda en Google Calendar y confirma por WhatsApp, también de noche y en fin de semana.</p>
+        <p class="who">Para consultorios, clínicas y negocios con citas.</p>
+        <a class="link" href="recepcionista.html#como-funciona">Ver cómo funciona →</a>
+      </article>
+
+    </div>
+    <p class="vacio" data-vacio>No hay demos en este sector todavía. Cuéntanos tu proceso y te decimos cómo se vería.</p>
+    <p class="aviso-demos">Todas las demos son simuladas, con empresas, precios y datos ficticios. Conectadas a tu empresa trabajan con tu inventario, tus precios y tu WhatsApp, y una persona de tu equipo revisa lo que hace la IA.</p>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <div class="cta-section" id="contacto">
+    <div class="section-tag reveal">Diagnóstico sin costo</div>
+    <h2 class="reveal">¿Lo quieres ver<br/>con tus datos?</h2>
+    <p class="reveal">En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo, tu forma de trabajar y una métrica para el piloto.</p>
+    <div class="hero-actions reveal">
+      <a href="https://wa.me/526681305828?text=Hola%2C%20vi%20las%20demos%20de%20ProLink365%20y%20quiero%20ver%20una%20con%20mis%20datos" class="btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a href="index.html#como-trabajamos" class="btn-ghost">Cómo trabajamos</a>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
+    <nav aria-label="Legal"><a href="index.html">Inicio</a><a href="taller-ia.html">Taller de IA</a><a href="espacios-3d.html">Espacios 3D</a><a href="recepcionista.html">Recepcionista virtual</a><a href="paginas-web.html">Páginas web</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <script src="prolink.js"></script>
+  <script>
+    // Filtro por sector: botones arriba, ?sector= en la URL y conteo.
+    (function () {
+      var botones = document.querySelectorAll('.filtros button');
+      var tarjetas = document.querySelectorAll('#lista-demos .demo-card');
+      var conteo = document.querySelector('[data-conteo]');
+      var vacio = document.querySelector('[data-vacio]');
+      function aplicar(sector, actualizarUrl) {
+        var n = 0;
+        tarjetas.forEach(function (t) {
+          var ok = sector === 'todos' || (' ' + t.getAttribute('data-sector') + ' ').indexOf(' ' + sector + ' ') !== -1;
+          t.hidden = !ok;
+          if (ok) { n++; t.classList.add('visible'); }
+        });
+        botones.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-sector') === sector ? 'true' : 'false'); });
+        conteo.textContent = n;
+        vacio.classList.toggle('mostrar', n === 0);
+        if (actualizarUrl && history.replaceState) {
+          history.replaceState(null, '', sector === 'todos' ? location.pathname : location.pathname + '?sector=' + sector);
+        }
+      }
+      botones.forEach(function (b) { b.addEventListener('click', function () { aplicar(b.getAttribute('data-sector'), true); }); });
+      var inicial = new URLSearchParams(location.search).get('sector');
+      var valido = inicial && Array.prototype.some.call(botones, function (b) { return b.getAttribute('data-sector') === inicial; });
+      if (valido) aplicar(inicial, false);
+    })();
+  </script>
+</body>
+</html>

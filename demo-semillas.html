@@ -9,10 +9,10 @@
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#0a0f0d"/>
   <title>Semillas: asistente técnico y parcelas demostrativas — Demo · ProLink365</title>
-  <meta name="description" content="Demo interactiva para semilleras: un asistente técnico por WhatsApp recomienda variedad por cultivo, sistema, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos al distribuidor, da seguimiento por etapa y manda las fotos de campo al agrónomo."/>
+  <meta name="description" content="Demo interactiva para semilleras: un asistente técnico por WhatsApp recomienda variedad por cultivo, sistema, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos al distribuidor, da seguimiento por etapa, manda las fotos de campo al agrónomo y captura los ensayos por nota de voz."/>
   <link rel="canonical" href="https://prolink365.com.mx/demo-semillas.html"/>
   <meta property="og:title" content="Semillas: asistente técnico y parcelas demostrativas — Demo ProLink365"/>
-  <meta property="og:description" content="Demo interactiva para semilleras: un asistente técnico por WhatsApp recomienda variedad por cultivo, sistema, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos al distribuidor, da seguimiento por etapa y manda las fotos de campo al agrónomo."/>
+  <meta property="og:description" content="Demo interactiva para semilleras: un asistente técnico por WhatsApp recomienda variedad por cultivo, sistema, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos al distribuidor, da seguimiento por etapa, manda las fotos de campo al agrónomo y captura los ensayos por nota de voz."/>
   <meta property="og:type" content="website"/>
   <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
   <meta property="og:image:width" content="1200"/>
@@ -47,6 +47,7 @@
       <li><a href="demo-exportadora.html">Exportadora</a></li>
       <li><a href="demo-implementos.html">Implementos</a></li>
       <li><a href="demo-despacho.html">Despacho</a></li>
+      <li><a href="demo-outdoor.html">Guía de pesca</a></li>
       <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
     </ul>
     <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
@@ -57,11 +58,11 @@
     <div class="orb"></div>
     <div class="hero-badge">Demo · Semilleras y casas comerciales agrícolas</div>
     <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Tu agrónomo de cabecera, <em>las 24 horas</em></h1>
-    <p class="hero-sub" style="margin-bottom:1.4rem;">Un asistente técnico que responde con tu guía de variedades: recomienda por cultivo, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos a tu distribuidor y le da seguimiento a cada siembra. Para semilleras de Sinaloa y de todo México.</p>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">Un asistente técnico que responde con tu guía de variedades: recomienda por cultivo, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos a tu distribuidor y le da seguimiento a cada siembra. A tus agrónomos les captura los ensayos por nota de voz. Para semilleras de Sinaloa y de todo México.</p>
   </header>
 
   <section style="padding-top:0;">
-    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con una semillera, variedades y distribuidores ficticios.</b> Las resistencias usan la nomenclatura usual (HR/IR), con datos de ejemplo. Toca los botones para conversar como productor. Conectado a tu empresa, responde con tus fichas técnicas y tu red de distribuidores, y tus agrónomos deciden lo técnico.</span></p>
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con una semillera, variedades y distribuidores ficticios.</b> Las resistencias usan la nomenclatura usual (HR/IR), con datos de ejemplo. Toca los botones para conversar como productor o como agrónomo de la semillera. Conectado a tu empresa, responde con tus fichas técnicas y tu red de distribuidores, y tus agrónomos deciden lo técnico.</span></p>
     <div class="demo-layout">
       <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
         <div class="phone-head"><div class="phone-avatar" aria-hidden="true">SD</div><div><b>Semillas Demo</b><small>asistente técnico</small></div></div>
@@ -86,10 +87,17 @@
           <div class="table-wrap"><table class="data-table"><thead><tr><th>Productor</th><th>Zona</th><th>Cultivo</th><th>Motivo</th><th>Estado</th><th>Prioridad</th></tr></thead><tbody id="tecnica"></tbody></table></div>
           <p class="alerta" id="alerta" hidden></p>
         </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">🎙️</span> Ensayos de campo · E-07 (uso interno)</h3>
+          <p class="muted small" style="margin-bottom:0.6rem;">Tus agrónomos dictan la evaluación y la IA llena la tabla contra los testigos. Lo que no se dictó queda marcado como faltante; nunca se inventa.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Día</th><th>Material</th><th>Vigor</th><th>Cuaje</th><th>Sin síntomas</th><th>Fuente</th></tr></thead><tbody id="ensayos"></tbody></table></div>
+        </div>
         <style>
           #guia tr.rec td { background: rgba(0,232,122,0.08); }
-          #guia td, #tecnica td { font-size: 0.82rem; }
-          #tecnica tr.tu td { background: rgba(0,232,122,0.07); }
+          #guia td, #tecnica td, #ensayos td { font-size: 0.82rem; }
+          #tecnica tr.tu td, #ensayos tr.tu td { background: rgba(0,232,122,0.07); }
+          .msg .audio { display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; margin: 0.15rem 0; }
+          .msg .audio .onda { letter-spacing: -1px; color: #9ff5d0; min-width: 0; overflow: hidden; white-space: nowrap; }
           .alerta { margin-top: 0.9rem; font-size: 0.86rem; color: #ffe7a3; background: rgba(255,200,0,0.07); border: 1px solid rgba(255,200,0,0.25); border-radius: 10px; padding: 0.7rem 0.9rem; animation: bubbleIn .35s ease both; }
           .alerta b { color: var(--amber); font-weight: 500; }
           .msg .foto { height: 92px; min-width: 190px; border-radius: 7px; background: radial-gradient(circle at 30% 35%, #c9c24a 0 14%, transparent 15%), radial-gradient(circle at 68% 55%, #b7b83e 0 12%, transparent 13%), linear-gradient(135deg, #3f6b27, #6d8f2e 60%, #a3a63a); display: flex; align-items: flex-end; padding: 0.35rem 0.45rem; }
@@ -105,7 +113,7 @@
     <div class="section-tag">Cómo sería en tu empresa</div>
     <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
     <div class="grid" style="margin-top:2rem;">
-      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente técnico por WhatsApp y en tu sitio, con tu guía de variedades, resistencias y fichas técnicas.</li><li>Recomendación por cultivo, sistema, zona y enfermedad, diciendo también lo que cada variedad no cubre.</li><li>Parcelas demostrativas y visitas de agrónomos agendadas, pedidos que pasan a tu distribuidor y seguimiento por etapa del cultivo.</li><li>Fotos de campo que llegan ordenadas al agrónomo de zona y avisos cuando se juntan reportes parecidos. La IA orienta; tus agrónomos diagnostican.</li></ul></article>
+      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente técnico por WhatsApp y en tu sitio, con tu guía de variedades, resistencias y fichas técnicas.</li><li>Recomendación por cultivo, sistema, zona y enfermedad, diciendo también lo que cada variedad no cubre.</li><li>Parcelas demostrativas y visitas de agrónomos agendadas, pedidos que pasan a tu distribuidor y seguimiento por etapa del cultivo.</li><li>Fotos de campo que llegan ordenadas al agrónomo de zona y avisos cuando se juntan reportes parecidos. La IA orienta; tus agrónomos diagnostican.</li><li>Ensayos por nota de voz: tus agrónomos dictan la evaluación y la IA arma la tabla contra los testigos, con lo que faltó dictar marcado.</li></ul></article>
       <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
       <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20para%20semilleras%20y%20quiero%20verla%20con%20mis%20variedades" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
     </div>
@@ -113,7 +121,7 @@
 
   <footer>
     <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="demos.html">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
     <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
   </footer>
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20para%20semilleras%20y%20quiero%20verla%20con%20mis%20variedades" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
@@ -139,7 +147,11 @@
     { p: 'Productor B', z: 'Guasave', c: 'Chile jalapeño', m: 'Consulta: secadera', e: 'Con agrónomo', pr: 'Media' },
     { p: 'Agrícola C', z: 'Jalisco', c: 'Tomate bola', m: 'Ficha técnica', e: 'Enviada', pr: 'Baja' }
   ];
-  const inicial = () => ({ cult: null, sis: null, zona: null, prob: null, rec: [], var: null, sup: null, motivo: null, estado: null, pr: null, alerta: false });
+  const inicial = () => ({ cult: null, sis: null, zona: null, prob: null, rec: [], var: null, sup: null, motivo: null, estado: null, pr: null, alerta: false, ens: 0 });
+  // Ensayo de campo E-07: la evaluación del día 60 ya estaba capturada; la del día 75 llega por nota de voz.
+  const ENS60 = [['Demo 21', 'Bueno', 'Regular', '9/10'], ['Testigo comercial A', 'Bueno', 'Regular', '7/10'], ['Testigo comercial B', 'Medio', 'Bueno', '9/10']];
+  const ens75 = () => [['Demo 21', 'Bueno', 'Bueno', '8/10'], ['Testigo comercial A', S.ens > 1 ? 'Bueno' : null, 'Regular', '6/10'], ['Testigo comercial B', S.ens > 1 ? 'Medio' : null, S.ens > 1 ? 'Bueno' : null, S.ens > 1 ? '9/10' : null]];
+  const audio = s => '<div class="audio"><span>▶︎</span><span class="onda">▂▃▅▇▅▃▂▃▆▇▆▃▂▅▃</span><span>0:' + s + '</span></div>';
   let S = inicial(), api = null;
   const grupo = () => S.cult && S.cult.c === 'jalapeno' ? 'chile' : 'tomate';
   const cubre = (v, p) => p.cod.some(x => v.hr.includes(x)) ? 'HR' : (p.cod.some(x => v.ir.includes(x)) ? 'IR' : null);
@@ -162,6 +174,9 @@
     const al = document.getElementById('alerta');
     al.hidden = !S.alerta;
     if (S.alerta) al.innerHTML = '⚠️ <b>3 reportes parecidos en ' + ZONAS[S.zona][2] + ' esta semana</b> (hojas jóvenes enrolladas y amarillas). El área técnica revisa si hay un brote y avisa a los distribuidores de la zona.';
+    const celda = v => v ? v : '<span class="stock-low">falta</span>';
+    const ens = ENS60.map(r => [60].concat(r, ['Nota de voz 0:41'])).concat(S.ens ? ens75().map((r, i) => [75].concat(r, [S.ens > 1 ? ['Nota de voz 0:48', 'Notas de voz 0:48 y 0:12', 'Nota de voz 0:12'][i] : ['Nota de voz 0:48', 'Nota de voz 0:48', '—'][i], 1])) : []);
+    document.getElementById('ensayos').innerHTML = ens.map(r => '<tr' + (r[6] ? ' class="tu"' : '') + '><td class="num">' + r[0] + '</td><td>' + r[1] + '</td><td>' + celda(r[2]) + '</td><td>' + celda(r[3]) + '</td><td>' + celda(r[4]) + '</td><td>' + r[5] + '</td></tr>').join('');
   }
   const set = (k, v) => () => { S[k] = v; pintar(); };
   const alterna = () => VAR.find(v => v.c === S.var.c && v.exist && v !== S.var);
@@ -175,8 +190,43 @@
         bot: [{ text: '¡Hola! 🌱 Soy el asistente técnico de Semillas Demo. Te ayudo a elegir variedad, a encontrar dónde comprarla o a revisar algo de tu siembra. ¿Qué necesitas?' }],
         opciones: [
           { label: '🍅 ¿Qué variedad me recomiendas?', next: 'cultivo' },
-          { label: '📷 Mi planta se ve mal', user: foto, next: 'fotoDatos' }
+          { label: '📷 Mi planta se ve mal', user: foto, next: 'fotoDatos' },
+          { label: '🎙️ Soy agrónomo: capturar un ensayo', next: 'ensayo' }
         ]
+      },
+      ensayo: {
+        bot: [{ text: 'Hola, Ing. 👋 Modo ensayos, solo para el equipo técnico. ¿Qué ensayo evalúas hoy?' }],
+        opciones: [{ label: 'E-07 · tomate saladette · Valle de Culiacán', next: 'dicta' }]
+      },
+      dicta: {
+        bot: [{ text: 'E-07: Demo 21 contra 2 testigos comerciales. La última evaluación fue el día 60. Dicta tu nota como siempre.',
+                log: [{ text: '<b>Abrió la bitácora del ensayo E-07</b> con sus materiales y la evaluación anterior.' }] }],
+        opciones: [{ label: '🎙️ Mandar nota de voz (0:48)', user: audio(48), next: 'tablaEns' }]
+      },
+      tablaEns: {
+        bot: [{ espera: 1500, html: 'Transcribí tu nota:\n<i>«Ensayo siete, día 75 después del trasplante. Demo 21: vigor bueno, buen cuaje en el tercer racimo, 8 de 10 plantas sin síntomas de virus, firmeza buena. Testigo A: cuaje regular, 4 de 10 con mosaico. Ah, y en la cama 3 el riego venía atrasado.»</i>',
+                log: [{ text: '<b>Transcribió la nota de voz</b> y separó los datos de las observaciones.' }] },
+              { tarjeta: true, html: '<b>E-07 · día 75</b>\n<b>Demo 21:</b> vigor bueno · cuaje bueno · 8/10 sin síntomas\n<b>Testigo A:</b> vigor <span class="stock-low">falta</span> · cuaje regular · 6/10 sin síntomas\n<b>Testigo B:</b> <span class="stock-low">no lo mencionaste</span>\nObservaciones: firmeza buena en Demo 21; riego atrasado en la cama 3.',
+                log: [{ text: '<b>Convirtió «4 de 10 con mosaico» a 6 de 10 sin síntomas</b>, para comparar en la misma escala.' }, { text: '<b>No inventó lo que no se dictó</b>: marcó como faltantes el vigor del Testigo A y todo el Testigo B.', warn: true }],
+                despues: () => { S.ens = 1; pintar(); } },
+              { text: 'Me falta el vigor del Testigo A y todo el Testigo B. Lo del riego en la cama 3 quedó como nota de manejo, porque puede afectar la comparación. ¿Me los dictas?' }],
+        opciones: [{ label: '🎙️ Completar (0:12)', user: audio(12), next: 'ensCompleto' }, { label: 'Lo completo después', next: 'ensPendiente' }]
+      },
+      ensCompleto: {
+        bot: [{ espera: 1300, html: 'Transcribí:\n<i>«Testigo A, vigor bueno. Testigo B: vigor medio, cuaje bueno, 9 de 10 sin síntomas.»</i>', despues: () => { S.ens = 2; pintar(); } },
+              { tarjeta: true, html: '<b>E-07 completo ✅</b>\nDía 75 contra día 60:\n• Demo 21: el cuaje pasó de regular a bueno; sin síntomas, de 9/10 a 8/10.\n• Testigo A: sin síntomas, de 7/10 a 6/10.\n• Testigo B: sin cambios.\n<i>Son dos evaluaciones de un solo ensayo: todavía no es concluyente.</i>',
+                log: [{ text: '<b>Comparó contra los testigos y la evaluación anterior</b>, sin sacar conclusiones de un solo ensayo.' }, { text: '<b>Guardó la evaluación</b> con las notas de voz originales, la fecha y la ubicación de la parcela.' }] }],
+        opciones: [{ label: '📊 Ver el resumen para el área técnica', next: 'resumenEns' }]
+      },
+      ensPendiente: {
+        bot: [{ text: 'Queda como borrador con 2 faltantes. Te lo recuerdo mañana a las 8:00 para no perder el día 75.',
+                log: [{ text: '<b>Dejó la evaluación como borrador</b>: no entra a las comparaciones hasta que esté completa.', warn: true }] }],
+        opciones: [{ label: '📊 Ver el resumen para el área técnica', next: 'resumenEns' }]
+      },
+      resumenEns: {
+        bot: [{ tarjeta: true, espera: 1200, html: () => '<b>Resumen semanal de ensayos</b>\n• 4 ensayos activos y 12 evaluaciones capturadas por voz.\n• E-07: ' + (S.ens > 1 ? 'Demo 21 va igual o mejor que los testigos en cuaje.' : 'el día 75 sigue en borrador, con 2 faltantes; no entra a la comparación.') + '\n• ⚠️ E-09 lleva 12 días sin evaluación.',
+                log: [{ text: '<b>Armó el resumen para el área técnica</b>; con los ensayos completos se prepara la ficha de resultados para el lanzamiento.' }] }],
+        fin: true
       },
       cultivo: {
         bot: [{ text: '¿Qué vas a sembrar?', kpi: { kResp: '5 s', kCons: '19' } }],
