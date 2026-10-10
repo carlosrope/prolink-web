@@ -54,6 +54,15 @@ nav.top {
   .nav-cta.desktop { display: none; }
 }
 @media (min-width: 1101px) { .nav-links .mobile-only { display: none; } }
+/* Las demos tienen un menú largo: en escritorio va en un desplegable y el botón de contacto queda visible. */
+@media (min-width: 1101px) {
+  nav.top.compacta .nav-cta.desktop { margin-left: auto; }
+  nav.top.compacta .nav-toggle { display: block; }
+  nav.top.compacta .nav-links { display: none; position: absolute; top: calc(100% + 0.4rem); right: 2rem; min-width: 260px; flex-direction: column; align-items: stretch; gap: 0; background: rgba(10,15,13,0.97); border: 1px solid var(--border); border-radius: 12px; padding: 0.3rem 1rem; box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+  nav.top.compacta .nav-links.open { display: flex; }
+  nav.top.compacta .nav-links li a { display: block; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
+  nav.top.compacta .nav-links li:nth-last-child(2) a { border-bottom: 0; }
+}
 
 /* ── TIPOGRAFÍA Y SECCIONES ── */
 h1 { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: clamp(2.5rem, 6.5vw, 5rem); line-height: 1.05; letter-spacing: -2px; margin-bottom: 1.4rem; }
