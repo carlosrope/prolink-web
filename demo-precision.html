@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Precisión: centro de mando de maquinaria — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva de software a la medida para distribuidores de maquinaria agrícola: cada noche lee los datos de las máquinas conectadas de sus clientes, prioriza alertas y servicios, crea órdenes con refacciones apartadas y manda a cada cliente el resumen de su flota por WhatsApp."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-precision.html"/>
+  <meta property="og:title" content="Precisión: centro de mando de maquinaria — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva de software a la medida para distribuidores de maquinaria agrícola: cada noche lee los datos de las máquinas conectadas de sus clientes, prioriza alertas y servicios, crea órdenes con refacciones apartadas y manda a cada cliente el resumen de su flota por WhatsApp."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html">Semillas</a></li>
+      <li><a href="demo-gasolineras.html">Gasolineras</a></li>
+      <li><a href="demo-catalogo.html">Catálogo</a></li>
+      <li><a href="demo-joyeria.html">Joyería</a></li>
+      <li><a href="demo-precision.html" aria-current="page">Precisión</a></li>
+      <li><a href="demo-exportadora.html">Exportadora</a></li>
+      <li><a href="demo-implementos.html">Implementos</a></li>
+      <li><a href="demo-despacho.html">Despacho</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Software a la medida: distribuidores de maquinaria</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Cada alerta de tus clientes, <em>convertida en servicio</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">Con permiso de cada cliente, el centro de mando lee cada noche los datos de sus máquinas conectadas, prioriza alertas y servicios vencidos, deja las órdenes listas con refacciones apartadas y le manda a cada cliente el resumen de su flota por WhatsApp.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con un distribuidor, clientes, máquinas y alertas ficticios.</b> Toca las prioridades, las pestañas y los botones. Conectado a tu operación, lee los datos de las máquinas de los clientes que lo autoricen y tu inventario de refacciones; las órdenes las aprueba tu especialista.</span></p>
+    <div class="app" id="mando">
+      <div class="app-head">
+        <div><b>Centro de mando de precisión · Maquinaria del Valle Demo</b><small>148 máquinas conectadas de 63 clientes · datos de anoche</small></div>
+        <button type="button" class="btn-mini" id="reiniciar">↺ Reiniciar demo</button>
+      </div>
+      <div class="kpis app-kpis">
+        <div class="kpi"><b>148</b><span>Máquinas conectadas</span></div>
+        <div class="kpi"><b id="kCrit">—</b><span>Alertas críticas</span></div>
+        <div class="kpi"><b id="kServ">—</b><span>Servicios vencidos</span></div>
+        <div class="kpi"><b id="kOrd">—</b><span>Órdenes creadas hoy</span></div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Secciones del centro de mando">
+        <button type="button" role="tab" data-tab="prioridades">Prioridades de hoy</button>
+        <button type="button" role="tab" data-tab="flota">Flota de clientes</button>
+        <button type="button" role="tab" data-tab="resumen">Resumen al cliente</button>
+        <button type="button" role="tab" data-tab="refacciones">Refacciones</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab" id="tab-prioridades" role="tabpanel">
+          <div class="dos">
+            <div><h4>🎯 Lista priorizada para el especialista</h4><ul class="lista-alertas" id="prioridades"></ul></div>
+            <div class="detalle" id="detalle"></div>
+          </div>
+        </div>
+        <div class="tab" id="tab-flota" role="tabpanel" hidden>
+          <p class="muted small">Solo clientes que autorizaron compartir los datos de sus máquinas. Pueden revocarlo cuando quieran.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Cliente</th><th>Máquinas</th><th>Horas esta semana</th><th>Alertas 7 días</th><th>Próximo servicio</th><th>Uso de autoguiado</th></tr></thead><tbody id="flota"></tbody></table></div>
+        </div>
+        <div class="tab" id="tab-resumen" role="tabpanel" hidden>
+          <p class="muted small">Cada lunes, a las 7:00, cada cliente recibe por WhatsApp el resumen de su flota. Elige un cliente:</p>
+          <div class="chips" id="clientes"></div>
+          <div class="wa" id="waCliente" style="margin-top:0.9rem;"></div>
+        </div>
+        <div class="tab" id="tab-refacciones" role="tabpanel" hidden>
+          <p class="muted small">Refacciones que piden las alertas de hoy, con existencia por sucursal. Se apartan al crear la orden.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Refacción</th><th>Para</th><th>Los Mochis</th><th>Guasave</th><th>Culiacán</th><th>Estado</th></tr></thead><tbody id="refacciones"></tbody></table></div>
+        </div>
+      </div>
+      <div class="bitacora">
+        <h4>🧾 Bitácora: lo que hizo el agente y lo que aprobó tu equipo</h4>
+        <ul class="log" id="bitacora"></ul>
+      </div>
+    </div>
+    <style>
+      .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+      .chips button { background: transparent; border: 1px solid var(--border); color: var(--white); border-radius: 100px; padding: 0.4rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; }
+      .chips button[aria-pressed="true"] { border-color: var(--green); color: var(--green); }
+      .eventos { list-style: none; margin: 0.5rem 0; display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.82rem; }
+      .eventos li { padding-left: 1rem; position: relative; color: var(--gray); }
+      .eventos li::before { content: ''; position: absolute; left: 0.2rem; top: 0.5em; width: 6px; height: 6px; border-radius: 50%; background: #ff8a8a; }
+      .ficha { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.3rem 1rem; font-size: 0.82rem; margin: 0.5rem 0; }
+      .ficha span { color: var(--gray); } .ficha b { display: block; }
+      .regla { font-size: 0.8rem; color: var(--gray); border-left: 2px solid var(--green); padding: 0.3rem 0.6rem; margin: 0.6rem 0; background: rgba(0,232,122,0.04); }
+    </style>
+
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Lectura nocturna de los datos de las máquinas conectadas de tus clientes (por ejemplo, con la plataforma de la marca por API), con su autorización.</li><li>Lista priorizada para tu especialista: alertas, servicios vencidos y oportunidades de capacitación o venta, con la regla que aplicó cada una.</li><li>Órdenes de servicio con un clic, refacciones apartadas en la sucursal con existencia y aviso al cliente por WhatsApp.</li><li>Resumen semanal de su flota a cada cliente. Para empezar: 5 a 10 clientes de precisión.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tus clientes de precisión y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20centro%20de%20mando%20de%20precisi%C3%B3n%20y%20la%20quiero%20con%20mis%20clientes" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20centro%20de%20mando%20de%20precisi%C3%B3n%20y%20la%20quiero%20con%20mis%20clientes" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+    <script>
+
+  const CASOS = [
+    { id: 'c1', nivel: 'rojo', cli: 'Agrícola Demo El Carrizo', maq: 'Cosechadora S-07', modelo: 'Cosechadora Demo de granos', horas: 1846, lugar: 'Lote 14, El Carrizo',
+      titulo: 'Temperatura alta de refrigerante (3 veces ayer) y servicio de 500 h vencido hace 42 h.',
+      eventos: ['Ayer 13:12 · refrigerante sobre el umbral por 6 min', 'Ayer 15:40 · refrigerante sobre el umbral por 9 min', 'Ayer 17:05 · refrigerante sobre el umbral por 4 min', 'Servicio de 500 h vencido hace 42 h de motor'],
+      regla: 'Más de 2 eventos de temperatura en 24 h + servicio vencido = prioridad alta: cosechadora en plena trilla.',
+      partes: ['kit500', 'termostato', 'banda'], suc: 'Los Mochis' },
+    { id: 'c2', nivel: 'rojo', cli: 'Rancho Demo Guasave', maq: 'Tractor T-12', modelo: 'Tractor Demo de 180 hp', horas: 6214, lugar: 'Parcela norte, Guasave',
+      titulo: 'Restricción en el filtro de aire durante la preparación de suelo.',
+      eventos: ['Ayer 9:30 · aviso de restricción en filtro de aire', 'Ayer 11:02 · el aviso se repite', 'Labor: subsoleo en suelo seco (mucho polvo)'],
+      regla: 'Aviso repetido de filtro de aire en labor con polvo = cambiar filtros antes de que baje la potencia.',
+      partes: ['filtros'], suc: 'Guasave' },
+    { id: 'c3', nivel: '', cli: 'Productor Demo Ahome', maq: 'Tractor T-03', modelo: 'Tractor Demo de 125 hp', horas: 2232, lugar: 'Ejido Demo, Ahome',
+      titulo: 'Servicio de 250 h en 18 horas de motor.',
+      eventos: ['Promedio de uso: 9 h por día', 'Servicio de 250 h en unas 18 h: alrededor del miércoles'],
+      regla: 'Servicio próximo en menos de 3 días de uso = proponer cita preventiva.',
+      partes: ['kit250'], suc: 'Los Mochis' },
+    { id: 'c4', nivel: '', cli: 'Agrícola Demo Culiacán', maq: 'Pulverizadora P-02', modelo: 'Pulverizadora Demo autopropulsada', horas: 980, lugar: 'Campo Demo, Culiacán',
+      titulo: 'Presión de bomba baja en la última aplicación.',
+      eventos: ['Ayer 7:20 · presión 18% abajo de lo configurado', 'Aplicación incompleta en 6 ha según el mapa de cobertura'],
+      regla: 'Presión baja con área sin cubrir = revisión de bomba y boquillas antes de la siguiente aplicación.',
+      partes: ['boquillas'], suc: 'Culiacán' },
+    { id: 'c5', nivel: 'info', cli: '4 clientes', maq: 'Autoguiado', modelo: '—', horas: null, lugar: '—',
+      titulo: 'Oportunidad: 4 clientes usan el autoguiado en menos del 20% de sus horas de labor.',
+      eventos: ['El autoguiado está instalado pero casi no se usa', 'Los clientes con más uso gastan menos combustible por hectárea (dato de su propia flota)'],
+      regla: 'Equipo de precisión instalado y poco usado = ofrecer capacitación en campo.',
+      partes: [], suc: '' }
+  ];
+  const PARTES = {
+    kit500: ['Kit de servicio de 500 h', [6, 2, 4]], termostato: ['Termostato del motor', [2, 0, 1]], banda: ['Banda del ventilador', [3, 1, 2]],
+    filtros: ['Filtros de aire primario y secundario', [5, 3, 6]], kit250: ['Kit de servicio de 250 h', [8, 4, 5]], boquillas: ['Juego de boquillas y filtro de bomba', [4, 2, 0]]
+  };
+  const SUC = ['Los Mochis', 'Guasave', 'Culiacán'];
+  const FLOTA = [
+    ['Agrícola Demo El Carrizo', 6, 284, 5, 'Vencido (S-07)', 62], ['Rancho Demo Guasave', 4, 196, 3, 'T-12 en 40 h', 48], ['Productor Demo Ahome', 2, 118, 0, 'T-03 en 18 h', 15],
+    ['Agrícola Demo Culiacán', 9, 402, 2, 'P-02 en 70 h', 71], ['Hortalizas Demo Navolato', 5, 233, 1, 'Al día', 12], ['Granos Demo Sinaloa', 7, 315, 0, 'Al día', 18]
+  ];
+  const RES = {
+    'Agrícola Demo El Carrizo': 'Buen día ☀️ Resumen de su flota esta semana:\n• 6 máquinas trabajaron 284 h.\n• ⚠️ La cosechadora S-07 tuvo temperatura alta 3 veces y su servicio de 500 h está vencido. Tenemos las refacciones en Los Mochis.\n• Autoguiado: 62% de las horas de labor.\n¿Le agendamos el servicio? Responda «Sí» y le confirmamos el día.',
+    'Rancho Demo Guasave': 'Buen día ☀️ Resumen de su flota esta semana:\n• 4 máquinas trabajaron 196 h.\n• ⚠️ El tractor T-12 avisó restricción en el filtro de aire durante el subsoleo. Tenemos filtros en Guasave.\n• Autoguiado: 48% de las horas de labor.\n¿Se los cambiamos en campo?',
+    'Productor Demo Ahome': 'Buen día ☀️ Resumen de su flota esta semana:\n• 2 máquinas trabajaron 118 h, sin alertas.\n• El tractor T-03 llega a su servicio de 250 h alrededor del miércoles.\n• Autoguiado: 15%. Si quiere, le enseñamos a sacarle más provecho en su campo.\n¿Le agendamos el servicio?'
+  };
+  const $ = id => document.getElementById(id);
+  let S, reloj;
+  const hora = () => { reloj += 3 + (reloj % 4); return (7 + Math.floor(reloj / 60)) + ':' + String(reloj % 60).padStart(2, '0'); };
+  // Bitácora: en verde lo que hizo el agente; en ámbar lo que aprobó una persona.
+  const bit = (txt, t, humano) => { const li = document.createElement('li'); if (humano) li.className = 'warn'; li.innerHTML = '<span class="t">' + (t || hora()) + '</span>' + txt; $('bitacora').appendChild(li); };
+
+  function reiniciar() {
+    S = { tab: 'prioridades', caso: 'c1', ordenes: {}, avisados: new Set(), cliente: 'Agrícola Demo El Carrizo', capacitacion: false };
+    reloj = 0; $('bitacora').innerHTML = '';
+    [['1:00', 'Leyó los datos de anoche de 148 máquinas de 63 clientes, solo de quienes lo autorizaron.'], ['1:10', 'Revisó 212 avisos de falla; 31 merecen atención.'], ['1:20', 'Cruzó horas de motor contra el calendario de servicio de cada máquina.'], ['1:30', 'Revisó existencias de refacciones en las sucursales.'], ['6:30', 'Armó la lista priorizada para el especialista de precisión.']].forEach(([t, x]) => bit(x, t));
+    pintar();
+  }
+  const sucIdx = s => SUC.indexOf(s);
+  // De dónde sale cada refacción: la sucursal del cliente si tiene; si no, traspaso desde la que sí tiene.
+  const origen = (p, c) => { const st = PARTES[p][1], i = sucIdx(c.suc); return st[i] ? 'apartada en ' + c.suc : 'traspaso desde ' + SUC.find((s, j) => st[j]) + ' a ' + c.suc; };
+  const origenes = c => c.partes.map(p => PARTES[p][0].toLowerCase() + ': ' + origen(p, c)).join('; ');
+  function pintar() {
+    document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
+    document.querySelectorAll('.tab').forEach(t => { t.hidden = t.id !== 'tab-' + S.tab; });
+    const abiertos = CASOS.filter(c => !S.ordenes[c.id] && !(c.id === 'c5' && S.capacitacion));
+    $('kCrit').textContent = String(CASOS.filter(c => c.nivel === 'rojo' && !S.ordenes[c.id]).length);
+    $('kServ').textContent = String(7 - (S.ordenes.c1 ? 1 : 0));
+    $('kOrd').textContent = String(Object.keys(S.ordenes).length);
+    $('prioridades').innerHTML = CASOS.map((c, i) => '<li class="' + c.nivel + (S.ordenes[c.id] || (c.id === 'c5' && S.capacitacion) ? ' cerrada' : '') + (S.caso === c.id ? ' sel' : '') + '" data-caso="' + c.id + '" tabindex="0"><b>' + (i + 1) + '. ' + c.cli + ' · ' + c.maq + '</b><br>' + c.titulo + '</li>').join('');
+    detalle();
+    $('flota').innerHTML = FLOTA.map(([c, m, h, a, s, u]) => '<tr><td>' + c + '</td><td class="num">' + m + '</td><td class="num">' + h + ' h</td><td class="num ' + (a >= 3 ? 'bad-txt' : (a ? 'warn-txt' : 'ok-txt')) + '">' + a + '</td><td class="' + (s.startsWith('Vencido') ? 'bad-txt' : '') + '">' + (S.ordenes.c1 && s.startsWith('Vencido') ? 'Orden creada' : s) + '</td><td class="num ' + (u < 20 ? 'warn-txt' : '') + '">' + u + '%</td></tr>').join('');
+    $('clientes').innerHTML = Object.keys(RES).map(c => '<button type="button" data-cliente="' + c + '" aria-pressed="' + (S.cliente === c) + '">' + c + '</button>').join('');
+    $('waCliente').innerHTML = '<span class="wa-quien">Maquinaria del Valle Demo · lunes 7:00</span>' + RES[S.cliente] + '<span class="wa-hora">7:00 ✓✓</span>';
+    const req = {}; CASOS.forEach(c => c.partes.forEach(p => { req[p] = c; }));
+    $('refacciones').innerHTML = Object.keys(req).map(p => { const [n, st] = PARTES[p], c = req[p], i = sucIdx(c.suc); return '<tr><td>' + n + '</td><td>' + c.maq + '</td>' + st.map((x, j) => '<td class="num ' + (j === i ? (x ? 'ok-txt' : 'bad-txt') : '') + '">' + x + '</td>').join('') + '<td class="' + (S.ordenes[c.id] ? 'ok-txt' : 'muted') + '">' + (S.ordenes[c.id] ? origen(p, c).replace(/^./, x => x.toUpperCase()) : 'Sin apartar') + '</td></tr>'; }).join('');
+  }
+  function detalle() {
+    const c = CASOS.find(x => x.id === S.caso);
+    let h = '<h5>' + c.cli + ' · ' + c.maq + '</h5>';
+    if (c.horas) h += '<div class="ficha"><div><span>Modelo</span><b>' + c.modelo + '</b></div><div><span>Horas de motor</span><b>' + c.horas.toLocaleString('es-MX') + ' h</b></div><div><span>Ubicación de anoche</span><b>' + c.lugar + '</b></div><div><span>Sucursal más cercana</span><b>' + c.suc + '</b></div></div>';
+    h += '<ul class="eventos">' + c.eventos.map(e => '<li>' + e + '</li>').join('') + '</ul><p class="regla"><b>Regla aplicada:</b> ' + c.regla + '</p>';
+    if (c.partes.length) {
+      h += '<p><b>Refacciones sugeridas:</b> ' + c.partes.map(p => { const [n, st] = PARTES[p]; const x = st[sucIdx(c.suc)]; return n + ' (' + (x ? x + ' en ' + c.suc : '<span class="bad-txt">sin existencia en ' + c.suc + '; hay en ' + SUC.filter((s, j) => st[j]).join(' y ') + '</span>') + ')'; }).join(', ') + '.</p>';
+      h += S.ordenes[c.id] ? '<div class="borrador"><small>Orden de servicio creada</small>' + S.ordenes[c.id] + ' · ' + c.maq + ' · técnico: Ing. Demo\nRefacciones: ' + origenes(c) + '.\nPropuesta de cita: mañana 7:00 a. m., en ' + c.lugar + '.</div>' : '<button type="button" class="accion fuerte" data-orden="' + c.id + '" style="margin-top:0.7rem;">Crear orden de servicio y apartar refacciones</button>';
+      h += S.avisados.has(c.id) ? '<div class="borrador"><small>Mensaje enviado al cliente</small>Hola 👋 Vimos en los datos de anoche que su ' + c.maq.toLowerCase() + ' necesita atención: ' + c.titulo.charAt(0).toLowerCase() + c.titulo.slice(1) + ' Ya tenemos las refacciones. ¿Le parece mañana a las 7:00?</div>' : (S.ordenes[c.id] ? ' <button type="button" class="accion" data-avisar="' + c.id + '" style="margin-top:0.7rem;">Avisar al cliente por WhatsApp</button>' : '');
+    } else {
+      h += S.capacitacion ? '<div class="borrador"><small>Propuesta enviada</small>Capacitación en campo de autoguiado para 4 clientes: 2 horas cada uno, en su parcela.</div>' : '<button type="button" class="accion" data-capacitar="1" style="margin-top:0.4rem;">Proponer capacitación en campo</button>';
+    }
+    $('detalle').innerHTML = h;
+  }
+
+  document.addEventListener('click', ev => {
+    const t = ev.target.closest('button, li[data-caso]');
+    if (!t || !$('mando').contains(t)) return;
+    if (t.dataset.tab) { S.tab = t.dataset.tab; pintar(); return; }
+    if (t.id === 'reiniciar') { reiniciar(); return; }
+    if (t.dataset.caso) { S.caso = t.dataset.caso; pintar(); return; }
+    if (t.dataset.cliente) { S.cliente = t.dataset.cliente; pintar(); return; }
+    if (t.dataset.orden) { const c = CASOS.find(x => x.id === t.dataset.orden), n = 'OS-' + (2231 + Object.keys(S.ordenes).length); S.ordenes[c.id] = n; bit('Creó la orden ' + n + ' para ' + c.maq + ' de ' + c.cli + '. Refacciones: ' + origenes(c) + '.', 'Especialista · ' + hora(), true); pintar(); return; }
+    if (t.dataset.avisar) { const c = CASOS.find(x => x.id === t.dataset.avisar); S.avisados.add(c.id); bit('Avisó por WhatsApp a ' + c.cli + ' y propuso la cita de servicio.'); pintar(); return; }
+    if (t.dataset.capacitar) { S.capacitacion = true; bit('Mandó la propuesta de capacitación en campo de autoguiado a 4 clientes.', 'Especialista · ' + hora(), true); pintar(); return; }
+  });
+  document.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('#prioridades li')) { ev.preventDefault(); ev.target.click(); } });
+  reiniciar();
+
+  </script>
+</body>
+</html>

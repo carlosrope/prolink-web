@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Catálogo desde notas de voz y vendedor de IA — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva para negocios sin catálogo digital: con notas de voz y fotos del dueño, la IA arma el catálogo de WhatsApp y la lista de precios; luego un vendedor de IA cotiza en PDF con IVA, da seguimiento y le pasa al dueño las ventas listas para cerrar."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-catalogo.html"/>
+  <meta property="og:title" content="Catálogo desde notas de voz y vendedor de IA — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva para negocios sin catálogo digital: con notas de voz y fotos del dueño, la IA arma el catálogo de WhatsApp y la lista de precios; luego un vendedor de IA cotiza en PDF con IVA, da seguimiento y le pasa al dueño las ventas listas para cerrar."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html">Semillas</a></li>
+      <li><a href="demo-gasolineras.html">Gasolineras</a></li>
+      <li><a href="demo-catalogo.html" aria-current="page">Catálogo</a></li>
+      <li><a href="demo-joyeria.html">Joyería</a></li>
+      <li><a href="demo-precision.html">Precisión</a></li>
+      <li><a href="demo-exportadora.html">Exportadora</a></li>
+      <li><a href="demo-implementos.html">Implementos</a></li>
+      <li><a href="demo-despacho.html">Despacho</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Pymes sin catálogo digital</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">De tus notas de voz <em>a tu catálogo y tus ventas</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">Le dices al asistente qué vendes y a cuánto, como se lo dirías a un empleado nuevo. Arma tu catálogo de WhatsApp y tu lista de precios; después atiende a tus clientes, cotiza en PDF con IVA, da seguimiento y te pasa las ventas listas para cerrar.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con un negocio, productos y precios ficticios.</b> Primero eres el dueño que arma su catálogo con notas de voz; después, el cliente que pide una cotización. Conectado a tu negocio, usa tu WhatsApp, tus productos y tus precios.</span></p>
+    <div class="demo-layout">
+      <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
+        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">EC</div><div><b>Asistente de ventas</b><small>modo dueño</small></div></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="quick" id="quick"></div>
+      </div>
+      <div>
+        <div class="panel">
+          <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
+          <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
+          <div class="kpis"><div class="kpi"><b id="kCat">0</b><span>Productos en catálogo</span></div><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kCot">4</b><span>Cotizaciones enviadas hoy</span></div><div class="kpi"><b id="kCerrar">1</b><span>Listas para cerrar</span></div></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">📒</span> Tu catálogo</h3>
+          <p class="muted small" style="margin-bottom:0.7rem;">Se arma con las notas de voz del dueño. El asistente solo cotiza con lo que está aquí.</p>
+          <div class="catalogo" id="catalogo"></div>
+          <p class="pdf" id="pdf" hidden>📄 <b>Lista de precios.pdf</b> · 3 productos · lista para mandar por WhatsApp</p>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">🗂️</span> Cotizaciones de hoy</h3>
+          <p class="muted small" style="margin-bottom:0.6rem;">Cada cotización queda registrada con su estado. El dueño ve a quién llamar primero.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Cliente</th><th>Negocio</th><th>Busca</th><th>Total</th><th>Estado</th></tr></thead><tbody id="cotizaciones"></tbody></table></div>
+        </div>
+        <style>
+          .catalogo { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(210px, 100%), 1fr)); gap: 0.6rem; }
+          .prod { display: flex; gap: 0.7rem; border: 1px solid var(--border); border-radius: 12px; padding: 0.75rem; background: rgba(0,232,122,0.03); animation: bubbleIn .35s ease both; }
+          .prod.rec { border-color: var(--green); background: rgba(0,232,122,0.08); }
+          .prod .ico { font-size: 1.6rem; line-height: 1; }
+          .prod b { display: block; font-weight: 500; font-size: 0.88rem; margin-bottom: 0.2rem; }
+          .prod span { display: block; color: var(--gray); font-size: 0.78rem; }
+          .prod .precio { color: var(--green); font-family: 'Exo 2', sans-serif; font-weight: 800; font-size: 1rem; margin: 0.2rem 0; }
+          .prod .en-wa { color: var(--green); margin-top: 0.25rem; }
+          .pdf { margin-top: 0.8rem; font-size: 0.86rem; color: var(--gray); border: 1px dashed var(--border); border-radius: 10px; padding: 0.6rem 0.8rem; }
+          .pdf b { color: var(--white); font-weight: 500; }
+          #cotizaciones td { font-size: 0.82rem; }
+          #cotizaciones tr.tu td { background: rgba(0,232,122,0.07); }
+          .msg .audio { display: flex; align-items: center; gap: 0.45rem; font-size: 0.78rem; margin: 0.15rem 0; }
+          .msg .audio .onda { letter-spacing: -1px; color: #9ff5d0; }
+          .msg .fotos { display: block; font-size: 0.78rem; margin-top: 0.25rem; }
+        </style>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Tu catálogo armado con tus notas de voz y fotos: catálogo de WhatsApp Business y lista de precios en PDF.</li><li>Vendedor de IA en WhatsApp que recomienda, cotiza en PDF con IVA y pide los datos para tu factura.</li><li>Seguimiento a las 48 horas, registro de cotizaciones y resumen diario de a quién llamar.</li><li>Actualización semanal de precios contigo; nunca cotiza fuera de tu lista.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20cat%C3%A1logo%20con%20notas%20de%20voz%20y%20la%20quiero%20para%20mi%20negocio" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20cat%C3%A1logo%20con%20notas%20de%20voz%20y%20la%20quiero%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+  <script src="demo.js"></script>
+  <script>
+
+  const PROD = [
+    { k: 'estufa', ico: '🔥', n: 'Estufa industrial de 6 quemadores con horno', det: 'Acero inoxidable · gas LP o natural', p: 18500, ent: 'Entrega en 5 días', voz: '"Estufa de 6 quemadores con horno, inoxidable, en 18,500; la entrego en 5 días."' },
+    { k: 'plancha', ico: '🥓', n: 'Plancha freidora de 90 cm', det: 'Acero de 3/8"', p: 9800, ent: 'Entrega en 3 días', voz: '"Plancha de 90 centímetros, placa de 3/8, 9,800, en 3 días."' },
+    { k: 'freidora', ico: '🍟', n: 'Freidora de 2 canastillas, 20 litros', det: 'Gas LP o natural · termostato', p: 7200, ent: 'En existencia', voz: '"Freidora de dos canastillas, 20 litros, 7,200; tengo en existencia."' }
+  ];
+  const REC = { taqueria: ['plancha', 'freidora'], fonda: ['estufa', 'plancha'], restaurante: ['estufa', 'freidora'] };
+  const NEG = { taqueria: 'taquería', fonda: 'fonda', restaurante: 'restaurante' };
+  const base = [
+    { c: 'Taquería Demo', n: 'Taquería', b: 'Plancha 90 cm', ks: ['plancha'], e: 'Lista para cerrar', cls: 'stock-ok' },
+    { c: 'Fonda Demo', n: 'Fonda', b: 'Estufa 6 quemadores', ks: ['estufa'], e: 'Seguimiento en 48 h', cls: 'stock-low' },
+    { c: 'Sin nombre', n: 'Restaurante', b: 'Freidora', ks: ['freidora'], e: 'Cotización enviada', cls: 'muted' }
+  ];
+  const inicial = () => ({ vistos: 0, gas: null, iva: null, listo: false, neg: null, gasCli: null, rec: [], cot: null, estado: null, folio: 'C-0412' });
+  let S = inicial(), api = null;
+  const mx = n => '$' + Math.round(n).toLocaleString('es-MX');
+  const prod = k => PROD.find(p => p.k === k);
+  const det = p => p.k === 'plancha' && S.gas ? 'Acero de 3/8" · ' + (S.gas === 'ambos' ? 'gas LP o natural' : 'solo gas LP') : p.det;
+  function totales(ks) {
+    const suma = ks.reduce((s, k) => s + prod(k).p, 0);
+    return S.iva === 'incluye' ? { sub: suma / 1.16, iva: suma - suma / 1.16, total: suma } : { sub: suma, iva: suma * 0.16, total: suma * 1.16 };
+  }
+  const cabeza = (b, s) => { document.querySelector('.phone-head b').textContent = b; document.querySelector('.phone-head small').textContent = s; };
+
+  function pintar() {
+    const cat = PROD.slice(0, S.vistos);
+    document.getElementById('catalogo').innerHTML = cat.length ? cat.map(p => '<article class="prod' + (S.rec.includes(p.k) ? ' rec' : '') + '"><div class="ico" aria-hidden="true">' + p.ico + '</div><div><b>' + p.n + '</b><span>' + det(p) + '</span><span class="precio">' + mx(p.p) + (S.iva ? (S.iva === 'incluye' ? ' IVA incluido' : ' + IVA') : '') + '</span><span>' + p.ent + '</span>' + (S.listo ? '<span class="en-wa">✓ En tu catálogo de WhatsApp</span>' : '') + '</div></article>').join('') : '<p class="muted small">Todavía no hay productos. Se arma con las notas de voz del dueño.</p>';
+    document.getElementById('pdf').hidden = !S.listo;
+    const filas = (S.cot ? [{ c: 'Tú (cliente demo)', n: NEG[S.neg].replace(/^./, x => x.toUpperCase()), b: S.rec.map(k => prod(k).n.split(' de ')[0]).join(' + '), t: S.cot, e: S.estado, cls: S.estado === 'Lista para cerrar' ? 'stock-ok' : 'stock-low', tu: true }] : []).concat(base);
+    document.getElementById('cotizaciones').innerHTML = filas.map(r => '<tr' + (r.tu ? ' class="tu"' : '') + '><td>' + r.c + '</td><td>' + r.n + '</td><td>' + r.b + '</td><td class="num">' + mx(r.t || totales(r.ks).total) + '</td><td class="' + r.cls + '">' + r.e + '</td></tr>').join('');
+    if (api) api.kpis({ kCat: String(S.vistos), kCot: String(4 + (S.cot ? 1 : 0)), kCerrar: String(1 + (S.estado === 'Lista para cerrar' ? 1 : 0)) });
+  }
+  const notas = PROD.map((p, i) => '<div class="audio"><span>▶︎</span><span class="onda">▂▃▅▇▅▃▂▃▆▇▆▃▂▅▃</span><span>0:' + [18, 12, 15][i] + '</span></div>').join('') + '<span class="fotos">📷 📷 📷 3 fotos</span>';
+  const elegir = (k, v, next) => ({ next, accion: () => { S[k] = v; pintar(); } });
+  const factura = { label: '🧾 Sí, con factura', user: 'RFC: XAXX••••••••\nRégimen 612 · C.P. 81200', next: 'factura' };
+
+  api = ProDemo.iniciar({
+    kpiInicial: { kCat: '0', kResp: '—', kCot: '4', kCerrar: '1' },
+    alReiniciar: () => { S = inicial(); cabeza('Asistente de ventas', 'modo dueño'); pintar(); },
+    nodos: {
+      inicio: {
+        bot: [{ tarjeta: true, html: '<i class="muted">Modo dueño · así se arma el catálogo</i>' },
+              { text: '¡Hola! 👋 Soy tu asistente de ventas. Para empezar, mándame fotos y notas de voz de lo que vendes, con su precio y su tiempo de entrega. Yo armo tu catálogo.' }],
+        opciones: [{ label: '🎙️ Mandar 3 notas de voz con fotos', user: notas, next: 'leer' }]
+      },
+      leer: {
+        bot: [{ espera: 1600, text: 'Escuché tus 3 notas y vi las fotos 👂📷 Esto entendí:',
+                log: [{ text: '<b>Transcribió 3 notas de voz</b> y sacó nombre, medidas, material, precio y entrega de cada producto.' }],
+                despues: () => { S.vistos = 3; pintar(); } },
+              { tarjeta: true, html: () => '<table>' + PROD.map(p => '<tr><td>' + p.ico + ' ' + p.n + '</td><td>' + mx(p.p) + '</td></tr>').join('') + '</table><i class="muted">' + PROD[0].voz + '</i>' },
+              { text: 'Dos dudas para no inventar nada. La plancha, ¿es para gas LP, natural o las dos?',
+                log: [{ text: '<b>Preguntó lo que la nota no decía</b> en lugar de suponerlo.', warn: true }] }],
+        opciones: [{ label: 'Las dos, mismo precio', ...elegir('gas', 'ambos', 'iva') }, { label: 'Solo gas LP', ...elegir('gas', 'lp', 'iva') }]
+      },
+      iva: {
+        bot: [{ text: '¿Tus precios ya incluyen IVA?' }],
+        opciones: [{ label: 'Sí, ya incluyen IVA', ...elegir('iva', 'incluye', 'listo') }, { label: 'No, son más IVA', ...elegir('iva', 'mas', 'listo') }]
+      },
+      listo: {
+        bot: [{ tarjeta: true, espera: 1300, html: '<b>Listo ✅ Tu catálogo tiene 3 productos</b>\n• Lo subí a tu catálogo de WhatsApp Business.\n• Armé tu lista de precios en PDF.\n• Cada lunes te pregunto si cambió algún precio (el acero sube).',
+                log: [{ text: '<b>Cargó el catálogo</b> en WhatsApp Business y generó la lista de precios en PDF.' }, { text: '<b>Nunca cotiza fuera de esta lista</b>: lo que no está, pasa contigo.', warn: true }],
+                despues: () => { S.listo = true; pintar(); } }],
+        opciones: [{ label: '⏩ Ver cómo atiende a un cliente', next: 'cliente', accion: () => cabeza('Equipos de Cocina Demo', 'en línea') }]
+      },
+      cliente: {
+        bot: [{ tarjeta: true, html: '<i class="muted">📣 Llega un cliente por tu anuncio de Facebook. Ahora tú eres el cliente.</i>' }],
+        opciones: [{ label: 'Hola, ¿tienen estufas industriales?', next: 'negocio' }]
+      },
+      negocio: {
+        bot: [{ text: '¡Hola! 👋 Sí: en Equipos de Cocina Demo tenemos estufas, planchas y freidoras. ¿Para qué negocio es?', kpi: { kResp: '7 s' } }],
+        opciones: [['Taquería', 'taqueria'], ['Fonda o cocina económica', 'fonda'], ['Restaurante', 'restaurante']].map(([l, v]) => ({ label: l, ...elegir('neg', v, 'gasCli') }))
+      },
+      gasCli: {
+        bot: [{ text: '¿Usas gas LP o natural?' }],
+        opciones: [{ label: 'Gas LP', ...elegir('gasCli', 'lp', 'recomendar') }, { label: 'Gas natural', ...elegir('gasCli', 'natural', 'recomendar') }]
+      },
+      recomendar: {
+        run: () => { S.rec = REC[S.neg]; pintar(); },
+        bot: [{ html: () => 'Para una ' + NEG[S.neg] + ' te recomiendo:', espera: 1200,
+                log: [{ text: '<b>Recomendó con el catálogo del dueño</b> según el negocio y el tipo de gas.' }] },
+              { tarjeta: true, html: () => S.rec.map(k => { const p = prod(k); return '<b>' + p.ico + ' ' + p.n + '</b>\n' + det(p) + ' · ' + mx(p.p) + (S.iva === 'incluye' ? ' IVA incluido' : ' + IVA') + ' · ' + p.ent; }).join('\n\n') },
+              { html: () => S.rec.includes('plancha') && S.gas === 'lp' && S.gasCli === 'natural' ? '⚠️ Ojo: la plancha es solo para gas LP. Le pregunto al dueño si tiene conversión a gas natural y te confirmo hoy.' : '¿Te mando la cotización en PDF con las dos?',
+                despues: a => { if (S.rec.includes('plancha') && S.gas === 'lp' && S.gasCli === 'natural') a.registrar({ text: '<b>No prometió lo que el catálogo no dice</b>: la plancha es solo para gas LP y le preguntó al dueño.', warn: true }); } }],
+        opciones: [{ label: '📄 Sí, mándame la cotización', next: 'cotizacion' }]
+      },
+      cotizacion: {
+        bot: [{ tarjeta: true, espera: 1200, html: () => { const t = totales(S.rec); return '<b>Cotización ' + S.folio + '</b> · Equipos de Cocina Demo<table>' + S.rec.map(k => '<tr><td>' + prod(k).n + '</td><td>' + mx(S.iva === 'incluye' ? prod(k).p / 1.16 : prod(k).p) + '</td></tr>').join('') + '<tr><td>Subtotal</td><td>' + mx(t.sub) + '</td></tr><tr><td>IVA 16%</td><td>' + mx(t.iva) + '</td></tr><tr><td><b>Total</b></td><td><b>' + mx(t.total) + '</b></td></tr></table>📄 Cotización ' + S.folio + '.pdf · válida 7 días\n¿La quieres con factura? Necesito tu RFC, régimen fiscal y código postal.'; },
+                log: [{ text: '<b>Armó la cotización en PDF</b> con IVA desglosado y la registró.' }],
+                despues: () => { S.cot = totales(S.rec).total; S.estado = 'Cotización enviada'; pintar(); } }],
+        opciones: [factura, { label: '🤔 Lo pienso', next: 'pienso' }]
+      },
+      pienso: {
+        bot: [{ text: 'Claro, sin presión. Te guardo la cotización; cualquier duda me escribes.',
+                log: [{ text: '<b>Programó un seguimiento</b> a las 48 horas.', warn: true }],
+                despues: () => { S.estado = 'Seguimiento en 48 h'; pintar(); } },
+              { espera: 1700, html: () => '<i class="muted">📅 2 días después</i>\n¡Hola! ¿Pudiste revisar la cotización ' + S.folio + '? Esta semana todavía entregamos en ' + (S.rec.includes('estufa') ? '5' : '3') + ' días.',
+                log: [{ text: '<b>Mandó el seguimiento</b> a la hora programada.' }] }],
+        opciones: [{ ...factura, label: '🧾 Sí, la quiero con factura' }]
+      },
+      factura: {
+        bot: [{ text: 'Anotado ✅ Le paso tu cotización al dueño para confirmarte la fecha de entrega y la forma de pago. Te escribe hoy.',
+                log: [{ text: '<b>Avisó al dueño</b>: cotización lista para cerrar, con los datos de factura completos.' }],
+                despues: () => { S.estado = 'Lista para cerrar'; pintar(); } }],
+        opciones: [{ label: '⏩ Ver el resumen del dueño al día siguiente', next: 'resumen', accion: () => cabeza('Asistente de ventas', 'modo dueño') }]
+      },
+      resumen: {
+        bot: [{ tarjeta: true, espera: 1300, html: () => '<i class="muted">📅 Al día siguiente, 8:00 a. m.</i>\n<b>Buen día ☀️ Resumen de ayer</b>\n• 5 cotizaciones enviadas\n• 2 listas para cerrar: Tú (cliente demo) y Taquería Demo\n• 1 seguimiento programado para hoy\n¿Te paso sus datos para que les llames?',
+                log: [{ text: '<b>Mandó al dueño el resumen</b> con las cotizaciones más prometedoras.' }] }],
+        fin: true
+      }
+    }
+  });
+  pintar();
+
+  </script>
+</body>
+</html>

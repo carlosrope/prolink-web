@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Despacho: auditor fiscal continuo — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva de software a la medida para despachos contables: cada noche descarga los CFDI de la cartera, concilia con el banco, revisa proveedores contra la lista 69-B, valida Cartas Porte y complementos, y prepara avisos por WhatsApp que el contador aprueba."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-despacho.html"/>
+  <meta property="og:title" content="Despacho: auditor fiscal continuo — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva de software a la medida para despachos contables: cada noche descarga los CFDI de la cartera, concilia con el banco, revisa proveedores contra la lista 69-B, valida Cartas Porte y complementos, y prepara avisos por WhatsApp que el contador aprueba."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html">Semillas</a></li>
+      <li><a href="demo-gasolineras.html">Gasolineras</a></li>
+      <li><a href="demo-catalogo.html">Catálogo</a></li>
+      <li><a href="demo-joyeria.html">Joyería</a></li>
+      <li><a href="demo-precision.html">Precisión</a></li>
+      <li><a href="demo-exportadora.html">Exportadora</a></li>
+      <li><a href="demo-implementos.html">Implementos</a></li>
+      <li><a href="demo-despacho.html" aria-current="page">Despacho</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Software a la medida: despachos contables</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Tu cartera revisada <em>cada noche, no cada mes</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">El auditor descarga cada noche los CFDI de tus clientes, concilia con sus bancos, revisa proveedores contra la lista 69-B, valida Cartas Porte y complementos, y te deja las alertas con su sugerencia. Los avisos al cliente salen por WhatsApp solo cuando tú los apruebas.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con un despacho, clientes, proveedores y montos ficticios.</b> Toca las alertas, la cartera y los botones. Conectado a tu despacho, trabaja con los CFDI y los bancos de los clientes que lo autoricen; cada aviso lo aprueba un contador.</span></p>
+    <div class="app" id="auditor">
+      <div class="app-head">
+        <div><b>Auditor fiscal continuo · Despacho Demo</b><small>Cartera agro y de autotransporte · revisión de anoche</small></div>
+        <button type="button" class="btn-mini" id="reiniciar">↺ Reiniciar demo</button>
+      </div>
+      <div class="kpis app-kpis">
+        <div class="kpi"><b>38</b><span>Clientes vigilados</span></div>
+        <div class="kpi"><b>4,812</b><span>CFDI descargados anoche</span></div>
+        <div class="kpi"><b id="kAlertas">—</b><span>Alertas para el contador</span></div>
+        <div class="kpi"><b id="kAvisos">—</b><span>Avisos enviados a clientes</span></div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Secciones del auditor">
+        <button type="button" role="tab" data-tab="alertas">Alertas de hoy</button>
+        <button type="button" role="tab" data-tab="cartera">Cartera</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab" id="tab-alertas" role="tabpanel">
+          <div class="dos">
+            <div><h4>🔎 Lo que encontró anoche</h4><ul class="lista-alertas" id="alertas"></ul></div>
+            <div class="detalle" id="detalle"></div>
+          </div>
+        </div>
+        <div class="tab" id="tab-cartera" role="tabpanel" hidden>
+          <p class="muted small">Descarga diaria de CFDI con la autorización de cada cliente y su e.firma bajo resguardo. Toca un cliente para ver su ficha.</p>
+          <div class="dos">
+            <div class="table-wrap"><table class="data-table"><thead><tr><th>Cliente</th><th>Sector</th><th>CFDI del mes</th><th>Conciliado</th><th>Alertas</th></tr></thead><tbody id="cartera"></tbody></table></div>
+            <div class="detalle" id="ficha"></div>
+          </div>
+        </div>
+      </div>
+      <div class="bitacora">
+        <h4>🧾 Bitácora: lo que hizo el agente y lo que aprobó el contador</h4>
+        <ul class="log" id="bitacora"></ul>
+      </div>
+    </div>
+    <style>
+      .barra { height: 8px; border-radius: 4px; background: rgba(255,255,255,0.08); overflow: hidden; margin: 0.3rem 0 0.6rem; }
+      .barra i { display: block; height: 100%; background: var(--green); }
+      .barra.baja i { background: var(--amber); }
+      .datos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.4rem 1rem; font-size: 0.82rem; margin: 0.5rem 0; }
+      .datos span { color: var(--gray); } .datos b { display: block; }
+    </style>
+
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Descarga diaria de CFDI de tu cartera con la autorización de cada cliente y su e.firma bajo resguardo, y conciliación con sus estados de cuenta.</li><li>Revisión de proveedores contra la lista 69-B, Cartas Porte 3.1, complementos de combustible y facilidades del sector primario.</li><li>Alertas con sugerencia para el contador y avisos al cliente por WhatsApp que tú apruebas; la IA sugiere y el contador firma.</li><li>Para empezar: 5 a 10 clientes de un mismo sector, como agro o autotransporte.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu cartera y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20auditor%20fiscal%20continuo%20y%20la%20quiero%20para%20mi%20despacho" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20auditor%20fiscal%20continuo%20y%20la%20quiero%20para%20mi%20despacho" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+    <script>
+
+  const CLIENTES = {
+    tdv: { n: 'Transportes Demo del Valle', sector: 'Autotransporte', cfdi: 1284, conc: 96, rec: 912, emi: 372, prov: 214, cp: 318, alertas: ['a1'] },
+    fdg: { n: 'Fletes Demo Guasave', sector: 'Autotransporte', cfdi: 642, conc: 98, rec: 401, emi: 241, prov: 96, cp: 187, alertas: ['a2'] },
+    adm: { n: 'Agrícola Demo Los Mochis', sector: 'Sector primario', cfdi: 518, conc: 91, rec: 377, emi: 141, prov: 133, cp: 0, alertas: ['a3'] },
+    emp: { n: 'Empacadora Demo', sector: 'Sector primario', cfdi: 806, conc: 97, rec: 590, emi: 216, prov: 158, cp: 0, alertas: ['a4'] },
+    gds: { n: 'Granos Demo Sinaloa', sector: 'Sector primario', cfdi: 433, conc: 99, rec: 260, emi: 173, prov: 87, cp: 0, alertas: ['a5'] },
+    hdn: { n: 'Hortalizas Demo Navolato', sector: 'Sector primario', cfdi: 371, conc: 100, rec: 240, emi: 131, prov: 64, cp: 0, alertas: [] }
+  };
+  const ALERTAS = {
+    a1: { cli: 'tdv', nivel: 'rojo', titulo: 'Un proveedor entró hoy a la lista 69-B.', txt: 'Refacciones Demo, S.A. de C.V. aparece en la lista del artículo 69-B como presunto. Este año le dedujeron 3 CFDI por $184,300.', sug: 'Revisar con el cliente la materialidad de esas compras (contratos, entregas, pagos) antes del plazo para aclararlo.', msg: 'Hola 👋 Le escribimos de Despacho Demo. Su proveedor Refacciones Demo apareció hoy en la lista 69-B del SAT. Este año tiene 3 facturas suyas por $184,300. ¿Nos ayuda a juntar contratos, evidencias de entrega y pagos? Le explicamos los pasos en una llamada.' },
+    a2: { cli: 'fdg', nivel: '', titulo: '2 Cartas Porte con más peso que la capacidad del vehículo.', txt: 'En la versión 3.1, 2 traslados de la semana declaran 31 t en una unidad registrada para 27 t.', sug: 'Pedir al cliente la corrección o la configuración vehicular correcta antes de que lo detecte una revisión.', msg: 'Hola 👋 En 2 Cartas Porte de esta semana el peso (31 t) es mayor que la capacidad registrada de la unidad (27 t). ¿Nos confirma si cambió el remolque o hay que corregirlas?' },
+    a3: { cli: 'adm', nivel: '', titulo: '12 depósitos sin factura que los respalde.', txt: 'La conciliación bancaria va en 91%: hay 12 depósitos por $312,000 sin un CFDI que los explique.', sug: 'Pedir al cliente las facturas o la explicación de cada depósito (préstamos, aportaciones, traspasos).', msg: 'Hola 👋 Encontramos 12 depósitos de este mes por $312,000 sin factura. ¿Nos dice de qué son? Si son ventas, le ayudamos a facturarlas; si son préstamos o traspasos, solo lo documentamos.' },
+    a4: { cli: 'emp', nivel: '', titulo: '4 facturas de diésel sin el complemento de Hidrocarburos.', txt: '4 CFDI de combustible del mes no traen el complemento de Hidrocarburos y Petrolíferos.', sug: 'Revisar su deducibilidad y pedir al proveedor que las reexpida con el complemento.', msg: 'Hola 👋 4 facturas de diésel de este mes vienen sin el complemento de Hidrocarburos. Pídale a su gasolinera que las vuelva a emitir con el complemento; si quiere, le pasamos el texto para pedirlo.' },
+    a5: { cli: 'gds', nivel: 'info', titulo: 'Le aplican las facilidades 2026 del sector primario.', txt: 'Sus ingresos son de sector primario y este año aplica la Resolución de Facilidades Administrativas 2026.', sug: 'Revisar con el contador qué facilidades conviene aplicar antes de su siguiente declaración.', msg: 'Hola 👋 Por su actividad, este año le pueden aplicar facilidades fiscales del sector primario. Le proponemos revisarlas juntos antes de su próxima declaración.' }
+  };
+  const $ = id => document.getElementById(id);
+  let S, reloj;
+  const hora = () => { reloj += 3 + (reloj % 4); return (8 + Math.floor(reloj / 60)) + ':' + String(reloj % 60).padStart(2, '0'); };
+  const bit = (txt, t, humano) => { const li = document.createElement('li'); if (humano) li.className = 'warn'; li.innerHTML = '<span class="t">' + (t || hora()) + '</span>' + txt; $('bitacora').appendChild(li); };
+
+  function reiniciar() {
+    S = { tab: 'alertas', alerta: 'a1', cli: 'tdv', borrador: null, enviados: new Set(), revisadas: new Set() };
+    reloj = 0; $('bitacora').innerHTML = '';
+    [['2:00', 'Descargó del SAT 4,812 CFDI nuevos de 38 clientes, con su autorización.'], ['2:20', 'Concilió los CFDI con los estados de cuenta de cada cliente.'], ['2:35', 'Revisó 1,204 proveedores contra la lista 69-B del día.'], ['2:45', 'Validó 505 Cartas Porte 3.1: peso, unidad, placas y códigos postales.'], ['3:00', 'Revisó complementos de combustible y facilidades del sector primario.']].forEach(([t, x]) => bit(x, t));
+    pintar();
+  }
+  const abierta = id => !S.enviados.has(id) && !S.revisadas.has(id);
+  function pintar() {
+    document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
+    document.querySelectorAll('.tab').forEach(t => { t.hidden = t.id !== 'tab-' + S.tab; });
+    $('kAlertas').textContent = String(Object.keys(ALERTAS).filter(abierta).length);
+    $('kAvisos').textContent = String(S.enviados.size);
+    $('alertas').innerHTML = Object.entries(ALERTAS).map(([id, a]) => '<li class="' + a.nivel + (abierta(id) ? '' : ' cerrada') + (S.alerta === id ? ' sel' : '') + '" data-alerta="' + id + '" tabindex="0"><b>' + CLIENTES[a.cli].n + '</b><br>' + a.titulo + '</li>').join('');
+    const a = ALERTAS[S.alerta];
+    let h = '<h5>' + CLIENTES[a.cli].n + '</h5><p>' + a.txt + '</p><p><b>Sugerencia para el contador:</b> ' + a.sug + '</p>';
+    if (S.enviados.has(S.alerta)) h += '<div class="borrador"><small>Enviado al cliente por WhatsApp, aprobado por el contador</small>' + a.msg + '</div>';
+    else if (S.borrador === S.alerta) h += '<div class="borrador"><small>Borrador para el cliente: no sale sin tu aprobación</small>' + a.msg + '</div><button type="button" class="accion alerta" data-aprobar="' + S.alerta + '" style="margin-top:0.6rem;">Aprobar y enviar como Contador Demo</button>';
+    else if (!S.revisadas.has(S.alerta)) h += '<button type="button" class="accion fuerte" data-borrador="' + S.alerta + '" style="margin-top:0.4rem;">Preparar mensaje al cliente</button> <button type="button" class="accion" data-revisada="' + S.alerta + '" style="margin-top:0.4rem;">Lo reviso yo, sin avisar</button>';
+    else h += '<p class="ok-txt">Marcada como revisada por el contador.</p>';
+    $('detalle').innerHTML = h;
+    $('cartera').innerHTML = Object.entries(CLIENTES).map(([id, c]) => { const n = c.alertas.filter(abierta).length; return '<tr data-k="' + id + '"' + (S.cli === id ? ' class="sel"' : '') + '><td>' + c.n + '</td><td>' + c.sector + '</td><td class="num">' + c.cfdi.toLocaleString('es-MX') + '</td><td class="num ' + (c.conc < 95 ? 'warn-txt' : 'ok-txt') + '">' + c.conc + '%</td><td class="num ' + (n ? 'warn-txt' : 'ok-txt') + '">' + n + '</td></tr>'; }).join('');
+    const c = CLIENTES[S.cli];
+    $('ficha').innerHTML = '<h5>' + c.n + '</h5><p class="muted small">' + c.sector + ' · CFDI del mes descargados del SAT</p><div class="datos"><div><span>Recibidos</span><b>' + c.rec + '</b></div><div><span>Emitidos</span><b>' + c.emi + '</b></div><div><span>Proveedores revisados contra 69-B</span><b>' + c.prov + '</b></div><div><span>Cartas Porte validadas</span><b>' + (c.cp || 'No aplica') + '</b></div></div><span class="small muted">Conciliación con el banco: ' + c.conc + '%</span><div class="barra' + (c.conc < 95 ? ' baja' : '') + '"><i style="width:' + c.conc + '%"></i></div>' + (c.alertas.length ? c.alertas.map(id => '<p class="' + (abierta(id) ? 'warn-txt' : 'ok-txt') + '">' + (abierta(id) ? '⚠️ ' : '✓ ') + ALERTAS[id].titulo + '</p>').join('') + '<button type="button" class="accion" data-ir="' + c.alertas[0] + '" style="margin-top:0.4rem;">Ver la alerta →</button>' : '<p class="ok-txt">Sin alertas este mes.</p>');
+  }
+  document.addEventListener('click', ev => {
+    const t = ev.target.closest('button, li[data-alerta], tr[data-k]');
+    if (!t || !$('auditor').contains(t)) return;
+    if (t.dataset.tab) { S.tab = t.dataset.tab; pintar(); return; }
+    if (t.id === 'reiniciar') { reiniciar(); return; }
+    if (t.dataset.alerta) { S.alerta = t.dataset.alerta; pintar(); return; }
+    if (t.dataset.k) { S.cli = t.dataset.k; pintar(); return; }
+    if (t.dataset.ir) { S.alerta = t.dataset.ir; S.tab = 'alertas'; pintar(); return; }
+    if (t.dataset.borrador) { S.borrador = t.dataset.borrador; bit('Redactó un mensaje para ' + CLIENTES[ALERTAS[S.borrador].cli].n + '; espera la aprobación del contador.'); pintar(); return; }
+    if (t.dataset.aprobar) { S.enviados.add(t.dataset.aprobar); S.borrador = null; bit('Aprobó y envió por WhatsApp el aviso a ' + CLIENTES[ALERTAS[t.dataset.aprobar].cli].n + '.', 'Contador Demo · ' + hora(), true); pintar(); return; }
+    if (t.dataset.revisada) { S.revisadas.add(t.dataset.revisada); bit('Marcó como revisada la alerta de ' + CLIENTES[ALERTAS[t.dataset.revisada].cli].n + ', sin avisar al cliente.', 'Contador Demo · ' + hora(), true); pintar(); return; }
+  });
+  document.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('#alertas li')) { ev.preventDefault(); ev.target.click(); } });
+  reiniciar();
+
+  </script>
+</body>
+</html>

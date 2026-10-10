@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Joyería: del boceto a la cotización y al contenido — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva para joyerías con taller: desde el DM de Instagram, la IA propone diseños ilustrativos con la piedra de la clienta, cotiza con el oro del día, crea la orden de taller y prepara el contenido para redes con permiso de la clienta."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-joyeria.html"/>
+  <meta property="og:title" content="Joyería: del boceto a la cotización y al contenido — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva para joyerías con taller: desde el DM de Instagram, la IA propone diseños ilustrativos con la piedra de la clienta, cotiza con el oro del día, crea la orden de taller y prepara el contenido para redes con permiso de la clienta."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html">Semillas</a></li>
+      <li><a href="demo-gasolineras.html">Gasolineras</a></li>
+      <li><a href="demo-catalogo.html">Catálogo</a></li>
+      <li><a href="demo-joyeria.html" aria-current="page">Joyería</a></li>
+      <li><a href="demo-precision.html">Precisión</a></li>
+      <li><a href="demo-exportadora.html">Exportadora</a></li>
+      <li><a href="demo-implementos.html">Implementos</a></li>
+      <li><a href="demo-despacho.html">Despacho</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Software a la medida: joyerías con taller</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Del boceto de tu clienta <em>a la pieza y al Reel</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">Tu clienta manda una foto de inspiración por Instagram. La IA le propone diseños con su piedra, cotiza con el oro del día, crea la orden de taller con tu manual y, cuando la pieza está lista, prepara el contenido para redes, solo si ella da permiso.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con una joyería, precios y diseños ficticios.</b> Las imágenes son ilustrativas y el precio del oro es de ejemplo. Toca los botones para conversar como clienta; en el estudio puedes cambiar el metal. Conectado a tu joyería, usa tus diseños, tus costos y tu manual de taller.</span></p>
+    <div class="demo-layout">
+      <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
+        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">JD</div><div><b>Joyería Demo</b><small>Instagram · mensaje directo</small></div></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="quick" id="quick"></div>
+      </div>
+      <div>
+        <div class="panel">
+          <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
+          <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
+          <div class="kpis"><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kRend">0</b><span>Propuestas generadas</span></div><div class="kpi"><b id="kPed">3</b><span>Pedidos personalizados esta semana</span></div><div class="kpi"><b id="kPub">0</b><span>Piezas listas para publicar</span></div></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">💍</span> Estudio de diseño</h3>
+          <div class="metales" role="group" aria-label="Metal"><button type="button" data-metal="amarillo">Oro amarillo</button><button type="button" data-metal="blanco">Oro blanco</button><button type="button" data-metal="rosa">Oro rosa</button></div>
+          <div class="renders" id="renders"></div>
+          <p class="muted small" style="margin-top:0.4rem;">Imágenes ilustrativas: el taller confirma que cada diseño se puede fabricar. Oro mínimo de 10 kilates y con marca de ley (NOM-033-SCFI).</p>
+          <h3 style="margin-top:1.2rem;"><span aria-hidden="true">🧮</span> Cotizador</h3>
+          <div class="table-wrap"><table class="data-table"><tbody id="cotizador"></tbody></table></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">🛠️</span> Orden de taller</h3>
+          <div id="orden"></div>
+          <h3 style="margin-top:1.2rem;"><span aria-hidden="true">📱</span> Contenido para redes</h3>
+          <div id="contenido"></div>
+        </div>
+        <style>
+          .metales { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+          .metales button { background: transparent; border: 1px solid var(--border); color: var(--gray); border-radius: 100px; padding: 0.35rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; cursor: pointer; }
+          .metales button[aria-pressed="true"] { border-color: var(--green); color: var(--green); background: rgba(0,232,122,0.08); }
+          .renders { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.6rem; }
+          .render { background: radial-gradient(circle at 50% 40%, #2a3530, #141c18); border: 1px solid var(--border); border-radius: 12px; padding: 0.5rem; text-align: center; animation: bubbleIn .35s ease both; }
+          .render svg { width: 100%; height: auto; }
+          .render.sel { border-color: var(--green); box-shadow: 0 0 0 1px var(--green) inset; }
+          .render figcaption { font-size: 0.78rem; color: var(--gray); }
+          #cotizador td { font-size: 0.84rem; }
+          .pasos { list-style: none; counter-reset: p; display: flex; flex-direction: column; gap: 0.35rem; }
+          .pasos li { font-size: 0.84rem; color: var(--gray); padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid transparent; }
+          .pasos li.hecho { color: var(--green); }
+          .pasos li.actual { color: var(--white); border-color: rgba(255,200,0,0.4); background: rgba(255,200,0,0.06); }
+          .post { display: grid; grid-template-columns: 110px 1fr; gap: 0.8rem; align-items: center; border: 1px solid var(--border); border-radius: 12px; padding: 0.6rem; margin-bottom: 0.5rem; animation: bubbleIn .35s ease both; }
+          .post-img { background: linear-gradient(135deg, #f6efe3, #e7d9c3); border-radius: 8px; display: flex; align-items: center; justify-content: center; aspect-ratio: 1; }
+          .post-img.historia { aspect-ratio: 9 / 13; }
+          .post-img.reel { background: linear-gradient(160deg, #1d2a24, #3a4a40); }
+          .post-img svg { width: 80%; height: auto; }
+          .post b { display: block; font-size: 0.84rem; font-weight: 500; }
+          .post p { font-size: 0.8rem; color: var(--gray); margin: 0.2rem 0; }
+          .post span { font-size: 0.76rem; }
+          @media (max-width: 420px) { .post { grid-template-columns: 80px 1fr; } }
+          .msg .inspira { height: 86px; min-width: 180px; border-radius: 7px; margin-bottom: 0.35rem; background: radial-gradient(circle at 50% 42%, #f4e3b3 0 9%, transparent 10%), radial-gradient(ellipse at 50% 60%, transparent 0 26%, #d8b45a 27% 31%, transparent 32%), linear-gradient(135deg, #3c2f2a, #6b5448); display: flex; align-items: flex-end; padding: 0.3rem 0.4rem; }
+          .msg .inspira span { font-size: 0.72rem; background: rgba(0,0,0,0.45); border-radius: 4px; padding: 0.1rem 0.35rem; }
+          .msg .mini-renders { display: flex; gap: 0.4rem; justify-content: space-between; margin-top: 0.3rem; }
+          .msg .mini-renders span { flex: 1 1 0; min-width: 0; display: flex; flex-direction: column; align-items: center; background: #26332c; border-radius: 8px; padding: 0.25rem; }
+          .msg .mini-renders svg { width: 100%; max-width: 110px; height: auto; }
+          .msg .mini-renders i { font-style: normal; font-size: 0.68rem; color: #b8c7bf; }
+          .msg td:last-child { white-space: nowrap; }
+        </style>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Agente en el DM de Instagram y en WhatsApp con tus diseños, tus metales y tu forma de cotizar.</li><li>Propuestas ilustrativas con la piedra y el estilo de cada clienta, que el taller valida antes de prometer.</li><li>Cotizador con el oro del día, gramos estimados, hechura y engaste; orden de taller con tu manual de pedido personalizado.</li><li>Contenido para redes a partir de la foto de banco: post, historia y guion de Reel, con calendario y permiso de la clienta.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20para%20joyer%C3%ADas%20y%20la%20quiero%20con%20mis%20piezas" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20para%20joyer%C3%ADas%20y%20la%20quiero%20con%20mis%20piezas" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+  <script src="demo.js"></script>
+  <script>
+
+  // Datos de ejemplo: el precio del oro y la hechura son ficticios.
+  const METAL = { amarillo: ['Oro amarillo 14k', '#d9b44a', '#a8831f'], blanco: ['Oro blanco 14k', '#dde1e6', '#9aa3ad'], rosa: ['Oro rosa 14k', '#e3a587', '#b9745a'] };
+  const DIS = [
+    { k: 'solitario', n: 'Solitario', g: 3.2, hechura: 2800 },
+    { k: 'halo', n: 'Halo', g: 4.1, hechura: 4200, extra: ['14 brillantes de halo', 3500] },
+    { k: 'tres', n: 'Tres piedras', g: 3.8, hechura: 3600, extra: ['2 piedras laterales', 2400] }
+  ];
+  const ORO = 1280, ENGASTE = 900;
+  // Pasos del manual de pedido personalizado; el oro blanco lleva baño de rodio.
+  const pasos = () => ['Modelo en cera', 'La clienta aprueba la cera', 'Fundición y ajuste de talla', 'Engaste del zafiro', 'Pulido'].concat(S.metal === 'blanco' ? ['Baño de rodio'] : [], ['Grabado', 'Revisión: sin poros, piedra firme, talla correcta']);
+  const inicial = () => ({ metal: null, talla: null, dis: null, vista: null, paso: -1, anticipo: false, listo: false, permiso: null, renders: 0 });
+  let S = inicial(), api = null, uid = 0;
+  const mx = n => '$' + Math.round(n).toLocaleString('es-MX');
+  const dis = k => DIS.find(d => d.k === k);
+
+  function anillo(k, metal, cera, w) {
+    const id = 'g' + (uid++), [, c1, c2] = METAL[metal], banda = cera ? '#6f9f6a' : c1, sombra = cera ? '#4e7a4a' : c2;
+    const gema = (x, y, r, azul) => cera ? '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="#86b47f"/>' : '<circle cx="' + x + '" cy="' + y + '" r="' + r + '" fill="url(#' + id + (azul ? 'a' : 'b') + ')"/><circle cx="' + (x - r * 0.35) + '" cy="' + (y - r * 0.35) + '" r="' + (r * 0.28) + '" fill="#fff" opacity="0.55"/>';
+    let top = '';
+    if (k === 'solitario') top = [[-11, -9], [11, -9], [-11, 9], [11, 9]].map(([dx, dy]) => '<line x1="80" y1="50" x2="' + (80 + dx) + '" y2="' + (48 + dy) + '" stroke="' + banda + '" stroke-width="3"/>').join('') + gema(80, 47, 13, true);
+    if (k === 'halo') { for (let i = 0; i < 14; i++) { const a = i / 14 * Math.PI * 2; top += gema(80 + Math.cos(a) * 16, 47 + Math.sin(a) * 16, 2.8, false); } top = '<circle cx="80" cy="47" r="19" fill="' + banda + '"/>' + top + gema(80, 47, 11.5, true); }
+    if (k === 'tres') top = '<rect x="54" y="42" width="52" height="12" rx="6" fill="' + banda + '"/>' + gema(60, 50, 7.5, false) + gema(100, 50, 7.5, false) + gema(80, 46, 12.5, true);
+    return '<svg viewBox="0 0 160 130" width="' + (w || 160) + '" role="img" aria-label="Anillo ' + dis(k).n + ' ilustrativo"><defs><radialGradient id="' + id + 'a" cx="40%" cy="35%"><stop offset="0" stop-color="#7aa2f0"/><stop offset="1" stop-color="#173582"/></radialGradient><radialGradient id="' + id + 'b" cx="40%" cy="35%"><stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#b9c7dd"/></radialGradient></defs><ellipse cx="80" cy="84" rx="47" ry="33" fill="none" stroke="' + sombra + '" stroke-width="11"/><ellipse cx="80" cy="82" rx="47" ry="33" fill="none" stroke="' + banda + '" stroke-width="8"/>' + top + '</svg>';
+  }
+  const rango = d => { const base = d.g * ORO + d.hechura + ENGASTE + (d.extra ? d.extra[1] : 0); return [base * 0.92, base * 1.08, base]; };
+
+  function pintar() {
+    const metal = S.vista || S.metal || 'amarillo';  // los botones del estudio solo cambian la vista previa
+    document.querySelectorAll('[data-metal]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.metal === metal)));
+    document.getElementById('renders').innerHTML = S.renders ? DIS.map((d, i) => '<figure class="render' + (S.dis === d.k ? ' sel' : '') + '">' + anillo(d.k, metal) + '<figcaption>' + (i + 1) + '. ' + d.n + '</figcaption></figure>').join('') : '<p class="muted small">Las propuestas aparecen cuando la clienta elige metal y talla.</p>';
+    const d = S.dis && dis(S.dis);
+    document.getElementById('cotizador').innerHTML = d ? (() => { const [a, b] = rango(d); return '<tr><td>Oro 14k del día (ejemplo)</td><td class="num">' + mx(ORO) + ' por gramo</td></tr><tr><td>Gramos estimados · ' + d.n + '</td><td class="num">' + d.g.toFixed(1) + ' g</td></tr><tr><td>Hechura</td><td class="num">' + mx(d.hechura) + '</td></tr><tr><td>Engaste de su zafiro</td><td class="num">' + mx(ENGASTE) + '</td></tr>' + (d.extra ? '<tr><td>' + d.extra[0] + '</td><td class="num">' + mx(d.extra[1]) + '</td></tr>' : '') + '<tr><td><b>Rango estimado</b></td><td class="num"><b>' + mx(a) + ' – ' + mx(b) + '</b></td></tr>'; })() : '<tr><td class="muted" colspan="2">Se calcula al elegir el diseño.</td></tr>';
+    document.getElementById('orden').innerHTML = S.paso >= 0 ? '<p class="small muted" style="margin-bottom:0.5rem;">Pedido P-118 · ' + METAL[S.metal][0] + ' · talla ' + S.talla + ' · ' + d.n + ' · sigue el <a href="ejemplo-manual.html">manual de pedido personalizado</a></p><ol class="pasos">' + pasos().map((p, i) => '<li class="' + (i < S.paso ? 'hecho' : (i === S.paso ? 'actual' : '')) + '">' + (i < S.paso ? '✓ ' : '') + p + '</li>').join('') + '</ol>' : '<p class="muted small">La orden se crea cuando la clienta deja su anticipo.</p>';
+    const posts = S.listo ? [['Post', 'Hecho a mano, con historia: el zafiro de la abuela, ahora en ' + METAL[S.metal][0].toLowerCase() + '. ✨ #JoyeríaDemo #HechoEnSinaloa', 'Martes 7:00 p. m.'], ['Historia', '¿Tienes una piedra con historia? La convertimos en tu anillo. Escríbenos 💍', 'Jueves 1:00 p. m.'], ['Reel', 'Guion: 1) la cera en el banco 2) el zafiro entra al engaste 3) el anillo terminado en la mano. Música suave, 15 s.', 'Sábado 11:00 a. m.']] : [];
+    document.getElementById('contenido').innerHTML = posts.length ? (S.permiso === 'no' ? '<p class="warn-txt small">La clienta prefirió no compartir su anillo: no se publica nada.</p>' : posts.map(([t, txt, cuando]) => '<article class="post"><div class="post-img ' + t.toLowerCase() + '">' + anillo(S.dis, S.metal, false, t === 'Historia' ? 90 : 110) + '</div><div><b>' + t + ' · ' + cuando + '</b><p>' + txt + '</p><span class="' + (S.permiso ? 'ok-txt' : 'warn-txt') + '">' + (S.permiso ? '✓ Aprobado por el equipo · sin nombre de la clienta' : 'Esperando el permiso de la clienta') + '</span></div></article>').join('')) : '<p class="muted small">El contenido se prepara con la foto de banco cuando la pieza está terminada.</p>';
+    if (api) api.kpis({ kRend: String(S.renders * 3), kPed: String(3 + (S.anticipo ? 1 : 0)), kPub: String(S.listo && S.permiso === 'si' ? 3 : 0) });
+  }
+  document.addEventListener('click', e => { const b = e.target.closest('[data-metal]'); if (b) { S.vista = b.dataset.metal; pintar(); } });
+
+  const foto = '<div class="inspira"><span>📷 foto de inspiración</span></div>Me gusta este estilo. Quiero un anillo con el zafiro de mi abuela 💙';
+  const set = (k, v) => () => { S[k] = v; pintar(); };
+
+  api = ProDemo.iniciar({
+    kpiInicial: { kResp: '—', kRend: '0', kPed: '3', kPub: '0' },
+    alReiniciar: () => { S = inicial(); pintar(); },
+    nodos: {
+      inicio: {
+        bot: [{ text: '¡Hola! ✨ Soy la asistente de Joyería Demo. ¿Buscas una pieza en existencia o quieres diseñar una a tu medida?' }],
+        opciones: [{ label: '💍 Diseñar un anillo con mi piedra', user: foto, next: 'metal' }]
+      },
+      metal: {
+        bot: [{ text: '¡Qué bonito proyecto, una piedra con historia! 💙 ¿En qué metal lo imaginas?', kpi: { kResp: '9 s' },
+                log: [{ text: '<b>Leyó la foto de inspiración</b>: anillo con piedra central, banda delgada.' }] }],
+        opciones: Object.keys(METAL).map(m => ({ label: METAL[m][0], next: 'talla', accion: () => { S.metal = m; S.vista = null; pintar(); } }))
+      },
+      talla: {
+        bot: [{ text: '¿Sabes tu talla de anillo?' }],
+        opciones: [{ label: 'Talla 7', next: 'renders', accion: set('talla', '7') }, { label: 'No la sé', next: 'sinTalla' }]
+      },
+      sinTalla: {
+        bot: [{ text: 'No te preocupes: puedes pasar a medírtela a la tienda, o te mando una guía para medirla con un hilo. Mientras, uso talla 7 de referencia.', despues: () => { S.talla = '7 (por confirmar)'; pintar(); },
+                log: [{ text: '<b>No inventó la talla</b>: la dejó por confirmar en la tienda.', warn: true }] }],
+        opciones: [{ label: 'Va, sigue', next: 'renders' }]
+      },
+      renders: {
+        bot: [{ espera: 1700, text: 'Te preparé 3 propuestas con tu zafiro 👇 (imágenes ilustrativas)',
+                log: [{ text: '<b>Generó 3 propuestas ilustrativas</b> con el metal, la piedra y el estilo de la foto.' }, { text: '<b>Van marcadas como ilustrativas</b>: el taller confirma que cada diseño se puede fabricar.', warn: true }],
+                despues: () => { S.renders = 1; pintar(); } },
+              { tarjeta: true, html: () => '<div class="mini-renders">' + DIS.map((d, i) => '<span>' + anillo(d.k, S.metal, false, 72) + '<i>' + (i + 1) + '. ' + d.n + '</i></span>').join('') + '</div>' },
+              { text: '¿Cuál te gusta más?' }],
+        opciones: DIS.map((d, i) => ({ label: (i === 0 ? 'Me encanta la 1' : 'La ' + (i + 1)) + ' · ' + d.n, next: 'precio', accion: set('dis', d.k) }))
+      },
+      precio: {
+        bot: [{ tarjeta: true, espera: 1300, html: () => { const d = dis(S.dis), [a, b] = rango(d); return '<b>' + d.n + ' en ' + METAL[S.metal][0].toLowerCase() + '</b> con tu zafiro<table><tr><td>Rango estimado</td><td>' + mx(a) + ' – ' + mx(b) + '</td></tr><tr><td>Entrega</td><td>10 a 15 días</td></tr></table>Con el oro de hoy y unos ' + d.g.toFixed(1) + ' g. El precio final depende del peso real de la pieza. Para empezar se deja el 50% de anticipo.'; },
+                log: [{ text: '<b>Cotizó con el oro del día</b>, los gramos estimados del diseño, la hechura y el engaste, y dio un rango, no un precio cerrado.' }] }],
+        opciones: [{ label: '💳 Dejar mi anticipo', user: '💳 Pagué el anticipo con el link ✅', next: 'orden' }, { label: '🤔 Lo platico en casa', next: 'platico' }]
+      },
+      platico: {
+        bot: [{ text: 'Claro 💙 Te guardo las 3 propuestas y la cotización. En 2 días te escribo por si quieres ajustar algo.', log: [{ text: '<b>Programó seguimiento</b> a 2 días con las propuestas guardadas.', warn: true }] },
+              { espera: 1600, text: '📅 2 días después\n¡Hola! ¿Pudiste platicarlo? Si quieres, cambio el metal o el diseño sin costo.' }],
+        opciones: [{ label: '💳 Sí, dejo mi anticipo', user: '💳 Pagué el anticipo con el link ✅', next: 'orden' }]
+      },
+      orden: {
+        bot: [{ text: '¡Recibido! 🙌 Tu pedido P-118 pasa al taller. Antes de fundir te mando la foto de la cera para que la apruebes.',
+                log: [{ text: '<b>Creó la orden de taller</b> siguiendo el manual de pedido personalizado: metal, talla, diseño y piedra de la clienta.' }],
+                despues: () => { S.anticipo = true; S.paso = 0; pintar(); } },
+              { espera: 1700, html: () => '<i class="muted">📅 4 días después</i>\nAsí quedó tu anillo en cera 👇 ¿Lo aprobamos para fundirlo?<div class="mini-renders"><span>' + anillo(S.dis, S.metal, true, 110) + '<i>Modelo en cera</i></span></div>',
+                despues: () => { S.paso = 1; pintar(); } }],
+        opciones: [{ label: '✅ Sí, apruébalo', next: 'listo' }]
+      },
+      listo: {
+        bot: [{ text: '¡Aprobado! Pasa a fundición 🔥', log: [{ text: '<b>Guardó la aprobación de la cera</b> en el chat: es el paso que más se olvida.' }], despues: () => { S.paso = 2; pintar(); } },
+              { espera: 1900, html: () => '<i class="muted">📅 10 días después</i>\n¡Tu anillo está listo! ✨ Pasó la revisión: sin poros, la piedra firme y tu talla. Puedes pasar por él cuando gustes.',
+                despues: () => { S.paso = pasos().length; S.listo = true; pintar(); },
+                log: [{ text: '<b>Preparó el contenido para redes</b> con la foto de banco: post, historia y guion de Reel, con calendario.' }] },
+              { text: 'Una pregunta: ¿nos das permiso de compartir tu anillo en nuestras redes, sin tu nombre?' }],
+        opciones: [{ label: 'Sí, sin mi nombre', next: 'gracias', accion: set('permiso', 'si') }, { label: 'No, solo para mí', next: 'gracias', accion: set('permiso', 'no') }]
+      },
+      gracias: {
+        bot: [{ html: () => S.permiso === 'si' ? '¡Gracias! 💙 Lo publicaremos sin tu nombre. Que lo disfrutes mucho.' : 'Entendido, es solo para ti 💙 No publicamos nada. Que lo disfrutes mucho.',
+                despues: a => a.registrar({ text: S.permiso === 'si' ? '<b>Programó 3 publicaciones</b> con el permiso de la clienta, sin su nombre; el equipo las aprobó.' : '<b>Respetó la decisión de la clienta</b>: no se publica nada de su pieza.', warn: S.permiso !== 'si' }) }],
+        fin: true
+      }
+    }
+  });
+  pintar();
+
+  </script>
+</body>
+</html>

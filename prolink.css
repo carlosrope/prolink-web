@@ -49,7 +49,7 @@ nav.top {
   nav.top { padding: 0.9rem 1rem; }
   .nav-toggle { display: block; }
   .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; background: rgba(10,15,13,0.97); border-bottom: 1px solid var(--border); padding: 0.5rem 1rem 1rem; }
-  .nav-links.open { display: flex; }
+  .nav-links.open { display: flex; max-height: calc(100vh - 70px); overflow-y: auto; overscroll-behavior: contain; }
   .nav-links li a { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
   .nav-cta.desktop { display: none; }
 }
@@ -59,7 +59,7 @@ nav.top {
   nav.top.compacta .nav-cta.desktop { margin-left: auto; }
   nav.top.compacta .nav-toggle { display: block; }
   nav.top.compacta .nav-links { display: none; position: absolute; top: calc(100% + 0.4rem); right: 2rem; min-width: 260px; flex-direction: column; align-items: stretch; gap: 0; background: rgba(10,15,13,0.97); border: 1px solid var(--border); border-radius: 12px; padding: 0.3rem 1rem; box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
-  nav.top.compacta .nav-links.open { display: flex; }
+  nav.top.compacta .nav-links.open { display: flex; max-height: calc(100vh - 90px); overflow-y: auto; overscroll-behavior: contain; }
   nav.top.compacta .nav-links li a { display: block; padding: 0.6rem 0; border-bottom: 1px solid var(--border); }
   nav.top.compacta .nav-links li:nth-last-child(2) a { border-bottom: 0; }
 }

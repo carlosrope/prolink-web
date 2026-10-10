@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Implementos: cotizador a la medida — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva de software a la medida para fabricantes de implementos: el vendedor pide por WhatsApp, el configurador valida las reglas de ingeniería, calcula acero, horas de taller y precio, muestra trabajos parecidos y genera la cotización con plano para que el director la apruebe."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-implementos.html"/>
+  <meta property="og:title" content="Implementos: cotizador a la medida — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva de software a la medida para fabricantes de implementos: el vendedor pide por WhatsApp, el configurador valida las reglas de ingeniería, calcula acero, horas de taller y precio, muestra trabajos parecidos y genera la cotización con plano para que el director la apruebe."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <link rel="stylesheet" href="app.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html">Semillas</a></li>
+      <li><a href="demo-gasolineras.html">Gasolineras</a></li>
+      <li><a href="demo-catalogo.html">Catálogo</a></li>
+      <li><a href="demo-joyeria.html">Joyería</a></li>
+      <li><a href="demo-precision.html">Precisión</a></li>
+      <li><a href="demo-exportadora.html">Exportadora</a></li>
+      <li><a href="demo-implementos.html" aria-current="page">Implementos</a></li>
+      <li><a href="demo-despacho.html">Despacho</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Software a la medida: fabricantes de implementos</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">De la petición del vendedor <em>a la cotización con plano</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">El vendedor manda lo que pide el productor. El configurador pregunta lo que falta, valida tus reglas de ingeniería, calcula acero, horas de taller y precio con tu tabla de costos, te muestra trabajos parecidos y genera la cotización con plano para que el director la apruebe.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con un fabricante, costos, reglas y trabajos ficticios.</b> Contesta las preguntas y después cambia surcos, distancia, tractor u opciones: todo se recalcula al momento. Conectado a tu empresa, usa tus módulos, tus costos y el criterio de tu ingeniería.</span></p>
+    <div class="app" id="cfg">
+      <div class="app-head">
+        <div><b>Cotizador a la medida · Implementos Demo</b><small>Sembradoras de papa · costos y reglas de ejemplo</small></div>
+        <button type="button" class="btn-mini" id="reiniciar">↺ Reiniciar demo</button>
+      </div>
+      <div class="kpis app-kpis">
+        <div class="kpi"><b id="kReglas">—</b><span>Reglas que pasan</span></div>
+        <div class="kpi"><b id="kAcero">—</b><span>Acero</span></div>
+        <div class="kpi"><b id="kHoras">—</b><span>Horas de taller</span></div>
+        <div class="kpi"><b id="kPrecio">—</b><span>Precio sugerido (sin IVA)</span></div>
+      </div>
+      <div class="dos" style="margin-top:1.2rem;">
+        <div>
+          <h4>💬 Lo que pidió el vendedor</h4>
+          <div class="wa"><span class="wa-quien">Vendedor Demo · 9:14</span>Sembradora de papa de 4 surcos a 92 cm, para un tractor de 150 hp, con fertilizadora. Es para Agrícola Demo de Guasave.<span class="wa-hora">9:14</span></div>
+          <div id="preguntas" style="margin-top:0.9rem;"></div>
+          <div id="config" hidden>
+            <h4 style="margin-top:1rem;">⚙️ Configuración</h4>
+            <div class="campos">
+              <label class="campo">Surcos<select id="surcos"><option>2</option><option>4</option><option>6</option></select></label>
+              <label class="campo">Distancia entre surcos<select id="dist"><option value="76">76 cm</option><option value="86">86 cm</option><option value="92">92 cm</option></select></label>
+              <label class="campo">Tractor del cliente<select id="hp"><option value="110">110 hp</option><option value="150">150 hp</option><option value="200">200 hp</option></select></label>
+              <label class="campo">Tolva<select id="tolva"><option value="estandar">Estándar · 1.2 t</option><option value="grande">Grande · 2.5 t</option></select></label>
+            </div>
+            <div class="opciones-check" style="margin-top:0.8rem;">
+              <label><input type="checkbox" id="fert"/> Fertilizadora</label>
+              <label><input type="checkbox" id="marcador"/> Marcador hidráulico</label>
+              <label><input type="checkbox" id="cortada"/> Kit para semilla cortada</label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h4>📐 Plano general</h4>
+          <div class="detalle" id="plano"></div>
+          <h4 style="margin-top:1rem;">✅ Reglas de ingeniería</h4>
+          <ul class="checks" id="reglas"></ul>
+        </div>
+      </div>
+      <div class="dos" id="abajo" style="margin-top:1.2rem;" hidden>
+        <div>
+          <h4>🧾 Materiales, horas y precio</h4>
+          <div class="table-wrap"><table class="data-table"><tbody id="bom"></tbody></table></div>
+        </div>
+        <div>
+          <h4>🗂️ Trabajos parecidos ya fabricados</h4>
+          <ul class="lista-alertas" id="parecidos"></ul>
+          <div id="cierre" style="margin-top:1rem;"></div>
+        </div>
+      </div>
+      <div class="bitacora">
+        <h4>🧾 Bitácora: lo que hizo el agente y lo que aprobó tu equipo</h4>
+        <ul class="log" id="bitacora"></ul>
+      </div>
+    </div>
+    <style>
+      .preg { margin-bottom: 0.7rem; }
+      .preg p { font-size: 0.88rem; margin-bottom: 0.4rem; }
+      .preg .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+      .preg button { background: transparent; border: 1px solid rgba(0,232,122,0.4); color: var(--green); border-radius: 100px; padding: 0.35rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; }
+      .preg button[aria-pressed="true"] { background: rgba(0,232,122,0.15); }
+      #plano svg { width: 100%; height: auto; display: block; }
+      #bom td { font-size: 0.84rem; }
+      #bom tr.total td { font-weight: 500; color: var(--white); border-top: 1px solid var(--border); }
+    </style>
+
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Configurador con tus módulos y tus reglas de ingeniería: potencia, ancho de transporte, refuerzos y lo que debe pasar a ingeniería.</li><li>Lista de materiales, horas de taller y precio con tu tabla de costos; el precio lo calcula la tabla, no la IA.</li><li>Trabajos parecidos ya fabricados con su margen real, y cotización en PDF con plano general.</li><li>Entrada por WhatsApp para tus vendedores y aprobación del director. Para empezar: una línea de implementos.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tus implementos y tu forma de cotizar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20cotizador%20a%20la%20medida%20y%20la%20quiero%20con%20mis%20implementos" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20del%20cotizador%20a%20la%20medida%20y%20la%20quiero%20con%20mis%20implementos" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+    <script>
+
+  // Costos y reglas de ejemplo (en un proyecto real salen de la tabla de costos y del criterio de ingeniería del cliente).
+  const ACERO = 38, HORA = 420, MARGEN = 0.28;
+  const MINHP = { 2: 60, 4: 120, 6: 180 };
+  const PARECIDOS = [
+    { op: 'OP-087', s: 4, txt: 'Sembradora 4 surcos a 92 cm con fertilizadora · Agrícola Demo, Guasave · 2025', margen: 31, dias: 24 },
+    { op: 'OP-102', s: 6, txt: 'Sembradora 6 surcos plegable, tolva grande · Productor Demo, Ahome · 2025', margen: 24, dias: 33 },
+    { op: 'OP-064', s: 2, txt: 'Sembradora 2 surcos a 86 cm · Rancho Demo, El Fuerte · 2024', margen: 35, dias: 15 },
+    { op: 'OP-110', s: 4, txt: 'Sembradora 4 surcos a 86 cm con marcador · Agrícola Demo, Los Mochis · 2026', margen: 29, dias: 22 }
+  ];
+  const $ = id => document.getElementById(id);
+  const mx = n => '$' + Math.round(n).toLocaleString('es-MX');
+  let S, reloj;
+  const hora = () => { reloj += 2 + (reloj % 3); const m = 9 * 60 + 14 + reloj; return Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0'); };
+  const NOMBRE = { surcos: 'surcos', dist: 'distancia entre surcos', hp: 'tractor', tolva: 'tolva', fert: 'fertilizadora', marcador: 'marcador hidráulico', cortada: 'kit para semilla cortada' };
+  const valor = el => el.type === 'checkbox' ? (el.checked ? 'sí' : 'no') : el.options[el.selectedIndex].text;
+  const bit = (txt, t, humano) => { const li = document.createElement('li'); if (humano) li.className = 'warn'; li.innerHTML = '<span class="t">' + (t || hora()) + '</span>' + txt; $('bitacora').appendChild(li); };
+
+  function leer() { return { s: +$('surcos').value, d: +$('dist').value, hp: +$('hp').value, tolva: $('tolva').value, fert: $('fert').checked, marcador: $('marcador').checked, cortada: $('cortada').checked }; }
+  function calcular(c) {
+    const ancho = c.s * c.d / 100, plegable = ancho > 3.5, reforzado = c.tolva === 'grande' && c.s === 6;
+    const minhp = MINHP[c.s] + (c.tolva === 'grande' ? 20 : 0);
+    const kg = ({ 2: 420, 4: 780, 6: 1150 })[c.s] + c.s * 95 + (plegable ? 260 : 0) + (c.tolva === 'grande' ? 320 : 180) + (reforzado ? 140 : 0) + (c.fert ? 140 : 0) + (c.marcador ? 60 : 0);
+    const compras = c.s * 6800 + (c.fert ? 9500 : 0) + (c.marcador ? 7200 : 0) + (c.cortada ? 4800 : 0) + (plegable ? 12500 : 0);
+    const horas = { corte: kg * 0.012, sold: kg * 0.03, pintura: 6 + c.s, ensamble: 10 + c.s * 4 + (plegable ? 8 : 0) };
+    const h = Object.values(horas).reduce((a, b) => a + b, 0);
+    const costo = kg * ACERO + h * HORA + compras, precio = costo / (1 - MARGEN);
+    const reglas = [
+      [c.hp >= minhp, 'Potencia: el tractor de ' + c.hp + ' hp ' + (c.hp >= minhp ? 'alcanza' : 'no alcanza') + ' (mínimo ' + minhp + ' hp para ' + c.s + ' surcos' + (c.tolva === 'grande' ? ' con tolva grande' : '') + ')', c.hp >= minhp ? '' : 'Sugerencia: ' + (c.s > 2 ? (c.s - 2) + ' surcos o ' : '') + 'un tractor de ' + minhp + ' hp o más.'],
+      [true, 'Ancho de trabajo: ' + ancho.toFixed(2) + ' m' + (plegable ? ' → pasa de 3.5 m: se agregó chasis plegable para transporte' : ' · se transporta sin plegar'), ''],
+      [true, reforzado ? 'Tolva grande con 6 surcos: se agregó eje reforzado' : 'Eje estándar suficiente para la carga', ''],
+      [!(c.fert && c.d === 76), c.fert && c.d === 76 ? 'Fertilizadora a 76 cm: poco espacio para el tubo de fertilizante' : 'Fertilizadora y distancia entre surcos compatibles', c.fert && c.d === 76 ? 'Pasa a ingeniería antes de cotizar.' : '']
+    ];
+    return { ancho, plegable, reforzado, kg, compras, horas, h, costo, precio, reglas };
+  }
+  function plano(c, r) {
+    const W = 360, H = 200, esc = 280 / Math.max(r.ancho, 3.6), x0 = (W - r.ancho * esc) / 2, w = r.ancho * esc;
+    let g = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Vista superior de la sembradora"><rect width="' + W + '" height="' + H + '" fill="#0d1612" rx="8"/>';
+    g += '<rect x="' + (W / 2 - 14) + '" y="8" width="28" height="22" fill="#33463c"/><text x="' + W / 2 + '" y="23" fill="#8fa398" font-size="9" text-anchor="middle">enganche</text>';
+    g += '<rect x="' + x0 + '" y="34" width="' + w + '" height="12" fill="#00e87a" opacity="0.85"/>';
+    if (r.plegable) [1 / 3, 2 / 3].forEach(f => { g += '<line x1="' + (x0 + w * f) + '" y1="30" x2="' + (x0 + w * f) + '" y2="50" stroke="#ffd666" stroke-width="2" stroke-dasharray="3 2"/>'; });
+    const tw = Math.min(w * 0.7, c.tolva === 'grande' ? 200 : 150);
+    g += '<rect x="' + (W / 2 - tw / 2) + '" y="52" width="' + tw + '" height="' + (c.tolva === 'grande' ? 46 : 34) + '" rx="4" fill="#3b4f45" stroke="#8fa398"/><text x="' + W / 2 + '" y="' + (c.tolva === 'grande' ? 79 : 73) + '" fill="#f0f5f2" font-size="10" text-anchor="middle">Tolva ' + (c.tolva === 'grande' ? '2.5 t' : '1.2 t') + '</text>';
+    if (c.fert) g += '<rect x="' + (W / 2 - tw / 2) + '" y="' + (c.tolva === 'grande' ? 102 : 90) + '" width="' + tw + '" height="16" rx="3" fill="#5a4a2c" stroke="#ffd666"/><text x="' + W / 2 + '" y="' + (c.tolva === 'grande' ? 113 : 101) + '" fill="#ffd666" font-size="9" text-anchor="middle">Fertilizadora</text>';
+    for (let i = 0; i < c.s; i++) { const cx = x0 + (i + 0.5) * w / c.s; g += '<rect x="' + (cx - 9) + '" y="124" width="18" height="34" rx="3" fill="#24332b" stroke="#00e87a"/><line x1="' + cx + '" y1="160" x2="' + cx + '" y2="172" stroke="#8fa398" stroke-dasharray="2 2"/>'; }
+    if (c.marcador) g += '<line x1="' + (x0 - 18) + '" y1="40" x2="' + x0 + '" y2="40" stroke="#00e87a" stroke-width="3"/><line x1="' + (x0 + w) + '" y1="40" x2="' + (x0 + w + 18) + '" y2="40" stroke="#00e87a" stroke-width="3"/>';
+    g += '<line x1="' + x0 + '" y1="186" x2="' + (x0 + w) + '" y2="186" stroke="#f0f5f2"/><line x1="' + x0 + '" y1="181" x2="' + x0 + '" y2="191" stroke="#f0f5f2"/><line x1="' + (x0 + w) + '" y1="181" x2="' + (x0 + w) + '" y2="191" stroke="#f0f5f2"/><text x="' + W / 2 + '" y="182" fill="#f0f5f2" font-size="10" text-anchor="middle">' + r.ancho.toFixed(2) + ' m · ' + c.s + ' surcos a ' + c.d + ' cm</text></svg>';
+    return g + '<div class="ley"><span><i style="background:#00e87a"></i>Barra porta-herramientas</span>' + (r.plegable ? '<span><i style="background:#ffd666"></i>Pliegues para transporte</span>' : '') + '<span>Vista superior esquemática</span></div>';
+  }
+
+  function reiniciar() {
+    S = { tolvaR: null, semillaR: null, enviada: false, aprobada: false, cot: false };
+    reloj = 0; $('bitacora').innerHTML = '';
+    $('surcos').value = '4'; $('dist').value = '92'; $('hp').value = '150'; $('tolva').value = 'estandar'; $('fert').checked = true; $('marcador').checked = false; $('cortada').checked = false;
+    bit('Leyó la solicitud del vendedor: sembradora de 4 surcos a 92 cm, tractor de 150 hp, con fertilizadora, para Agrícola Demo.', '9:14');
+    bit('Faltaban 2 datos para cotizar: tamaño de tolva y tipo de semilla. Los preguntó en lugar de suponerlos.', '9:15');
+    pintar();
+  }
+  function pintar() {
+    const listo = S.tolvaR && S.semillaR;
+    $('preguntas').innerHTML = '<div class="preg"><p>Antes de cotizar, el agente le pregunta al vendedor: <b>¿tolva estándar o grande?</b></p><div class="chips"><button type="button" data-tolva="estandar" aria-pressed="' + (S.tolvaR === 'estandar') + '">Estándar · 1.2 t</button><button type="button" data-tolva="grande" aria-pressed="' + (S.tolvaR === 'grande') + '">Grande · 2.5 t</button></div></div>' +
+      (S.tolvaR ? '<div class="preg"><p><b>¿Semilla entera o cortada?</b></p><div class="chips"><button type="button" data-semilla="entera" aria-pressed="' + (S.semillaR === 'entera') + '">Entera</button><button type="button" data-semilla="cortada" aria-pressed="' + (S.semillaR === 'cortada') + '">Cortada</button></div></div>' : '');
+    $('config').hidden = !listo; $('abajo').hidden = !listo;
+    const c = leer(), r = calcular(c);
+    $('plano').innerHTML = listo ? plano(c, r) : '<p class="muted small">El plano aparece cuando la configuración está completa.</p>';
+    $('reglas').innerHTML = listo ? r.reglas.map(([ok, txt, sug]) => '<li><span>' + (ok ? '✅ ' : '⚠️ ') + txt + (sug ? '<br><span class="warn-txt small">' + sug + '</span>' : '') + '</span></li>').join('') : '<li class="muted">Esperando los datos que faltan.</li>';
+    const pasan = r.reglas.filter(x => x[0]).length;
+    $('kReglas').textContent = listo ? pasan + ' / ' + r.reglas.length : '—';
+    $('kAcero').textContent = listo ? Math.round(r.kg).toLocaleString('es-MX') + ' kg' : '—';
+    $('kHoras').textContent = listo ? Math.round(r.h) + ' h' : '—';
+    $('kPrecio').textContent = listo ? mx(r.precio) : '—';
+    if (!listo) return;
+    $('bom').innerHTML = '<tr><td>Acero (' + Math.round(r.kg).toLocaleString('es-MX') + ' kg × ' + mx(ACERO) + ')</td><td class="num">' + mx(r.kg * ACERO) + '</td></tr>' +
+      '<tr><td>Corte, soldadura, pintura y ensamble (' + Math.round(r.h) + ' h × ' + mx(HORA) + ')</td><td class="num">' + mx(r.h * HORA) + '</td></tr>' +
+      '<tr><td>Componentes comprados (dosificadores' + (c.fert ? ', fertilizadora' : '') + (c.marcador ? ', cilindros' : '') + (c.cortada ? ', kit de semilla cortada' : '') + (r.plegable ? ', bisagras de plegado' : '') + ')</td><td class="num">' + mx(r.compras) + '</td></tr>' +
+      '<tr><td>Costo</td><td class="num">' + mx(r.costo) + '</td></tr><tr class="total"><td>Precio sugerido con margen de ' + Math.round(MARGEN * 100) + '%</td><td class="num">' + mx(r.precio) + '</td></tr>';
+    const par = PARECIDOS.slice().sort((a, b) => Math.abs(a.s - c.s) - Math.abs(b.s - c.s)).slice(0, 2);
+    $('parecidos').innerHTML = par.map(p => '<li class="info"><b>' + p.op + '</b> · ' + p.txt + '<br>Margen real ' + p.margen + '% · fabricada en ' + p.dias + ' días</li>').join('');
+    const bloqueada = pasan < r.reglas.length;
+    let h = '';
+    if (bloqueada) h = '<p class="warn-txt small">Hay reglas que no pasan: la cotización no sale hasta corregir la configuración o que la revise ingeniería.</p>';
+    else if (!S.enviada) h = '<button type="button" class="accion fuerte" data-enviar="1">Generar cotización y mandar al director</button>';
+    else if (!S.aprobada) h = '<div class="borrador"><small>Cotización C-0331 · en aprobación</small>Agrícola Demo, Guasave · sembradora de papa de ' + c.s + ' surcos a ' + c.d + ' cm' + (c.fert ? ', con fertilizadora' : '') + (r.plegable ? ', chasis plegable' : '') + '\nPrecio: ' + mx(r.precio) + ' + IVA · entrega estimada: 4 semanas · vigencia 15 días\n📄 Cotización C-0331.pdf con plano general</div><button type="button" class="accion alerta" data-aprobar="1" style="margin-top:0.6rem;">Aprobar como Director Demo</button>';
+    else h = '<div class="borrador"><small>Aprobada ✅</small>Cotización C-0331 enviada al vendedor para el cliente.\nAl confirmar el anticipo se crea la orden de producción OP-118 con esta lista de materiales.</div>';
+    $('cierre').innerHTML = h;
+  }
+  document.addEventListener('click', ev => {
+    const t = ev.target.closest('button');
+    if (!t || !$('cfg').contains(t)) return;
+    if (t.id === 'reiniciar') { reiniciar(); return; }
+    if (t.dataset.tolva) { S.tolvaR = t.dataset.tolva; $('tolva').value = S.tolvaR; bit('El vendedor contestó: tolva ' + (S.tolvaR === 'grande' ? 'grande' : 'estándar') + '.', 'Vendedor · ' + hora(), true); pintar(); return; }
+    if (t.dataset.semilla) { S.semillaR = t.dataset.semilla; $('cortada').checked = S.semillaR === 'cortada'; bit('El vendedor contestó: semilla ' + S.semillaR + '. La torre armó la configuración, validó las reglas y calculó materiales, horas y precio.', 'Vendedor · ' + hora(), true); pintar(); return; }
+    if (t.dataset.enviar) { S.enviada = true; bit('Generó la cotización C-0331 en PDF con plano general y la mandó al director para aprobación.'); pintar(); return; }
+    if (t.dataset.aprobar) { S.aprobada = true; bit('Aprobó la cotización C-0331; se mandó al vendedor.', 'Director Demo · ' + hora(), true); pintar(); return; }
+  });
+  ['surcos', 'dist', 'hp', 'tolva', 'fert', 'marcador', 'cortada'].forEach(id => $(id).addEventListener('change', () => { if (S.enviada && !S.aprobada) S.enviada = false; S.aprobada = false; bit('Cambió ' + NOMBRE[id] + ' a «' + valor($(id)) + '». Se recalcularon reglas, materiales, horas, precio y plano.', 'Vendedor · ' + hora(), true); pintar(); }));
+  reiniciar();
+
+  </script>
+</body>
+</html>
