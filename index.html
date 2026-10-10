@@ -48,6 +48,12 @@
     .alianza p { color: var(--gray); max-width: 620px; }
     .tools { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.6rem; }
     .tools span { font-size: 0.8rem; color: var(--gray); border: 1px solid var(--border); border-radius: 100px; padding: 0.3rem 0.8rem; }
+    .clientes { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.9rem 2rem; padding: 1.4rem 1.5rem 1.8rem; text-align: center; }
+    .clientes .tag { width: 100%; max-width: none; text-align: center; font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.15em; }
+    .clientes img { display: block; height: 44px; width: auto; filter: brightness(0) invert(1); opacity: 0.85; }
+    .clientes p { color: var(--gray); font-size: 0.9rem; max-width: 560px; text-align: left; }
+    @media (max-width: 860px) { .clientes p { text-align: center; } }
+    .clientes p b { color: var(--white); font-weight: 500; }
   </style>
 </head>
 <body>
@@ -77,6 +83,13 @@
       <a href="#contacto" class="btn-ghost">Agenda un diagnóstico</a>
     </div>
   </header>
+
+  <!-- ── CLIENTES ── -->
+  <section class="clientes" aria-label="Clientes">
+    <p class="tag">Ya trabajan con nosotros</p>
+    <img src="cliente-diluvium.png" alt="Diluvium, control de inundaciones" width="181" height="44"/>
+    <p><b>Diluvium · CRM con agente de IA.</b> Su equipo atiende WhatsApp e Instagram en un solo lugar. El agente contesta a toda hora, cotiza, mueve a cada cliente en el embudo y avisa al vendedor cuando hace falta.</p>
+  </section>
 
   <!-- ── CONFIANZA ── -->
   <div class="trust" role="list">
