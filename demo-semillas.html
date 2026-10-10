@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Semillas: asistente técnico y parcelas demostrativas — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva para semilleras: un asistente técnico por WhatsApp recomienda variedad por cultivo, sistema, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos al distribuidor, da seguimiento por etapa y manda las fotos de campo al agrónomo."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-semillas.html"/>
+  <meta property="og:title" content="Semillas: asistente técnico y parcelas demostrativas — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva para semilleras: un asistente técnico por WhatsApp recomienda variedad por cultivo, sistema, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos al distribuidor, da seguimiento por etapa y manda las fotos de campo al agrónomo."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html" aria-current="page">Semillas</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Semilleras y casas comerciales agrícolas</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Tu agrónomo de cabecera, <em>las 24 horas</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">Un asistente técnico que responde con tu guía de variedades: recomienda por cultivo, zona y enfermedad, agenda parcelas demostrativas, pasa pedidos a tu distribuidor y le da seguimiento a cada siembra. Para semilleras de Sinaloa y de todo México.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con una semillera, variedades y distribuidores ficticios.</b> Las resistencias usan la nomenclatura usual (HR/IR), con datos de ejemplo. Toca los botones para conversar como productor. Conectado a tu empresa, responde con tus fichas técnicas y tu red de distribuidores, y tus agrónomos deciden lo técnico.</span></p>
+    <div class="demo-layout">
+      <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
+        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">SD</div><div><b>Semillas Demo</b><small>asistente técnico</small></div></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="quick" id="quick"></div>
+      </div>
+      <div>
+        <div class="panel">
+          <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
+          <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
+          <div class="kpis"><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kCons">18</b><span>Consultas técnicas hoy</span></div><div class="kpi"><b id="kParc">3</b><span>Parcelas demo agendadas</span></div><div class="kpi"><b id="kAgro">2</b><span>Casos al agrónomo</span></div></div>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">🌱</span> Guía de variedades</h3>
+          <p class="muted small" style="margin-bottom:0.6rem;">El asistente responde solo con la guía de la semillera. En verde, las variedades que recomendó y la resistencia que buscaba el productor.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Variedad</th><th>Cultivo</th><th>Sistema</th><th>HR</th><th>IR</th></tr></thead><tbody id="guia"></tbody></table></div>
+          <p class="muted small" style="margin-top:0.5rem;">HR: alta resistencia · IR: resistencia intermedia. Variedades y datos de ejemplo.</p>
+        </div>
+        <div class="panel" style="margin-top:1.2rem;">
+          <h3><span aria-hidden="true">👨‍🌾</span> Lo que ve el área técnica</h3>
+          <p class="muted small" style="margin-bottom:0.6rem;">Cada consulta queda registrada con zona, cultivo y prioridad. Los agrónomos atienden primero lo urgente.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Productor</th><th>Zona</th><th>Cultivo</th><th>Motivo</th><th>Estado</th><th>Prioridad</th></tr></thead><tbody id="tecnica"></tbody></table></div>
+          <p class="alerta" id="alerta" hidden></p>
+        </div>
+        <style>
+          #guia tr.rec td { background: rgba(0,232,122,0.08); }
+          #guia td, #tecnica td { font-size: 0.82rem; }
+          #tecnica tr.tu td { background: rgba(0,232,122,0.07); }
+          .alerta { margin-top: 0.9rem; font-size: 0.86rem; color: #ffe7a3; background: rgba(255,200,0,0.07); border: 1px solid rgba(255,200,0,0.25); border-radius: 10px; padding: 0.7rem 0.9rem; animation: bubbleIn .35s ease both; }
+          .alerta b { color: var(--amber); font-weight: 500; }
+          .msg .foto { height: 92px; min-width: 190px; border-radius: 7px; background: radial-gradient(circle at 30% 35%, #c9c24a 0 14%, transparent 15%), radial-gradient(circle at 68% 55%, #b7b83e 0 12%, transparent 13%), linear-gradient(135deg, #3f6b27, #6d8f2e 60%, #a3a63a); display: flex; align-items: flex-end; padding: 0.35rem 0.45rem; }
+          .msg .foto span { font-size: 0.72rem; background: rgba(0,0,0,0.45); border-radius: 4px; padding: 0.1rem 0.35rem; }
+        </style>
+      </div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Asistente técnico por WhatsApp y en tu sitio, con tu guía de variedades, resistencias y fichas técnicas.</li><li>Recomendación por cultivo, sistema, zona y enfermedad, diciendo también lo que cada variedad no cubre.</li><li>Parcelas demostrativas y visitas de agrónomos agendadas, pedidos que pasan a tu distribuidor y seguimiento por etapa del cultivo.</li><li>Fotos de campo que llegan ordenadas al agrónomo de zona y avisos cuando se juntan reportes parecidos. La IA orienta; tus agrónomos diagnostican.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20para%20semilleras%20y%20quiero%20verla%20con%20mis%20variedades" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20para%20semilleras%20y%20quiero%20verla%20con%20mis%20variedades" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+  <script src="demo.js"></script>
+  <script>
+
+  // Variedades ficticias; los códigos de resistencia siguen la nomenclatura usual (HR alta, IR intermedia).
+  const VAR = [
+    { n: 'Demo 14', c: 'saladette', cult: 'Tomate saladette', sis: ['campo', 'malla'], hr: ['ToMV', 'Fol:0,1', 'Va/Vd'], ir: ['TYLCV', 'Ma/Mi/Mj'], nota: 'Fruto firme y larga vida de anaquel.', exist: 30 },
+    { n: 'Demo 21', c: 'saladette', cult: 'Tomate saladette', sis: ['malla'], hr: ['ToMV', 'Fol:0-2', 'Va/Vd', 'For'], ir: ['TSWV', 'ToBRFV'], nota: 'Para malla sombra e invernadero; planta vigorosa.', exist: 12 },
+    { n: 'Demo 8', c: 'bola', cult: 'Tomate bola', sis: ['campo', 'malla'], hr: ['ToMV', 'Fol:0,1', 'Va/Vd'], ir: ['TYLCV'], nota: 'Fruto grande, de color intenso.', exist: 18 },
+    { n: 'Demo 3', c: 'jalapeno', cult: 'Chile jalapeño', sis: ['campo'], hr: ['Tm:0'], ir: ['Pc'], nota: 'Precoz, para mercado fresco.', exist: 0 },
+    { n: 'Demo 5', c: 'jalapeno', cult: 'Chile jalapeño', sis: ['campo', 'malla'], hr: ['Tm:0', 'Xcv:1-3'], ir: ['Pc'], nota: 'Fruto liso; mercado fresco e industria.', exist: 25 }
+  ];
+  const PROB = {
+    tomate: [{ k: 'virus', label: 'Virus por mosquita blanca', t: 'virus por mosquita blanca', cod: ['TYLCV'] }, { k: 'fus', label: 'Fusarium (marchitez)', t: 'Fusarium', cod: ['Fol:0,1', 'Fol:0-2', 'For'] }, { k: 'rug', label: 'Virus rugoso (ToBRFV)', t: 'virus rugoso (ToBRFV)', cod: ['ToBRFV'] }],
+    chile: [{ k: 'pc', label: 'Secadera (Phytophthora)', t: 'secadera (Phytophthora)', cod: ['Pc'] }, { k: 'xcv', label: 'Mancha bacteriana', t: 'mancha bacteriana', cod: ['Xcv:1-3'] }]
+  };
+  const ZONAS = { fuerte: ['Valle del Fuerte', 'Agroinsumos Demo, Los Mochis', 'el Valle del Fuerte'], culiacan: ['Valle de Culiacán', 'Agrocentro Demo, Culiacán', 'el Valle de Culiacán'], mx: ['Otra región de México', 'Distribuidora Demo, la más cercana a tu municipio', 'tu región'] };
+  const base = [
+    { p: 'Rancho Demo A', z: 'Valle del Fuerte', c: 'Tomate saladette', m: 'Parcela demostrativa', e: 'Visita el jueves', pr: 'Alta' },
+    { p: 'Productor B', z: 'Guasave', c: 'Chile jalapeño', m: 'Consulta: secadera', e: 'Con agrónomo', pr: 'Media' },
+    { p: 'Agrícola C', z: 'Jalisco', c: 'Tomate bola', m: 'Ficha técnica', e: 'Enviada', pr: 'Baja' }
+  ];
+  const inicial = () => ({ cult: null, sis: null, zona: null, prob: null, rec: [], var: null, sup: null, motivo: null, estado: null, pr: null, alerta: false });
+  let S = inicial(), api = null;
+  const grupo = () => S.cult && S.cult.c === 'jalapeno' ? 'chile' : 'tomate';
+  const cubre = (v, p) => p.cod.some(x => v.hr.includes(x)) ? 'HR' : (p.cod.some(x => v.ir.includes(x)) ? 'IR' : null);
+
+  function recomendar() {
+    const p = S.prob, peso = v => p.cod.reduce((s, x) => s + (v.hr.includes(x) ? 2 : (v.ir.includes(x) ? 1 : 0)), 0);
+    S.rec = VAR.filter(v => v.c === S.cult.c && v.sis.includes(S.sis)).sort((a, b) => peso(b) - peso(a)).slice(0, 2);
+    S.otra = S.rec.some(v => cubre(v, p)) ? null : VAR.find(v => cubre(v, p) && !S.rec.includes(v));
+    S.var = S.rec[0];
+  }
+  const tarjeta = v => { const c = cubre(v, S.prob); return '<b>' + v.n + '</b> · ' + v.cult + '<table><tr><td>' + S.prob.label + '</td><td>' + (c ? '<span class="stock-ok">✓ ' + c + '</span>' : '<span class="stock-low">✗ sin resistencia</span>') + '</td></tr><tr><td>Alta resistencia (HR)</td><td>' + v.hr.join(', ') + '</td></tr><tr><td>Intermedia (IR)</td><td>' + v.ir.join(', ') + '</td></tr></table>' + v.nota; };
+
+  function pintar() {
+    const cods = S.prob ? S.prob.cod : [];
+    const marca = l => l.map(x => cods.includes(x) ? '<b class="stock-ok">' + x + '</b>' : x).join(', ');
+    document.getElementById('guia').innerHTML = VAR.map(v => '<tr' + (S.rec.includes(v) ? ' class="rec"' : '') + '><td>' + v.n + '</td><td>' + v.cult + '</td><td>' + v.sis.map(s => s === 'campo' ? 'Campo' : 'Malla/inv.').join(' · ') + '</td><td>' + marca(v.hr) + '</td><td>' + marca(v.ir) + '</td></tr>').join('');
+    const filas = (S.motivo ? [{ p: 'Tú (productor demo)', z: S.zona ? ZONAS[S.zona][0] : '…', c: S.var ? S.var.n + ' · ' + S.var.cult : (S.cult ? S.cult.cult : '…'), m: S.motivo, e: S.estado || '…', pr: S.pr || '…', tu: true }] : []).concat(base);
+    const cls = p => p === 'Alta' ? 'stock-low' : (p === 'Media' ? '' : 'muted');
+    document.getElementById('tecnica').innerHTML = filas.map(r => '<tr' + (r.tu ? ' class="tu"' : '') + '><td>' + r.p + '</td><td>' + r.z + '</td><td>' + r.c + '</td><td>' + r.m + '</td><td>' + r.e + '</td><td class="' + cls(r.pr) + '">' + r.pr + '</td></tr>').join('');
+    const al = document.getElementById('alerta');
+    al.hidden = !S.alerta;
+    if (S.alerta) al.innerHTML = '⚠️ <b>3 reportes parecidos en ' + ZONAS[S.zona][2] + ' esta semana</b> (hojas jóvenes enrolladas y amarillas). El área técnica revisa si hay un brote y avisa a los distribuidores de la zona.';
+  }
+  const set = (k, v) => () => { S[k] = v; pintar(); };
+  const alterna = () => VAR.find(v => v.c === S.var.c && v.exist && v !== S.var);
+  const foto = '<div class="foto"><span>📷 hojas jóvenes enrolladas y amarillas</span></div>';
+
+  api = ProDemo.iniciar({
+    kpiInicial: { kResp: '—', kCons: '18', kParc: '3', kAgro: '2' },
+    alReiniciar: () => { S = inicial(); pintar(); },
+    nodos: {
+      inicio: {
+        bot: [{ text: '¡Hola! 🌱 Soy el asistente técnico de Semillas Demo. Te ayudo a elegir variedad, a encontrar dónde comprarla o a revisar algo de tu siembra. ¿Qué necesitas?' }],
+        opciones: [
+          { label: '🍅 ¿Qué variedad me recomiendas?', next: 'cultivo' },
+          { label: '📷 Mi planta se ve mal', user: foto, next: 'fotoDatos' }
+        ]
+      },
+      cultivo: {
+        bot: [{ text: '¿Qué vas a sembrar?', kpi: { kResp: '5 s', kCons: '19' } }],
+        opciones: [VAR[0], VAR[2], VAR[4]].map(v => ({ label: v.cult, next: 'sistema', accion: () => { S.cult = v; S.motivo = 'Recomendación'; S.estado = 'Calificando…'; pintar(); } }))
+      },
+      sistema: {
+        bot: [{ text: '¿En qué sistema?' }],
+        opciones: [{ label: 'Campo abierto', next: 'zona', accion: set('sis', 'campo') }, { label: 'Malla sombra o invernadero', next: 'zona', accion: set('sis', 'malla') }]
+      },
+      zona: {
+        bot: [{ text: '¿En qué zona?' }],
+        opciones: Object.keys(ZONAS).map(k => ({ label: ZONAS[k][0], next: 'problema', accion: set('zona', k) }))
+      },
+      problema: {
+        bot: [{ text: '¿Qué problema te ha pegado más en tu zona?' }],
+        // Las opciones dependen del cultivo elegido: el motor las lee al terminar los mensajes.
+        get opciones() { return PROB[grupo()].map(p => ({ label: p.label, next: 'recomendacion', accion: () => { S.prob = p; pintar(); } })); }
+      },
+      recomendacion: {
+        run: () => recomendar(),
+        bot: [{ espera: 1300, html: () => 'Para ' + S.cult.cult.toLowerCase() + ' en ' + (S.sis === 'campo' ? 'campo abierto' : 'malla o invernadero') + ' en ' + ZONAS[S.zona][0] + ', con ' + S.prob.t + ', te recomiendo:',
+                despues: a => { S.estado = 'Recomendación enviada'; pintar(); a.registrar({ text: '<b>Filtró la guía de variedades</b> por cultivo y sistema, y ordenó por resistencia a ' + S.prob.t + '.' }); } },
+              { tarjeta: true, html: () => S.rec.map(tarjeta).join('<br><br>'), log: [{ text: '<b>Respondió con la ficha técnica de la semillera</b>, no con conocimiento general de internet.' }] },
+              { html: () => S.otra ? '⚠️ Ojo: ninguna de nuestras variedades para este sistema tiene resistencia a ' + S.prob.t + '. <b>' + S.otra.n + '</b> (' + S.otra.cult.toLowerCase() + ') sí la tiene, pero está recomendada para ' + (S.otra.sis.includes('campo') ? 'campo abierto' : 'malla e invernadero') + '. Si quieres, el agrónomo de zona te orienta.' : '¿Qué más necesitas?',
+                despues: a => { if (S.otra) a.registrar({ text: '<b>Dijo con claridad lo que la variedad no cubre</b> en lugar de prometer resistencia.', warn: true }); } }],
+        opciones: [
+          { label: '📄 Mándame la ficha técnica', next: 'ficha' },
+          { label: '🌱 Quiero una parcela demostrativa', next: 'superficie' },
+          { label: '🛒 ¿Dónde la compro?', next: 'compra' }
+        ]
+      },
+      ficha: {
+        bot: [{ tarjeta: true, html: () => '📄 <b>Ficha técnica ' + S.var.n + '.pdf</b> · 2 páginas\nCiclo, densidad sugerida, resistencias y manejo recomendado por el área técnica.', log: [{ text: '<b>Mandó la ficha técnica</b> desde la biblioteca de la semillera.' }], despues: () => { S.estado = 'Ficha enviada'; S.pr = 'Baja'; pintar(); } },
+              { text: '¿Te agendo una parcela demostrativa para que la veas en tu zona?' }],
+        opciones: [{ label: '🌱 Sí, agéndala', next: 'superficie' }, { label: '🛒 Mejor dime dónde comprarla', next: 'compra' }]
+      },
+      superficie: {
+        bot: [{ text: '¿Cuántas hectáreas siembras de este cultivo?' }],
+        opciones: [['Menos de 10 ha', 'Baja'], ['De 10 a 50 ha', 'Media'], ['Más de 50 ha', 'Alta']].map(([l, p]) => ({ label: l, next: 'visita', accion: () => { S.sup = l; S.pr = p; S.motivo = 'Parcela demostrativa'; S.estado = 'Agendando…'; pintar(); } }))
+      },
+      visita: {
+        bot: [{ html: () => 'El agrónomo de ' + ZONAS[S.zona][0] + ' puede visitarte para planear la parcela. ¿Qué día te queda?',
+                despues: a => a.registrar({ text: '<b>Calificó al productor</b>: ' + S.sup.toLowerCase() + ' → prioridad <b>' + S.pr.toLowerCase() + '</b> para el área técnica.' }) }],
+        opciones: ['Martes 9:00 a. m.', 'Jueves 4:00 p. m.'].map(d => ({ label: d, next: 'agendada', accion: () => { S.estado = 'Visita ' + d.split(' ')[0].toLowerCase(); pintar(); } }))
+      },
+      agendada: {
+        bot: [{ tarjeta: true, espera: 1100, html: () => '<b>Parcela demostrativa agendada ✅</b><table><tr><td>Variedad</td><td>' + S.var.n + '</td></tr><tr><td>Zona</td><td>' + ZONAS[S.zona][0] + '</td></tr><tr><td>Visita</td><td>' + S.estado.replace('Visita ', '') + '</td></tr><tr><td>Te atiende</td><td>Ing. Demo, agrónomo de zona</td></tr></table>Te escribo un día antes para confirmar.',
+                log: [{ text: '<b>Agendó la visita</b> en el calendario del agrónomo de zona y le mandó el resumen: cultivo, sistema, problema y hectáreas.' }], kpi: { kParc: '4' } }],
+        opciones: [{ label: '⏩ Ver 45 días después del trasplante', next: 'seguimiento' }]
+      },
+      compra: {
+        bot: [{ tarjeta: true, espera: 1100, html: () => { const v = S.var; return v.exist ? '<b>' + v.n + '</b> en ' + ZONAS[S.zona][1] + '<table><tr><td>Existencia</td><td>' + v.exist + ' sobres de 1,000 semillas</td></tr></table>¿Te aparto?' : '<b>' + v.n + '</b> está agotada en tu zona. Te aviso en cuanto llegue o, si prefieres, te aparto <b>' + alterna().n + '</b>, que tiene ' + alterna().exist + ' sobres.'; },
+                log: [{ text: '<b>Consultó la existencia del distribuidor</b> de la zona.' }] }],
+        opciones: [{ label: '✅ Apártame 5 sobres', next: 'apartado', accion: () => { if (!S.var.exist) S.var = alterna(); S.motivo = 'Pedido'; S.estado = '5 sobres apartados'; S.pr = S.pr || 'Media'; pintar(); } }]
+      },
+      apartado: {
+        bot: [{ html: () => 'Listo 👍 Le pasé tu pedido a ' + ZONAS[S.zona][1] + '; te confirman hoy por WhatsApp.',
+                log: [{ text: '<b>Pasó el pedido al distribuidor</b>. La semillera ve la demanda por variedad y por zona, sin esperar el reporte del mes.' }] }],
+        opciones: [{ label: '⏩ Ver 45 días después del trasplante', next: 'seguimiento' }]
+      },
+      seguimiento: {
+        bot: [{ espera: 1500, html: () => '<i class="muted">📅 45 días después del trasplante</i>\nHola 👋 ¿Cómo va tu ' + S.var.n + '? A esta altura debería estar en floración y cuajado.',
+                log: [{ text: '<b>Mandó el seguimiento por etapa del cultivo</b>, calculada con la fecha de trasplante.' }] }],
+        opciones: [{ label: 'Va muy bien 👍', next: 'bien' }, { label: '📷 Veo hojas amarillas', user: foto, next: 'triage' }]
+      },
+      bien: {
+        bot: [{ html: () => '¡Qué gusto! Quedó en el reporte de campo de ' + S.var.n + ' en ' + ZONAS[S.zona][0] + '. Cuando tengas el primer corte, mándame fotos para la ficha de resultados.',
+                log: [{ text: '<b>Sumó el reporte al desempeño por variedad y zona</b>: el área técnica ve cómo va cada híbrido en campo.' }],
+                despues: () => { S.estado = 'Reporte de campo: bien'; pintar(); } }],
+        fin: true
+      },
+      fotoDatos: {
+        bot: [{ text: 'Gracias por la foto. Para orientarte: ¿qué variedad sembraste, dónde y hace cuántos días fue el trasplante?', kpi: { kResp: '5 s', kCons: '19' } }],
+        opciones: [
+          { label: 'Demo 14, Valle del Fuerte, hace 40 días', next: 'triage', accion: () => { S.var = VAR[0]; S.zona = 'fuerte'; pintar(); } },
+          { label: 'Demo 8, Valle de Culiacán, hace 25 días', next: 'triage', accion: () => { S.var = VAR[2]; S.zona = 'culiacan'; pintar(); } }
+        ]
+      },
+      triage: {
+        bot: [{ espera: 1500, text: 'En la foto se ven hojas jóvenes enrolladas y amarillentas. Puede ser un virus que transmite la mosquita blanca, pero también estrés o una deficiencia.\n<b>No es un diagnóstico</b>: le paso tu caso al agrónomo de zona con la foto.\nMientras, revisa si hay mosquita blanca en el envés de las hojas y cuántas plantas tienen lo mismo.',
+                log: [{ text: '<b>Orientó sin diagnosticar ni recetar agroquímicos</b>: el diagnóstico y el manejo los decide el agrónomo.', warn: true }],
+                despues: () => { S.motivo = 'Caso técnico (foto)'; S.estado = 'Visita mañana 8:00'; S.pr = 'Alta'; pintar(); } },
+              { tarjeta: true, html: () => '<b>Caso técnico T-311</b><table><tr><td>Variedad</td><td>' + S.var.n + '</td></tr><tr><td>Zona</td><td>' + ZONAS[S.zona][0] + '</td></tr><tr><td>Prioridad</td><td>Alta</td></tr><tr><td>Agrónomo</td><td>Ing. Demo</td></tr><tr><td>Visita</td><td>Mañana, 8:00 a. m.</td></tr></table>',
+                log: [{ text: '<b>Abrió el caso técnico</b> con la foto, la variedad y los días desde el trasplante, y lo asignó al agrónomo de zona.' }], kpi: { kAgro: '3' } },
+              { espera: 1200, text: 'Listo. El ingeniero te escribe hoy para confirmar la visita 👨‍🌾',
+                log: [{ text: '<b>Detectó 3 reportes parecidos en la misma zona esta semana</b> y avisó al área técnica.', warn: true }],
+                despues: () => { S.alerta = true; pintar(); } }],
+        fin: true
+      }
+    }
+  });
+  pintar();
+
+  </script>
+</body>
+</html>
