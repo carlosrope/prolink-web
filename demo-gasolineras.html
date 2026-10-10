@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Gasolineras: torre de control de combustible — Demo · ProLink365</title>
+  <meta name="description" content="Demo interactiva de software a la medida para grupos gasolineros: cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas las estaciones, explica lo que no cuadra, revisa el reporte volumétrico y lo manda a dirección por WhatsApp."/>
+  <link rel="canonical" href="https://prolink365.com.mx/demo-gasolineras.html"/>
+  <meta property="og:title" content="Gasolineras: torre de control de combustible — Demo ProLink365"/>
+  <meta property="og:description" content="Demo interactiva de software a la medida para grupos gasolineros: cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas las estaciones, explica lo que no cuadra, revisa el reporte volumétrico y lo manda a dirección por WhatsApp."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+</head>
+<body>
+  <nav class="top compacta" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="demo-refacciones.html">Refacciones</a></li>
+      <li><a href="demo-cotizador.html">Cotizador</a></li>
+      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
+      <li><a href="demo-festival.html">Festivales</a></li>
+      <li><a href="demo-reservas.html">Reservas</a></li>
+      <li><a href="demo-pronostico.html">Pronóstico</a></li>
+      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
+      <li><a href="demo-expedientes.html">Expedientes</a></li>
+      <li><a href="demo-crm.html">CRM</a></li>
+      <li><a href="demo-semillas.html">Semillas</a></li>
+      <li><a href="demo-gasolineras.html" aria-current="page">Gasolineras</a></li>
+      <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
+    </ul>
+    <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact" style="padding-bottom:2rem;">
+    <div class="orb"></div>
+    <div class="hero-badge">Demo · Software a la medida: grupos gasolineros</div>
+    <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Cada litro, <em>explicado antes de las 7</em></h1>
+    <p class="hero-sub" style="margin-bottom:1.4rem;">Una torre de control que cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas tus estaciones, explica lo que no cuadra y te lo manda por WhatsApp. El agente prepara; tu equipo decide.</p>
+  </header>
+
+  <section style="padding-top:0;">
+    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con un grupo gasolinero, estaciones, flotillas y precios ficticios.</b> Toca las pestañas, las alertas y los botones. Conectada a tu operación, lee tus consolas, tu punto de venta y tu sistema volumétrico en modo de solo lectura; bloquear una tarjeta o aprobar un pedido siempre lo decide una persona.</span></p>
+    <div class="torre" id="torre">
+      <div class="torre-head">
+        <div><b>Torre de control · Gasolineras Demo</b><small>22 estaciones · corte de hoy, 6:00 a. m.</small></div>
+        <button type="button" class="btn-mini" id="reiniciar">↺ Reiniciar demo</button>
+      </div>
+      <div class="kpis torre-kpis">
+        <div class="kpi"><b id="kLitros">—</b><span>Litros vendidos ayer</span></div>
+        <div class="kpi"><b id="kAlertas">—</b><span>Alertas abiertas</span></div>
+        <div class="kpi"><b id="kVol">—</b><span>Reporte del mes validado</span></div>
+        <div class="kpi"><b id="kPipas">—</b><span>Pedidos de pipa por aprobar</span></div>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Secciones de la torre">
+        <button type="button" role="tab" data-tab="resumen">Resumen</button>
+        <button type="button" role="tab" data-tab="estaciones">Estaciones</button>
+        <button type="button" role="tab" data-tab="flotillas">Flotillas</button>
+        <button type="button" role="tab" data-tab="volumetrico">Volumétrico</button>
+        <button type="button" role="tab" data-tab="precios">Precios</button>
+        <button type="button" role="tab" data-tab="pipas">Pipas</button>
+      </div>
+      <div class="tab-body">
+        <div class="tab" id="tab-resumen" role="tabpanel">
+          <div class="dos">
+            <div>
+              <h4>📲 Lo que recibió dirección a las 7:00</h4>
+              <div class="wa"><span class="wa-quien">Torre de control</span><span id="waTexto"></span><span class="wa-hora">7:00 ✓✓</span></div>
+              <h4 style="margin-top:1.1rem;">💬 Pregúntale a la torre</h4>
+              <div class="chips" id="preguntas"></div>
+              <div class="respuesta" id="respuesta" hidden></div>
+            </div>
+            <div>
+              <h4>⚠️ Alertas de hoy</h4>
+              <ul class="alertas" id="alertas"></ul>
+            </div>
+          </div>
+        </div>
+        <div class="tab" id="tab-estaciones" role="tabpanel" hidden>
+          <div class="dos">
+            <div><div class="table-wrap alto"><table class="data-table"><thead><tr><th>Estación</th><th>Ventas ayer</th><th>Diferencia 7 días</th><th>Estado</th></tr></thead><tbody id="estaciones"></tbody></table></div></div>
+            <div class="detalle" id="detalle"></div>
+          </div>
+        </div>
+        <div class="tab" id="tab-flotillas" role="tabpanel" hidden>
+          <p class="muted small">1,126 cargas de 48 flotillas revisadas anoche. Solo se muestran las que no cuadran con la capacidad del tanque, el horario o la ruta de la unidad.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Cliente · unidad</th><th>Qué no cuadra</th><th>Litros</th><th>Acción</th></tr></thead><tbody id="flotillas"></tbody></table></div>
+          <div id="flotaMsg"></div>
+        </div>
+        <div class="tab" id="tab-volumetrico" role="tabpanel" hidden>
+          <p class="muted small">Revisión previa contra las inconsistencias del Anexo 21 de la RMF 2026 (antes Anexo 30). El envío lo hace tu sistema volumétrico certificado: la torre no lo sustituye.</p>
+          <ul class="checks" id="checks"></ul>
+          <div id="volMsg"></div>
+        </div>
+        <div class="tab" id="tab-precios" role="tabpanel" hidden>
+          <p class="muted small">Tus precios contra la estación competidora más cercana, con los precios públicos de la zona. Tú decides el precio.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Estación</th><th>Producto</th><th>Tu precio</th><th>Competidor cercano</th><th>Diferencia</th><th>Venta 7 días</th></tr></thead><tbody id="precios"></tbody></table></div>
+        </div>
+        <div class="tab" id="tab-pipas" role="tabpanel" hidden>
+          <p class="muted small">Pedidos sugeridos con la venta promedio, el inventario medido y los días de cobertura de cada tanque.</p>
+          <div class="table-wrap"><table class="data-table"><thead><tr><th>Estación · tanque</th><th>Inventario</th><th>Venta diaria</th><th>Cobertura</th><th>Pedido sugerido</th><th></th></tr></thead><tbody id="pipas"></tbody></table></div>
+        </div>
+      </div>
+      <div class="bitacora">
+        <h4>🧾 Bitácora: lo que hizo el agente y lo que aprobó tu equipo</h4>
+        <ul class="log" id="bitacora"></ul>
+      </div>
+    </div>
+    <style>
+      .torre { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.3rem; max-width: 1140px; margin: 0 auto; }
+      .torre-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; }
+      .torre-head b { display: block; font-family: 'Syne', sans-serif; font-size: 1.1rem; }
+      .torre-head small { color: var(--gray); font-size: 0.8rem; }
+      .torre-kpis { grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); }
+      @media (max-width: 600px) { .torre { padding: 1rem 0.85rem; } .torre-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.5rem; } .torre-kpis .kpi { padding: 0.65rem; } .torre-kpis .kpi b { font-size: 1.25rem; } }
+      .btn-mini, .accion { background: transparent; border: 1px solid rgba(0,232,122,0.4); color: var(--green); border-radius: 100px; padding: 0.35rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.8rem; cursor: pointer; max-width: 100%; }
+      .btn-mini:hover, .accion:hover { background: rgba(0,232,122,0.1); }
+      .accion.alerta { border-color: rgba(255,200,0,0.5); color: var(--amber); }
+      .accion:disabled { opacity: 0.45; cursor: default; }
+      .tabs { display: flex; gap: 0.35rem; overflow-x: auto; margin: 1.2rem 0 0; border-bottom: 1px solid var(--border); scrollbar-width: none; }
+      .tabs button { background: none; border: none; border-bottom: 2px solid transparent; color: var(--gray); padding: 0.6rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; cursor: pointer; white-space: nowrap; }
+      .tabs button[aria-selected="true"] { color: var(--green); border-bottom-color: var(--green); }
+      .tab-body { padding-top: 1.1rem; min-height: 320px; }
+      .tab h4, .bitacora h4 { font-family: 'Syne', sans-serif; font-size: 0.95rem; margin-bottom: 0.6rem; }
+      .dos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 1.2rem; align-items: start; }
+      .dos > * { min-width: 0; }
+      .wa { background: #005c4b; border-radius: 12px; border-top-left-radius: 3px; padding: 0.7rem 0.85rem 0.45rem; font-size: 0.88rem; white-space: pre-line; max-width: 460px; }
+      .wa-quien { display: block; font-size: 0.72rem; color: #7ff0c4; font-weight: 500; }
+      .wa-hora { display: block; text-align: right; font-size: 0.66rem; color: rgba(255,255,255,0.55); }
+      .chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+      .chips button { background: transparent; border: 1px solid var(--border); color: var(--white); border-radius: 100px; padding: 0.4rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; text-align: left; }
+      .chips button:hover, .chips button[aria-pressed="true"] { border-color: var(--green); color: var(--green); }
+      .respuesta { margin-top: 0.8rem; background: rgba(0,232,122,0.05); border: 1px solid var(--border); border-radius: 12px; padding: 0.8rem 0.9rem; font-size: 0.88rem; color: #d3e0d8; animation: bubbleIn .35s ease both; }
+      .respuesta .ir { margin-top: 0.6rem; }
+      .alertas { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+      .alertas li { border: 1px solid var(--border); border-left: 3px solid var(--amber); border-radius: 0 10px 10px 0; padding: 0.6rem 0.75rem; font-size: 0.86rem; color: #d3e0d8; cursor: pointer; background: rgba(255,200,0,0.03); }
+      .alertas li.rojo { border-left-color: #ff7a7a; background: rgba(255,90,90,0.05); }
+      .alertas li.info { border-left-color: var(--green); background: rgba(0,232,122,0.03); }
+      .alertas li.cerrada { opacity: 0.5; text-decoration: line-through; }
+      .alertas li:hover { border-color: var(--green); }
+      .alertas li b { color: var(--white); font-weight: 500; }
+      .alto { max-height: 430px; overflow-y: auto; }
+      #estaciones tr { cursor: pointer; }
+      #estaciones tr.sel td { background: rgba(0,232,122,0.08); }
+      .data-table td { font-size: 0.84rem; }
+      .detalle { background: rgba(0,0,0,0.18); border: 1px solid var(--border); border-radius: 14px; padding: 1rem; font-size: 0.88rem; color: #d3e0d8; }
+      .detalle h5 { font-family: 'Syne', sans-serif; font-size: 1rem; color: var(--white); margin-bottom: 0.4rem; }
+      .detalle svg { width: 100%; height: auto; display: block; margin: 0.4rem 0 0.6rem; }
+      .detalle p + p { margin-top: 0.5rem; }
+      .detalle b { color: var(--white); font-weight: 500; }
+      .ley { display: flex; gap: 1rem; font-size: 0.75rem; color: var(--gray); }
+      .ley i { display: inline-block; width: 14px; height: 3px; vertical-align: middle; margin-right: 0.3rem; border-radius: 2px; }
+      .borrador { margin-top: 0.8rem; background: #0d1612; border: 1px dashed var(--border); border-radius: 10px; padding: 0.7rem 0.85rem; font-size: 0.84rem; white-space: pre-line; animation: bubbleIn .35s ease both; }
+      .borrador small { display: block; color: var(--gray); margin-bottom: 0.3rem; }
+      .checks { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+      .checks li { display: flex; justify-content: space-between; align-items: center; gap: 0.8rem; flex-wrap: wrap; border: 1px solid var(--border); border-radius: 10px; padding: 0.65rem 0.8rem; font-size: 0.88rem; }
+      .bitacora { margin-top: 1.3rem; border-top: 1px solid var(--border); padding-top: 1rem; }
+      .bitacora .log { min-height: 0; }
+      .bitacora .log li .t { color: var(--green); font-variant-numeric: tabular-nums; margin-right: 0.4rem; }
+      .ok-txt { color: var(--green); } .warn-txt { color: var(--amber); } .bad-txt { color: #ff8a8a; }
+    </style>
+
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="piloto">
+    <div class="section-tag">Cómo sería en tu empresa</div>
+    <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card"><h3>Qué incluye</h3><ul><li>Torre de control con tus consolas de tanques, punto de venta, sistema volumétrico y plataforma de flotillas, en modo de solo lectura.</li><li>Conciliación cada noche por estación y producto, con la explicación de cada diferencia y un resumen a las 7:00 por WhatsApp.</li><li>Cargas raras de flotilla con aviso al cliente; bloquear una tarjeta siempre lo aprueba un supervisor.</li><li>Revisión previa del reporte volumétrico, pedidos de pipa sugeridos y precios frente a la competencia. Para empezar: 3 estaciones y un grupo de flotillas.</li></ul></article>
+      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tus estaciones y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20la%20torre%20de%20control%20para%20gasolineras%20y%20quiero%20verla%20con%20mis%20estaciones" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+    </div>
+  </section>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  </footer>
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20la%20torre%20de%20control%20para%20gasolineras%20y%20quiero%20verla%20con%20mis%20estaciones" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="prolink.js"></script>
+    <script>
+
+  const EST = [
+    ['E-01', 'Centro', 10240, 0.06], ['E-02', 'Norte', 8930, -0.04], ['E-03', 'Sur', 9410, 0.02], ['E-04', 'Oriente', 7650, -0.09],
+    ['E-05', 'Periférico', 11380, 0.05], ['E-06', 'Poniente', 6920, -0.03], ['E-07', 'Bulevar', 8770, 0.08], ['E-08', 'Carretera Sur', 12610, -0.05],
+    ['E-09', 'Puerto', 9930, 0.01], ['E-10', 'Aeropuerto', 5480, -0.07], ['E-11', 'Mercado', 7120, 0.04], ['E-12', 'Estadio', 6340, -0.02],
+    ['E-13', 'Universidad', 5890, 0.03], ['E-14', 'Carretera Norte', 14820, -1.9], ['E-15', 'Campo 1', 4310, 0.05], ['E-16', 'Campo 2', 3970, -0.06],
+    ['E-17', 'Industrial', 10050, -0.62], ['E-18', 'Guasave 1', 9120, 0.02], ['E-19', 'Guasave 2', 8460, -0.04], ['E-20', 'Carretera Costera', 11950, 0.07],
+    ['E-21', 'Mazatlán 1', 9760, -0.01], ['E-22', 'Mazatlán 2', 8340, 0.03]
+  ].map(([id, z, v, d]) => ({ id, z, v, d }));
+  const DIAS = ['Vie', 'Sáb', 'Dom', 'Lun', 'Mar', 'Mié', 'Jue'];
+  const SERIES = {
+    'E-14': { prod: 'Diésel', teo: [31200, 26800, 22500, 18100, 33900, 29300, 24700], med: [31180, 26790, 22480, 18090, 32988, 28388, 23788],
+      texto: '<p><b>Qué encontró:</b> la diferencia aparece justo después de la descarga del martes a las 22:10. La remisión de la pipa P-118 dice 20,000 L; la consola del tanque registró 19,088 L (corregidos a 20 °C). Desde entonces, ventas e inventario medido cuadran.</p><p><b>Lo más probable:</b> pipa incompleta.</p><p><b>Sugerencia:</b> reclamar 912 L al proveedor con la remisión y el registro de la consola.</p>',
+      accion: ['Preparar reclamo al proveedor', 'reclamo'] },
+    'E-17': { prod: 'Premium', teo: [22400, 19900, 17300, 14800, 12300, 28600, 26100], med: [22400, 19860, 17215, 14680, 12135, 28395, 25850],
+      texto: '<p><b>Qué encontró:</b> en Premium la diferencia crece unos 40 L por día desde hace 6 días, sin relación con descargas ni con un dispensario en particular.</p><p><b>Lo más probable:</b> fuga lenta o desajuste del medidor del tanque.</p><p><b>Sugerencia:</b> revisión técnica del tanque y del medidor esta semana.</p>',
+      accion: ['Programar revisión técnica', 'tecnico'] }
+  };
+  const ALERTAS = [
+    { id: 'a14', nivel: 'rojo', txt: '<b>E-14 Carretera Norte · Diésel:</b> faltan 912 L desde el martes. Parece pipa incompleta.', tab: 'estaciones', est: 'E-14' },
+    { id: 'aT27', nivel: '', txt: '<b>Flotilla Transportes Demo · T-27:</b> 2 cargas en 3 horas en estaciones a 52 km, 148 L en un tanque de 120 L.', tab: 'flotillas' },
+    { id: 'a17', nivel: '', txt: '<b>E-17 Industrial · Premium:</b> diferencia pequeña pero constante desde hace 6 días.', tab: 'estaciones', est: 'E-17' },
+    { id: 'aVol', nivel: '', txt: '<b>Reporte del mes:</b> 21 de 22 estaciones validadas. A E-09 le falta el CFDI de una compra.', tab: 'volumetrico' },
+    { id: 'aPre', nivel: 'info', txt: '<b>Precios:</b> en E-05, el diésel está $0.40 arriba del competidor a 600 m.', tab: 'precios' },
+    { id: 'aPip', nivel: 'info', txt: '<b>Pipas:</b> 4 pedidos sugeridos para hoy.', tab: 'pipas' }
+  ];
+  const FLOTAS = [
+    { id: 'T-27', c: 'Transportes Demo', m: '2 cargas en 3 h: E-03 a las 7:10 y E-19 a las 9:55 (52 km). Tanque de 120 L.', l: 148, bloquear: true, alerta: 'aT27' },
+    { id: 'R-11', c: 'Distribuidora Demo', m: '95 L en una unidad con tanque de 80 L.', l: 95, bloquear: true },
+    { id: 'P-04', c: 'Agrícola Demo', m: 'Carga a las 2:14 a. m.; la unidad trabaja de 6:00 a 20:00.', l: 60, bloquear: false }
+  ];
+  const PRECIOS = [
+    ['E-05', 'Diésel', 25.89, 25.49, -8], ['E-05', 'Regular', 23.79, 23.79, 1], ['E-20', 'Premium', 26.19, 25.94, -3],
+    ['E-08', 'Diésel', 25.49, 25.59, 4], ['E-14', 'Regular', 23.69, 23.89, 2], ['E-21', 'Premium', 25.99, 25.99, 0]
+  ];
+  const PIPAS = [
+    { id: 'E-02', t: 'Regular · 40,000 L', inv: 9800, v: 5100 }, { id: 'E-08', t: 'Diésel · 40,000 L', inv: 11200, v: 6300 },
+    { id: 'E-14', t: 'Diésel · 40,000 L', inv: 23788, v: 9200 }, { id: 'E-20', t: 'Premium · 30,000 L', inv: 6100, v: 3300 }
+  ];
+  const PREG = [
+    ['¿Por qué la E-14 perdió 900 litros?', 'Porque la pipa P-118 del martes descargó 19,088 L y la remisión dice 20,000 L. Desde la descarga, ventas e inventario cuadran: es una pipa incompleta, no una fuga. Te dejé listo el reclamo al proveedor.', 'estaciones', 'E-14'],
+    ['¿Qué flotillas tuvieron cargas raras?', 'Tres esta semana: Transportes Demo (T-27, carga doble a 52 km), Distribuidora Demo (R-11, más litros que el tanque) y Agrícola Demo (P-04, carga de madrugada). Las demás 45 flotillas, sin alertas.', 'flotillas'],
+    ['¿Cómo va el reporte del mes?', '21 de 22 estaciones validadas, sin existencias negativas ni salidas mayores a lo disponible. Falta el CFDI de la compra del 3 de octubre en E-09 para cerrar.', 'volumetrico'],
+    ['¿Dónde estoy más caro que la competencia?', 'En diésel en E-05: $0.40 arriba del competidor a 600 m, y su venta de diésel bajó 8% esta semana. En Premium en E-20: $0.25 arriba. El resto, igual o abajo.', 'precios'],
+    ['¿Qué pipas pido hoy?', 'Cuatro: Regular en E-02, Diésel en E-08 y E-14, y Premium en E-20. Cada una tiene 2.6 días de cobertura o menos.', 'pipas']
+  ];
+  const fmt = n => n.toLocaleString('es-MX');
+  const $ = id => document.getElementById(id);
+  let S, reloj;
+  const hora = () => { reloj += 3 + (reloj % 4); const h = 7 + Math.floor(reloj / 60), m = reloj % 60; return h + ':' + String(m).padStart(2, '0'); };
+  // Bitácora: en verde lo que hizo el agente; en ámbar lo que aprobó una persona.
+  const bit = (txt, t, humano) => { const li = document.createElement('li'); if (humano) li.className = 'warn'; li.innerHTML = '<span class="t">' + (t || hora()) + '</span>' + txt; $('bitacora').appendChild(li); };
+
+  function reiniciar() {
+    S = { tab: 'resumen', est: 'E-14', cerradas: new Set(), avisadas: new Set(), bloqueadas: new Set(), pedidos: new Set(), cfdi: false, reclamo: false, tecnico: false, preg: null };
+    reloj = 0;
+    $('bitacora').innerHTML = '';
+    [['2:00', 'Leyó las consolas de tanques de las 22 estaciones (solo lectura).'], ['2:05', 'Cruzó 31,840 ventas por dispensario con el inventario de cada tanque.'], ['2:10', 'Revisó 9 descargas de pipa contra sus remisiones y sus CFDI.'], ['2:20', 'Revisó 1,126 cargas de 48 flotillas contra el tanque, el horario y la ruta de cada unidad.'], ['2:30', 'Hizo la revisión previa del reporte volumétrico del mes.'], ['2:35', 'Descargó los precios públicos de la zona.'], ['7:00', 'Mandó el resumen a dirección por WhatsApp.']]
+      .forEach(([t, x]) => bit(x, t));
+    $('respuesta').hidden = true;
+    $('flotaMsg').innerHTML = ''; $('volMsg').innerHTML = '';
+    pintar();
+  }
+  function kpis() {
+    $('kLitros').textContent = fmt(EST.reduce((s, e) => s + e.v, 0)) + ' L';
+    $('kAlertas').textContent = String(ALERTAS.length - S.cerradas.size);
+    $('kVol').textContent = (S.cfdi ? 22 : 21) + ' / 22';
+    $('kPipas').textContent = String(PIPAS.length - S.pedidos.size);
+  }
+  function cerrar(id) { if (id && !S.cerradas.has(id)) { S.cerradas.add(id); } }
+  function irA(tab, est) { S.tab = tab; if (est) S.est = est; pintar(); $('torre').querySelector('.tabs').scrollIntoView({ block: 'nearest' }); }
+
+  function pintar() {
+    document.querySelectorAll('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === S.tab)));
+    document.querySelectorAll('.tab').forEach(t => { t.hidden = t.id !== 'tab-' + S.tab; });
+    kpis();
+    $('waTexto').innerHTML = 'Buen día ☀️ Ayer se vendieron <b>' + fmt(EST.reduce((s, e) => s + e.v, 0)) + ' L</b> en las 22 estaciones.\nTres cosas para hoy:\n1. E-14, diésel: faltan 912 L; parece pipa incompleta.\n2. Transportes Demo: carga doble en la unidad T-27.\n3. E-09: falta un CFDI de compra para el reporte del mes.\nPregúntame lo que quieras.';
+    $('preguntas').innerHTML = PREG.map((p, i) => '<button type="button" data-i="' + i + '" aria-pressed="' + (S.preg === i) + '">' + p[0] + '</button>').join('');
+    $('alertas').innerHTML = ALERTAS.map(a => '<li class="' + a.nivel + (S.cerradas.has(a.id) ? ' cerrada' : '') + '" data-id="' + a.id + '" tabindex="0">' + a.txt + '</li>').join('');
+    $('estaciones').innerHTML = EST.map(e => { const c = Math.abs(e.d) >= 1 ? ['bad-txt', 'Revisar'] : (Math.abs(e.d) >= 0.3 ? ['warn-txt', 'Revisar'] : ['ok-txt', 'OK']); const ok = (e.id === 'E-14' && S.reclamo) || (e.id === 'E-17' && S.tecnico); return '<tr data-est="' + e.id + '"' + (e.id === S.est ? ' class="sel"' : '') + '><td><b>' + e.id + '</b> ' + e.z + '</td><td class="num">' + fmt(e.v) + ' L</td><td class="num ' + c[0] + '">' + (e.d > 0 ? '+' : '') + e.d.toFixed(2) + '%</td><td class="' + (ok ? 'warn-txt' : c[0]) + '">' + (ok ? 'En atención' : c[1]) + '</td></tr>'; }).join('');
+    detalle();
+    $('flotillas').innerHTML = FLOTAS.map(f => '<tr><td><b>' + f.c + '</b><br><span class="muted">' + f.id + '</span></td><td>' + f.m + '</td><td class="num">' + f.l + ' L</td><td>' + (S.avisadas.has(f.id) ? '<span class="ok-txt">Avisado ✓</span>' : '<button type="button" class="accion" data-avisar="' + f.id + '">Avisar al cliente</button>') + (f.bloquear ? '<br>' + (S.bloqueadas.has(f.id) ? '<span class="warn-txt">Tarjeta bloqueada por Supervisor Demo</span>' : '<button type="button" class="accion alerta" data-bloquear="' + f.id + '" style="margin-top:0.35rem;">Bloquear tarjeta…</button>') : '') + '</td></tr>').join('');
+    const checks = [['Existencias negativas', '0', true], ['Salidas mayores a entradas más inventario', '0', true], ['Descargas con su CFDI de compra', S.cfdi ? '22 de 22' : '21 de 22 · falta E-09 (3 de octubre)', S.cfdi], ['Diferencias de volumen fuera de tolerancia', S.reclamo ? '1 · E-14 en reclamo' : '1 · E-14 en revisión', S.reclamo], ['Archivos del mes generados en el sistema certificado', '22 de 22', true]];
+    $('checks').innerHTML = checks.map(([k, v, ok], i) => '<li><span>' + (ok ? '✅' : '⚠️') + ' ' + k + '</span><span class="' + (ok ? 'ok-txt' : 'warn-txt') + '">' + v + (i === 2 && !ok ? ' <button type="button" class="accion" id="pedirCfdi">Pedir CFDI al proveedor</button>' : '') + '</span></li>').join('');
+    $('precios').innerHTML = PRECIOS.map(([e, p, mio, comp, v]) => { const d = +(mio - comp).toFixed(2); return '<tr><td>' + e + '</td><td>' + p + '</td><td class="num">$' + mio.toFixed(2) + '</td><td class="num">$' + comp.toFixed(2) + '</td><td class="num ' + (d > 0.2 ? 'bad-txt' : (d > 0 ? 'warn-txt' : 'ok-txt')) + '">' + (d > 0 ? '+$' + d.toFixed(2) : (d < 0 ? '−$' + Math.abs(d).toFixed(2) : 'igual')) + '</td><td class="num ' + (v < 0 ? 'warn-txt' : '') + '">' + (v > 0 ? '+' : '') + v + '%</td></tr>'; }).join('');
+    $('pipas').innerHTML = PIPAS.map(p => { const cob = p.inv / p.v, cap = +p.t.match(/([\d,]+) L/)[1].replace(',', ''), ped = Math.floor((cap * 0.9 - p.inv) / 1000) * 1000; return '<tr><td><b>' + p.id + '</b><br><span class="muted">' + p.t + '</span></td><td class="num">' + fmt(p.inv) + ' L</td><td class="num">' + fmt(p.v) + ' L</td><td class="num ' + (cob < 2 ? 'bad-txt' : 'warn-txt') + '">' + cob.toFixed(1) + ' días</td><td class="num">' + fmt(ped) + ' L</td><td>' + (S.pedidos.has(p.id) ? '<span class="ok-txt">Pedido enviado ✓</span>' : '<button type="button" class="accion" data-pipa="' + p.id + '">Aprobar</button>') + '</td></tr>'; }).join('');
+  }
+
+  function grafica(s) {
+    const W = 340, H = 150, pad = 26, todos = s.teo.concat(s.med), mn = Math.min(...todos) * 0.95, mx = Math.max(...todos) * 1.02;
+    const X = i => pad + i * (W - pad - 8) / (s.teo.length - 1), Y = v => 8 + (H - 30) * (1 - (v - mn) / (mx - mn));
+    const linea = (arr, color, dash) => '<polyline fill="none" stroke="' + color + '" stroke-width="2.2"' + (dash ? ' stroke-dasharray="5 4"' : '') + ' points="' + arr.map((v, i) => X(i).toFixed(1) + ',' + Y(v).toFixed(1)).join(' ') + '"/>';
+    return '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Inventario teórico contra medido, 7 días">' + DIAS.map((d, i) => '<text x="' + X(i) + '" y="' + (H - 6) + '" fill="#8fa398" font-size="10" text-anchor="middle">' + d + '</text>').join('') + linea(s.teo, '#00e87a', true) + linea(s.med, '#ffd666') + '<text x="' + (X(6) - 4) + '" y="' + (Y(s.med[6]) + 16) + '" fill="#ffd666" font-size="11" text-anchor="end">−' + fmt(s.teo[6] - s.med[6]) + ' L</text></svg><div class="ley"><span><i style="background:#00e87a"></i>Teórico (entradas − ventas)</span><span><i style="background:#ffd666"></i>Medido por la consola</span></div>';
+  }
+  function detalle() {
+    const e = EST.find(x => x.id === S.est), s = SERIES[e.id];
+    let h = '<h5>' + e.id + ' ' + e.z + (s ? ' · ' + s.prod : '') + '</h5>';
+    if (s) {
+      h += grafica(s) + s.texto;
+      const hecho = s.accion[1] === 'reclamo' ? S.reclamo : S.tecnico;
+      h += hecho ? '' : '<button type="button" class="accion" data-hacer="' + s.accion[1] + '" style="margin-top:0.7rem;">' + s.accion[0] + '</button>';
+      if (S.reclamo && e.id === 'E-14') h += '<div class="borrador"><small>Borrador para el proveedor (revisado por tu equipo antes de enviar):</small>Asunto: Faltante en descarga del martes, E-14\nLa remisión de la pipa P-118 indica 20,000 L de diésel. La consola del tanque registró 19,088 L a 20 °C. Solicitamos la nota de crédito por 912 L. Adjuntamos remisión y registro de la consola.</div>';
+      if (S.tecnico && e.id === 'E-17') h += '<div class="borrador"><small>Revisión programada</small>Martes, 9:00 a. m. · Técnico Demo · Tanque de Premium y medidor de E-17.</div>';
+    } else {
+      h += '<p class="ok-txt">Sin diferencias fuera de tolerancia en los últimos 7 días.</p><p class="muted">Toca E-14 o E-17 para ver cómo explica la torre una diferencia.</p>';
+    }
+    $('detalle').innerHTML = h;
+  }
+
+  document.addEventListener('click', ev => {
+    const t = ev.target.closest('button, li[data-id], tr[data-est]');
+    if (!t || !$('torre').contains(t)) return;
+    if (t.dataset.tab) { S.tab = t.dataset.tab; pintar(); return; }
+    if (t.id === 'reiniciar') { reiniciar(); return; }
+    if (t.dataset.i !== undefined) {
+      const [q, r, tab, est] = PREG[+t.dataset.i]; S.preg = +t.dataset.i; pintar();
+      const box = $('respuesta'); box.hidden = false;
+      box.innerHTML = '<b>' + q + '</b><br>' + r + '<div class="ir"><button type="button" class="accion" data-ir="' + tab + '"' + (est ? ' data-irest="' + est + '"' : '') + '>Ver el detalle →</button></div>';
+      bit('Respondió a dirección: «' + q + '»');
+      return;
+    }
+    if (t.dataset.ir) { irA(t.dataset.ir, t.dataset.irest); return; }
+    if (t.dataset.id) { const a = ALERTAS.find(x => x.id === t.dataset.id); irA(a.tab, a.est); return; }
+    if (t.dataset.est) { S.est = t.dataset.est; detalle(); document.querySelectorAll('#estaciones tr').forEach(r => r.classList.toggle('sel', r.dataset.est === S.est)); return; }
+    if (t.dataset.hacer === 'reclamo') { S.reclamo = true; cerrar('a14'); bit('Preparó el reclamo al proveedor por 912 L; tu equipo lo revisa antes de enviarlo.'); pintar(); return; }
+    if (t.dataset.hacer === 'tecnico') { S.tecnico = true; cerrar('a17'); bit('Programó la revisión técnica del tanque de Premium de E-17 para el martes a las 9:00.', 'Gerente de E-17 · ' + hora(), true); pintar(); return; }
+    if (t.dataset.avisar) {
+      const f = FLOTAS.find(x => x.id === t.dataset.avisar); S.avisadas.add(f.id); if (f.alerta) cerrar(f.alerta);
+      bit('Avisó por WhatsApp al responsable de la flotilla de ' + f.c + ' sobre la unidad ' + f.id + '.');
+      pintar();
+      $('flotaMsg').innerHTML = '<div class="borrador"><small>Mensaje enviado a ' + f.c + ':</small>Hola 👋 Detectamos algo fuera de lo normal en su unidad ' + f.id + ': ' + f.m.charAt(0).toLowerCase() + f.m.slice(1) + ' ¿Nos confirma si fue correcto? Si no lo reconoce, podemos bloquear la tarjeta de inmediato.</div>';
+      return;
+    }
+    if (t.dataset.bloquear) {
+      const f = FLOTAS.find(x => x.id === t.dataset.bloquear);
+      $('flotaMsg').innerHTML = '<div class="borrador"><small>Bloquear una tarjeta requiere aprobación</small>La torre no bloquea tarjetas por su cuenta. ¿Apruebas bloquear la tarjeta de la unidad ' + f.id + ' de ' + f.c + '?\n<button type="button" class="accion alerta" data-aprobar="' + f.id + '" style="margin-top:0.5rem;">Aprobar como Supervisor Demo</button></div>';
+      return;
+    }
+    if (t.dataset.aprobar) { const f = FLOTAS.find(x => x.id === t.dataset.aprobar); S.bloqueadas.add(f.id); if (f.alerta) cerrar(f.alerta); bit('Bloqueó la tarjeta de ' + f.c + ' · ' + f.id + '.', 'Supervisor Demo · ' + hora(), true); pintar(); $('flotaMsg').innerHTML = ''; return; }
+    if (t.id === 'pedirCfdi') { S.cfdi = true; cerrar('aVol'); bit('Pidió al proveedor el CFDI de la compra del 3 de octubre de E-09; llegó y quedaron 22 de 22 estaciones validadas.'); pintar(); $('volMsg').innerHTML = '<div class="borrador"><small>Correo al proveedor:</small>Les solicitamos el CFDI de la compra de diésel entregada en E-09 el 3 de octubre (remisión R-2231), para integrar nuestro reporte volumétrico del mes. Gracias.</div>'; return; }
+    if (t.dataset.pipa) { S.pedidos.add(t.dataset.pipa); bit('Aprobó el pedido de pipa de ' + t.dataset.pipa + ' y la torre lo envió al proveedor.', 'Compras · ' + hora(), true); if (S.pedidos.size === PIPAS.length) cerrar('aPip'); pintar(); return; }
+  });
+  document.addEventListener('keydown', ev => { if ((ev.key === 'Enter' || ev.key === ' ') && ev.target.matches('#alertas li')) { ev.preventDefault(); ev.target.click(); } });
+  reiniciar();
+
+  </script>
+</body>
+</html>
