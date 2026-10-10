@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>De una nota de voz a un manual — Ejemplo del taller · ProLink365</title>
+  <meta name="description" content="Ejemplo del taller &quot;IA en tu puesto&quot;: el encargado cuenta su proceso en una nota de voz, la IA lo convierte en un manual con pasos, revisiones y mensajes para el cliente, y deja anotado lo que el dueño debe decidir."/>
+  <link rel="canonical" href="https://prolink365.com.mx/ejemplo-manual.html"/>
+  <meta property="og:title" content="De una nota de voz a un manual — ProLink365"/>
+  <meta property="og:description" content="Ejemplo del taller &quot;IA en tu puesto&quot;: el encargado cuenta su proceso en una nota de voz, la IA lo convierte en un manual con pasos, revisiones y mensajes para el cliente, y deja anotado lo que el dueño debe decidir."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prolink365.com.mx/ejemplo-manual.html"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <style>
+    .flujo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 1rem; }
+    .voz { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.5rem; max-width: 780px; }
+    .voz .cab { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1rem; color: var(--gray); font-size: 0.85rem; }
+    .voz .cab b { color: var(--white); font-weight: 500; }
+    .onda { display: flex; align-items: center; gap: 3px; height: 28px; flex: 1; max-width: 260px; }
+    .onda i { display: block; width: 3px; border-radius: 2px; background: var(--green); opacity: 0.7; }
+    .voz p { color: #c9d6cf; font-size: 0.95rem; font-style: italic; }
+    .voz p + p { margin-top: 0.8rem; }
+    .prompt { background: #0d1612; border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.4rem; max-width: 780px; position: relative; }
+    .prompt dl { display: grid; grid-template-columns: 92px 1fr; gap: 0.6rem 1rem; }
+    .prompt dt { color: var(--green); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; }
+    .prompt dd { color: #c9d6cf; font-size: 0.92rem; }
+    @media (max-width: 560px) { .prompt dl { grid-template-columns: 1fr; gap: 0.15rem; } .prompt dd { margin-bottom: 0.6rem; } }
+    .copiar { margin-top: 1rem; background: transparent; border: 1px solid rgba(0,232,122,0.4); color: var(--green); border-radius: 100px; padding: 0.45rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; }
+    .copiar:hover { background: rgba(0,232,122,0.1); }
+    .manual { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; }
+    .manual .meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; color: var(--gray); font-size: 0.85rem; margin: 0.4rem 0 1.2rem; }
+    .manual .meta b { color: var(--white); font-weight: 500; }
+    .pasos { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .pasos > li { display: grid; grid-template-columns: 38px 1fr; gap: 0.9rem; background: rgba(0,232,122,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 1rem; }
+    .pasos .num { width: 34px; height: 34px; border-radius: 50%; background: var(--green-glow); color: var(--green); display: flex; align-items: center; justify-content: center; font-family: 'Exo 2', sans-serif; font-weight: 900; }
+    .pasos p { color: #c9d6cf; font-size: 0.93rem; }
+    .pasos p b { color: var(--amber); font-weight: 500; }
+    .pasos .chk { color: var(--gray); font-size: 0.84rem; margin-top: 0.3rem; }
+    .quien { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 100px; padding: 0.1rem 0.55rem; margin-bottom: 0.3rem; }
+    .quien.m { color: var(--green); border: 1px solid rgba(0,232,122,0.35); }
+    .quien.t { color: var(--amber); border: 1px solid rgba(255,200,0,0.35); }
+    .msjs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
+    .msjs div { background: #005c4b; border-radius: 12px; border-top-right-radius: 3px; padding: 0.75rem 0.9rem; font-size: 0.88rem; }
+    .msjs small { display: block; color: rgba(255,255,255,0.65); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
+    .preguntas { list-style: none; counter-reset: q; display: flex; flex-direction: column; gap: 0.55rem; max-width: 820px; }
+    .preguntas li { counter-increment: q; position: relative; padding: 0.7rem 0.9rem 0.7rem 2.6rem; border-left: 2px solid var(--amber); background: rgba(255,200,0,0.05); border-radius: 0 10px 10px 0; color: #e6ecd9; font-size: 0.93rem; }
+    .preguntas li::before { content: counter(q); position: absolute; left: 0.9rem; top: 0.7rem; color: var(--amber); font-family: 'Exo 2', sans-serif; font-weight: 900; }
+  </style>
+</head>
+<body>
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#sectores">Sectores</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="taller-ia.html">Taller de IA</a></li>
+      <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
+      <li class="mobile-only"><a href="#contacto">Quiero el taller</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta desktop">Quiero el taller</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact">
+    <div class="orb"></div>
+    <div class="hero-badge">Ejemplo del taller · Joyería ficticia</div>
+    <h1>De una nota de voz <em>a un manual</em></h1>
+    <p class="hero-sub">Así documentamos un proceso con IA en el taller: el encargado lo cuenta como se lo explicaría a un aprendiz, la IA lo ordena y el dueño decide lo que la IA no sabe.</p>
+    <div class="hero-actions">
+      <a href="ejemplo-manual.pdf" class="btn-primary" download>Descargar el manual (PDF)</a>
+      <a href="taller-ia.html" class="btn-ghost">Ver el taller</a>
+    </div>
+  </header>
+
+  <section id="nota" style="padding-bottom:3rem;">
+    <div class="section-tag reveal">Paso 1 · La nota de voz</div>
+    <h2 class="reveal">Se cuenta como se hace,<br/><em>sin preparar nada</em></h2>
+    <p class="section-sub reveal">El encargado de taller grabó cómo atienden un pedido personalizado. Así quedó la transcripción, tal cual.</p>
+    <div class="voz reveal">
+      <div class="cab"><span aria-hidden="true">🎙️</span><b>Nota de voz · 1:50</b><span class="onda" aria-hidden="true"><i style="height:8px"></i><i style="height:14px"></i><i style="height:22px"></i><i style="height:12px"></i><i style="height:26px"></i><i style="height:18px"></i><i style="height:10px"></i><i style="height:20px"></i><i style="height:28px"></i><i style="height:16px"></i><i style="height:9px"></i><i style="height:24px"></i><i style="height:13px"></i><i style="height:21px"></i><i style="height:7px"></i><i style="height:17px"></i><i style="height:27px"></i><i style="height:11px"></i><i style="height:19px"></i><i style="height:23px"></i><i style="height:9px"></i><i style="height:15px"></i><i style="height:25px"></i><i style="height:12px"></i><i style="height:6px"></i><i style="height:18px"></i><i style="height:22px"></i><i style="height:10px"></i><i style="height:16px"></i><i style="height:8px"></i></span></div>
+      <p>A ver, ¿cómo le hacemos con un pedido especial? Mira, normalmente el cliente llega o manda WhatsApp con una foto: que quiere un anillo así, o una medalla con el nombre del niño, lo que sea. Primero le preguntamos qué metal, si oro de diez o de catorce, o plata, porque de eso depende todo el precio. Y la medida, la talla del anillo, que muchas veces no la saben, entonces les decimos que vengan a medirse con el anillador.</p><p>Luego yo calculo más o menos cuántos gramos va a llevar y le damos el precio con el gramo del día, más la hechura, más la piedra si lleva. Ah, y antes de empezar se deja el cincuenta por ciento de anticipo, eso siempre; si no, no arrancamos.</p><p>Ya con el anticipo hago el dibujo o la cera, depende, y si es algo muy especial se le manda foto de la cera al cliente para que diga que sí. Eso a veces se nos pasa y luego el cliente dice que no era así… Después va a fundición, se limpia, se ajusta la medida; si lleva piedras se engastan, se pule, y si es oro blanco lleva el baño de rodio. El grabado va al final.</p><p>Lo reviso yo antes de entregarlo: que no tenga poros, que la piedra no se mueva, que la medida sea la que pidió. Y ya le avisamos que está lista, paga lo que falta y se le da su nota con la garantía. Normalmente son como diez días; quince si hay mucho trabajo o si es para diciembre.</p>
+    </div>
+  </section>
+
+  <section id="instruccion" style="padding-top:2rem;padding-bottom:3rem;">
+    <div class="section-tag reveal">Paso 2 · La instrucción</div>
+    <h2 class="reveal">Una instrucción clara:<br/><em>rol, contexto, tarea y formato</em></h2>
+    <p class="section-sub reveal">Es la estructura que practicamos en el taller. La regla más importante: si algo falta, la IA no lo inventa; lo pregunta.</p>
+    <div class="prompt reveal">
+      <dl><dt>Rol</dt><dd>Eres un asesor que documenta procesos de talleres pequeños.</dd><dt>Contexto</dt><dd>Te paso la transcripción de una nota de voz del encargado de taller de una joyería familiar. Explica cómo atienden un pedido personalizado. El manual lo van a usar personas nuevas en mostrador y en taller.</dd><dt>Tarea</dt><dd>Convierte la nota en un manual del proceso. Usa solo lo que dice la nota: no inventes precios, tiempos ni políticas. Si falta algo o se contradice, no lo completes: anótalo como pregunta para el dueño.</dd><dt>Formato</dt><dd>Objetivo en una línea; pasos numerados con quién lo hace, qué hacer y qué revisar antes de seguir; mensajes listos para el cliente por WhatsApp; lista de preguntas pendientes. Lenguaje sencillo, como se habla en el taller.</dd></dl>
+      <button type="button" class="copiar" id="copiar">Copiar instrucción</button>
+    </div>
+  </section>
+
+  <section id="manual" style="padding-top:2rem;">
+    <div class="section-tag reveal">Paso 3 · El manual</div>
+    <h2 class="reveal">Lo que entregó la IA,<br/><em>listo para revisar</em></h2>
+    <div class="manual reveal">
+      <h3 style="font-size:1.3rem;">Manual: pedido personalizado</h3>
+      <div class="meta"><span><b>Joyería Demo</b> · versión 1, por revisar</span><span><b>Tiempo:</b> Alrededor de 10 días; hasta 15 con mucho trabajo o en diciembre (según la nota de voz).</span></div>
+      <div class="flujo" style="margin-bottom:1.3rem;">
+        <article class="card"><h3>Objetivo</h3><p>Que todo pedido especial se cotice, se apruebe y se entregue igual, sin importar quién lo atienda.</p></article>
+        <article class="card"><h3>Quién participa</h3><ul><li><b style="color:var(--white);font-weight:500;">Mostrador:</b> atiende al cliente, cobra y avisa.</li><li><b style="color:var(--white);font-weight:500;">Encargado de taller:</b> cotiza, fabrica y revisa la pieza.</li></ul></article>
+        <article class="card"><h3>Lo que se necesita</h3><p>Anillador (medidor de tallas), foto o dibujo de referencia y la nota del pedido.</p></article>
+      </div>
+      <h3 style="margin-bottom:0.8rem;">Pasos</h3>
+      <ol class="pasos"><li class="reveal"><div class="num">1</div><div><span class="quien m">Mostrador</span><p>Recibir la idea del cliente: foto, dibujo o descripción, en tienda o por WhatsApp.</p><p class="chk">✓ Antes de seguir: La referencia queda guardada con el pedido.</p></div></li><li class="reveal"><div class="num">2</div><div><span class="quien m">Mostrador</span><p>Preguntar el metal (oro de 10 o de 14 kilates, o plata) y la talla. Si no sabe su talla, invitarlo a medirse con el anillador.</p><p class="chk">✓ Antes de seguir: Metal y talla anotados; la talla medida, no adivinada.</p></div></li><li class="reveal"><div class="num">3</div><div><span class="quien t">Encargado</span><p>Calcular los gramos aproximados y dar el precio: gramo del día + hechura + piedra, si lleva.</p><p class="chk">✓ Antes de seguir: El cliente sabe que el precio usa el gramo del día.</p></div></li><li class="reveal"><div class="num">4</div><div><span class="quien m">Mostrador</span><p>Cobrar el 50% de anticipo. Sin anticipo no se empieza.</p><p class="chk">✓ Antes de seguir: Anticipo anotado en la nota.</p></div></li><li class="reveal"><div class="num">5</div><div><span class="quien t">Encargado</span><p>Hacer el dibujo o el modelo en cera.</p></div></li><li class="reveal"><div class="num">6</div><div><span class="quien m">Mostrador</span><p>Si es una pieza muy especial, mandar foto de la cera al cliente y esperar su «sí». <b>Es el paso que más se olvida.</b></p><p class="chk">✓ Antes de seguir: La aprobación queda por escrito en el chat.</p></div></li><li class="reveal"><div class="num">7</div><div><span class="quien t">Encargado</span><p>Fundición, limpieza y ajuste de la medida.</p></div></li><li class="reveal"><div class="num">8</div><div><span class="quien t">Encargado</span><p>Engastar las piedras (si lleva), pulir y dar baño de rodio si es oro blanco.</p></div></li><li class="reveal"><div class="num">9</div><div><span class="quien t">Encargado</span><p>Grabar, siempre al final.</p><p class="chk">✓ Antes de seguir: El texto del grabado coincide con la nota.</p></div></li><li class="reveal"><div class="num">10</div><div><span class="quien t">Encargado</span><p>Revisar la pieza antes de entregarla: sin poros, piedra firme y la talla que pidió.</p><p class="chk">✓ Antes de seguir: Pasa los 3 puntos; si no, regresa al paso que corresponda.</p></div></li><li class="reveal"><div class="num">11</div><div><span class="quien m">Mostrador</span><p>Avisar que está lista, cobrar lo que falta y entregar la nota con la garantía.</p><p class="chk">✓ Antes de seguir: Pago completo y nota entregada.</p></div></li></ol>
+      <h3 style="margin-top:1.6rem;">Mensajes listos para WhatsApp</h3>
+      <div class="msjs"><div><small>Al cotizar</small>¡Hola! Su pieza en [metal] queda en $____ con el gramo de hoy (incluye hechura y piedra). Para empezar se deja el 50% de anticipo. ¿Le parece?</div><div><small>Para aprobar la cera</small>Le mando la foto del modelo en cera de su pieza 👇 ¿Así le gusta? En cuanto nos diga que sí, pasa a fundición.</div><div><small>Cuando está lista</small>¡Su pieza está lista! ✨ Puede pasar por ella en nuestro horario. Quedan $____ por pagar y le entregamos su nota con la garantía.</div></div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="preguntas">
+    <div class="section-tag reveal">Paso 4 · Lo que decide el dueño</div>
+    <h2 class="reveal">Lo que la IA <em>no inventó</em></h2>
+    <p class="section-sub reveal">La nota de voz no decía estas cosas. En lugar de rellenarlas, la IA las dejó como preguntas. Se contestan en 15 minutos con el dueño y el manual queda completo.</p>
+    <ol class="preguntas reveal"><li>Si el peso final sale distinto al calculado, ¿se ajusta el precio o se respeta la cotización?</li><li>¿Se devuelve el anticipo si el cliente no aprueba la cera o se arrepiente?</li><li>¿Quién decide cuándo una pieza es «muy especial» y necesita aprobación de la cera?</li><li>¿Dónde se anota el pedido: libreta, nota impresa o el chat?</li><li>¿Qué cubre la garantía y por cuánto tiempo?</li><li>¿Cuánto tiempo se guarda una pieza que nadie recoge?</li><li>Los 10 a 15 días, ¿son hábiles o naturales?</li></ol>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="taller">
+    <div class="section-tag reveal">En el taller</div>
+    <h2 class="reveal">Con tu proceso,<br/><em>en vivo</em></h2>
+    <div class="steps" style="margin-top:2rem;">
+      <div class="step reveal"><div class="step-num">01</div><h3>Grabar</h3><p>Quien mejor conoce el proceso lo cuenta en una nota de voz de 2 a 5 minutos.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h3>Ordenar con IA</h3><p>Con la instrucción de arriba, la IA arma el manual y anota lo que falta.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h3>Decidir</h3><p>El dueño contesta las preguntas pendientes y el manual queda en su versión final.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h3>Usarlo</h3><p>Se imprime para el taller y el mostrador, y sirve para enseñar a quien llega.</p></div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+  <div class="cta-section" id="contacto">
+    <div class="section-tag reveal">Taller "IA en tu puesto"</div>
+    <h2 class="reveal">¿Hacemos el manual<br/>de tu proceso?</h2>
+    <p class="reveal">En el taller de 4 horas tu equipo aprende a usar la IA documentando uno de sus propios procesos.</p>
+    <div class="hero-actions reveal">
+      <a href="https://wa.me/526681305828?text=Hola%2C%20vi%20el%20ejemplo%20del%20manual%20hecho%20con%20IA%20y%20me%20interesa%20el%20taller%20para%20mi%20equipo" class="btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a href="taller-ia.html" class="btn-ghost">Ver el temario</a>
+    </div>
+    <p class="small muted reveal" style="margin-top:1.4rem;">La joyería, la nota de voz y el manual de esta página son un ejemplo ficticio.</p>
+  </div>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20el%20ejemplo%20del%20manual%20hecho%20con%20IA%20y%20me%20interesa%20el%20taller%20para%20mi%20equipo" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <script src="prolink.js"></script>
+  <script>
+    document.getElementById('copiar').addEventListener('click', async e => {
+      const b = e.currentTarget, txt = [...document.querySelectorAll('.prompt dt')].map(dt => dt.textContent + ': ' + dt.nextElementSibling.textContent).join('\n');
+      try { await navigator.clipboard.writeText(txt); b.textContent = 'Copiada ✓'; } catch (_) { const r = document.createRange(); r.selectNodeContents(document.querySelector('.prompt dl')); getSelection().removeAllRanges(); getSelection().addRange(r); b.textContent = 'Quedó seleccionada: cópiala'; }
+      setTimeout(() => { b.textContent = 'Copiar instrucción'; }, 2200);
+    });
+  </script>
+</body>
+</html>
