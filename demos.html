@@ -44,14 +44,22 @@
 </head>
 <body>
 
-  <nav class="top" aria-label="Principal">
+  <nav class="top cuatro" aria-label="Principal">
     <a class="logo" href="index.html">Pro<span>Link</span>365</a>
     <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
+      <li class="menu"><a href="index.html#servicios">Servicios <span class="caret" aria-hidden="true">▾</span></a>
+        <ul class="submenu" aria-label="Servicios">
+          <li><a href="index.html#f-agente">Agente de IA + CRM</a></li>
+          <li><a href="index.html#f-software">Software a la medida</a></li>
+          <li><a href="espacios-3d.html">Espacios 3D</a></li>
+          <li><a href="recepcionista.html">Recepcionista virtual</a></li>
+          <li><a href="taller-ia.html">Taller "IA en tu puesto"</a></li>
+          <li><a href="paginas-web.html">Páginas web</a></li>
+        </ul>
+      </li>
       <li><a href="demos.html" aria-current="page">Demos</a></li>
       <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
-      <li><a href="espacios-3d.html">Espacios 3D</a></li>
-      <li><a href="index.html#pymes">Pymes</a></li>
+      <li><a href="index.html#equipo">Quién somos</a></li>
       <li class="mobile-only"><a href="index.html#contacto">Agenda un diagnóstico</a></li>
     </ul>
     <a href="index.html#contacto" class="nav-cta desktop">Agenda un diagnóstico</a>
@@ -82,7 +90,7 @@
     <div class="grid" id="lista-demos">
 
       <article class="card demo-card reveal" data-sector="comercio pymes inmobiliaria">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente + CRM</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente + CRM</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-message"/></svg></div>
         <h3>CRM con agente de IA</h3>
         <p>WhatsApp e Instagram en una sola bandeja. El agente cotiza, mueve a cada cliente en el embudo, le da seguimiento y avisa al vendedor para cerrar.</p>
         <p class="who">Para negocios que venden por mensajes y anuncios. Basada en el CRM de Diluvium.</p>
@@ -90,7 +98,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="gasolineras">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-fuel"/></svg></div>
         <h3>Gasolineras: torre de control</h3>
         <p>Cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas tus estaciones, explica lo que no cuadra y te lo manda por WhatsApp.</p>
         <p class="who">Para grupos gasolineros y empresas con flotilla.</p>
@@ -98,7 +106,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="construccion comercio">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-image"/></svg></div>
         <h3>Cotización desde la foto de una lista</h3>
         <p>El cliente manda su lista escrita a mano; la IA la lee, arma la cotización con tus precios y le da seguimiento.</p>
         <p class="who">Para materiales, acero, ferreterías y equipo comercial.</p>
@@ -106,7 +114,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="inmobiliaria profesionales">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Asistente interno</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Asistente interno</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-file"/></svg></div>
         <h3>Expedientes: de los documentos al borrador</h3>
         <p>La IA lee identificaciones, escrituras y boletas, marca lo que falta o no cuadra, prellena el borrador, precalcula impuestos y prepara la DeclaraNOT. El notario revisa y decide; todo queda en una bitácora.</p>
         <p class="who">Para notarías, despachos y desarrolladoras inmobiliarias.</p>
@@ -114,7 +122,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="agro">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-leaf"/></svg></div>
         <h3>Semilleras: asistente técnico</h3>
         <p>Recomienda variedad por cultivo, zona y enfermedad con tu guía de resistencias, agenda parcelas demostrativas, manda las fotos de campo a tu agrónomo y captura tus ensayos por nota de voz.</p>
         <p class="who">Para semilleras, casas comerciales agrícolas y distribuidores de insumos.</p>
@@ -122,7 +130,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="eventos inmobiliaria">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Espacios 3D</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Espacios 3D</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-cube"/></svg></div>
         <h3>Espacios 3D: salones y casas</h3>
         <p>Recorre en 3D un salón con boda de 240 invitados o una casa amueblada, desde el celular y con la marca del negocio.</p>
         <p class="who">Para wedding planners, salones de eventos, inmobiliarias y desarrolladoras.</p>
@@ -130,7 +138,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="agro comercio">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-wrench"/></svg></div>
         <h3>Refacciones por WhatsApp</h3>
         <p>Un cliente pide una pieza por modelo o foto; el asistente la identifica, revisa existencias en tus sucursales y la aparta. Si describe una falla, abre la orden de servicio del taller.</p>
         <p class="who">Para distribuidores de maquinaria, refaccionarias y talleres.</p>
@@ -138,7 +146,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="gasolineras">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-truck"/></svg></div>
         <h3>Facturas y flotillas por WhatsApp</h3>
         <p>El cliente manda la foto del ticket y recibe su factura; las flotillas consultan saldo y reciben alertas de consumo.</p>
         <p class="who">Para gasolineras, distribuidores y empresas con flotilla.</p>
@@ -146,7 +154,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="eventos">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-users"/></svg></div>
         <h3>Festivales: contenido y boletos</h3>
         <p>La IA arma el plan de contenido del evento para que tu equipo lo apruebe, y un asistente responde dudas y aparta boletos por WhatsApp.</p>
         <p class="who">Para eventos, restaurantes, hoteles y marcas de consumo.</p>
@@ -154,7 +162,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="eventos">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg></div>
         <h3>Reservas y salones por WhatsApp</h3>
         <p>Toma reservas, ofrece otra hora si no hay lugar, confirma un día antes y llena las cancelaciones con la lista de espera.</p>
         <p class="who">Para restaurantes, bares y salones de eventos.</p>
@@ -162,7 +170,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="comercio">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Asistente interno</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Asistente interno</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-trend"/></svg></div>
         <h3>Pronóstico de inventario por tienda</h3>
         <p>Cruza ventas, temporada y clima para decirte qué se va a agotar, qué traspasar entre sucursales y qué comprar.</p>
         <p class="who">Para cadenas con sucursales, distribuidores y tiendas de temporada.</p>
@@ -170,7 +178,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="inmobiliaria">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-pin"/></svg></div>
         <h3>Inmobiliaria: califica y agenda visitas</h3>
         <p>Contesta al momento, califica por zona, presupuesto y crédito (Infonavit, Fovissste o bancario), sugiere propiedades y agenda la visita.</p>
         <p class="who">Para inmobiliarias, desarrolladoras y asesores.</p>
@@ -178,7 +186,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="pymes comercio">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente + CRM</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente + CRM</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-book"/></svg></div>
         <h3>Catálogo desde notas de voz</h3>
         <p>El dueño dice qué vende y a cuánto; la IA arma su catálogo de WhatsApp y un vendedor de IA cotiza en PDF, da seguimiento y le pasa las ventas listas.</p>
         <p class="who">Para pymes que venden por Facebook y WhatsApp sin lista digital.</p>
@@ -186,7 +194,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="pymes comercio">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-gem"/></svg></div>
         <h3>Joyería: del boceto al Reel</h3>
         <p>Desde el DM de Instagram, propone diseños con la piedra de la clienta, cotiza con el oro del día, crea la orden de taller y prepara el contenido para redes.</p>
         <p class="who">Para joyerías con taller, artesanos y piezas a la medida.</p>
@@ -194,7 +202,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="agro">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-target"/></svg></div>
         <h3>Precisión: centro de mando</h3>
         <p>Lee cada noche los datos de las máquinas de tus clientes, prioriza alertas y servicios, crea órdenes con refacciones apartadas y manda el resumen por WhatsApp.</p>
         <p class="who">Para distribuidores de maquinaria agrícola y talleres.</p>
@@ -202,7 +210,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="agro">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-globe"/></svg></div>
         <h3>Exportadora: torre de embarques</h3>
         <p>Lee los pedidos de los brokers, asigna lotes, arma packing list, factura de exportación y trazabilidad, y vigila la temperatura de cada tráiler.</p>
         <p class="who">Para agroexportadoras, empacadoras y comercializadoras.</p>
@@ -210,7 +218,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="agro construccion">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-ruler"/></svg></div>
         <h3>Implementos: cotizador a la medida</h3>
         <p>Configura el implemento, valida tus reglas de ingeniería, calcula acero, horas y precio, y genera la cotización con plano para que el director apruebe.</p>
         <p class="who">Para fabricantes de implementos, maquinaria y equipo a la medida.</p>
@@ -218,7 +226,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="profesionales">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Software a la medida</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-receipt"/></svg></div>
         <h3>Despacho: auditor fiscal continuo</h3>
         <p>Cada noche descarga los CFDI de tu cartera, concilia con el banco, revisa la lista 69-B y las Cartas Porte, y prepara avisos que el contador aprueba.</p>
         <p class="who">Para despachos contables y áreas de finanzas.</p>
@@ -226,7 +234,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="comercio">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Agente de WhatsApp</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-map"/></svg></div>
         <h3>Guía de pesca que vende</h3>
         <p>El cliente dice destino, especie y presupuesto; el asistente revisa el clima y el nivel de la presa, arma el kit con lo que hay en su tienda de Shopify y anota lo que no había para las compras.</p>
         <p class="who">Para tiendas de pesca, caza y outdoor.</p>
@@ -234,7 +242,7 @@
       </article>
 
       <article class="card demo-card reveal" data-sector="profesionales pymes">
-        <div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Recepcionista 24/7</span></div>
+        <div class="cabecera"><div class="badges"><span class="badge demo">Demo</span><span class="badge formato">Recepcionista 24/7</span></div><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-headset"/></svg></div>
         <h3>Recepcionista virtual</h3>
         <p>Contesta llamadas, agenda en Google Calendar y confirma por WhatsApp, también de noche y en fin de semana.</p>
         <p class="who">Para consultorios, clínicas y negocios con citas.</p>
@@ -258,11 +266,43 @@
     </div>
   </div>
 
-  <footer>
-    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
-    <nav aria-label="Legal"><a href="index.html">Inicio</a><a href="taller-ia.html">Taller de IA</a><a href="espacios-3d.html">Espacios 3D</a><a href="recepcionista.html">Recepcionista virtual</a><a href="paginas-web.html">Páginas web</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
-    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  <footer class="pie">
+    <div class="pie-grid">
+      <div>
+        <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Espacios 3D para empresas de Sinaloa.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener">WhatsApp: +52 668 130 5828</a>
+        <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a>
+        <span>Atención 24/7 por WhatsApp</span>
+        <span>Los Mochis, Sinaloa, México · en persona en todo Sinaloa</span>
+        <div class="redes">
+          <a href="https://www.instagram.com/prolink.365" target="_blank" rel="noopener" aria-label="Instagram de ProLink365"><img src="logo-instagram.svg" alt="" width="22" height="22"/>Instagram</a>
+          <a href="https://www.facebook.com/p/ProLink365-61589518042209/" target="_blank" rel="noopener" aria-label="Facebook de ProLink365"><img src="logo-facebook.png" alt="" width="22" height="22"/>Facebook</a>
+        </div>
+      </div>
+      <nav aria-label="Servicios">
+        <h4>Servicios</h4>
+        <a href="index.html#f-agente">Agente de IA + CRM</a>
+        <a href="index.html#f-software">Software a la medida</a>
+        <a href="espacios-3d.html">Espacios 3D</a>
+        <a href="recepcionista.html">Recepcionista virtual</a>
+        <a href="taller-ia.html">Taller "IA en tu puesto"</a>
+        <a href="paginas-web.html">Páginas web</a>
+      </nav>
+      <nav aria-label="Más">
+        <h4>Más</h4>
+        <a href="demos.html">Todas las demos</a>
+        <a href="index.html#como-trabajamos">Cómo trabajamos</a>
+        <a href="index.html#equipo">Quién somos</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos de servicio</a>
+      </nav>
+    </div>
+    
+    <p class="small pie-legal">© <span data-year>2026</span> ProLink365 · Carlos Manuel Robles · Los Mochis, Sinaloa</p>
   </footer>
 
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">

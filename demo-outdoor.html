@@ -25,29 +25,22 @@
   <link rel="stylesheet" href="prolink.css"/>
 </head>
 <body>
-  <nav class="top compacta" aria-label="Principal">
+  <nav class="top cuatro" aria-label="Principal">
     <a class="logo" href="index.html">Pro<span>Link</span>365</a>
     <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
-      <li><a href="index.html#demos">Demos</a></li>
-      <li><a href="demo-refacciones.html">Refacciones</a></li>
-      <li><a href="demo-cotizador.html">Cotizador</a></li>
-      <li><a href="demo-flotillas.html">Facturas y flotillas</a></li>
-      <li><a href="demo-festival.html">Festivales</a></li>
-      <li><a href="demo-reservas.html">Reservas</a></li>
-      <li><a href="demo-pronostico.html">Pronóstico</a></li>
-      <li><a href="demo-inmobiliaria.html">Inmobiliaria</a></li>
-      <li><a href="demo-expedientes.html">Expedientes</a></li>
-      <li><a href="demo-crm.html">CRM</a></li>
-      <li><a href="demo-semillas.html">Semillas</a></li>
-      <li><a href="demo-gasolineras.html">Gasolineras</a></li>
-      <li><a href="demo-catalogo.html">Catálogo</a></li>
-      <li><a href="demo-joyeria.html">Joyería</a></li>
-      <li><a href="demo-precision.html">Precisión</a></li>
-      <li><a href="demo-exportadora.html">Exportadora</a></li>
-      <li><a href="demo-implementos.html">Implementos</a></li>
-      <li><a href="demo-despacho.html">Despacho</a></li>
-      <li><a href="demo-outdoor.html" aria-current="page">Guía de pesca</a></li>
+      <li class="menu"><a href="index.html#servicios">Servicios <span class="caret" aria-hidden="true">▾</span></a>
+        <ul class="submenu" aria-label="Servicios">
+          <li><a href="index.html#f-agente">Agente de IA + CRM</a></li>
+          <li><a href="index.html#f-software">Software a la medida</a></li>
+          <li><a href="espacios-3d.html">Espacios 3D</a></li>
+          <li><a href="recepcionista.html">Recepcionista virtual</a></li>
+          <li><a href="taller-ia.html">Taller "IA en tu puesto"</a></li>
+          <li><a href="paginas-web.html">Páginas web</a></li>
+        </ul>
+      </li>
+      <li><a href="demos.html">Demos</a></li>
+      <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
+      <li><a href="index.html#equipo">Quién somos</a></li>
       <li class="mobile-only"><a href="#piloto">Quiero esto en mi empresa</a></li>
     </ul>
     <a href="#piloto" class="nav-cta desktop">Quiero esto en mi empresa</a>
@@ -56,13 +49,14 @@
 
   <header class="hero compact" style="padding-bottom:2rem;">
     <div class="orb"></div>
-    <div class="hero-badge">Demo · Tiendas de pesca y outdoor</div>
+    <a class="volver" href="demos.html"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-arrow-left"/></svg>Todas las demos</a>
+    <div class="hero-chips"><div class="hero-badge">Demo · Tiendas de pesca y outdoor</div><span class="badge formato">Agente de WhatsApp</span></div>
     <h1 style="font-size:clamp(2.1rem,5vw,3.6rem);">Un guía de pesca <em>que también vende</em></h1>
     <p class="hero-sub" style="margin-bottom:1.4rem;">El cliente dice a dónde va, qué quiere pescar y cuánto trae. El asistente revisa el clima, el nivel de la presa y la guía de tu equipo, arma el kit con lo que hay en su tienda, lo aparta en Shopify y anota lo que te pidieron y no tenías para tus compras.</p>
   </header>
 
   <section style="padding-top:0;">
-    <p class="demo-note" role="note"><span aria-hidden="true">⚠️</span><span><b>Demo simulada con una tienda, productos, precios y existencias ficticios.</b> El clima y el nivel de la presa son de ejemplo. Toca los botones para conversar como cliente. Conectado a tu tienda, usa tu Shopify, tus existencias y la guía de pesca de tu equipo.</span></p>
+    <p class="demo-note" role="note"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-alert"/></svg><span><b>Demo simulada con una tienda, productos, precios y existencias ficticios.</b> El clima y el nivel de la presa son de ejemplo. Toca los botones para conversar como cliente. Conectado a tu tienda, usa tu Shopify, tus existencias y la guía de pesca de tu equipo.</span></p>
     <div class="demo-layout">
       <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
         <div class="phone-head"><div class="phone-avatar" aria-hidden="true">OD</div><div><b>Outdoor Demo</b><small>guía de pesca</small></div></div>
@@ -71,12 +65,12 @@
       </div>
       <div>
         <div class="panel">
-          <h3><span aria-hidden="true">⚙️</span> Lo que pasa detrás</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-gear"/></svg> Lo que pasa detrás</h3>
           <ul class="log" id="log"><li class="vacio">Aquí verás lo que hace el sistema en cada paso.</li></ul>
           <div class="kpis"><div class="kpi"><b id="kResp">—</b><span>Tiempo de respuesta</span></div><div class="kpi"><b id="kKits">11</b><span>Kits armados hoy</span></div><div class="kpi"><b id="kVentas">$14,380</b><span>Ventas por chat hoy</span></div><div class="kpi"><b id="kNo">23</b><span>Pedidos sin existencia este mes</span></div></div>
         </div>
         <div class="panel" style="margin-top:1.2rem;">
-          <h3><span aria-hidden="true">🗺️</span> Condiciones del viaje</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-map"/></svg> Condiciones del viaje</h3>
           <p class="muted small" style="margin-bottom:0.6rem;">En producción, el clima sale de un servicio de pronóstico y el nivel, del reporte diario de presas de CONAGUA. Aquí son datos de ejemplo.</p>
           <div class="table-wrap"><table class="data-table"><tbody id="cond"></tbody></table></div>
           <h4 class="sub-h">Guía de pesca de la tienda</h4>
@@ -84,13 +78,13 @@
           <div class="table-wrap"><table class="data-table"><thead><tr><th>Lugar</th><th>Especie</th><th>Nota</th><th>Quién</th></tr></thead><tbody id="guiaPesca"></tbody></table></div>
         </div>
         <div class="panel" style="margin-top:1.2rem;">
-          <h3><span aria-hidden="true">🛒</span> Existencias en Shopify y el kit</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-cart"/></svg> Existencias en Shopify y el kit</h3>
           <div class="presu"><div class="barra"><i id="barra"></i></div><span id="presuTxt" class="small"></span></div>
           <div class="table-wrap"><table class="data-table"><thead><tr><th>Producto</th><th>Precio</th><th>Los Mochis</th><th>Culiacán</th><th>Mazatlán</th></tr></thead><tbody id="inv"></tbody></table></div>
           <p class="muted small" style="margin-top:0.5rem;">En verde, lo que va en el kit. Productos, precios y existencias de ejemplo.</p>
         </div>
         <div class="panel" style="margin-top:1.2rem;">
-          <h3><span aria-hidden="true">📉</span> Lo que piden y no hay → compras</h3>
+          <h3><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-trend-down"/></svg> Lo que piden y no hay → compras</h3>
           <p class="muted small" style="margin-bottom:0.6rem;">Cada producto que no tienes y cada quiebre se suma a tu modelo de compras. Con 7 solicitudes en 30 días, entra al pedido.</p>
           <div class="table-wrap"><table class="data-table"><thead><tr><th>Producto</th><th>Veces (30 días)</th><th>Tienda</th><th>Qué pasa</th></tr></thead><tbody id="demanda"></tbody></table></div>
           <p class="small" style="margin-top:0.6rem;"><a class="link" href="demo-pronostico.html">Así entra al pronóstico por tienda →</a></p>
@@ -114,22 +108,53 @@
     </div>
   </section>
 
-  <div class="full-divider"></div>
-
-  <section id="piloto">
+  <section id="piloto" class="franja">
     <div class="section-tag">Cómo sería en tu empresa</div>
     <h2>Un piloto de 4 a 6 semanas,<br/><em>con una métrica</em></h2>
     <div class="grid" style="margin-top:2rem;">
-      <article class="card"><h3>Qué incluye</h3><ul><li>Guía de pesca en WhatsApp e Instagram conectado a tu Shopify: existencias por tienda, precios y apartados.</li><li>Kits por destino, especie y presupuesto, con el clima, el nivel de la presa y la guía que escribe tu equipo.</li><li>Pedido con recogida en tienda o envío, traspasos entre sucursales y liga de pago.</li><li>Lo que piden y no tienes, los quiebres y los reportes de pesca entran a tu modelo de compras. Tus vendedores validan los consejos.</li></ul></article>
-      <article class="card"><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
-      <article class="card"><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20la%20gu%C3%ADa%20de%20pesca%20y%20la%20quiero%20para%20mi%20tienda" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
+      <article class="card"><div class="icono"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-list"/></svg></div><h3>Qué incluye</h3><ul><li>Guía de pesca en WhatsApp e Instagram conectado a tu Shopify: existencias por tienda, precios y apartados.</li><li>Kits por destino, especie y presupuesto, con el clima, el nivel de la presa y la guía que escribe tu equipo.</li><li>Pedido con recogida en tienda o envío, traspasos entre sucursales y liga de pago.</li><li>Lo que piden y no tienes, los quiebres y los reportes de pesca entran a tu modelo de compras. Tus vendedores validan los consejos.</li></ul></article>
+      <article class="card"><div class="icono"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-target"/></svg></div><h3>Cómo lo medimos</h3><p>En la primera semana tomamos la línea base (cómo está hoy) y al final comparamos. Una persona de tu equipo revisa lo que hace la IA durante todo el piloto.</p><p class="small">Precio cerrado antes de empezar. Al final, tú decides si seguimos.</p></article>
+      <article class="card"><div class="icono"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-chat"/></svg></div><h3>¿Lo quieres ver con tus datos?</h3><p>En una llamada de 30 minutos te mostramos cómo quedaría con tu catálogo y tu forma de trabajar.</p><a class="btn-primary btn-sm" style="margin-top:auto;" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20la%20gu%C3%ADa%20de%20pesca%20y%20la%20quiero%20para%20mi%20tienda" target="_blank" rel="noopener">Escribir por WhatsApp</a></article>
     </div>
   </section>
 
-  <footer>
-    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="demos.html">Todas las demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
-    <p class="small" style="margin-top:0.8rem;">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+  <footer class="pie">
+    <div class="pie-grid">
+      <div>
+        <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Espacios 3D para empresas de Sinaloa.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener">WhatsApp: +52 668 130 5828</a>
+        <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a>
+        <span>Atención 24/7 por WhatsApp</span>
+        <span>Los Mochis, Sinaloa, México · en persona en todo Sinaloa</span>
+        <div class="redes">
+          <a href="https://www.instagram.com/prolink.365" target="_blank" rel="noopener" aria-label="Instagram de ProLink365"><img src="logo-instagram.svg" alt="" width="22" height="22"/>Instagram</a>
+          <a href="https://www.facebook.com/p/ProLink365-61589518042209/" target="_blank" rel="noopener" aria-label="Facebook de ProLink365"><img src="logo-facebook.png" alt="" width="22" height="22"/>Facebook</a>
+        </div>
+      </div>
+      <nav aria-label="Servicios">
+        <h4>Servicios</h4>
+        <a href="index.html#f-agente">Agente de IA + CRM</a>
+        <a href="index.html#f-software">Software a la medida</a>
+        <a href="espacios-3d.html">Espacios 3D</a>
+        <a href="recepcionista.html">Recepcionista virtual</a>
+        <a href="taller-ia.html">Taller "IA en tu puesto"</a>
+        <a href="paginas-web.html">Páginas web</a>
+      </nav>
+      <nav aria-label="Más">
+        <h4>Más</h4>
+        <a href="demos.html">Todas las demos</a>
+        <a href="index.html#como-trabajamos">Cómo trabajamos</a>
+        <a href="index.html#equipo">Quién somos</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos de servicio</a>
+      </nav>
+    </div>
+    <p class="small pie-legal">Las empresas, productos, precios y datos de esta demo son ficticios.</p>
+    <p class="small pie-legal">© <span data-year>2026</span> ProLink365 · Carlos Manuel Robles · Los Mochis, Sinaloa</p>
   </footer>
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20vi%20la%20demo%20de%20la%20gu%C3%ADa%20de%20pesca%20y%20la%20quiero%20para%20mi%20tienda" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
   <script src="prolink.js"></script>
