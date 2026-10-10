@@ -60,8 +60,10 @@ h1 { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: clamp(2.5rem
 h1 em, h2 em { font-style: normal; color: var(--green); }
 h2 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: clamp(1.9rem, 4vw, 2.9rem); letter-spacing: -1px; line-height: 1.1; margin-bottom: 1rem; }
 h3 { font-family: 'Syne', sans-serif; font-weight: 700; }
+h1, h2, h3 { overflow-wrap: break-word; hyphens: auto; }
 section { position: relative; z-index: 1; padding: 6rem 2rem; max-width: 1140px; margin: 0 auto; }
 section[id], [id].cta-section { scroll-margin-top: 76px; }
+@media (max-width: 480px) { h1 { font-size: clamp(2rem, 9.5vw, 2.5rem); letter-spacing: -1px; } h2 { font-size: clamp(1.55rem, 7.5vw, 1.9rem); } section { padding: 4.5rem 1.15rem; } .hero, .hero.compact { padding-left: 1.15rem; padding-right: 1.15rem; } .cta-section { padding: 5rem 1.15rem; } }
 .section-tag { font-size: 0.75rem; color: var(--green); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 1rem; font-weight: 500; }
 .section-sub { color: var(--gray); font-size: 1.05rem; max-width: 620px; margin-bottom: 3rem; }
 .full-divider { width: 100%; height: 1px; background: var(--border); position: relative; z-index: 1; }
@@ -87,14 +89,14 @@ section[id], [id].cta-section { scroll-margin-top: 76px; }
 .btn-sm { font-size: 0.88rem; padding: 0.55rem 1.1rem; }
 
 /* ── FRANJA DE CONFIANZA ── */
-.trust { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+.trust { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
 .trust div { padding: 1.6rem 1.4rem; border-right: 1px solid var(--border); }
 .trust div:last-child { border-right: none; }
 .trust strong { display: block; font-family: 'Syne', sans-serif; font-weight: 700; color: var(--green); font-size: 1.02rem; margin-bottom: 0.2rem; }
 .trust span { color: var(--gray); font-size: 0.86rem; }
 
 /* ── TARJETAS ── */
-.grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.grid { display: grid; gap: 1.4rem; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
 .card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; position: relative; display: flex; flex-direction: column; gap: 0.8rem; transition: border-color .3s, transform .2s; }
 .card:hover { border-color: rgba(0,232,122,.35); transform: translateY(-3px); }
 .card .icon { font-size: 2.1rem; line-height: 1; }
@@ -111,7 +113,7 @@ section[id], [id].cta-section { scroll-margin-top: 76px; }
 .card .corner { position: absolute; top: 1.1rem; right: 1.1rem; }
 
 /* ── PASOS ── */
-.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.4rem; counter-reset: paso; }
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr)); gap: 1.4rem; counter-reset: paso; }
 .step { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.8rem; }
 .step-num { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 3.2rem; line-height: 1; margin-bottom: 0.8rem; -webkit-text-stroke: 1px rgba(0,232,122,.45); color: transparent; letter-spacing: -2px; }
 .step h3 { font-size: 1.08rem; margin-bottom: 0.4rem; }
@@ -140,7 +142,8 @@ footer nav a:hover { color: var(--green); }
 /* ── DEMOS ── */
 .demo-note { display: flex; gap: 0.6rem; align-items: flex-start; background: rgba(255,200,0,0.06); border: 1px solid rgba(255,200,0,0.18); color: #ffe7a3; border-radius: 10px; padding: 0.75rem 1rem; font-size: 0.84rem; max-width: 760px; margin: 0 auto 2rem; text-align: left; }
 .demo-layout { display: grid; grid-template-columns: minmax(300px, 400px) 1fr; gap: 1.6rem; align-items: start; }
-@media (max-width: 860px) { .demo-layout { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .demo-layout { grid-template-columns: minmax(0, 1fr); } }
+.demo-layout > * { min-width: 0; }
 .phone { background: #0b141a; border: 1px solid rgba(255,255,255,0.08); border-radius: 26px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.45); display: flex; flex-direction: column; height: 640px; max-height: 80vh; }
 .phone-head { background: #1f2c33; padding: 0.8rem 1rem; display: flex; align-items: center; gap: 0.7rem; }
 .phone-avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--green); color: #0a0f0d; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 0.85rem; flex-shrink: 0; }

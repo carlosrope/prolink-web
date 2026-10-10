@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="favicon.ico" sizes="any"/>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <meta name="theme-color" content="#0a0f0d"/>
+  <title>Taller "IA en tu puesto" — ProLink365</title>
+  <meta name="description" content="Taller práctico de IA de 4 horas para equipos de empresa, en tus instalaciones y con casos reales de tu negocio. Cada persona sale usando la IA en su puesto y la empresa con su primer proceso elegido para automatizar."/>
+  <link rel="canonical" href="https://prolink365.com.mx/taller-ia.html"/>
+  <meta property="og:title" content="Taller &quot;IA en tu puesto&quot; — ProLink365"/>
+  <meta property="og:description" content="4 horas en tu empresa, con casos reales de tu negocio. Plantillas por área, política de uso de IA y tu primer proceso para automatizar."/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://prolink365.com.mx/taller-ia.html"/>
+  <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="prolink.css"/>
+  <style>
+    .facts { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(170px, 100%), 1fr)); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: var(--bg2); }
+    .facts div { padding: 1.5rem 1.2rem; text-align: center; border-right: 1px solid var(--border); }
+    .facts div:last-child { border-right: none; }
+    .facts b { display: block; font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 2rem; color: var(--green); line-height: 1.1; }
+    .facts span { color: var(--gray); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+    .agenda { list-style: none; display: flex; flex-direction: column; gap: 1rem; counter-reset: b; }
+    .agenda li { display: grid; grid-template-columns: 92px 1fr; gap: 1.2rem; background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 1.4rem 1.5rem; }
+    .agenda .min { font-family: 'Exo 2', sans-serif; font-weight: 900; color: var(--green); font-size: 1.5rem; line-height: 1; }
+    .agenda .min small { display: block; font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.75rem; color: var(--gray); margin-top: 0.3rem; }
+    .agenda h3 { font-size: 1.08rem; margin-bottom: 0.35rem; }
+    .agenda p { color: var(--gray); font-size: 0.92rem; }
+    .agenda ul { list-style: none; margin-top: 0.5rem; display: flex; flex-direction: column; gap: 0.25rem; }
+    .agenda ul li { display: block; background: none; border: none; padding: 0 0 0 1.1rem; position: relative; color: var(--gray); font-size: 0.88rem; border-radius: 0; }
+    .agenda ul li::before { content: '›'; position: absolute; left: 0.2rem; color: var(--green); font-weight: 700; }
+    @media (max-width: 600px) { .agenda li { grid-template-columns: 1fr; gap: 0.6rem; } }
+    .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .chips span { font-size: 0.85rem; color: var(--white); border: 1px solid var(--border); background: rgba(0,232,122,0.05); border-radius: 100px; padding: 0.35rem 0.9rem; }
+    details.faq { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.2rem; }
+    details.faq + details.faq { margin-top: 0.7rem; }
+    details.faq summary { cursor: pointer; font-family: 'Syne', sans-serif; font-weight: 700; }
+    details.faq p { color: var(--gray); margin-top: 0.6rem; font-size: 0.92rem; }
+  </style>
+</head>
+<body>
+  <nav class="top" aria-label="Principal">
+    <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+    <ul class="nav-links">
+      <li><a href="index.html#servicios">Servicios</a></li>
+      <li><a href="index.html#sectores">Sectores</a></li>
+      <li><a href="index.html#demos">Demos</a></li>
+      <li><a href="taller-ia.html" aria-current="page">Taller de IA</a></li>
+      <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
+      <li class="mobile-only"><a href="#contacto">Agendar diagnóstico</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta desktop">Agendar diagnóstico</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </nav>
+
+  <header class="hero compact">
+    <div class="orb"></div>
+    <div class="hero-badge">Capacitación · IA en tu puesto</div>
+    <h1>Taller práctico de IA<br/><em>para tu equipo</em></h1>
+    <p class="hero-sub">4 horas en tu empresa, con casos reales de tu negocio. Cada persona sale usando la IA en una tarea de su puesto, y la empresa sale con su primer proceso elegido para automatizar.</p>
+    <div class="hero-actions">
+      <a href="taller-ia.pdf" class="btn-primary" download>Descargar temario (PDF)</a>
+      <a href="#contacto" class="btn-ghost">Agendar diagnóstico</a>
+    </div>
+  </header>
+
+  <div class="facts" role="list">
+    <div role="listitem"><b>4 h</b><span>Un solo bloque</span></div>
+    <div role="listitem"><b>15</b><span>Personas por grupo</span></div>
+    <div role="listitem"><b>En sitio</b><span>En tu empresa, en Sinaloa</span></div>
+    <div role="listitem"><b>Tus casos</b><span>Nada de ejemplos genéricos</span></div>
+  </div>
+
+  <section id="temario">
+    <div class="section-tag reveal">Temario</div>
+    <h2 class="reveal">Menos teoría,<br/><em>más práctica con tu trabajo</em></h2>
+    <p class="section-sub reveal">El temario se ajusta a tu giro con un diagnóstico previo de 45 minutos con dirección. Los ejercicios usan tus documentos, tus cotizaciones y tus procesos, con los datos sensibles anonimizados.</p>
+    <ol class="agenda">
+      <li class="reveal"><div class="min">45<small>minutos</small></div><div><h3>1. Qué sí y qué no hace la IA hoy</h3><p>Lo que ya puedes resolver con IA en tu empresa y dónde todavía falla.</p><ul><li>Mitos frecuentes y errores que cuestan dinero</li><li>Qué información nunca subir: datos de clientes, fiscales y personales</li></ul></div></li>
+      <li class="reveal"><div class="min">60<small>minutos</small></div><div><h3>2. Cómo pedirle las cosas a la IA</h3><p>La habilidad que más piden los equipos: instrucciones claras que dan resultados útiles a la primera.</p><ul><li>Estructura de una buena instrucción: rol, contexto, tarea y formato</li><li>Cómo revisar y corregir lo que entrega la IA antes de usarlo</li></ul></div></li>
+      <li class="reveal"><div class="min">60<small>minutos</small></div><div><h3>3. Práctica por área con casos de tu empresa</h3><p>Cada equipo resuelve una tarea real de su puesto.</p><ul><li>Ventas: cotizaciones, respuestas a clientes y seguimiento</li><li>Administración: facturas, conciliaciones y reportes</li><li>Técnicos y servicio: manuales, procedimientos y diagnósticos</li><li>Marketing: contenido, campañas y redes</li></ul></div></li>
+      <li class="reveal"><div class="min">45<small>minutos</small></div><div><h3>4. Mapa de procesos: qué automatizar primero</h3><p>Detectamos las tareas repetitivas de cada área y las priorizamos por impacto y facilidad.</p><ul><li>Tres tareas por área, ordenadas</li><li>Elección del primer proceso, con una métrica para medirlo</li></ul></div></li>
+      <li class="reveal"><div class="min">30<small>minutos</small></div><div><h3>5. Reglas de uso y plan de 30 días</h3><p>Cómo usar la IA en tu empresa sin riesgos y quién hace qué el próximo mes.</p><ul><li>Política de uso de IA de una página</li><li>Plan de 30 días por área</li></ul></div></li>
+    </ol>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="entregables">
+    <div class="section-tag reveal">Lo que se llevan</div>
+    <h2 class="reveal">Herramientas para seguir<br/>usándola el lunes</h2>
+    <div class="grid" style="margin-top:2rem;">
+      <article class="card reveal"><div class="icon" aria-hidden="true">🧩</div><h3>Plantillas por área</h3><p>Instrucciones listas para copiar y adaptar en ventas, administración, servicio y marketing.</p></article>
+      <article class="card reveal"><div class="icon" aria-hidden="true">🛡️</div><h3>Política de uso de IA</h3><p>Una página con lo que sí y lo que no se sube a la IA en tu empresa.</p></article>
+      <article class="card reveal"><div class="icon" aria-hidden="true">🗺️</div><h3>Mapa de procesos priorizado</h3><p>Las tareas repetitivas de cada área, ordenadas por impacto y facilidad.</p></article>
+      <article class="card reveal"><div class="icon" aria-hidden="true">🎯</div><h3>Propuesta de piloto</h3><p>Si quieren seguir: un piloto de 4 a 6 semanas con una métrica y precio cerrado, sin compromiso.</p></article>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="como">
+    <div class="section-tag reveal">Cómo funciona</div>
+    <h2 class="reveal">Antes, durante y después</h2>
+    <div class="steps" style="margin-top:2rem;">
+      <div class="step reveal"><div class="step-num">01</div><h3>Diagnóstico</h3><p>45 minutos con dirección para elegir los casos reales y las áreas que van a participar.</p></div>
+      <div class="step reveal"><div class="step-num">02</div><h3>Taller en tu empresa</h3><p>4 horas, hasta 15 personas por grupo. Si son más, armamos varios grupos por área.</p></div>
+      <div class="step reveal"><div class="step-num">03</div><h3>Acompañamiento</h3><p>Dos semanas de dudas por WhatsApp para que el equipo no se quede atorado.</p></div>
+      <div class="step reveal"><div class="step-num">04</div><h3>Primer piloto (opcional)</h3><p>Si quieren, automatizamos el proceso elegido en 4 a 6 semanas y lo medimos juntos.</p></div>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="para-quien">
+    <div class="section-tag reveal">Para quién</div>
+    <h2 class="reveal">Para cualquier puesto.<br/><em>No hace falta programar.</em></h2>
+    <p class="section-sub reveal">Lo hemos pensado para empresas de Sinaloa de agro, construcción y acero, comercio, servicios profesionales, salud, restaurantes y talleres.</p>
+    <div class="chips reveal"><span>Dirección</span><span>Ventas</span><span>Administración y contabilidad</span><span>Técnicos y servicio</span><span>Marketing</span><span>Operación y almacén</span></div>
+    <div class="grid" style="margin-top:2.2rem;">
+      <article class="card reveal"><h3>Qué se necesita</h3><ul><li>Una sala con pantalla o proyector</li><li>Laptop o celular por participante</li><li>Internet</li></ul></article>
+      <article class="card reveal"><h3>Con qué herramientas</h3><p>Con las que ya usen: ChatGPT, Gemini o Copilot. Las versiones gratuitas sirven para el taller; no hace falta comprar licencias.</p></article>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <section id="preguntas">
+    <div class="section-tag reveal">Preguntas frecuentes</div>
+    <h2 class="reveal">Lo que nos preguntan</h2>
+    <div class="reveal" style="margin-top:1.6rem;">
+      <details class="faq"><summary>¿Mi equipo necesita saber de tecnología?</summary><p>No. Está pensado para personas que nunca han usado IA o que la usan poco. Lo importante es conocer bien su trabajo.</p></details>
+      <details class="faq"><summary>¿Qué pasa con la información de mis clientes?</summary><p>En los ejercicios usamos documentos anonimizados, y una parte del taller es justamente qué información no se debe subir a la IA.</p></details>
+      <details class="faq"><summary>¿Y si somos más de 15 personas?</summary><p>Armamos varios grupos, de preferencia por área, para que los ejercicios se parezcan más al trabajo de cada uno.</p></details>
+      <details class="faq"><summary>¿Después nos van a querer vender algo?</summary><p>Al final te entregamos una propuesta de piloto para el proceso elegido. Es opcional: el taller vale por sí solo.</p></details>
+    </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <div class="cta-section" id="contacto">
+    <div class="section-tag reveal">Empecemos por el diagnóstico</div>
+    <h2 class="reveal">¿Armamos el taller<br/>para tu equipo?</h2>
+    <p class="reveal">En 45 minutos elegimos los casos y las áreas, y te damos fecha y precio cerrado.</p>
+    <div class="hero-actions reveal">
+      <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20taller%20%22IA%20en%20tu%20puesto%22%20para%20mi%20equipo" class="btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a href="taller-ia.pdf" class="btn-ghost" download>Descargar temario (PDF)</a>
+    </div>
+  </div>
+
+  <footer>
+    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
+    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
+    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
+    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20el%20taller%20%22IA%20en%20tu%20puesto%22" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+  <script src="prolink.js"></script>
+</body>
+</html>

@@ -27,13 +27,13 @@
   <link rel="stylesheet" href="prolink.css"/>
   <style>
     /* ── FEATURES ── */
-    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:1.5rem; }
+    .features-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:1.5rem; }
     .feature-card { background:var(--card); border:1px solid var(--border); border-radius:12px; padding:2rem; transition:border-color .3s,transform .3s; }
     .feature-card:hover { border-color:rgba(0,232,122,.35); transform:translateY(-4px); }
     .feature-icon { font-size:2rem; margin-bottom:1rem; }
     .feature-card h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:600; margin-bottom:.5rem; }
     .feature-card p { color:var(--gray); font-size:.9rem; line-height:1.6; }
-    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
+    .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); gap:1.5rem; align-items:start; }
     .price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; }
     .price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); position:relative; }
     .featured-badge { position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--green); color:#0a0f0d; font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; padding:.25rem .8rem; border-radius:100px; white-space:nowrap; }
@@ -50,7 +50,7 @@
     .price-btn-solid { background:var(--green); color:#0a0f0d; }
     .price-btn-solid:hover { background:var(--green-dim); }
     /* ── PRICING PÁGINAS WEB ── */
-    .web-pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; align-items:start; }
+    .web-pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr)); gap:1.5rem; align-items:start; }
     .web-price-card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:2rem; transition:border-color .3s; position:relative; }
     .web-price-card.featured { border-color:var(--green); background:linear-gradient(135deg,rgba(0,232,122,.05),var(--card)); }
     .web-setup { font-family:'Exo 2',sans-serif; font-weight:900; font-size:2.4rem; color:var(--green); line-height:1; margin-bottom:0.15rem; text-shadow:0 0 20px rgba(0,232,122,.25); }
