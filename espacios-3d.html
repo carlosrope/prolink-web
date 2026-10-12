@@ -47,6 +47,18 @@
     .lista li b { color: var(--white); font-weight: 500; }
     .para { margin-top: 1.2rem; font-size: 0.85rem; color: var(--gray); }
     .para b { color: var(--green); font-weight: 500; }
+    .gratis-pago { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 1.4rem; margin-top: 2rem; }
+    .gratis-pago .card h3 { font-size: 1.2rem; }
+    .gratis-pago .card .tag-gratis { display: inline-block; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; padding: 0.25rem 0.7rem; border-radius: 100px; background: rgba(0,232,122,0.12); color: var(--green); border: 1px solid rgba(0,232,122,0.25); width: fit-content; }
+    .planes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr)); gap: 1.2rem; margin-top: 1.6rem; }
+    .plan { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.6rem; display: flex; flex-direction: column; gap: 0.5rem; }
+    .plan .modulo { font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.12em; }
+    .plan h4 { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.1rem; }
+    .plan .monto { font-family: 'Exo 2', sans-serif; font-weight: 900; font-size: 2.1rem; color: var(--green); line-height: 1; margin: 0.3rem 0 0.1rem; }
+    .plan .monto small { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.85rem; color: var(--gray); }
+    .plan p { color: var(--gray); font-size: 0.9rem; }
+    .plan .extra { font-size: 0.82rem; color: var(--gray); border-top: 1px solid var(--border); padding-top: 0.6rem; margin-top: auto; }
+    .condiciones-3d { margin-top: 1.4rem; color: var(--gray); font-size: 0.88rem; }
   </style>
 </head>
 <body>
@@ -125,6 +137,68 @@
       <article class="card demo-card reveal"><span class="badge demo">Demo</span><h3>Un salón con boda de 240 invitados</h3><p>Mesas, pista, escenario y lista de mobiliario. Cambia a 3D, recorre el salón o siéntate en una mesa.</p><a class="link" href="https://planner-3d-production.up.railway.app/disenador/salon-demo" target="_blank" rel="noopener">Abrir el salón →</a></article>
       <article class="card demo-card reveal"><span class="badge demo">Demo</span><h3>Una casa para inmobiliarias</h3><p>Planta baja y alta, cuartos con su área, muebles y pisos. Prueba amueblar, quitar muros, la Vista 3D y la visita guiada.</p><a class="link" href="https://planner-3d-production.up.railway.app/disenador/chardonnay" target="_blank" rel="noopener">Abrir la casa →</a></article>
     </div>
+  </section>
+
+  <div class="full-divider"></div>
+
+  <!-- ── QUÉ ES GRATIS Y QUÉ ES DE PAGO ── -->
+  <section id="planes">
+    <div class="section-tag reveal">Qué es gratis y qué es de pago</div>
+    <h2 class="reveal">La demo es gratis.<br/><em>Tu espacio real va con plan.</em></h2>
+    <p class="section-sub reveal">Dos módulos, Eventos y Casas, y en cada uno un plan para quien usa el catálogo y otro para quien pone su espacio en él. Tu salón o tu modelo se convierte desde tu plano, incluido en el plan.</p>
+    <div class="gratis-pago">
+      <article class="card reveal">
+        <span class="tag-gratis">Gratis, sin cuenta</span>
+        <h3>La demostración</h3>
+        <p>El Salón Demostración con una boda de 240 invitados y la casa Chardonnay. Mueve mesas, cambia el montaje, acomoda invitados, amuebla y recorre en 3D.</p>
+        <ul class="lista">
+          <li>Se guarda solo en tu navegador.</li>
+          <li>Sin enlace para compartir, sin tu marca y sin hojas para imprimir.</li>
+          <li>Sirve para conocer el software en cinco minutos antes de hablar con nosotros.</li>
+        </ul>
+      </article>
+      <article class="card reveal">
+        <span class="badge">Con plan</span>
+        <h3>Tu espacio real</h3>
+        <p>Tu salón o tus modelos de casa en 3D desde tu plano, tus eventos o proyectos guardados, enlaces con tu marca para el cliente, hojas en PDF y el catálogo de la ciudad.</p>
+        <ul class="lista">
+          <li><b>Eventos:</b> planners, organizadores y salones.</li>
+          <li><b>Casas:</b> inmobiliarias, asesores y desarrolladoras.</li>
+          <li>Precio fijo 12 meses. Sin plazo forzoso.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="planes reveal">
+      <div class="plan">
+        <span class="modulo">Eventos</span>
+        <h4>Planner u organizador</h4>
+        <div class="monto">$690 <small>MXN al mes</small></div>
+        <p>Eventos ilimitados en cualquier salón del catálogo: plano, 3D, invitados, proveedores, hojas y enlace con tu marca.</p>
+        <p class="extra">O $6,900 al año. Hasta 3 personas de tu equipo.</p>
+      </div>
+      <div class="plan">
+        <span class="modulo">Eventos</span>
+        <h4>Salón de eventos</h4>
+        <div class="monto">$790 <small>MXN al mes</small></div>
+        <p>Tu salón en 3D desde tu plano, en el catálogo; eventos ilimitados con tu logo; invita planners y recibe solicitudes por WhatsApp.</p>
+        <p class="extra">O $7,900 al año. $290 al mes por cada salón adicional.</p>
+      </div>
+      <div class="plan">
+        <span class="modulo">Casas</span>
+        <h4>Inmobiliaria o asesor</h4>
+        <div class="monto">$690 <small>MXN al mes</small></div>
+        <p>Muestra las casas del catálogo con tu marca: amuebladas o sin muebles, pisos con precio, recorrido y enlace para tu cliente.</p>
+        <p class="extra">O $6,900 al año. Casa propia desde plano: $290 cada una.</p>
+      </div>
+      <div class="plan">
+        <span class="modulo">Casas</span>
+        <h4>Desarrolladora o constructora</h4>
+        <div class="monto">$790 <small>MXN al mes</small></div>
+        <p>Un modelo de casa en 3D desde tu CAD, en el catálogo, con tu marca y enlaces para tus asesores y compradores.</p>
+        <p class="extra">O $7,900 al año. $290 al mes por cada modelo adicional.</p>
+      </div>
+    </div>
+    <p class="condiciones-3d reveal">Los dos módulos juntos: 20% de descuento sobre la suma. Precios antes de IVA, con factura. Garantía de 15 días en la primera mensualidad. Para una cuenta, escríbenos por WhatsApp: te la abrimos el mismo día.</p>
   </section>
 
   <div class="full-divider"></div>
