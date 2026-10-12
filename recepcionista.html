@@ -127,6 +127,9 @@
     .price-btn-outline:hover { border-color:var(--green); color:var(--green); }
     .price-btn-solid { background:var(--green); color:#0a0f0d; }
     .price-btn-solid:hover { background:var(--green-dim); }
+    .condiciones { margin-top: 1.8rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 1rem; }
+    .condiciones p { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1rem 1.2rem; color: var(--gray); font-size: 0.9rem; }
+    .condiciones b { color: var(--white); font-weight: 500; }
     #insigniaWrap { position:relative; z-index:1; background:var(--bg2); border-top:none; border-bottom:1px solid var(--border); padding:2rem 2rem 1.8rem; text-align:center; overflow:hidden; }
     #insigniaWrap::before { content:''; position:absolute; top:0; left:0; right:0; height:90px; background:linear-gradient(to bottom,#0a0f0d 0%,transparent 100%); pointer-events:none; z-index:1; }
     #insigniaWrap::after { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 65% 85% at 50% 45%,transparent 25%,rgba(5,10,8,0.72) 100%); pointer-events:none; z-index:0; }
@@ -339,51 +342,56 @@
   <section id="precios">
     <div class="section-tag reveal">Recepcionista Virtual — Planes</div>
     <h2 class="reveal">Una cita perdida cuesta más<br/>que todo el mes.</h2>
-    <p class="section-sub reveal">Inversión mensual. Cancelas cuando quieras con 15 días de aviso.</p>
+    <p class="section-sub reveal">Planes por minutos de llamada incluidos. Sin plazo forzoso: cancelas con 15 días de aviso, y si en las primeras dos semanas no te sirve, te devolvemos la mensualidad.</p>
     <div class="pricing-grid">
       <div class="price-card reveal">
         <div class="price-plan">Básico</div>
         <div class="price-amount">$3,000</div>
         <div class="price-period">MXN / mes</div>
-        <div class="price-calls">Hasta 100 llamadas/mes</div>
+        <div class="price-calls">150 minutos incluidos · unas 60 llamadas</div>
         <ul class="price-features">
-          <li>Recepcionista virtual 24/7</li>
-          <li>Agendado en Google Calendar</li>
-          <li>Confirmación WhatsApp al paciente</li>
-          <li>Notificación al dueño</li>
-          <li>Soporte local</li>
+          <li>Contesta las 24 horas en tu número</li>
+          <li>Agenda, cambia y cancela en Google Calendar</li>
+          <li>Confirmación y recordatorio por WhatsApp</li>
+          <li>Transfiere a una persona cuando hace falta</li>
+          <li>Resumen diario y panel con grabaciones</li>
+          <li>1 hora de ajustes al mes</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
       <div class="price-card featured reveal">
         <div class="featured-badge">Más popular</div>
         <div class="price-plan">Profesional</div>
-        <div class="price-amount">$4,000</div>
+        <div class="price-amount">$4,500</div>
         <div class="price-period">MXN / mes</div>
-        <div class="price-calls">101–200 llamadas/mes</div>
+        <div class="price-calls">400 minutos incluidos · unas 160 llamadas</div>
         <ul class="price-features">
           <li>Todo lo del plan Básico</li>
-          <li>Recordatorio automático 24h antes</li>
-          <li>Confirmación o cancelación por WhatsApp</li>
-          <li>Cancelación automática en calendario</li>
-          <li>Reporte semanal de citas al dueño</li>
+          <li>Hasta 3 calendarios o personas que atienden</li>
+          <li>Página de reservas y widget para tu sitio</li>
+          <li>Reporte semanal de citas y llamadas</li>
+          <li>Hora y media de ajustes al mes</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-solid">Solicitar demo</a>
       </div>
       <div class="price-card reveal">
         <div class="price-plan">Premium</div>
-        <div class="price-amount">$4,900</div>
+        <div class="price-amount">$6,900</div>
         <div class="price-period">MXN / mes</div>
-        <div class="price-calls">201–400 llamadas/mes</div>
+        <div class="price-calls">800 minutos incluidos · unas 320 llamadas</div>
         <ul class="price-features">
           <li>Todo lo del plan Profesional</li>
-          <li>Número de WhatsApp Business exclusivo</li>
-          <li>Nombre y logo del negocio en WhatsApp</li>
-          <li>Asistente IA responde mensajes de texto</li>
-          <li>Perfil de negocio personalizado</li>
+          <li>Hasta 2 números o sucursales</li>
+          <li>Calendarios sin límite</li>
+          <li>Soporte prioritario, 2 horas de ajustes al mes</li>
+          <li>Revisión mensual de llamadas contigo</li>
         </ul>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
       </div>
+    </div>
+    <div class="condiciones reveal">
+      <p><b>Cuota de arranque única: $4,500 MXN.</b> Incluye tu número mexicano o el desvío del actual, la voz y el guion de tu negocio, el calendario, las plantillas de WhatsApp aprobadas por Meta, pruebas con llamadas reales y una hora de capacitación. Listo en 7 días. Se condona si pagas 6 meses por adelantado.</p>
+      <p><b>Minuto extra: $8 MXN.</b> Los minutos del plan no se acumulan. Puedes cambiar de plan cuando quieras. Precios antes de IVA, con factura.</p>
     </div>
   </section>
 
@@ -423,10 +431,11 @@
     const precio = parseFloat(document.getElementById('precioConsulta').value) || 0;
     const sueldo = parseFloat(document.getElementById('sueldoRecep').value) || 0;
     const llamadasMes = spinnerVal * 22;
+    const minutosMes = llamadasMes * 2.5; // llamada promedio de 2.5 minutos
     let planNombre, planCosto;
-    if(llamadasMes<=100){planNombre='Básico';planCosto=3000;}
-    else if(llamadasMes<=200){planNombre='Profesional';planCosto=4000;}
-    else{planNombre='Premium';planCosto=4900;}
+    if(minutosMes<=150){planNombre='Básico';planCosto=3000;}
+    else if(minutosMes<=400){planNombre='Profesional';planCosto=4500;}
+    else{planNombre='Premium';planCosto=6900 + Math.max(0, Math.round(minutosMes-800))*8;}
     const citasPerdidas = Math.round(llamadasMes * 0.40);
     const ingresoRecuperable = citasPerdidas * precio;
     const costoRecep = tieneRecep ? sueldo : 6500;
