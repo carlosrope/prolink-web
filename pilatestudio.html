@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script id="guarda-reveal">(function(d,w){if(!('IntersectionObserver' in w))return;var h=d.documentElement;h.classList.add('js');function off(){h.classList.remove('js')}w.addEventListener('error',off);})(document,window)</script>
 <title>Pilatestudio — Los Mochis</title>
-<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:ital,wght@0,200;0,300;0,400;0,500;1,200;1,300&display=swap" rel="stylesheet"/></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -116,8 +117,8 @@ footer{background:var(--ink);padding:2.5rem 4rem;display:flex;justify-content:sp
 .wa-fab{position:fixed;bottom:2rem;right:2rem;z-index:200;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;transition:transform .3s}
 .wa-fab:hover{transform:scale(1.1)}.wa-fab svg{width:27px;height:27px;fill:white}
 
-.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
-.reveal.visible{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+.js .reveal.visible{opacity:1;transform:none}
 
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}.nav-links{display:none}

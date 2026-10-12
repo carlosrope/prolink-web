@@ -1,4 +1,6 @@
 // ProLink365 — comportamiento compartido: menú móvil, aparición al hacer scroll y año del pie.
+// Avisa a la guarda de la cabeza que el script sí cargó (si no llega en 3 s, la guarda deja todo visible).
+window.prolinkListo = true;
 (function () {
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');

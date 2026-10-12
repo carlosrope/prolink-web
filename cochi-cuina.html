@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script id="guarda-reveal">(function(d,w){if(!('IntersectionObserver' in w))return;var h=d.documentElement;h.classList.add('js');function off(){h.classList.remove('js')}w.addEventListener('error',off);})(document,window)</script>
 <title>Cochi Cuina — Restaurante Fusión</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,400;1,700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/></noscript>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -144,8 +145,8 @@ footer{padding:28px 64px;background:var(--bg);display:flex;justify-content:space
 .f-b{font-size:11px;color:var(--amber);opacity:.7;font-weight:500}
 
 .wa-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25d366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.4)}
-.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
-.reveal.visible{opacity:1;transform:none}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}
+.js .reveal.visible{opacity:1;transform:none}
 
 @media(max-width:960px){
   nav,#menu,#horario,#reviews,#cta,footer{padding-left:24px;padding-right:24px}

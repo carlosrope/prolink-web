@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <script id="guarda-reveal">(function(d,w){if(!('IntersectionObserver' in w))return;var h=d.documentElement;h.classList.add('js');function off(){h.classList.remove('js')}w.addEventListener('error',off);})(document,window)</script>
 <title>Estética María Elena — Unisex & Spa Select | Los Mochis</title>
 <meta name="description" content="Estética Unisex & Spa Select en Los Mochis, Sinaloa. Dos sucursales. Tu imagen, nuestra pasión."/>
 <meta property="og:title" content="Estética María Elena — Unisex & Spa Select"/>
@@ -10,7 +11,7 @@
 <meta property="og:type" content="website"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,600&family=Jost:wght@200;300;400;500&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,600&family=Jost:wght@200;300;400;500&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400;1,6..96,600&family=Jost:wght@200;300;400;500&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet"/></noscript>
 <style>
 :root{
   --ink:#0e0c0b;
@@ -510,10 +511,10 @@ footer{
 .wa-float svg{width:26px;height:26px;fill:white;}
 
 /* ── REVEAL ── */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-.reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal-left.visible{opacity:1;transform:translateX(0);}
+.js .reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.js .reveal.visible{opacity:1;transform:translateY(0);}
+.js .reveal-left{opacity:0;transform:translateX(-20px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.js .reveal-left.visible{opacity:1;transform:translateX(0);}
 </style>
 </head>
 <body>

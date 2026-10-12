@@ -141,10 +141,11 @@ footer nav a:hover { color: var(--green); }
 .wa-float svg { width: 28px; height: 28px; fill: white; }
 
 /* ── REVEAL ── */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+/* Solo se oculta con JavaScript funcionando (clase js en <html>, ver guarda-reveal en cada página). */
+.js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.visible { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js .reveal { opacity: 1; transform: none; transition: none; }
   * { animation: none !important; scroll-behavior: auto !important; }
 }
 
