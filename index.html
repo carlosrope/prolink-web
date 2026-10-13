@@ -42,7 +42,6 @@
   <style>
     /* ── Portada: hero en dos columnas con la interfaz del CRM ── */
     .hero.split { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 3.5rem; align-items: center; text-align: left; max-width: 1180px; margin: 0 auto; min-height: auto; padding: 7.5rem 2rem 4rem; }
-    .hero.split .hero-badge { margin-bottom: 1.4rem; }
     .hero.split h1 { font-size: clamp(2.1rem, 3.6vw, 3.25rem); margin-bottom: 1.2rem; hyphens: manual; }
     .hero.split .hero-sub { margin: 0 0 2rem; max-width: 540px; }
     .hero.split .hero-actions { justify-content: flex-start; }
@@ -88,10 +87,28 @@
     .escena .pie-foto { position: absolute; right: 0; bottom: -2.2rem; font-size: .8rem; color: var(--gray); }
     .escena .pie-foto b { color: var(--ink); font-weight: 600; }
     @keyframes aparece { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
-    @media (max-width: 980px) { .escena { height: 560px; } }
+    /* Selector de nicho arriba de la escena: cambia la conversación y los indicadores */
+    .nichos { position: absolute; left: 0; top: 0; z-index: 4; display: flex; flex-wrap: wrap; gap: .4rem; max-width: 330px; }
+    .nichos button { font: 500 .74rem 'DM Sans', sans-serif; color: var(--ink); background: #fff; border: 1px solid var(--border); border-radius: 100px; padding: .32rem .7rem; cursor: pointer; transition: background .2s, color .2s, border-color .2s, transform .1s; }
+    .nichos button:hover { border-color: var(--green); color: var(--green-dim); }
+    .nichos button[aria-selected="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .nichos button:active { transform: scale(.95); }
+    .escena { height: 690px; }
+    .kpi-tira { top: 88px; }
+    .tel { top: 206px; }
+    .tel .chat .m { animation: llega .35s ease both; }
+    .tel .chat .m:nth-child(2) { animation-delay: .12s; } .tel .chat .m:nth-child(3) { animation-delay: .24s; } .tel .chat .m:nth-child(4) { animation-delay: .36s; } .tel .chat .m:nth-child(5) { animation-delay: .48s; }
+    @keyframes llega { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    @media (max-width: 980px) { .escena { height: 650px; } }
     @media (max-width: 560px) {
-      .escena { height: 500px; } .tel { width: 206px; left: 0; top: 104px; } .tel .pantalla { height: 370px; }
-      .kpi-tira { width: 236px; padding: .7rem; } .kpi3 b { font-size: .95rem; } .escena .foto { width: 64%; right: 0; } .escena .pie-foto { display: none; }
+      /* En el celular todo va apilado: selector, indicadores y teléfono, sin encimarse */
+      .escena { height: auto; display: flex; flex-direction: column; align-items: center; gap: .9rem; padding-bottom: .5rem; }
+      .escena .blob { height: 70%; }
+      .nichos { position: static; justify-content: center; max-width: none; }
+      .kpi-tira { position: static; width: min(300px, 100%); padding: .8rem; }
+      .tel { position: static; width: 244px; } .tel .pantalla { height: 480px; }
+      .ruleta, .rodillo span { text-align: center; }
+      .kpi3 b { font-size: .95rem; } .escena .foto { width: 64%; right: 0; } .escena .pie-foto { display: none; }
     }
 
     /* ── Cinco formatos, cada uno con su visual ── */
@@ -179,6 +196,24 @@
     .clientes p { color: var(--gray); font-size: 0.9rem; max-width: 560px; text-align: left; }
     @media (max-width: 860px) { .clientes p { text-align: center; } }
     .clientes p b { color: var(--white); font-weight: 500; }
+    .clientes .btn-sm { width: auto; }
+
+    /* ── Botón con trazo que gira (2.5) y se "apachurra" al presionarlo ── */
+    .btn-brillo { position: relative; overflow: hidden; border-color: transparent; isolation: isolate; }
+    .btn-brillo::before { content: ''; position: absolute; inset: -160%; background: conic-gradient(from 0deg, transparent 0 62%, var(--accent) 78%, var(--green) 86%, transparent 100%); animation: gira 2.6s linear infinite; z-index: -2; }
+    .btn-brillo::after { content: ''; position: absolute; inset: 2px; border-radius: 6px; background: var(--bg); z-index: -1; }
+    .btn-brillo:hover::after { background: #fff; }
+    .btn-brillo:active { transform: scale(.94); }
+    @keyframes gira { to { transform: rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce) { .btn-brillo::before { animation: none; } .btn-brillo { border-color: var(--green); } .btn-brillo::before, .btn-brillo::after { display: none; } }
+
+    /* ── "Te ayudamos a …" con ruleta de verbos (4.0) ── */
+    .ayuda { text-align: center; padding: 3.2rem 1.5rem 1.6rem; }
+    .ayuda h2 { font-size: clamp(1.7rem, 4vw, 2.6rem); margin: 0; display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0 .45em; }
+    .ruleta { display: inline-block; height: 1.25em; line-height: 1.25em; overflow: hidden; vertical-align: bottom; text-align: left; }
+    .rodillo { display: flex; flex-direction: column; transition: transform .45s cubic-bezier(.2,.8,.2,1); will-change: transform; }
+    .rodillo span { display: block; height: 1.25em; line-height: 1.25em; color: var(--green); white-space: nowrap; }
+    .rodillo span i { font-style: normal; margin-left: .3em; }
 
     /* ── Iconos de línea (un solo set, verde) ── */
     .ico { width: 1.4rem; height: 1.4rem; stroke: var(--green); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
@@ -341,16 +376,23 @@
   <header class="hero split">
     <div class="orb"></div>
     <div class="hero-texto">
-      <div class="hero-badge">Automatización empresarial con IA · Los Mochis, Sinaloa</div>
-      <h1>Tu negocio contesta y cotiza por WhatsApp en minutos, <em>todos los días.</em></h1>
-      <p class="hero-sub">La IA atiende WhatsApp, cotiza con tus precios, agenda y da seguimiento; tu equipo solo revisa. Lo probamos en un piloto de 1 a 2 semanas con una métrica, y damos soporte en persona en Sinaloa.</p>
+      <h1>Automatizaciones empresariales con Agentes IA, <em>goza de un empleado virtual creado a tu manera.</em></h1>
+      <p class="hero-sub">Ahorra horas de trabajo dejando que nuestros Agentes optimizados con Inteligencia Artificial sean capaces de resolver tareas repetitivas, como lo sería… vender exitosamente tu producto.</p>
       <div class="hero-actions">
-        <a href="#demos" class="btn-primary">Ver demos en vivo</a>
-        <a href="#contacto" class="btn-ghost">Agenda un diagnóstico</a>
+        <a href="#como-trabajamos" class="btn-primary">¿Cómo funciona?</a>
+        <a href="#contacto" class="btn-ghost btn-brillo"><span>Agenda un diagnóstico</span></a>
       </div>
     </div>
     <div class="escena" aria-label="Una conversación de WhatsApp contestada por la IA y los indicadores del CRM">
       <div class="blob" aria-hidden="true"></div>
+      <div class="nichos" role="tablist" aria-label="Elige tu tipo de negocio">
+        <button type="button" role="tab" aria-selected="true" data-nicho="climas">Minisplits</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="restaurante">Restaurante</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="consultorio">Consultorio</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="inmobiliaria">Inmobiliaria</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="refacciones">Refacciones</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="salon">Salón de eventos</button>
+      </div>
       <!-- Foto de Carlos (brazos cruzados, fondo liso, recortada en PNG con transparencia). Cuando exista carlos-hero.png, quitar el comentario:
       <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/>
       <p class="pie-foto"><b>Carlos Manuel Robles</b> · ProLink365, Los Mochis</p> -->
@@ -376,10 +418,13 @@
   <section class="clientes" aria-label="Clientes">
     <p class="tag">Ya trabajan con nosotros</p>
     <img src="cliente-diluvium-color.png" alt="Diluvium, control de inundaciones" width="181" height="44"/>
-    <p class="nota">CRM con agente de IA para su equipo de ventas · <a href="#equipo" style="color:var(--green);text-decoration:none;">ver el caso →</a></p>
+    <a class="btn-ghost btn-sm" href="demo-crm.html">Míralo en acción</a>
   </section>
 
   <!-- ── CONFIANZA ── -->
+  <div class="ayuda">
+    <h2>Te ayudamos a <span class="ruleta" aria-live="off"><span class="rodillo" id="rodillo"></span></span></h2>
+  </div>
   <div class="trust" role="list">
     <div role="listitem"><svg class="ico"><use href="#i-target"/></svg><strong>Piloto con una métrica</strong><span>1 a 2 semanas, alcance acotado y precio cerrado antes de empezar.</span></div>
     <div role="listitem"><svg class="ico"><use href="#i-link"/></svg><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Google, Odoo, Shopify, tu ERP o tus hojas de cálculo.</span></div>
@@ -389,8 +434,7 @@
 
   <!-- ── FORMATOS (antes: servicios) ── -->
   <section id="servicios">
-    <div class="section-tag reveal">Qué hacemos</div>
-    <h2 class="reveal">Cinco formas de que tu negocio trabaje solo,<br/><em>cada una distinta porque es distinta</em></h2>
+    <h2 class="reveal">Formas de que tu negocio trabaje solo,<br/>¿cuál se ajusta al tuyo?</h2>
     <p class="section-sub reveal">Un formato por necesidad: conversación, sistema, espacio, voz o presencia. Lo que ves en cada tarjeta es lo que recibes, conectado con lo que ya usas.</p>
     <div class="formatos">
       <article class="card formato destacado" id="f-agente">
@@ -432,14 +476,14 @@
         </div>
       </article>
       <article class="card formato" id="f-plantea">
-        <a class="vis plantea" href="espacios-3d.html" aria-label="Ver Plantea, salones y casas en 3D"><span class="chip">Antes Espacios 3D</span>
+        <a class="vis plantea" href="espacios-3d.html" aria-label="Ver Plantea, salones y casas en 3D">
           <img class="poster" src="espacios-salon-3d.jpg" alt="Salón de eventos en 3D con mesas, pista y escenario" width="800" height="575" loading="lazy"/>
           <video muted loop playsinline preload="none" poster="espacios-salon-3d.jpg" aria-hidden="true"><source src="plantea-hover.mp4" type="video/mp4"/></video>
-          <span class="marca"><b>Plantea</b><small>eventos y casas en 3D</small></span><span class="play">▶ pasa el cursor</span>
+          <span class="marca"><b>Plantea</b><small>eventos y casas en 3D</small></span>
         </a>
         <div class="cuerpo">
           <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-cube"/></svg></span><span class="badge">Plantea</span></div>
-          <h3>Plantea: tu evento o tu casa en 3D</h3>
+          <h3>Plantea tu evento o casa en plano y visualiza en 3D</h3>
           <p>Planos 2D y recorridos 3D de salones y casas reales, desde el celular: montajes e invitados para eventos, casas amuebladas para inmobiliarias, con la marca de tu negocio.</p>
           <ul>
             <li>Montajes, lista de invitados por mesa y hojas para imprimir</li>
@@ -502,7 +546,6 @@
 
   <!-- ── SECTORES ── -->
   <section id="sectores" class="sectores-compacto franja">
-    <div class="section-tag reveal">Sectores</div>
     <h2 class="reveal">Hecho para cómo trabajan<br/>las empresas de Sinaloa</h2>
     <p class="section-sub reveal">Casi siempre empieza por un WhatsApp saturado o una hoja de cálculo. Elige tu sector y mira las demos que ya tenemos para él; si el tuyo no está, cuéntanos.</p>
     <div class="chips">
@@ -518,7 +561,6 @@
 
   <!-- ── DEMOS DESTACADAS ── -->
   <section id="demos">
-    <div class="section-tag reveal">Demos en vivo</div>
     <h2 class="reveal">Pruébalo antes<br/>de hablar con nosotros</h2>
     <p class="section-sub reveal">Seis para empezar. Son simuladas, con empresas y datos de ejemplo; conectadas a tu empresa trabajan con tu inventario, tus precios y tu WhatsApp.</p>
     <div class="grid demos">
@@ -575,7 +617,6 @@
 
   <!-- ── CÓMO TRABAJAMOS ── -->
   <section id="como-trabajamos" class="franja oscura">
-    <div class="section-tag reveal">Cómo trabajamos</div>
     <h2 class="reveal">Resolvemos tu dolor,<br/><em>de la mejor manera.</em></h2>
     <p class="section-sub reveal">La mayoría de las automatizaciones con IA fallan por construir antes de confirmar que hay un dolor real. Nosotros lo confirmamos, lo probamos y medimos; cada ciclo hace al siguiente más inteligente.</p>
     <div class="steps">
@@ -590,7 +631,6 @@
   <!-- Nombre confirmado el 10 de octubre. Falta la foto (carlos.jpg, cuadrada): mientras, va un recuadro vacío.
        La cita de Diluvium ya está publicada con la autorización de Luis Navarro (director). -->
   <section id="equipo">
-    <div class="section-tag reveal">Quién está detrás</div>
     <h2 class="reveal">Hablas con quien<br/><em>construye tu proyecto</em></h2>
     <p class="section-sub reveal">No hay intermediarios: la persona que diagnostica es la misma que programa, capacita y da soporte.</p>
     <div class="equipo">
@@ -631,7 +671,6 @@
   <section id="pymes" style="padding-bottom:1.6rem;">
     <div class="banda">
       <div>
-        <div class="section-tag" style="margin-bottom:0.4rem;">Pymes y consultorios</div>
         <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">¿Negocio pequeño? También tenemos planes listos, con precio fijo.</h3>
         <p>Recepcionista virtual con IA para consultorios y negocios con citas, y páginas web listas para recibir clientes por WhatsApp y aparecer en Google.</p>
       </div>
@@ -657,7 +696,6 @@
 
   <!-- ── CTA ── -->
   <div class="cta-section" id="contacto">
-    <div class="section-tag reveal">Diagnóstico sin costo</div>
     <h2 class="reveal">¿Qué proceso le quita<br/>más horas a tu equipo?</h2>
     <p class="">Cuéntanos en un mensaje. En 30 minutos te decimos si se puede automatizar, cómo mediríamos el resultado y cuánto costaría el piloto.</p>
     <div class="hero-actions">
@@ -710,6 +748,59 @@
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
   <script src="prolink.js"></script>
+  <script>
+  // Selector de nicho (2.9): cambia la conversación del teléfono (2.7) y los indicadores (2.6). Empresas y datos ficticios.
+  (function () {
+    var N = {
+      climas: { n: 'Climas Demo', ini: 'CD', kpi: [['12 s','Respuesta'],['8','Por anuncio'],['3','A vendedor']],
+        chat: [['in','Hola, ¿tienen minisplit de 1 tonelada? ¿Cuánto sale instalado?','11:42 p. m.'],['out','Sí: Inverter de 1 tonelada, $8,900 instalado en Los Mochis. ¿Te mando la cotización en PDF?','11:42 p. m.'],['in','Sí, por favor. Es para una recámara.','11:43 p. m.'],['doc','Cotización #1042 · PDF','$8,900 con IVA · vigencia 7 días','11:43 p. m.'],['sys','Seguimiento mañana 10:00 · avisar a Diana (ventas)']] },
+      restaurante: { n: 'Asador Demo', ini: 'AD', kpi: [['9 s','Respuesta'],['14','Reservas hoy'],['2','Lista de espera']],
+        chat: [['in','Hola, ¿tienen mesa para 6 hoy a las 8?','6:10 p. m.'],['out','Sí: a las 8:00 o a las 8:45 en terraza. ¿Cuál te acomoda?','6:10 p. m.'],['in','A las 8:00, a nombre de Laura.','6:11 p. m.'],['doc','Reserva confirmada · 8:00 p. m.','Mesa 12 · 6 personas · terraza','6:11 p. m.'],['sys','Recordatorio a las 6:00 · avisar al capitán']] },
+      consultorio: { n: 'Consultorio Demo', ini: 'CS', kpi: [['7 s','Respuesta'],['11','Citas hoy'],['1','Cancelación cubierta']],
+        chat: [['in','¿Tienen cita con la doctora esta semana?','9:05 p. m.'],['out','Sí: jueves 10:30 o viernes 4:15. ¿Cuál te acomoda?','9:05 p. m.'],['in','Jueves 10:30, por favor.','9:06 p. m.'],['doc','Cita confirmada · jueves 10:30','Consulta general · Dra. Sol','9:06 p. m.'],['sys','Confirmar el miércoles · recordar ayuno de 8 h']] },
+      inmobiliaria: { n: 'Inmobiliaria Demo', ini: 'ID', kpi: [['10 s','Respuesta'],['6','Prospectos'],['2','Visitas agendadas']],
+        chat: [['in','¿Tienen casas de 3 recámaras hasta 2 millones?','8:20 p. m.'],['out','Sí: dos en Chardonnay y Las Palmas. ¿Te mando fotos y el recorrido 3D?','8:20 p. m.'],['in','Sí. ¿Aceptan Infonavit?','8:21 p. m.'],['doc','Ficha · Casa Chardonnay','$1,850,000 · recorrido 3D · Infonavit sí','8:21 p. m.'],['sys','Visita sábado 11:00 · avisar a Diana (asesora)']] },
+      refacciones: { n: 'Refaccionaria Demo', ini: 'RD', kpi: [['11 s','Respuesta'],['9','Piezas encontradas'],['4','Apartados']],
+        chat: [['in','Necesito el filtro de aceite del tractor 5075E.','7:32 a. m.'],['out','Es el RE504836: hay 3 en sucursal centro, $480. ¿Te lo aparto?','7:32 a. m.'],['in','Sí, paso hoy por él.','7:33 a. m.'],['doc','Apartado #2210','RE504836 · $480 · listo hoy','7:33 a. m.'],['sys','Avisar a mostrador · entrega 3:00 p. m.']] },
+      salon: { n: 'Salón Demo', ini: 'SD', kpi: [['12 s','Respuesta'],['5','Cotizaciones'],['2','Fechas apartadas']],
+        chat: [['in','¿Tienen el 14 de marzo para una boda de 200?','10:15 p. m.'],['out','Sí, está libre. Para 200 sale en $68,000 con mobiliario. ¿Te mando el salón en 3D?','10:15 p. m.'],['in','Sí, por favor.','10:16 p. m.'],['doc','Plano 3D · Boda 14 de marzo','200 invitados · 20 mesas · Plantea','10:16 p. m.'],['sys','Visita sábado 5:00 p. m. · avisar a Diana (eventos)']] }
+    };
+    var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
+    var escena = document.querySelector('.hero .escena'); if (!escena) return;
+    var chat = escena.querySelector('.chat'), head = escena.querySelector('.wa-head'), tira = escena.querySelector('.kpi-tira');
+    function pinta(k) {
+      var d = N[k]; if (!d) return;
+      head.innerHTML = '<span class="av">' + d.ini + '</span><div><b>' + esc(d.n) + '</b><small>en línea · responde la IA</small></div>';
+      tira.querySelector('.t').innerHTML = '<span>' + esc(d.n) + ' · hoy en el CRM</span><b>● Agente activo</b>';
+      tira.querySelector('.kpi3').innerHTML = d.kpi.map(function (x) { return '<div><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div>'; }).join('');
+      chat.innerHTML = d.chat.map(function (m) {
+        if (m[0] === 'sys') return '<div class="m sys">' + esc(m[1]) + '</div>';
+        if (m[0] === 'doc') return '<div class="m out doc"><b>' + esc(m[1]) + '</b>' + esc(m[2]) + '<time>' + esc(m[3]) + '</time></div>';
+        return '<div class="m' + (m[0] === 'out' ? ' out' : '') + '">' + esc(m[1]) + '<time>' + esc(m[2]) + '</time></div>';
+      }).join('');
+    }
+    escena.querySelectorAll('.nichos button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        escena.querySelectorAll('.nichos button').forEach(function (o) { o.setAttribute('aria-selected', o === b ? 'true' : 'false'); });
+        pinta(b.dataset.nicho);
+      });
+    });
+  })();
+  // Ruleta de verbos (4.0): cada palabra se ve 2.5 s y sube la siguiente, como en una ruleta sin fin.
+  (function () {
+    var rod = document.getElementById('rodillo'); if (!rod) return;
+    var verbos = [['vender','💰'],['responder','💬'],['cotizar','🧾'],['agendar','📅'],['organizar','🗂️'],['atender','📞'],['dar seguimiento','🔁'],['facturar','🧮'],['cobrar','💳'],['planear','📐'],['aprender','🎓'],['ahorrar tiempo','⏱️'],['automatizar','⚙️'],['medir','📊'],['crecer','📈'],['vender de noche','🌙'],['contestar al instante','⚡'],['ser mejor','🚀']];
+    rod.innerHTML = verbos.concat([verbos[0]]).map(function (v) { return '<span>' + v[0] + '<i aria-hidden="true">' + v[1] + '</i></span>'; }).join('');
+    var ancho = 0; rod.querySelectorAll('span').forEach(function (s) { ancho = Math.max(ancho, s.getBoundingClientRect().width); });
+    rod.parentNode.style.minWidth = Math.ceil(ancho) + 'px';
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var i = 0, alto = function () { return rod.firstElementChild.getBoundingClientRect().height; };
+    setInterval(function () {
+      i += 1; rod.style.transform = 'translateY(-' + (i * alto()) + 'px)';
+      if (i === verbos.length) setTimeout(function () { rod.style.transition = 'none'; i = 0; rod.style.transform = 'none'; rod.offsetHeight; rod.style.transition = ''; }, 470);
+    }, 2500);
+  })();
+  </script>
   <script>
   // Tarjeta de Plantea: el video arranca al pasar el cursor; en el celular, al entrar a la vista. Respeta "menos movimiento".
   (function () {
