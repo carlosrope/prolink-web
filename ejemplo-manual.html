@@ -11,7 +11,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="manifest" href="site.webmanifest"/>
-  <meta name="theme-color" content="#0a0f0d"/>
+  <meta name="theme-color" content="#f6f5f0"/>
   <title>De una nota de voz a un manual — Ejemplo del taller · ProLink365</title>
   <meta name="description" content="Ejemplo del taller &quot;IA en tu puesto&quot;: el encargado cuenta su proceso en una nota de voz, la IA lo convierte en un manual con pasos, revisiones y mensajes para el cliente, y deja anotado lo que el dueño debe decidir."/>
   <link rel="canonical" href="https://prolink365.com.mx/ejemplo-manual.html"/>
@@ -26,8 +26,8 @@
   <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/></noscript>
-  <link rel="stylesheet" href="prolink.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+  <link rel="stylesheet" href="prolink.css?v=claro1"/>
   <style>
     .flujo { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 1rem; }
     .voz { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.5rem; max-width: 780px; }
@@ -35,33 +35,33 @@
     .voz .cab b { color: var(--white); font-weight: 500; }
     .onda { display: flex; align-items: center; gap: 3px; height: 28px; flex: 1; max-width: 260px; }
     .onda i { display: block; width: 3px; border-radius: 2px; background: var(--green); opacity: 0.7; }
-    .voz p { color: #c9d6cf; font-size: 0.95rem; font-style: italic; }
+    .voz p { color: var(--gray); font-size: 0.95rem; font-style: italic; }
     .voz p + p { margin-top: 0.8rem; }
-    .prompt { background: #0d1612; border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.4rem; max-width: 780px; position: relative; }
+    .prompt { background: #ffffff; border: 1px solid var(--border); border-radius: 14px; padding: 1.3rem 1.4rem; max-width: 780px; position: relative; }
     .prompt dl { display: grid; grid-template-columns: 92px 1fr; gap: 0.6rem 1rem; }
-    .prompt dt { color: var(--green); font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.9rem; }
-    .prompt dd { color: #c9d6cf; font-size: 0.92rem; }
+    .prompt dt { color: var(--green); font-family: 'Sora', sans-serif; font-weight: 700; font-size: 0.9rem; }
+    .prompt dd { color: var(--gray); font-size: 0.92rem; }
     @media (max-width: 560px) { .prompt dl { grid-template-columns: 1fr; gap: 0.15rem; } .prompt dd { margin-bottom: 0.6rem; } }
-    .copiar { margin-top: 1rem; background: transparent; border: 1px solid rgba(0,232,122,0.4); color: var(--green); border-radius: 100px; padding: 0.45rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; }
-    .copiar:hover { background: rgba(0,232,122,0.1); }
+    .copiar { margin-top: 1rem; background: transparent; border: 1px solid rgba(13,138,79,0.4); color: var(--green); border-radius: 100px; padding: 0.45rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; cursor: pointer; }
+    .copiar:hover { background: rgba(13,138,79,0.1); }
     .manual { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem; }
     .manual .meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; color: var(--gray); font-size: 0.85rem; margin: 0.4rem 0 1.2rem; }
     .manual .meta b { color: var(--white); font-weight: 500; }
     .pasos { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-    .pasos > li { display: grid; grid-template-columns: 38px 1fr; gap: 0.9rem; background: rgba(0,232,122,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 1rem; }
-    .pasos .num { width: 34px; height: 34px; border-radius: 50%; background: var(--green-glow); color: var(--green); display: flex; align-items: center; justify-content: center; font-family: 'Exo 2', sans-serif; font-weight: 900; }
-    .pasos p { color: #c9d6cf; font-size: 0.93rem; }
+    .pasos > li { display: grid; grid-template-columns: 38px 1fr; gap: 0.9rem; background: rgba(13,138,79,0.03); border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 1rem; }
+    .pasos .num { width: 34px; height: 34px; border-radius: 50%; background: var(--green-glow); color: var(--green); display: flex; align-items: center; justify-content: center; font-family: 'Sora', sans-serif; font-weight: 900; }
+    .pasos p { color: var(--gray); font-size: 0.93rem; }
     .pasos p b { color: var(--amber); font-weight: 500; }
     .pasos .chk { color: var(--gray); font-size: 0.84rem; margin-top: 0.3rem; }
     .quien { display: inline-block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 100px; padding: 0.1rem 0.55rem; margin-bottom: 0.3rem; }
-    .quien.m { color: var(--green); border: 1px solid rgba(0,232,122,0.35); }
+    .quien.m { color: var(--green); border: 1px solid rgba(13,138,79,0.35); }
     .quien.t { color: var(--amber); border: 1px solid rgba(255,200,0,0.35); }
     .msjs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 0.8rem; margin-top: 0.8rem; }
-    .msjs div { background: #005c4b; border-radius: 12px; border-top-right-radius: 3px; padding: 0.75rem 0.9rem; font-size: 0.88rem; }
+    .msjs div { background: var(--wa-out); border-radius: 12px; border-top-right-radius: 3px; padding: 0.75rem 0.9rem; font-size: 0.88rem; }
     .msjs small { display: block; color: rgba(255,255,255,0.65); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.25rem; }
     .preguntas { list-style: none; counter-reset: q; display: flex; flex-direction: column; gap: 0.55rem; max-width: 820px; }
     .preguntas li { counter-increment: q; position: relative; padding: 0.7rem 0.9rem 0.7rem 2.6rem; border-left: 2px solid var(--amber); background: rgba(255,200,0,0.05); border-radius: 0 10px 10px 0; color: #e6ecd9; font-size: 0.93rem; }
-    .preguntas li::before { content: counter(q); position: absolute; left: 0.9rem; top: 0.7rem; color: var(--amber); font-family: 'Exo 2', sans-serif; font-weight: 900; }
+    .preguntas li::before { content: counter(q); position: absolute; left: 0.9rem; top: 0.7rem; color: var(--amber); font-family: 'Sora', sans-serif; font-weight: 900; }
   </style>
 </head>
 <body>

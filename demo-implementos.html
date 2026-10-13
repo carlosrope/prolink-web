@@ -10,7 +10,7 @@
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="apple-touch-icon" href="apple-touch-icon.png"/>
   <link rel="manifest" href="site.webmanifest"/>
-  <meta name="theme-color" content="#0a0f0d"/>
+  <meta name="theme-color" content="#f6f5f0"/>
   <title>Implementos: cotizador a la medida — Demo · ProLink365</title>
   <meta name="description" content="Demo interactiva de software a la medida para fabricantes de implementos: el vendedor pide por WhatsApp, el configurador valida las reglas de ingeniería, calcula acero, horas de taller y precio, muestra trabajos parecidos y genera la cotización con plano para que el director la apruebe."/>
   <link rel="canonical" href="https://prolink365.com.mx/demo-implementos.html"/>
@@ -24,8 +24,8 @@
   <meta name="twitter:image" content="https://prolink365.com.mx/og-image.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&family=Exo+2:wght@700;800;900&display=swap" rel="stylesheet"/></noscript>
-  <link rel="stylesheet" href="prolink.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
+  <link rel="stylesheet" href="prolink.css?v=claro1"/>
   <link rel="stylesheet" href="app.css"/>
 </head>
 <body>
@@ -36,7 +36,7 @@
         <ul class="submenu" aria-label="Servicios">
           <li><a href="index.html#f-agente">Agente de IA + CRM</a></li>
           <li><a href="index.html#f-software">Software a la medida</a></li>
-          <li><a href="espacios-3d.html">Espacios 3D</a></li>
+          <li><a href="espacios-3d.html">Plantea</a></li>
           <li><a href="recepcionista.html">Recepcionista virtual</a></li>
           <li><a href="taller-ia.html">Taller "IA en tu puesto"</a></li>
           <li><a href="paginas-web.html">Páginas web</a></li>
@@ -119,8 +119,8 @@
       .preg { margin-bottom: 0.7rem; }
       .preg p { font-size: 0.88rem; margin-bottom: 0.4rem; }
       .preg .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-      .preg button { background: transparent; border: 1px solid rgba(0,232,122,0.4); color: var(--green); border-radius: 100px; padding: 0.35rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; }
-      .preg button[aria-pressed="true"] { background: rgba(0,232,122,0.15); }
+      .preg button { background: transparent; border: 1px solid rgba(13,138,79,0.4); color: var(--green); border-radius: 100px; padding: 0.35rem 0.8rem; font-family: 'DM Sans', sans-serif; font-size: 0.82rem; cursor: pointer; }
+      .preg button[aria-pressed="true"] { background: rgba(13,138,79,0.15); }
       #plano svg { width: 100%; height: auto; display: block; }
       #bom td { font-size: 0.84rem; }
       #bom tr.total td { font-weight: 500; color: var(--white); border-top: 1px solid var(--border); }
@@ -128,7 +128,7 @@
 
   </section>
 
-  <section id="piloto" class="franja">
+  <section id="piloto" class="franja oscura">
     <div class="section-tag">Cómo sería en tu empresa</div>
     <h2>Un piloto de 1 a 2 semanas,<br/><em>con una métrica</em></h2>
     <div class="grid" style="margin-top:2rem;">
@@ -142,7 +142,7 @@
     <div class="pie-grid">
       <div>
         <a class="logo" href="index.html">Pro<span>Link</span>365</a>
-        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Espacios 3D para empresas de Sinaloa.</p>
+        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Plantea (espacios en 3D) para empresas de Sinaloa.</p>
       </div>
       <div>
         <h4>Contacto</h4>
@@ -159,7 +159,7 @@
         <h4>Servicios</h4>
         <a href="index.html#f-agente">Agente de IA + CRM</a>
         <a href="index.html#f-software">Software a la medida</a>
-        <a href="espacios-3d.html">Espacios 3D</a>
+        <a href="espacios-3d.html">Plantea</a>
         <a href="recepcionista.html">Recepcionista virtual</a>
         <a href="taller-ia.html">Taller "IA en tu puesto"</a>
         <a href="paginas-web.html">Páginas web</a>
@@ -216,7 +216,7 @@
   }
   function plano(c, r) {
     const W = 360, H = 200, esc = 280 / Math.max(r.ancho, 3.6), x0 = (W - r.ancho * esc) / 2, w = r.ancho * esc;
-    let g = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Vista superior de la sembradora"><rect width="' + W + '" height="' + H + '" fill="#0d1612" rx="8"/>';
+    let g = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Vista superior de la sembradora"><rect width="' + W + '" height="' + H + '" fill="#ffffff" rx="8"/>';
     g += '<rect x="' + (W / 2 - 14) + '" y="8" width="28" height="22" fill="#33463c"/><text x="' + W / 2 + '" y="23" fill="#8fa398" font-size="9" text-anchor="middle">enganche</text>';
     g += '<rect x="' + x0 + '" y="34" width="' + w + '" height="12" fill="#00e87a" opacity="0.85"/>';
     if (r.plegable) [1 / 3, 2 / 3].forEach(f => { g += '<line x1="' + (x0 + w * f) + '" y1="30" x2="' + (x0 + w * f) + '" y2="50" stroke="#ffd666" stroke-width="2" stroke-dasharray="3 2"/>'; });

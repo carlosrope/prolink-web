@@ -1,16 +1,25 @@
 /* ProLink365 — estilos compartidos (inicio, servicios y demos) */
+/* Tema claro (13 de octubre de 2026). --white se conserva como nombre: ahora es el color de la tinta. */
 :root {
-  --bg: #0a0f0d;
-  --bg2: #0f1a15;
-  --green: #00e87a;
-  --green-dim: #00c965;
-  --green-glow: rgba(0,232,122,0.15);
-  --white: #f0f5f2;
-  --gray: #8fa398;
-  --border: rgba(0,232,122,0.12);
-  --card: rgba(15,26,21,0.8);
-  --amber: #ffd666;
+  --bg: #f6f5f0;
+  --bg2: #edebe3;
+  --green: #0d8a4f;
+  --green-dim: #0a6b3d;
+  --green-glow: rgba(13,138,79,0.10);
+  --white: #121815;
+  --ink: #121815;
+  --gray: #5d6762;
+  --border: #e2dfd5;
+  --card: #ffffff;
+  --amber: #b7791f;
   --wa: #25d366;
+  --accent: #00e87a;
+  --dark: #0f1a15;
+  --terra: #b5653a;
+  --sand: #f3ece2;
+  --wa-head: #008069;
+  --wa-wall: #efeae2;
+  --wa-out: #d9fdd3;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -256,3 +265,83 @@ footer.pie .redes img { display: block; width: 22px; height: 22px; }
 footer.pie .pie-legal { text-align: center; margin-top: 2.4rem; padding-top: 1.2rem; border-top: 1px solid var(--border); color: var(--gray); }
 footer.pie .pie-legal + .pie-legal { margin-top: 0.4rem; padding-top: 0; border-top: 0; }
 .demo-card .cabecera { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
+
+/* ══ Tema claro (13 de octubre de 2026): fondo claro cálido, verde profundo para acciones, WhatsApp como el real,
+   oscuro solo en franjas (.franja.oscura) y en el pie. Estas reglas van al final para ganar a las de arriba. ══ */
+body::before { display: none; }
+body { font-weight: 400; }
+nav.top { background: rgba(246,245,240,0.9); }
+.nav-cta { color: #fff !important; }
+.nav-toggle { color: var(--ink); }
+@media (max-width: 1100px) { .nav-links { background: rgba(246,245,240,0.98); } }
+@media (min-width: 1101px) { nav.top.compacta .nav-links { background: #fff; box-shadow: 0 18px 40px rgba(18,24,21,.12); } }
+@media (min-width: 861px) { .nav-links .submenu { background: #fff; box-shadow: 0 18px 40px rgba(18,24,21,.12); } }
+h1, h2, h3, .logo, .step-num, .kpi b, .price-amount, .price-tag, .facts b, .agenda .min, .stat-num, .web-setup, .roi-result-main, .roi-annual-val, .roi-modal h2, .insignia-title, .plan .monto, .plan h4, .spinner-val, .roi-prefix, .roi-input, details.faq summary { font-family: 'Sora', sans-serif; }
+h1 { font-weight: 800; letter-spacing: -0.03em; hyphens: manual; text-wrap: balance; }
+h2 { font-weight: 700; letter-spacing: -0.02em; }
+.btn-primary { color: #fff; box-shadow: 0 8px 22px rgba(13,138,79,.22); }
+.btn-primary:hover { color: #fff; }
+.btn-ghost { color: var(--ink); border-color: rgba(18,24,21,.3); }
+.btn-ghost:hover { border-color: var(--green); color: var(--green-dim); }
+.hero-badge { background: var(--green-glow); border-color: transparent; color: var(--green-dim); font-weight: 600; }
+.hero-badge::before { background: var(--accent); box-shadow: 0 0 0 3px rgba(0,232,122,.25); }
+.orb { background: radial-gradient(circle, rgba(13,138,79,.10) 0%, transparent 70%); }
+.card { box-shadow: 0 1px 2px rgba(18,24,21,.04); }
+.card:hover { border-color: rgba(13,138,79,.35); box-shadow: 0 14px 34px rgba(18,24,21,.08); }
+.badge { background: var(--green-glow); color: var(--green-dim); border-color: transparent; }
+.badge.demo { background: rgba(37,211,102,.14); color: #0a6b3d; border-color: transparent; }
+.badge.soon { background: rgba(183,121,31,.12); color: #8a5a00; border-color: transparent; }
+.badge.formato { background: rgba(18,24,21,.05); color: var(--gray); border-color: rgba(18,24,21,.12); }
+.step-num { -webkit-text-stroke: 1px rgba(13,138,79,.5); }
+.trust { background: #fff; }
+.demo-note { background: #fff6d6; border-color: #f1e2a8; color: #6b5a1e; }
+.demo-note .ico { stroke: #8a6a1a; }
+.icono { background: var(--green-glow); border-color: transparent; }
+/* Teléfono como WhatsApp de verdad (tema claro) */
+.phone { background: #111; border: 0; padding: 7px; border-radius: 30px; box-shadow: 0 24px 60px rgba(18,24,21,.28); }
+.phone-head { background: var(--wa-head); color: #fff; border-radius: 23px 23px 0 0; }
+.phone-head small { color: rgba(255,255,255,.85); }
+.phone-avatar { background: #fff; color: var(--wa-head); }
+.chat { background: var(--wa-wall); background-image: radial-gradient(rgba(0,0,0,.035) 1px, transparent 1px); background-size: 14px 14px; }
+.msg { color: #111b21; box-shadow: 0 1px 1px rgba(0,0,0,.08); }
+.msg.in { background: #fff; }
+.msg.out { background: var(--wa-out); }
+.msg .meta { color: #667781; }
+.msg.typing { color: #667781; background: #fff; }
+.msg.card-msg { background: #fff; border: 1px solid rgba(0,0,0,.06); border-left: 3px solid var(--green); }
+.msg td { border-bottom-color: rgba(0,0,0,.06); }
+.quick { background: #f0f2f5; border-top-color: rgba(0,0,0,.06); border-radius: 0 0 23px 23px; }
+.quick button { background: #fff; border-color: rgba(13,138,79,.45); color: var(--green-dim); }
+.quick button:hover { background: var(--green-glow); }
+.panel { background: #fff; }
+.log li { background: var(--green-glow); }
+.log li b { color: var(--ink); }
+.log li.warn { background: rgba(183,121,31,.08); }
+.kpi { background: var(--green-glow); border-color: transparent; }
+.data-table input { background: #fff; color: var(--ink); }
+.stock-no { color: #c0392b; }
+.demo-card { border-color: rgba(13,138,79,.3); }
+.full-divider { background: var(--border); }
+/* Franja oscura: la metodología y el piloto conservan el oscuro como acento */
+.franja.oscura { background: var(--dark); box-shadow: 0 0 0 100vmax var(--dark); color: #fff; }
+.franja.oscura h2, .franja.oscura h3, .franja.oscura b { color: #fff; }
+.franja.oscura p, .franja.oscura li, .franja.oscura .section-sub, .franja.oscura .muted { color: #b9c7c0; }
+.franja.oscura .section-tag, .franja.oscura h2 em, .franja.oscura .card .link { color: var(--accent); }
+.franja.oscura .card, .franja.oscura .step { background: rgba(255,255,255,.04); border-color: rgba(255,255,255,.1); box-shadow: none; }
+.franja.oscura .card:hover { border-color: rgba(0,232,122,.4); }
+.franja.oscura .step-num { -webkit-text-stroke-color: rgba(0,232,122,.55); }
+.franja.oscura .ico { stroke: var(--accent); }
+.franja.oscura .icono { background: rgba(0,232,122,.1); border-color: rgba(255,255,255,.1); }
+.franja.oscura .card li::before { color: var(--accent); }
+.franja.oscura .btn-primary { background: var(--accent); color: #0a0f0d; box-shadow: none; }
+.franja.oscura .btn-ghost { color: #fff; border-color: rgba(255,255,255,.3); }
+/* Pie oscuro */
+footer { background: var(--dark); color: #b9c7c0; border-top: 0; }
+footer .logo { color: var(--accent); }
+footer .logo span { color: #fff; }
+footer strong, footer.pie h4 { color: var(--accent); }
+footer nav a, footer.pie a, footer.pie span, footer.pie .pie-lema, footer.pie .pie-legal { color: #b9c7c0; }
+footer nav a:hover, footer.pie a:hover { color: var(--accent); }
+footer.pie .redes a { color: #fff; border-color: rgba(255,255,255,.15); }
+footer.pie .redes a:hover { border-color: var(--accent); color: var(--accent); }
+footer.pie .pie-legal { border-top-color: rgba(255,255,255,.1); }
