@@ -392,14 +392,5 @@
   }
   function playStep(card, demoId){ const demo=document.getElementById(demoId), cta=card.querySelector('.step-cta'), isOpen=demo.classList.contains('show'); document.querySelectorAll('.step-demo').forEach(d=>d.classList.remove('show')); document.querySelectorAll('.step').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.step-cta').forEach(c=>c.textContent='▶ Ver en acción'); if(!isOpen){demo.classList.add('show');card.classList.add('active');cta.textContent='▼ Cerrar';} }
   </script>
-  <script>
-  (function(){
-    if(gp){ for(let i=0;i<28;i++){ const dot = document.createElement('div'); const size = Math.random()*2.5+1; const x = Math.random()*100, y = Math.random()*100; const delay = Math.random()*6, dur = Math.random()*6+4; const opacity = (Math.random()*0.25+0.35).toFixed(2); dot.style.cssText=`position:absolute;width:${size}px;height:${size}px;background:#00e87a;border-radius:50%;left:${x}%;top:${y}%;opacity:${opacity};animation:floatDot ${dur}s ${delay}s infinite ease-in-out alternate;pointer-events:none;`; gp.appendChild(dot); } }
-    const colors = ['#f5c842','#ffe066','#fff0a0','#e8a800','#ffffff'];
-    function makeSpark(delay){ const el = document.createElement('div'); el.style.cssText = 'position:absolute;pointer-events:none;opacity:0;'; const size = 5 + Math.random() * 7; const W = wrap.offsetWidth || 600; const H = wrap.offsetHeight || 300; const x = 20 + Math.random() * (W - 40); const y = 10 + Math.random() * (H - 20); const color = colors[Math.floor(Math.random()*colors.length)]; const dur = 600 + Math.random() * 900; const rise = 22 + Math.random() * 32; el.style.left = x + 'px'; el.style.top = y + 'px'; el.innerHTML=`<svg width="${size}" height="${size}" viewBox="0 0 10 10"><line x1="5" y1="0" x2="5" y2="10" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="0" y1="5" x2="10" y2="5" stroke="${color}" stroke-width="1.2" stroke-linecap="round"/><line x1="1.5" y1="1.5" x2="8.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/><line x1="8.5" y1="1.5" x2="1.5" y2="8.5" stroke="${color}" stroke-width="0.8" stroke-linecap="round" opacity="0.6"/></svg>`; container.appendChild(el); setTimeout(() => { el.style.transition = `opacity ${dur}ms ease, transform ${dur}ms ease`; el.style.opacity = '1'; el.style.transform = `translateY(-${rise}px) rotate(${Math.random()*60-30}deg) scale(${0.8+Math.random()*0.7})`; setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), dur+100); }, dur*0.5); }, delay); }
-    function burst(n, d){ for(let i=0;i<n;i++) makeSpark(d+i*60); }
-    setTimeout(() => { burst(14,0); burst(9,800); burst(7,1700); setInterval(() => burst(2+Math.floor(Math.random()*4),0), 2200); }, 700);
-  })();
-  </script>
 </body>
 </html>
