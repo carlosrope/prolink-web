@@ -13,10 +13,10 @@
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#f6f5f0"/>
   <title>Recepcionista Virtual con IA — ProLink365</title>
-  <meta name="description" content="Recepcionista virtual con IA para consultorios y negocios: contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas. Desde $3,000 MXN al mes."/>
+  <meta name="description" content="Recepcionista virtual con IA para consultorios y negocios: contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas."/>
   <link rel="canonical" href="https://prolink365.com.mx/recepcionista.html"/>
   <meta property="og:title" content="Recepcionista Virtual con IA — ProLink365"/>
-  <meta property="og:description" content="Recepcionista virtual con IA para consultorios y negocios: contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas. Desde $3,000 MXN al mes."/>
+  <meta property="og:description" content="Recepcionista virtual con IA para consultorios y negocios: contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://prolink365.com.mx/recepcionista.html"/>
   <meta property="og:image" content="https://prolink365.com.mx/og-image.png"/>
@@ -145,7 +145,7 @@
   .btn-roi .ico { width: 1.1rem; height: 1.1rem; vertical-align: -0.2rem; }
   </style>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Recepcionista virtual con IA","serviceType":"Recepcionista virtual 24/7","url":"https://prolink365.com.mx/recepcionista.html","description":"Recepcionista virtual con IA para consultorios y negocios: contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas. Desde $3,000 MXN al mes.","provider":{"@id":"https://prolink365.com.mx/#negocio"},"areaServed":{"@type":"State","name":"Sinaloa"},"inLanguage":"es-MX","image":"https://prolink365.com.mx/og-image.png","audience":{"@type":"Audience","audienceType":"Consultorios y negocios"}}]}
+  {"@context":"https://schema.org","@graph":[{"@type":"Service","name":"Recepcionista virtual con IA","serviceType":"Recepcionista virtual 24/7","url":"https://prolink365.com.mx/recepcionista.html","description":"Recepcionista virtual con IA para consultorios y negocios: contesta llamadas, agenda en Google Calendar y confirma por WhatsApp las 24 horas.","provider":{"@id":"https://prolink365.com.mx/#negocio"},"areaServed":{"@type":"State","name":"Sinaloa"},"inLanguage":"es-MX","image":"https://prolink365.com.mx/og-image.png","audience":{"@type":"Audience","audienceType":"Consultorios y negocios"}}]}
   </script>
 </head>
 <body>
@@ -177,9 +177,9 @@
     <div class="roi-modal" id="roiModal">
       <div class="roi-header">
         <div class="roi-header-text">
-          <div class="roi-modal-badge">Calculadora de retorno</div>
-          <h2>¿Cuánto te cuesta<br/><em>no tener</em> ProLink?</h2>
-          <p class="roi-modal-sub">Ingresa los datos de tu consultorio y ve tu ahorro real en segundos.</p>
+          <div class="roi-modal-badge">Calculadora</div>
+          <h2>¿Cuánto te cuesta<br/><em>no contestar</em>?</h2>
+          <p class="roi-modal-sub">Ingresa los datos de tu consultorio y ve cuánto se te escapa cada mes.</p>
         </div>
         <button class="roi-close" onclick="closeROI()" aria-label="Cerrar">✕</button>
       </div>
@@ -201,40 +201,23 @@
             <span class="roi-suffix">MXN</span>
           </div>
         </div>
-        <div class="roi-field">
-          <div class="roi-label"><span class="roi-label-dot"></span>¿Tienes recepcionista actualmente?</div>
-          <div class="roi-toggle-wrap">
-            <div class="roi-toggle-opt selected" id="togSi" onclick="setRecep(true)">✓ &nbsp;Sí tengo</div>
-            <div class="roi-toggle-opt" id="togNo" onclick="setRecep(false)">✗ &nbsp;No tengo</div>
-          </div>
-        </div>
-        <div class="roi-cond-field visible" id="sueldoField">
-          <div class="roi-label"><span class="roi-label-dot"></span>Sueldo mensual de tu recepcionista</div>
-          <div class="roi-input-wrap">
-            <span class="roi-prefix">$</span>
-            <input type="number" class="roi-input" id="sueldoRecep" placeholder="6500" min="0" oninput="calcROI()">
-            <span class="roi-suffix">MXN / mes</span>
-          </div>
-        </div>
         <div class="roi-divider"></div>
         <div class="roi-result" id="roiResult">
-          <div class="roi-result-label">Tu ahorro mensual estimado con ProLink</div>
+          <div class="roi-result-label">Ingreso que se te escapa cada mes</div>
           <div class="roi-result-main" id="roiNum">$0</div>
           <div class="roi-result-period">pesos mexicanos por mes</div>
           <div class="roi-rows">
-            <div class="roi-row"><span class="roi-row-label">Plan recomendado</span><span class="roi-row-val"><span class="roi-plan-badge" id="planBadge">Básico</span></span></div>
-            <div class="roi-row"><span class="roi-row-label">Costo mensual ProLink</span><span class="roi-row-val dim" id="planCosto">$3,000 MXN</span></div>
-            <div class="roi-row"><span class="roi-row-label">Citas recuperadas est.</span><span class="roi-row-val" id="citasRec">—</span></div>
-            <div class="roi-row"><span class="roi-row-label">vs. recepcionista humana</span><span class="roi-row-val green" id="vsHumana">—</span></div>
+            <div class="roi-row"><span class="roi-row-label">Llamadas al mes</span><span class="roi-row-val" id="llamadasMes">—</span></div>
+            <div class="roi-row"><span class="roi-row-label">Citas que se pierden (est.)</span><span class="roi-row-val green" id="citasRec">—</span></div>
           </div>
           <div class="roi-annual">
-            <span class="roi-annual-label">Proyección anual de ahorro</span>
+            <span class="roi-annual-label">Proyección anual</span>
             <span class="roi-annual-val" id="roiAnual">$0</span>
           </div>
         </div>
-        <p class="roi-credibility" id="roiCredibility">* Estimado conservador: recuperación del 40% de llamadas fuera de horario.</p>
+        <p class="roi-credibility" id="roiCredibility">* Estimado conservador: se pierde el 40% de las llamadas que no se contestan a tiempo.</p>
         <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="roi-modal-cta" id="roiCta">
-          Quiero empezar — hablar por WhatsApp →
+          Quiero una demo — hablar por WhatsApp →
         </a>
       </div>
     </div>
@@ -246,7 +229,7 @@
     <p class="hero-sub">Tu agente de IA contesta llamadas, agenda citas en tu Google Calendar y confirma por WhatsApp. Tú solo ves tu agenda llena.</p>
     <div class="hero-actions">
       <button class="btn-roi" onclick="openROI()"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-bars"/></svg> Calcular mi ahorro</button>
-      <a href="#precios" class="btn-primary">Ver planes</a>
+      <a href="#contacto" class="btn-primary">Pedir demo</a>
     </div>
   </header>
 
@@ -254,8 +237,8 @@
   <div class="stats-row">
     <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Disponibilidad</div></div>
     <div class="stat"><div class="stat-num">&lt;2s</div><div class="stat-label">En contestar</div></div>
-    <div class="stat"><div class="stat-num">7 días</div><div class="stat-label">Para quedar listo</div></div>
-    <div class="stat"><div class="stat-num">15 días</div><div class="stat-label">De aviso para cancelar</div></div>
+    <div class="stat"><div class="stat-num">1 a 2 sem.</div><div class="stat-label">De piloto antes de decidir</div></div>
+    <div class="stat"><div class="stat-num">Los Mochis</div><div class="stat-label">Soporte en persona</div></div>
   </div>
 
   <section id="como-funciona">
@@ -315,7 +298,7 @@
       <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg></div><h3>Google Calendar integrado</h3><p>Las citas aparecen directo en tu calendario. Sin apps nuevas que aprender.</p></div>
       <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-chat"/></svg></div><h3>WhatsApp automático</h3><p>Confirmaciones y recordatorios al paciente y notificaciones a ti, sin intervención manual.</p></div>
       <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg></div><h3>Atiende de noche y fines de semana</h3><p>Las llamadas que antes perdías ahora se convierten en citas agendadas.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-check"/></svg></div><h3>Listo en 7 días</h3><p>Configuramos todo nosotros. Tú solo nos das los datos de tu consultorio.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-check"/></svg></div><h3>Lo pruebas antes de decidir</h3><p>Piloto de 1 a 2 semanas con los datos de tu consultorio. Configuramos todo nosotros.</p></div>
       <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-check"/></svg></div><h3>Soporte local presencial</h3><p>Estamos en Los Mochis. Si algo falla, te atendemos en persona.</p></div>
     </div>
   </section>
@@ -324,56 +307,9 @@
 
   <section id="precios">
     <h2 class="reveal">Una cita perdida cuesta más<br/>que todo el mes.</h2>
-    <p class="section-sub reveal">Planes por minutos de llamada incluidos. Sin plazo forzoso: cancelas con 15 días de aviso, y si en las primeras dos semanas no te sirve, te devolvemos la mensualidad.</p>
-    <div class="pricing-grid">
-      <div class="price-card reveal">
-        <div class="price-plan">Básico</div>
-        <div class="price-amount">$3,000</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-calls">150 minutos incluidos · unas 60 llamadas</div>
-        <ul class="price-features">
-          <li>Contesta las 24 horas en tu número</li>
-          <li>Agenda, cambia y cancela en Google Calendar</li>
-          <li>Confirmación y recordatorio por WhatsApp</li>
-          <li>Transfiere a una persona cuando hace falta</li>
-          <li>Resumen diario y panel con grabaciones</li>
-          <li>1 hora de ajustes al mes</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
-      </div>
-      <div class="price-card featured reveal">
-        <div class="featured-badge">Más popular</div>
-        <div class="price-plan">Profesional</div>
-        <div class="price-amount">$4,500</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-calls">400 minutos incluidos · unas 160 llamadas</div>
-        <ul class="price-features">
-          <li>Todo lo del plan Básico</li>
-          <li>Hasta 3 calendarios o personas que atienden</li>
-          <li>Página de reservas y widget para tu sitio</li>
-          <li>Reporte semanal de citas y llamadas</li>
-          <li>Hora y media de ajustes al mes</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-solid">Solicitar demo</a>
-      </div>
-      <div class="price-card reveal">
-        <div class="price-plan">Premium</div>
-        <div class="price-amount">$6,900</div>
-        <div class="price-period">MXN / mes</div>
-        <div class="price-calls">800 minutos incluidos · unas 320 llamadas</div>
-        <ul class="price-features">
-          <li>Todo lo del plan Profesional</li>
-          <li>Hasta 2 números o sucursales</li>
-          <li>Calendarios sin límite</li>
-          <li>Soporte prioritario, 2 horas de ajustes al mes</li>
-          <li>Revisión mensual de llamadas contigo</li>
-        </ul>
-        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink" target="_blank" class="price-btn price-btn-outline">Solicitar demo</a>
-      </div>
-    </div>
-    <div class="condiciones reveal">
-      <p><b>Cuota de arranque única: $4,500 MXN.</b> Incluye tu número mexicano o el desvío del actual, la voz y el guion de tu negocio, el calendario, las plantillas de WhatsApp aprobadas por Meta, pruebas con llamadas reales y una hora de capacitación. Listo en 7 días. Se condona si pagas 6 meses por adelantado.</p>
-      <p><b>Minuto extra: $8 MXN.</b> Los minutos del plan no se acumulan. Puedes cambiar de plan cuando quieras. Precios antes de IVA, con factura.</p>
+    <p class="section-sub reveal">El plan depende de cuántas llamadas recibes y de cuántas personas atienden en tu consultorio. Lo pruebas primero y, con eso en la mano, te damos un precio cerrado, sin plazo forzoso.</p>
+    <div class="hero-actions reveal" style="justify-content:center;">
+      <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20una%20demo%20de%20la%20recepcionista%20virtual" class="btn-primary" target="_blank" rel="noopener">Pedir demo y cotización</a>
     </div>
   </section>
 
@@ -433,41 +369,26 @@
   <script>
   // ── ROI MODAL ──
   let spinnerVal = 10;
-  let tieneRecep = true;
   function openROI() { document.getElementById('roiOverlay').classList.add('open'); document.body.style.overflow='hidden'; calcROI(); }
   function closeROI() { document.getElementById('roiOverlay').classList.remove('open'); document.body.style.overflow=''; }
   function handleOverlayClick(e) { if(e.target===document.getElementById('roiOverlay')) closeROI(); }
   document.addEventListener('keydown', e => { if(e.key==='Escape') closeROI(); });
   function changeSpinner(delta) { spinnerVal = Math.max(1, Math.min(50, spinnerVal + delta)); document.getElementById('spinnerVal').textContent = spinnerVal; calcROI(); }
-  function setRecep(val) { tieneRecep = val; document.getElementById('togSi').classList.toggle('selected', val); document.getElementById('togNo').classList.toggle('selected', !val); document.getElementById('sueldoField').classList.toggle('visible', val); calcROI(); }
   function fmt(n) { return '$' + Math.round(n).toLocaleString('es-MX') + ' MXN'; }
   function calcROI() {
     const precio = parseFloat(document.getElementById('precioConsulta').value) || 0;
-    const sueldo = parseFloat(document.getElementById('sueldoRecep').value) || 0;
     const llamadasMes = spinnerVal * 22;
-    const minutosMes = llamadasMes * 2.5; // llamada promedio de 2.5 minutos
-    let planNombre, planCosto;
-    if(minutosMes<=150){planNombre='Básico';planCosto=3000;}
-    else if(minutosMes<=400){planNombre='Profesional';planCosto=4500;}
-    else{planNombre='Premium';planCosto=6900 + Math.max(0, Math.round(minutosMes-800))*8;}
     const citasPerdidas = Math.round(llamadasMes * 0.40);
-    const ingresoRecuperable = citasPerdidas * precio;
-    const costoRecep = tieneRecep ? sueldo : 6500;
-    const ahorroBruto = costoRecep + ingresoRecuperable;
-    const roiNeto = ahorroBruto - planCosto;
-    const esMuyAlto = roiNeto > 80000;
-    const tieneData = precio > 0 || (tieneRecep && sueldo > 0);
-    if(!tieneData){ document.getElementById('roiResult').classList.remove('show'); document.getElementById('roiCta').classList.remove('show'); document.getElementById('roiCredibility').classList.remove('show'); return; }
-    document.getElementById('roiNum').textContent = fmt(roiNeto);
-    document.getElementById('planBadge').textContent = planNombre + ' — ' + fmt(planCosto).replace(' MXN','');
-    document.getElementById('planCosto').textContent = fmt(planCosto);
+    const perdida = citasPerdidas * precio;
+    const muestra = precio > 0;
+    document.getElementById('roiResult').classList.toggle('show', muestra);
+    document.getElementById('roiCta').classList.toggle('show', muestra);
+    document.getElementById('roiCredibility').classList.toggle('show', muestra);
+    if(!muestra) return;
+    document.getElementById('roiNum').textContent = fmt(perdida);
+    document.getElementById('llamadasMes').textContent = llamadasMes + ' llamadas';
     document.getElementById('citasRec').textContent = citasPerdidas + ' citas / mes';
-    document.getElementById('roiAnual').textContent = fmt(roiNeto * 12);
-    const vsTexto = tieneRecep ? 'Ahorras ' + fmt(sueldo - planCosto) + ' / mes' : 'vs $6,500 recepcionista de mercado';
-    document.getElementById('vsHumana').textContent = vsTexto;
-    document.getElementById('roiResult').classList.add('show');
-    document.getElementById('roiCta').classList.add('show');
-    document.getElementById('roiCredibility').classList.toggle('show', esMuyAlto);
+    document.getElementById('roiAnual').textContent = fmt(perdida * 12);
   }
   function playStep(card, demoId){ const demo=document.getElementById(demoId), cta=card.querySelector('.step-cta'), isOpen=demo.classList.contains('show'); document.querySelectorAll('.step-demo').forEach(d=>d.classList.remove('show')); document.querySelectorAll('.step').forEach(s=>s.classList.remove('active')); document.querySelectorAll('.step-cta').forEach(c=>c.textContent='▶ Ver en acción'); if(!isOpen){demo.classList.add('show');card.classList.add('active');cta.textContent='▼ Cerrar';} }
   </script>
