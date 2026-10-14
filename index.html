@@ -60,19 +60,26 @@
     .foto-zona { position: absolute; right: 0; bottom: 0; width: 64%; height: 92%; }
     .foto-zona .blob { position: absolute; right: 0; bottom: 0; width: 100%; height: 88%; background: linear-gradient(160deg,#d8f1e2,#bfe8d0); border-radius: 48% 52% 40% 60%/55% 45% 55% 45%; }
     .foto-zona .foto { position: absolute; right: 0; bottom: 0; width: 90%; height: 100%; object-fit: contain; object-position: bottom center; }
-    /* Dots: tres puntos de luz que vuelan alrededor de la foto, cada uno a su ritmo (lento y rápido dentro de la misma vuelta) */
-    .dot { position: absolute; left: 55%; top: 48%; width: 0; height: 0; z-index: 5; animation: orbita linear infinite; }
-    .dot i { position: absolute; display: block; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff 0, #b9ffd9 28%, var(--accent) 60%, rgba(0,232,122,0) 100%); box-shadow: 0 0 14px rgba(0,232,122,.75), 0 0 34px rgba(0,232,122,.35); transform: translate(-50%,-50%); transition: transform .2s; animation: late 1.8s ease-in-out infinite; }
-    .dot:hover i, .dot:focus-visible i { transform: translate(-50%,-50%) scale(1.5); }
-    .dot.d1 { animation-duration: 11s; animation-timing-function: cubic-bezier(.6,0,.4,1); } .dot.d1 i { width: 22px; height: 22px; left: 150px; }
-    .dot.d2 { animation-duration: 7s; animation-timing-function: cubic-bezier(.3,0,.7,1); animation-direction: reverse; } .dot.d2 i { width: 16px; height: 16px; left: 112px; animation-delay: .6s; }
-    .dot.d3 { animation-duration: 15s; animation-timing-function: cubic-bezier(.7,0,.3,1); animation-delay: -5s; } .dot.d3 i { width: 13px; height: 13px; left: 190px; animation-delay: 1.1s; }
+    /* Dots: tres personajes (círculo, cuadrado redondeado y óvalo) con ojos que parpadean y miran, volando alrededor de la foto, cada uno a su ritmo */
+    .dot { position: absolute; left: 60%; top: 46%; width: 0; height: 0; z-index: 5; animation: orbita linear infinite; }
+    .dot i { position: absolute; display: flex; align-items: center; justify-content: center; gap: 12%; background: radial-gradient(circle at 35% 30%, #d9ffe9 0, var(--accent) 45%, #06b85f 100%); box-shadow: 0 0 14px rgba(0,232,122,.7), 0 0 34px rgba(0,232,122,.3), inset -3px -4px 8px rgba(0,80,40,.25); transform: translate(-50%,-50%); transition: transform .2s; animation: late 1.8s ease-in-out infinite; }
+    .dot:hover i, .dot:focus-visible i { transform: translate(-50%,-50%) scale(1.4); }
+    .dot i s { display: block; width: 26%; height: 36%; background: #fff; border-radius: 50%; position: relative; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,60,30,.15); animation: parpadea 4.6s ease-in-out infinite; }
+    .dot i s::after { content: ''; position: absolute; left: 28%; top: 30%; width: 56%; height: 56%; background: #0c2418; border-radius: 50%; animation: mira 5.2s ease-in-out infinite; }
+    .dot i s::before { content: ''; position: absolute; left: 50%; top: 22%; width: 22%; height: 22%; background: #fff; border-radius: 50%; z-index: 1; }
+    .dot.d1 { animation-duration: 11s; animation-timing-function: cubic-bezier(.6,0,.4,1); } .dot.d1 i { width: 34px; height: 34px; border-radius: 50%; left: 150px; }
+    .dot.d2 { animation-duration: 7s; animation-timing-function: cubic-bezier(.3,0,.7,1); animation-direction: reverse; } .dot.d2 i { width: 28px; height: 28px; border-radius: 30%; left: 112px; animation-delay: .6s; }
+    .dot.d2 i s { animation-delay: 1.3s; } .dot.d2 i s::after { animation-delay: 2.1s; }
+    .dot.d3 { animation-duration: 15s; animation-timing-function: cubic-bezier(.7,0,.3,1); animation-delay: -5s; } .dot.d3 i { width: 26px; height: 36px; border-radius: 50% / 46%; left: 190px; animation-delay: 1.1s; }
+    .dot.d3 i s { animation-delay: 2.6s; width: 30%; height: 28%; } .dot.d3 i s::after { animation-delay: .9s; }
     @keyframes orbita { to { transform: rotate(360deg); } }
-    @keyframes late { 50% { box-shadow: 0 0 22px rgba(0,232,122,.95), 0 0 48px rgba(0,232,122,.45); } }
+    @keyframes late { 50% { box-shadow: 0 0 22px rgba(0,232,122,.9), 0 0 48px rgba(0,232,122,.4), inset -3px -4px 8px rgba(0,80,40,.25); } }
+    @keyframes parpadea { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.08); } }
+    @keyframes mira { 0%, 28% { transform: translate(0,0); } 40%, 55% { transform: translate(-45%,12%); } 68%, 85% { transform: translate(40%,-14%); } }
     .dots-pista { position: absolute; left: 50%; bottom: -1.9rem; transform: translateX(-50%); white-space: nowrap; font-size: .78rem; color: var(--gray); text-decoration: none; }
     .dots-pista span { color: var(--green); font-weight: 600; }
     .dots-pista:hover { color: var(--ink); }
-    @media (prefers-reduced-motion: reduce) { .dot, .dot i { animation: none; } .dot.d1 { left: 80%; top: 20%; } .dot.d2 { left: 20%; top: 35%; } .dot.d3 { left: 70%; top: 75%; } .dot i { left: 0 !important; } }
+    @media (prefers-reduced-motion: reduce) { .dot, .dot i, .dot i s, .dot i s::after { animation: none; } .dot.d1 { left: 80%; top: 20%; } .dot.d2 { left: 20%; top: 35%; } .dot.d3 { left: 70%; top: 75%; } .dot i { left: 0 !important; } }
     .kpi-tira { position: absolute; left: 0; top: 0; width: 300px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: .9rem; box-shadow: 0 20px 50px rgba(18,24,21,.12); z-index: 2; text-align: left; }
     .kpi-tira .t { font-size: .72rem; color: var(--gray); display: flex; justify-content: space-between; margin-bottom: .6rem; }
     .kpi-tira .t b { color: var(--green); font-weight: 600; }
@@ -126,7 +133,7 @@
       .foto-zona { position: relative; flex: 1; min-width: 150px; height: 480px; }
       .foto-zona .blob { width: 112%; right: -6%; height: 84%; }
       .foto-zona .foto { width: 100%; }
-      .dot { left: 50%; top: 45%; } .dot.d1 i { left: 84px; } .dot.d2 i { left: 62px; } .dot.d3 i { left: 100px; }
+      .dot { left: 50%; top: 45%; } .dot.d1 i { left: 84px; width: 28px; height: 28px; } .dot.d2 i { left: 62px; width: 23px; height: 23px; } .dot.d3 i { left: 100px; width: 21px; height: 29px; }
       .dots-pista { bottom: -1.7rem; left: 0; right: 0; transform: none; white-space: normal; text-align: center; font-size: .7rem; line-height: 1.2; }
       .hero.split { overflow: hidden; }
       .escena { padding-bottom: 1.6rem; }
@@ -448,10 +455,10 @@
       <div class="foto-zona">
         <div class="blob" aria-hidden="true"></div>
         <!-- <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/> -->
-        <a class="dot d1" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i></i></a>
-        <a class="dot d2" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i></i></a>
-        <a class="dot d3" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i></i></a>
-        <a class="dots-pista" href="agente-ia.html">¿Qué es un Agente IA? <span>toca un punto</span></a>
+        <a class="dot d1" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i><s></s><s></s></i></a>
+        <a class="dot d2" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i><s></s><s></s></i></a>
+        <a class="dot d3" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i><s></s><s></s></i></a>
+        <a class="dots-pista" href="agente-ia.html">¿Qué es un Agente IA?</a>
       </div>
       </div>
     </div>

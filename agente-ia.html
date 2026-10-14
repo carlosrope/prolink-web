@@ -87,6 +87,11 @@
     .orbe-grande b:nth-child(4) { animation-duration: 13s; }
     .orbe-grande b i { width: 14px; height: 14px; margin: -7px 0 0 -7px; left: 52px; box-shadow: 0 0 12px rgba(0,232,122,.8); }
     @keyframes orbita { to { transform: rotate(360deg); } }
+    .orbe-grande .cara { display: flex; align-items: center; justify-content: center; gap: 12%; background: radial-gradient(circle at 35% 30%, #d9ffe9 0, var(--accent) 45%, #06b85f 100%); box-shadow: 0 0 24px rgba(0,232,122,.8), 0 0 60px rgba(0,232,122,.35), inset -3px -4px 8px rgba(0,80,40,.25); }
+    .orbe-grande .cara s { display: block; width: 26%; height: 36%; background: #fff; border-radius: 50%; position: relative; overflow: hidden; animation: parpadea 4.6s ease-in-out infinite; }
+    .orbe-grande .cara s::after { content: ''; position: absolute; left: 28%; top: 30%; width: 56%; height: 56%; background: #0c2418; border-radius: 50%; animation: mira 5.2s ease-in-out infinite; }
+    @keyframes parpadea { 0%, 90%, 100% { transform: scaleY(1); } 94% { transform: scaleY(.08); } }
+    @keyframes mira { 0%, 28% { transform: translate(0,0); } 40%, 55% { transform: translate(-45%,12%); } 68%, 85% { transform: translate(40%,-14%); } }
     .pasos-agente { max-width: 1100px; margin: 0 auto; padding: 2rem 2rem 4rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 1.2rem; counter-reset: paso; }
     .pasos-agente article { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.6rem; position: relative; }
     .pasos-agente article::before { counter-increment: paso; content: counter(paso, decimal-leading-zero); font-family: 'Sora', sans-serif; font-weight: 800; font-size: 2.4rem; color: var(--green); opacity: .25; line-height: 1; display: block; margin-bottom: .6rem; }
@@ -108,7 +113,7 @@
   </style>
 
   <header class="agente-hero">
-    <div class="orbe-grande" aria-hidden="true"><i></i><b><i></i></b><b><i></i></b><b><i></i></b></div>
+    <div class="orbe-grande" aria-hidden="true"><i class="cara"><s></s><s></s></i><b><i></i></b><b><i></i></b><b><i></i></b></div>
     <h1>¿Qué es un <em>Agente IA</em>?</h1>
     <p>Es un empleado virtual que trabaja dentro de tu negocio: lee lo que te escriben, entiende qué quieren, resuelve con tus precios y tus reglas, y te avisa cuando toca que decidas tú. No duerme, no se cansa y aprende cómo trabajas.</p>
   </header>
