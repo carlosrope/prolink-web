@@ -57,8 +57,22 @@
     /* ── Escena del hero: teléfono de WhatsApp, indicadores del CRM y el lugar de la foto (tema claro, 13 de octubre) ── */
     .hero.split h1 { text-wrap: balance; }
     .escena { position: relative; height: 600px; width: 100%; max-width: 560px; margin: 0 auto; justify-self: center; }
-    .escena .blob { position: absolute; right: 0; bottom: 0; width: 74%; height: 86%; background: linear-gradient(160deg,#d8f1e2,#bfe8d0); border-radius: 48% 52% 40% 60%/55% 45% 55% 45%; }
-    .escena .foto { position: absolute; right: 0; bottom: 0; width: 58%; height: 94%; object-fit: contain; object-position: bottom center; }
+    .foto-zona { position: absolute; right: 0; bottom: 0; width: 64%; height: 92%; }
+    .foto-zona .blob { position: absolute; right: 0; bottom: 0; width: 100%; height: 88%; background: linear-gradient(160deg,#d8f1e2,#bfe8d0); border-radius: 48% 52% 40% 60%/55% 45% 55% 45%; }
+    .foto-zona .foto { position: absolute; right: 0; bottom: 0; width: 90%; height: 100%; object-fit: contain; object-position: bottom center; }
+    /* Dots: tres puntos de luz que vuelan alrededor de la foto, cada uno a su ritmo (lento y rápido dentro de la misma vuelta) */
+    .dot { position: absolute; left: 55%; top: 48%; width: 0; height: 0; z-index: 5; animation: orbita linear infinite; }
+    .dot i { position: absolute; display: block; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff 0, #b9ffd9 28%, var(--accent) 60%, rgba(0,232,122,0) 100%); box-shadow: 0 0 14px rgba(0,232,122,.75), 0 0 34px rgba(0,232,122,.35); transform: translate(-50%,-50%); transition: transform .2s; animation: late 1.8s ease-in-out infinite; }
+    .dot:hover i, .dot:focus-visible i { transform: translate(-50%,-50%) scale(1.5); }
+    .dot.d1 { animation-duration: 11s; animation-timing-function: cubic-bezier(.6,0,.4,1); } .dot.d1 i { width: 22px; height: 22px; left: 150px; }
+    .dot.d2 { animation-duration: 7s; animation-timing-function: cubic-bezier(.3,0,.7,1); animation-direction: reverse; } .dot.d2 i { width: 16px; height: 16px; left: 112px; animation-delay: .6s; }
+    .dot.d3 { animation-duration: 15s; animation-timing-function: cubic-bezier(.7,0,.3,1); animation-delay: -5s; } .dot.d3 i { width: 13px; height: 13px; left: 190px; animation-delay: 1.1s; }
+    @keyframes orbita { to { transform: rotate(360deg); } }
+    @keyframes late { 50% { box-shadow: 0 0 22px rgba(0,232,122,.95), 0 0 48px rgba(0,232,122,.45); } }
+    .dots-pista { position: absolute; left: 50%; bottom: -1.9rem; transform: translateX(-50%); white-space: nowrap; font-size: .78rem; color: var(--gray); text-decoration: none; }
+    .dots-pista span { color: var(--green); font-weight: 600; }
+    .dots-pista:hover { color: var(--ink); }
+    @media (prefers-reduced-motion: reduce) { .dot, .dot i { animation: none; } .dot.d1 { left: 80%; top: 20%; } .dot.d2 { left: 20%; top: 35%; } .dot.d3 { left: 70%; top: 75%; } .dot i { left: 0 !important; } }
     .kpi-tira { position: absolute; left: 0; top: 0; width: 300px; background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: .9rem; box-shadow: 0 20px 50px rgba(18,24,21,.12); z-index: 2; text-align: left; }
     .kpi-tira .t { font-size: .72rem; color: var(--gray); display: flex; justify-content: space-between; margin-bottom: .6rem; }
     .kpi-tira .t b { color: var(--green); font-weight: 600; }
@@ -103,10 +117,19 @@
     @media (max-width: 560px) {
       /* En el celular todo va apilado: selector, indicadores y teléfono, sin encimarse */
       .escena { height: auto; display: flex; flex-direction: column; align-items: center; gap: .9rem; padding-bottom: .5rem; }
-      .escena .blob { height: 70%; }
       .nichos { position: static; justify-content: center; max-width: none; }
       .kpi-tira { position: static; width: min(300px, 100%); padding: .8rem; }
-      .tel { position: static; width: 244px; } .tel .pantalla { height: 480px; }
+      /* Teléfono y foto lado a lado */
+      /* La fila usa todo el ancho de la pantalla para que la foto tenga lugar a un lado del teléfono */
+      .fila { display: flex; align-items: flex-end; gap: .3rem; width: calc(100% + 2.3rem); margin: 0 -1.15rem; }
+      .tel { position: static; width: 178px; flex: none; margin-left: .4rem; } .tel .pantalla { height: 450px; } .tel .chat { font-size: .72rem; gap: .3rem; padding: .5rem .45rem; }
+      .foto-zona { position: relative; flex: 1; min-width: 150px; height: 480px; }
+      .foto-zona .blob { width: 112%; right: -6%; height: 84%; }
+      .foto-zona .foto { width: 100%; }
+      .dot { left: 50%; top: 45%; } .dot.d1 i { left: 84px; } .dot.d2 i { left: 62px; } .dot.d3 i { left: 100px; }
+      .dots-pista { bottom: -1.7rem; left: 0; right: 0; transform: none; white-space: normal; text-align: center; font-size: .7rem; line-height: 1.2; }
+      .hero.split { overflow: hidden; }
+      .escena { padding-bottom: 1.6rem; }
       .ruleta, .rodillo span { text-align: center; }
       .kpi3 b { font-size: .95rem; } .escena .foto { width: 64%; right: 0; } .escena .pie-foto { display: none; }
     }
@@ -196,7 +219,11 @@
     .clientes p { color: var(--gray); font-size: 0.9rem; max-width: 560px; text-align: left; }
     @media (max-width: 860px) { .clientes p { text-align: center; } }
     .clientes p b { color: var(--white); font-weight: 500; }
-    .clientes .btn-sm { width: auto; }
+    .clientes .nota-caso { display: inline-flex; align-items: center; gap: .3rem; margin: 0; color: var(--ink); font-size: .9rem; font-weight: 500; }
+    .clientes .nota-caso a { color: var(--green); text-decoration: none; font-weight: 600; }
+    .clientes .flecha { width: 60px; height: 28px; fill: none; stroke: var(--green); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex: none; animation: senala 1.6s ease-in-out infinite; }
+    @keyframes senala { 50% { transform: translateX(-5px); } }
+    @media (max-width: 860px) { .clientes .nota-caso { flex-wrap: wrap; justify-content: center; } .clientes .flecha { transform: rotate(60deg); animation: none; } }
 
     /* ── Botón con trazo que gira (2.5) y se "apachurra" al presionarlo ── */
     .btn-brillo { position: relative; overflow: hidden; border-color: transparent; isolation: isolate; }
@@ -221,6 +248,12 @@
     .icono { width: 46px; height: 46px; border-radius: 12px; background: rgba(13,138,79,0.08); border: 1px solid var(--border); display: grid; place-items: center; flex: none; }
     .trust div { display: grid; grid-template-columns: auto 1fr; column-gap: 0.9rem; align-items: start; }
     .trust .ico { grid-row: span 2; margin-top: 0.2rem; }
+    /* La tierra "gira": los tres emojis del globo se alternan */
+    .tierra { position: relative; display: inline-block; width: 1.3em; height: 1.1em; vertical-align: -.1em; }
+    .tierra b { position: absolute; left: 0; top: 0; font-weight: 400; opacity: 0; animation: gira-tierra 1.8s steps(1) infinite; }
+    .tierra b:nth-child(2) { animation-delay: .6s; } .tierra b:nth-child(3) { animation-delay: 1.2s; }
+    @keyframes gira-tierra { 0%, 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .tierra b { animation: none; } .tierra b:first-child { opacity: 1; } }
 
     /* ── Franjas alternas: la sección ocupa todo el ancho con el fondo secundario ── */
     .franja { background: var(--bg2); box-shadow: 0 0 0 100vmax var(--bg2); clip-path: inset(0 -100vmax); }
@@ -384,7 +417,6 @@
       </div>
     </div>
     <div class="escena" aria-label="Una conversación de WhatsApp contestada por la IA y los indicadores del CRM">
-      <div class="blob" aria-hidden="true"></div>
       <div class="nichos" role="tablist" aria-label="Elige tu tipo de negocio">
         <button type="button" role="tab" aria-selected="true" data-nicho="climas">Minisplits</button>
         <button type="button" role="tab" aria-selected="false" data-nicho="restaurante">Restaurante</button>
@@ -400,6 +432,7 @@
         <div class="t"><span>Climas Demo · hoy en el CRM</span><b>● Agente activo</b></div>
         <div class="kpi3"><div><b>12 s</b><span>Respuesta</span></div><div><b>8</b><span>Por anuncio</span></div><div><b>3</b><span>A vendedor</span></div></div>
       </div>
+      <div class="fila">
       <div class="tel"><div class="pantalla">
         <div class="wa-head"><span class="av">CD</span><div><b>Climas Demo</b><small>en línea · responde la IA</small></div></div>
         <div class="chat">
@@ -411,6 +444,16 @@
         </div>
         <div class="wa-foot"><span>Escribe un mensaje</span><i>➤</i></div>
       </div></div>
+      <!-- Zona de la foto (2.8): la forma verde, la foto cuando exista y los tres dots que vuelan alrededor (abren "¿Qué es un Agente IA?") -->
+      <div class="foto-zona">
+        <div class="blob" aria-hidden="true"></div>
+        <!-- <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/> -->
+        <a class="dot d1" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i></i></a>
+        <a class="dot d2" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i></i></a>
+        <a class="dot d3" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i></i></a>
+        <a class="dots-pista" href="agente-ia.html">¿Qué es un Agente IA? <span>toca un punto</span></a>
+      </div>
+      </div>
     </div>
   </header>
 
@@ -418,7 +461,7 @@
   <section class="clientes" aria-label="Clientes">
     <p class="tag">Ya trabajan con nosotros</p>
     <img src="cliente-diluvium-color.png" alt="Diluvium, control de inundaciones" width="181" height="44"/>
-    <a class="btn-ghost btn-sm" href="demo-crm.html">Míralo en acción</a>
+    <p class="nota-caso"><svg class="flecha" viewBox="0 0 60 28" aria-hidden="true"><path d="M58 6 C40 4, 22 10, 6 20"/><path d="M14 22 L5 21 L8 13"/></svg>Les armamos su CRM con agente de IA · <a href="#equipo">ver el caso</a></p>
   </section>
 
   <!-- ── CONFIANZA ── -->
@@ -426,16 +469,16 @@
     <h2>Te ayudamos a <span class="ruleta" aria-live="off"><span class="rodillo" id="rodillo"></span></span></h2>
   </div>
   <div class="trust" role="list">
-    <div role="listitem"><svg class="ico"><use href="#i-target"/></svg><strong>Piloto con una métrica</strong><span>1 a 2 semanas, alcance acotado y precio cerrado antes de empezar.</span></div>
-    <div role="listitem"><svg class="ico"><use href="#i-link"/></svg><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Google, Odoo, Shopify, tu ERP o tus hojas de cálculo.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-target"/></svg><strong>Lo pruebas antes de decidir</strong><span>Una prueba de 1 a 2 semanas en tu negocio, con un resultado que se mide y precio cerrado desde el inicio.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-link"/></svg><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Instagram, TikTok, Shopify, tu software o tus hojas de cálculo.</span></div>
     <div role="listitem"><svg class="ico"><use href="#i-cap"/></svg><strong>Tu equipo aprende a usarlo</strong><span>Cada proyecto incluye capacitación práctica para quien lo va a operar.</span></div>
-    <div role="listitem"><svg class="ico"><use href="#i-pin"/></svg><strong>Soporte local</strong><span>Estamos en Los Mochis y atendemos en persona en Sinaloa.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-pin"/></svg><strong>Soporte 24/7 <span class="tierra" aria-hidden="true"><b>🌎</b><b>🌍</b><b>🌏</b></span></strong><span>Estamos en Los Mochis para soporte local y, gracias a la tecnología, te ayudamos desde cualquier parte del mundo.</span></div>
   </div>
 
   <!-- ── FORMATOS (antes: servicios) ── -->
   <section id="servicios">
-    <h2 class="reveal">Formas de que tu negocio trabaje solo,<br/>¿cuál se ajusta al tuyo?</h2>
-    <p class="section-sub reveal">Un formato por necesidad: conversación, sistema, espacio, voz o presencia. Lo que ves en cada tarjeta es lo que recibes, conectado con lo que ya usas.</p>
+    <h2 class="reveal">Formas de que tu negocio trabaje solo,<br/><em>¿cuál se ajusta al tuyo?</em></h2>
+    <p class="section-sub reveal">Un formato por necesidad: conversación, sistema, espacio, voz o presencia. Lo que ves en cada tarjeta es lo que recibes, conectado a tu ecosistema digital.</p>
     <div class="formatos">
       <article class="card formato destacado" id="f-agente">
         <a class="vis agente" href="demo-crm.html" aria-label="Probar la demo del CRM con agente de IA"><span class="chip">WhatsApp e Instagram</span>
@@ -546,7 +589,7 @@
 
   <!-- ── SECTORES ── -->
   <section id="sectores" class="sectores-compacto franja">
-    <h2 class="reveal">Hecho para cómo trabajan<br/>las empresas de Sinaloa</h2>
+    <h2 class="reveal">Automatización personalizada<br/>para tu sector</h2>
     <p class="section-sub reveal">Casi siempre empieza por un WhatsApp saturado o una hoja de cálculo. Elige tu sector y mira las demos que ya tenemos para él; si el tuyo no está, cuéntanos.</p>
     <div class="chips">
       <a href="demos.html?sector=agro">Agro y agroindustria</a>
@@ -798,7 +841,7 @@
     setInterval(function () {
       i += 1; rod.style.transform = 'translateY(-' + (i * alto()) + 'px)';
       if (i === verbos.length) setTimeout(function () { rod.style.transition = 'none'; i = 0; rod.style.transform = 'none'; rod.offsetHeight; rod.style.transition = ''; }, 470);
-    }, 2500);
+    }, 2000);
   })();
   </script>
   <script>
