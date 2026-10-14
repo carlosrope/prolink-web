@@ -65,24 +65,31 @@
   </style>
 </head>
 <body>
-  <nav class="top" aria-label="Principal">
+  <nav class="top cuatro" aria-label="Principal">
     <a class="logo" href="index.html">Pro<span>Link</span>365</a>
     <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
-      <li><a href="index.html#sectores">Sectores</a></li>
-      <li><a href="index.html#demos">Demos</a></li>
-      <li><a href="taller-ia.html">Taller de IA</a></li>
-      <li><a href="espacios-3d.html" aria-current="page">Plantea</a></li>
+      <li class="menu"><a href="index.html#servicios">Servicios <span class="caret" aria-hidden="true">▾</span></a>
+        <ul class="submenu" aria-label="Servicios">
+          <li><a href="index.html#f-agente">Agente de IA + CRM</a></li>
+          <li><a href="agente-ia.html">¿Qué es un Agente IA?</a></li>
+          <li><a href="index.html#f-software">Software a la medida</a></li>
+          <li><a href="espacios-3d.html" aria-current="page">Plantea</a></li>
+          <li><a href="recepcionista.html">Recepcionista virtual</a></li>
+          <li><a href="taller-ia.html">Taller "IA en tu puesto"</a></li>
+          <li><a href="paginas-web.html">Páginas web</a></li>
+        </ul>
+      </li>
+      <li><a href="demos.html">Demos</a></li>
       <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
-      <li class="mobile-only"><a href="#contacto">Agendar diagnóstico</a></li>
+      <li><a href="index.html#equipo">Quién somos</a></li>
+      <li class="mobile-only"><a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20mi%20sal%C3%B3n%20o%20mi%20casa%20en%203D%20con%20Plantea">Agenda un diagnóstico</a></li>
     </ul>
-    <a href="#contacto" class="nav-cta desktop">Agendar diagnóstico</a>
+    <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20mi%20sal%C3%B3n%20o%20mi%20casa%20en%203D%20con%20Plantea" class="nav-cta desktop" target="_blank" rel="noopener">Agenda un diagnóstico</a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </nav>
 
   <header class="hero compact">
     <div class="orb"></div>
-    <div class="hero-badge">Servicio · Plantea (antes Espacios 3D)</div>
     <h1>Tu salón o tu casa,<br/><em>recorrible desde el celular</em></h1>
     <p class="hero-sub">Planos 2D y recorridos 3D de lugares reales. Para eventos: montajes, mesas e invitados que tu cliente ve en 3D antes del gran día. Para inmobiliarias: cada casa con su plano, amueblada y con recorrido. Todo en un enlace con tu marca.</p>
     <div class="hero-actions">
@@ -99,7 +106,6 @@
   </div>
 
   <section id="eventos">
-    <div class="section-tag reveal">Para eventos y salones</div>
     <h2 class="reveal">El montaje listo<br/><em>antes del primer recorrido</em></h2>
     <div class="vitrina">
       <figure class="reveal"><img src="espacios-salon-3d.jpg" alt="Vista 3D de un salón con mesas redondas, pista, escenario, baños, recepción y cocina, con el área de cada espacio" width="800" height="575" fetchpriority="high"/><figcaption>Salón de demostración en 3D: una boda de 240 invitados con pista, escenario y cada área medida.</figcaption></figure>
@@ -116,7 +122,6 @@
   <div class="full-divider"></div>
 
   <section id="casas">
-    <div class="section-tag reveal">Para inmobiliarias y desarrolladoras</div>
     <h2 class="reveal">Cada casa, amueblada<br/><em>y con recorrido</em></h2>
     <div class="vitrina inversa">
       <figure class="reveal"><img src="espacios-casa-2d.jpg" alt="Plano 2D de una casa de dos plantas con cuartos, áreas en metros cuadrados y muebles" width="800" height="575" loading="lazy"/><figcaption>Casa de ejemplo en plano 2D: cada cuarto con su área; con un toque pasa a 3D.</figcaption></figure>
@@ -133,7 +138,6 @@
   <div class="full-divider"></div>
 
   <section id="demos">
-    <div class="section-tag reveal">Pruébalo</div>
     <h2 class="reveal">Ábrelo y recórrelo</h2>
     <p class="section-sub reveal">Se abre en una pestaña nueva, con datos de ejemplo. Prueba la "Vista 3D", el "Recorrido" y la visita guiada.</p>
     <div class="grid">
@@ -146,7 +150,6 @@
 
   <!-- ── QUÉ ES GRATIS Y QUÉ ES DE PAGO ── -->
   <section id="planes">
-    <div class="section-tag reveal">Qué es gratis y qué es de pago</div>
     <h2 class="reveal">La demo es gratis.<br/><em>Tu espacio real va con plan.</em></h2>
     <p class="section-sub reveal">Dos módulos, Eventos y Casas, y en cada uno un plan para quien usa el catálogo y otro para quien pone su espacio en él. Tu salón o tu modelo se convierte desde tu plano, incluido en el plan. Y tus clientes no pagan: con tu código arman su propio evento.</p>
     <div class="gratis-pago">
@@ -217,7 +220,6 @@
   <div class="full-divider"></div>
 
   <section id="como">
-    <div class="section-tag reveal">Cómo funciona</div>
     <h2 class="reveal">De tu plano<br/>a un enlace por WhatsApp</h2>
     <div class="steps" style="margin-top:2rem;">
       <div class="step reveal"><div class="step-num">01</div><h3>Levantamos el lugar</h3><p>Medidas y fotos del salón, o el plano arquitectónico de cada modelo de casa.</p></div>
@@ -230,19 +232,17 @@
   <div class="full-divider"></div>
 
   <section id="combina">
-    <div class="section-tag reveal">Se combina con</div>
     <h2 class="reveal">Del primer mensaje<br/><em>al día del evento o la firma</em></h2>
     <div class="grid" style="margin-top:2rem;">
-      <article class="card reveal"><div class="icon" aria-hidden="true">🍽️</div><h3>Reservas y salones por WhatsApp</h3><p>El asistente vende el salón, cobra el anticipo y manda el montaje en 3D al cliente.</p><a class="link" href="demo-reservas.html">Ver demo →</a></article>
-      <article class="card reveal"><div class="icon" aria-hidden="true">🏠</div><h3>Inmobiliaria: califica y agenda visitas</h3><p>Cada prospecto recibe la casa en 3D que le alcanza, y la visita queda agendada.</p><a class="link" href="demo-inmobiliaria.html">Ver demo →</a></article>
-      <article class="card reveal"><div class="icon" aria-hidden="true">📊</div><h3>CRM con agente de IA</h3><p>WhatsApp e Instagram en una bandeja, con embudo y seguimiento de cada cliente.</p><a class="link" href="demo-crm.html">Ver demo →</a></article>
+      <article class="card reveal"><div class="icono"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg></div><h3>Reservas y salones por WhatsApp</h3><p>El asistente vende el salón, cobra el anticipo y manda el montaje en 3D al cliente.</p><a class="link" href="demo-reservas.html">Ver demo →</a></article>
+      <article class="card reveal"><div class="icono"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-pin"/></svg></div><h3>Inmobiliaria: califica y agenda visitas</h3><p>Cada prospecto recibe la casa en 3D que le alcanza, y la visita queda agendada.</p><a class="link" href="demo-inmobiliaria.html">Ver demo →</a></article>
+      <article class="card reveal"><div class="icono"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-bars"/></svg></div><h3>CRM con agente de IA</h3><p>WhatsApp e Instagram en una bandeja, con embudo y seguimiento de cada cliente.</p><a class="link" href="demo-crm.html">Ver demo →</a></article>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
   <section id="preguntas">
-    <div class="section-tag reveal">Preguntas frecuentes</div>
     <h2 class="reveal">Lo que nos preguntan</h2>
     <div class="reveal" style="margin-top:1.6rem;">
       <details class="faq"><summary>¿Hay que instalar algo?</summary><p>No. Funciona en el navegador del celular, la tablet o la computadora.</p></details>
@@ -255,7 +255,6 @@
 
   <div class="full-divider"></div>
   <div class="cta-section" id="contacto">
-    <div class="section-tag reveal">Plantea</div>
     <h2 class="reveal">¿Armamos tu salón<br/>o tus casas en 3D?</h2>
     <p class="reveal">Mándanos tu plano o las medidas y te enseñamos cómo quedaría, con tu marca.</p>
     <div class="hero-actions reveal">
@@ -264,11 +263,44 @@
     </div>
   </div>
 
-  <footer>
-    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
-    <nav aria-label="Más"><a href="index.html">Inicio</a><a href="index.html#demos">Demos</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
-    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  <footer class="pie">
+    <div class="pie-grid">
+      <div>
+        <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Plantea (espacios en 3D) para empresas de Sinaloa.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener">WhatsApp: +52 668 130 5828</a>
+        <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a>
+        <span>Atención 24/7 por WhatsApp</span>
+        <span>Los Mochis, Sinaloa, México · en persona en todo Sinaloa</span>
+        <div class="redes">
+          <a href="https://www.instagram.com/prolink.365" target="_blank" rel="noopener" aria-label="Instagram de ProLink365"><img src="logo-instagram.svg" alt="" width="22" height="22"/>Instagram</a>
+          <a href="https://www.facebook.com/p/ProLink365-61589518042209/" target="_blank" rel="noopener" aria-label="Facebook de ProLink365"><img src="logo-facebook.png" alt="" width="22" height="22"/>Facebook</a>
+        </div>
+      </div>
+      <nav aria-label="Servicios">
+        <h4>Servicios</h4>
+        <a href="index.html#f-agente">Agente de IA + CRM</a>
+        <a href="agente-ia.html">¿Qué es un Agente IA?</a>
+        <a href="index.html#f-software">Software a la medida</a>
+        <a href="espacios-3d.html">Plantea</a>
+        <a href="recepcionista.html">Recepcionista virtual</a>
+        <a href="taller-ia.html">Taller "IA en tu puesto"</a>
+        <a href="paginas-web.html">Páginas web</a>
+      </nav>
+      <nav aria-label="Más">
+        <h4>Más</h4>
+        <a href="demos.html">Todas las demos</a>
+        <a href="index.html#como-trabajamos">Cómo trabajamos</a>
+        <a href="index.html#equipo">Quién somos</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos de servicio</a>
+      </nav>
+    </div>
+    
+    <p class="small pie-legal">© <span data-year>2026</span> ProLink365 · Carlos Manuel Robles · Los Mochis, Sinaloa</p>
   </footer>
 
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20Espacios%203D%20para%20mi%20negocio" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">

@@ -10,10 +10,10 @@
   <link rel="manifest" href="site.webmanifest"/>
   <meta name="theme-color" content="#f6f5f0"/>
   <title>ProLink365 — Automatización empresarial con IA en Sinaloa</title>
-  <meta name="description" content="Agentes de IA, CRM y software a la medida para empresas de Sinaloa: contestan, cotizan y dan seguimiento los 365 días. Piloto de 1 a 2 semanas con una métrica y soporte en persona. Los Mochis, Sinaloa."/>
+  <meta name="description" content="Automatizaciones empresariales con Agentes IA: un empleado virtual creado a tu manera que contesta, cotiza, agenda y da seguimiento en tu negocio. Lo pruebas antes de decidir. Los Mochis, Sinaloa."/>
   <link rel="canonical" href="https://prolink365.com.mx/"/>
-  <meta property="og:title" content="ProLink365 — Automatización empresarial con IA"/>
-  <meta property="og:description" content="Tu negocio contesta y cotiza por WhatsApp en minutos, todos los días. Agentes de IA, CRM y software a la medida, con un piloto de 1 a 2 semanas y una métrica clara."/>
+  <meta property="og:title" content="ProLink365 — Automatizaciones empresariales con Agentes IA"/>
+  <meta property="og:description" content="Goza de un empleado virtual creado a tu manera: contesta, cotiza, agenda y da seguimiento en tu negocio. Lo pruebas antes de decidir."/>
   <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://prolink365.com.mx/"/>
   <!-- Google Analytics (GA4), ID dado por el usuario el 12 de octubre de 2026 -->
@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="prolink.css?v=claro1"/>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"ProLink365","url":"https://prolink365.com.mx/","image":"https://prolink365.com.mx/og-image.png","logo":"https://prolink365.com.mx/apple-touch-icon.png","description":"Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Plantea (espacios en 3D) para empresas de Sinaloa. Piloto de 1 a 2 semanas con una métrica.","telephone":"+52 668 130 5828","email":"carlosrope@prolink365.com.mx","address":{"@type":"PostalAddress","addressLocality":"Los Mochis","addressRegion":"Sinaloa","addressCountry":"MX"},"areaServed":{"@type":"State","name":"Sinaloa"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.instagram.com/prolink.365","https://www.facebook.com/p/ProLink365-61589518042209/"],"founder":{"@type":"Person","name":"Carlos Manuel Robles"},"knowsAbout":["Automatización con IA","Agentes de WhatsApp","CRM","Software a la medida","Planos y recorridos 3D"]}
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"ProLink365","url":"https://prolink365.com.mx/","image":"https://prolink365.com.mx/og-image.png","logo":"https://prolink365.com.mx/apple-touch-icon.png","description":"Automatizaciones empresariales con Agentes IA: agentes de WhatsApp, CRM, software a la medida, recepcionista virtual, páginas web y Plantea (espacios en 3D) para empresas de Sinaloa. Lo pruebas antes de decidir.","telephone":"+52 668 130 5828","email":"carlosrope@prolink365.com.mx","address":{"@type":"PostalAddress","addressLocality":"Los Mochis","addressRegion":"Sinaloa","addressCountry":"MX"},"areaServed":{"@type":"State","name":"Sinaloa"},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},"sameAs":["https://www.instagram.com/prolink.365","https://www.facebook.com/p/ProLink365-61589518042209/"],"founder":{"@type":"Person","name":"Carlos Manuel Robles"},"knowsAbout":["Automatización con IA","Agentes de WhatsApp","CRM","Software a la medida","Planos y recorridos 3D"]}
   </script>
   <script>
     // Enlaces viejos a secciones que ahora viven en su propia página.
@@ -122,10 +122,22 @@
     @keyframes llega { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     @media (max-width: 980px) { .escena { height: 650px; } }
     @media (max-width: 560px) {
+      .hero.split { padding-top: 5.6rem; gap: 1.4rem; }
+      .hero.split h1 { font-size: clamp(1.7rem, 7.6vw, 2.1rem); margin-bottom: .7rem; }
+      .hero.split .hero-sub { font-size: .95rem; margin-bottom: 1.1rem; }
+      .hero.split .hero-actions { gap: .5rem; }
+      .hero.split .hero-actions a { flex: 1 1 0; min-width: 0; padding: .7rem .3rem; font-size: .84rem; white-space: nowrap; }
+      .hero.split .hero-actions .btn-brillo span { font-size: .84rem; }
+    }
+    @media (max-width: 560px) {
       /* En el celular todo va apilado: selector, indicadores y teléfono, sin encimarse */
       .escena { height: auto; display: flex; flex-direction: column; align-items: center; gap: .9rem; padding-bottom: .5rem; }
-      .nichos { position: static; justify-content: center; max-width: none; }
-      .kpi-tira { position: static; width: min(300px, 100%); padding: .8rem; }
+      /* Chips en una sola tira que se desliza; indicadores compactos */
+      .nichos { position: static; flex-wrap: nowrap; justify-content: flex-start; max-width: none; width: calc(100% + 2.3rem); margin: 0 -1.15rem; padding: 0 1.15rem .3rem; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+      .nichos::-webkit-scrollbar { display: none; }
+      .nichos button { flex: none; }
+      .kpi-tira { position: static; width: 100%; padding: .55rem .7rem; }
+      .kpi-tira .t { margin-bottom: .35rem; }
       /* Teléfono y foto lado a lado */
       /* La fila usa todo el ancho de la pantalla para que la foto tenga lugar a un lado del teléfono */
       .fila { display: flex; align-items: flex-end; gap: .3rem; width: calc(100% + 2.3rem); margin: 0 -1.15rem; }
@@ -226,6 +238,8 @@
     .clientes p { color: var(--gray); font-size: 0.9rem; max-width: 560px; text-align: left; }
     @media (max-width: 860px) { .clientes p { text-align: center; } }
     .clientes p b { color: var(--white); font-weight: 500; }
+    .pie-extra { margin: 1.4rem 0 .4rem; font-size: .86rem; color: var(--gray); text-align: center; }
+    .pie-extra a { color: var(--green); text-decoration: none; font-weight: 600; }
     .clientes .nota-caso { display: inline-flex; align-items: center; gap: .3rem; margin: 0; color: var(--ink); font-size: .9rem; font-weight: 500; }
     .clientes .nota-caso a { color: var(--green); text-decoration: none; font-weight: 600; }
     .clientes .flecha { width: 60px; height: 28px; fill: none; stroke: var(--green); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex: none; animation: senala 1.6s ease-in-out infinite; }
@@ -396,6 +410,7 @@
       <li class="menu"><a href="#servicios">Servicios <span class="caret" aria-hidden="true">▾</span></a>
         <ul class="submenu" aria-label="Servicios">
           <li><a href="#f-agente">Agente de IA + CRM</a></li>
+          <li><a href="agente-ia.html">¿Qué es un Agente IA?</a></li>
           <li><a href="#f-software">Software a la medida</a></li>
           <li><a href="espacios-3d.html">Plantea</a></li>
           <li><a href="recepcionista.html">Recepcionista virtual</a></li>
@@ -717,33 +732,6 @@
 
   <div class="full-divider"></div>
 
-  <!-- ── PYMES ── -->
-  <section id="pymes" style="padding-bottom:1.6rem;">
-    <div class="banda">
-      <div>
-        <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">¿Negocio pequeño? También tenemos planes listos, con precio fijo.</h3>
-        <p>Recepcionista virtual con IA para consultorios y negocios con citas, y páginas web listas para recibir clientes por WhatsApp y aparecer en Google.</p>
-      </div>
-      <div class="banda-enlaces">
-        <a class="btn-ghost btn-sm" href="recepcionista.html">Recepcionista virtual →</a>
-        <a class="btn-ghost btn-sm" href="paginas-web.html">Páginas web →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── ALIANZAS ── -->
-  <section id="alianzas" style="padding-top:0;">
-    <div class="alianza">
-      <div>
-        <h3 style="font-size:1.2rem;margin-bottom:0.4rem;">¿Eres despacho contable, escuela o agencia?</h3>
-        <p>Llevemos automatización a tus clientes: tú conoces su negocio y nosotros la implementamos. Co-venta, referidos o capacitación conjunta.</p>
-      </div>
-      <a class="btn-ghost btn-sm" href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20una%20alianza%20con%20ProLink365" target="_blank" rel="noopener">Hablemos de una alianza</a>
-    </div>
-  </section>
-
-  <div class="full-divider"></div>
-
   <!-- ── CTA ── -->
   <div class="cta-section" id="contacto">
     <h2 class="reveal">¿Qué proceso le quita<br/>más horas a tu equipo?</h2>
@@ -775,6 +763,7 @@
       <nav aria-label="Servicios">
         <h4>Servicios</h4>
         <a href="#f-agente">Agente de IA + CRM</a>
+        <a href="agente-ia.html">¿Qué es un Agente IA?</a>
         <a href="#f-software">Software a la medida</a>
         <a href="espacios-3d.html">Plantea</a>
         <a href="recepcionista.html">Recepcionista virtual</a>
@@ -786,11 +775,12 @@
         <a href="demos.html">Todas las demos</a>
         <a href="#como-trabajamos">Cómo trabajamos</a>
         <a href="#equipo">Quién somos</a>
-        <a href="#alianzas">Alianzas</a>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20una%20alianza%20con%20ProLink365" target="_blank" rel="noopener">Alianzas</a>
         <a href="privacidad.html">Política de privacidad</a>
         <a href="terminos.html">Términos de servicio</a>
       </nav>
     </div>
+    <p class="pie-extra"><a href="recepcionista.html">¿Negocio pequeño?</a> Recepcionista virtual y páginas web con precio fijo. · <a href="https://wa.me/526681305828?text=Hola%2C%20me%20interesa%20una%20alianza%20con%20ProLink365" target="_blank" rel="noopener">¿Despacho contable, escuela o agencia?</a> Hablemos de una alianza.</p>
     <p class="small pie-legal">© <span data-year>2026</span> ProLink365 · Carlos Manuel Robles · Los Mochis, Sinaloa</p>
   </footer>
 

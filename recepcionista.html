@@ -150,21 +150,31 @@
     .btn-roi { background:transparent; color:var(--green); font-weight:500; font-size:0.95rem; padding:0.85rem 1.6rem; border-radius:8px; border:1px solid rgba(13,138,79,0.35); cursor:pointer; font-family:"DM Sans",sans-serif; }
     .btn-roi:hover { background:rgba(13,138,79,0.08); border-color:var(--green); }
     .step { cursor:pointer; }
+    .feature-icon .ico { width: 1.9rem; height: 1.9rem; }
+  .btn-roi .ico { width: 1.1rem; height: 1.1rem; vertical-align: -0.2rem; }
   </style>
 </head>
 <body>
-  <nav class="top" aria-label="Principal">
+  <nav class="top cuatro" aria-label="Principal">
     <a class="logo" href="index.html">Pro<span>Link</span>365</a>
     <ul class="nav-links">
-      <li><a href="index.html#servicios">Servicios</a></li>
-      <li><a href="index.html#sectores">Sectores</a></li>
-      <li><a href="index.html#demos">Demos</a></li>
+      <li class="menu"><a href="index.html#servicios">Servicios <span class="caret" aria-hidden="true">▾</span></a>
+        <ul class="submenu" aria-label="Servicios">
+          <li><a href="index.html#f-agente">Agente de IA + CRM</a></li>
+          <li><a href="agente-ia.html">¿Qué es un Agente IA?</a></li>
+          <li><a href="index.html#f-software">Software a la medida</a></li>
+          <li><a href="espacios-3d.html">Plantea</a></li>
+          <li><a href="recepcionista.html" aria-current="page">Recepcionista virtual</a></li>
+          <li><a href="taller-ia.html">Taller "IA en tu puesto"</a></li>
+          <li><a href="paginas-web.html">Páginas web</a></li>
+        </ul>
+      </li>
+      <li><a href="demos.html">Demos</a></li>
       <li><a href="index.html#como-trabajamos">Cómo trabajamos</a></li>
-      <li><a href="recepcionista.html" aria-current="page">Recepcionista</a></li>
-      <li><a href="paginas-web.html">Páginas web</a></li>
-      <li class="mobile-only"><a href="index.html#contacto">Agenda un diagnóstico</a></li>
+      <li><a href="index.html#equipo">Quién somos</a></li>
+      <li class="mobile-only"><a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20la%20recepcionista%20virtual%20para%20mi%20negocio">Agenda un diagnóstico</a></li>
     </ul>
-    <a href="index.html#contacto" class="nav-cta desktop">Agenda un diagnóstico</a>
+    <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20la%20recepcionista%20virtual%20para%20mi%20negocio" class="nav-cta desktop" target="_blank" rel="noopener">Agenda un diagnóstico</a>
     <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
   </nav>
 
@@ -238,11 +248,10 @@
 
   <header class="hero compact">
     <div class="orb"></div>
-    <div class="hero-badge">Pymes y consultorios · Servicio insignia</div>
     <h1>Recepcionista virtual <em>las 24 horas</em></h1>
     <p class="hero-sub">Tu agente de IA contesta llamadas, agenda citas en tu Google Calendar y confirma por WhatsApp. Tú solo ves tu agenda llena.</p>
     <div class="hero-actions">
-      <button class="btn-roi" onclick="openROI()">📊 Calcular mi ahorro</button>
+      <button class="btn-roi" onclick="openROI()"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-bars"/></svg> Calcular mi ahorro</button>
       <a href="#precios" class="btn-primary">Ver planes</a>
     </div>
   </header>
@@ -277,7 +286,6 @@
   </div>
 
   <section id="como-funciona">
-    <div class="section-tag reveal">Recepcionista Virtual</div>
     <h2 class="reveal">Cuatro pasos.<br/>Sin complicaciones.</h2>
     <p class="section-sub reveal">Tu paciente llama. Tu recepcionista IA atiende, agenda y confirma. Tú solo ves las citas en tu calendario.</p>
     <div class="steps">
@@ -327,23 +335,21 @@
   <div class="full-divider"></div>
 
   <section id="funciones">
-    <div class="section-tag reveal">Funciones</div>
     <h2 class="reveal">Todo lo que necesita<br/>tu consultorio</h2>
     <p class="section-sub reveal">Diseñado específicamente para negocios locales en Los Mochis y Sinaloa.</p>
     <div class="features-grid">
-      <div class="feature-card reveal"><div class="feature-icon">🎙️</div><h3>Voz natural en español</h3><p>Tu recepcionista habla como una persona real. Voz clara y amable, con el nombre de tu consultorio.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📅</div><h3>Google Calendar integrado</h3><p>Las citas aparecen directo en tu calendario. Sin apps nuevas que aprender.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">💬</div><h3>WhatsApp automático</h3><p>Confirmaciones y recordatorios al paciente y notificaciones a ti, sin intervención manual.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">🌙</div><h3>Atiende de noche y fines de semana</h3><p>Las llamadas que antes perdías ahora se convierten en citas agendadas.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">⚡</div><h3>Listo en 7 días</h3><p>Configuramos todo nosotros. Tú solo nos das los datos de tu consultorio.</p></div>
-      <div class="feature-card reveal"><div class="feature-icon">📍</div><h3>Soporte local presencial</h3><p>Estamos en Los Mochis. Si algo falla, te atendemos en persona.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-mic"/></svg></div><h3>Voz natural en español</h3><p>Tu recepcionista habla como una persona real. Voz clara y amable, con el nombre de tu consultorio.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg></div><h3>Google Calendar integrado</h3><p>Las citas aparecen directo en tu calendario. Sin apps nuevas que aprender.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-chat"/></svg></div><h3>WhatsApp automático</h3><p>Confirmaciones y recordatorios al paciente y notificaciones a ti, sin intervención manual.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg></div><h3>Atiende de noche y fines de semana</h3><p>Las llamadas que antes perdías ahora se convierten en citas agendadas.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-check"/></svg></div><h3>Listo en 7 días</h3><p>Configuramos todo nosotros. Tú solo nos das los datos de tu consultorio.</p></div>
+      <div class="feature-card reveal"><div class="feature-icon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-check"/></svg></div><h3>Soporte local presencial</h3><p>Estamos en Los Mochis. Si algo falla, te atendemos en persona.</p></div>
     </div>
   </section>
 
   <div class="full-divider"></div>
 
   <section id="precios">
-    <div class="section-tag reveal">Recepcionista Virtual — Planes</div>
     <h2 class="reveal">Una cita perdida cuesta más<br/>que todo el mes.</h2>
     <p class="section-sub reveal">Planes por minutos de llamada incluidos. Sin plazo forzoso: cancelas con 15 días de aviso, y si en las primeras dos semanas no te sirve, te devolvemos la mensualidad.</p>
     <div class="pricing-grid">
@@ -401,17 +407,49 @@
   <div class="full-divider"></div>
 
   <div class="cta-section" id="contacto">
-    <div class="section-tag reveal">¿Listo para empezar?</div>
     <h2 class="reveal">Que ninguna llamada<br/>se quede sin contestar</h2>
     <p class="reveal">Te mostramos la recepcionista funcionando con los datos de tu consultorio en menos de 20 minutos por WhatsApp.</p>
     <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20una%20demo%20de%20la%20recepcionista%20virtual" class="btn-primary reveal" target="_blank" rel="noopener">Pedir demo por WhatsApp</a>
   </div>
 
-  <footer>
-    <p><strong>ProLink365</strong> · Automatización empresarial con IA · Los Mochis, Sinaloa, México</p>
-    <p style="margin-top:0.4rem;"><a href="mailto:carlosrope@prolink365.com.mx" style="color:var(--gray);text-decoration:none;">carlosrope@prolink365.com.mx</a></p>
-    <nav aria-label="Legal"><a href="index.html">Inicio</a><a href="privacidad.html">Política de Privacidad</a><a href="terminos.html">Términos de Servicio</a></nav>
-    <p class="small" style="margin-top:0.8rem;">© <span data-year>2026</span> ProLink365</p>
+  <footer class="pie">
+    <div class="pie-grid">
+      <div>
+        <a class="logo" href="index.html">Pro<span>Link</span>365</a>
+        <p class="pie-lema">Automatización empresarial con IA: agentes de WhatsApp, CRM, software a la medida y Plantea (espacios en 3D) para empresas de Sinaloa.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener">WhatsApp: +52 668 130 5828</a>
+        <a href="mailto:carlosrope@prolink365.com.mx">carlosrope@prolink365.com.mx</a>
+        <span>Atención 24/7 por WhatsApp</span>
+        <span>Los Mochis, Sinaloa, México · en persona en todo Sinaloa</span>
+        <div class="redes">
+          <a href="https://www.instagram.com/prolink.365" target="_blank" rel="noopener" aria-label="Instagram de ProLink365"><img src="logo-instagram.svg" alt="" width="22" height="22"/>Instagram</a>
+          <a href="https://www.facebook.com/p/ProLink365-61589518042209/" target="_blank" rel="noopener" aria-label="Facebook de ProLink365"><img src="logo-facebook.png" alt="" width="22" height="22"/>Facebook</a>
+        </div>
+      </div>
+      <nav aria-label="Servicios">
+        <h4>Servicios</h4>
+        <a href="index.html#f-agente">Agente de IA + CRM</a>
+        <a href="agente-ia.html">¿Qué es un Agente IA?</a>
+        <a href="index.html#f-software">Software a la medida</a>
+        <a href="espacios-3d.html">Plantea</a>
+        <a href="recepcionista.html">Recepcionista virtual</a>
+        <a href="taller-ia.html">Taller "IA en tu puesto"</a>
+        <a href="paginas-web.html">Páginas web</a>
+      </nav>
+      <nav aria-label="Más">
+        <h4>Más</h4>
+        <a href="demos.html">Todas las demos</a>
+        <a href="index.html#como-trabajamos">Cómo trabajamos</a>
+        <a href="index.html#equipo">Quién somos</a>
+        <a href="privacidad.html">Política de privacidad</a>
+        <a href="terminos.html">Términos de servicio</a>
+      </nav>
+    </div>
+    
+    <p class="small pie-legal">© <span data-year>2026</span> ProLink365 · Carlos Manuel Robles · Los Mochis, Sinaloa</p>
   </footer>
   <a class="wa-float" href="https://wa.me/526681305828?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20ProLink365" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
