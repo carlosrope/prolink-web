@@ -232,19 +232,22 @@
     .price-tag small { font-family: 'DM Sans', sans-serif; font-weight: 400; font-size: 0.85rem; color: var(--gray); }
     .alianza { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.2rem; background: linear-gradient(135deg, rgba(13,138,79,0.06), var(--card)); border: 1px solid var(--border); border-radius: 16px; padding: 1.8rem; }
     .alianza p { color: var(--gray); max-width: 620px; }
-    .clientes { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.9rem 2rem; padding: 1.4rem 1.5rem 1.8rem; text-align: center; }
-    .clientes .tag { width: 100%; max-width: none; text-align: center; font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.15em; }
-    .clientes img { display: block; height: 44px; width: auto; }
-    .clientes p { color: var(--gray); font-size: 0.9rem; max-width: 560px; text-align: left; }
-    @media (max-width: 860px) { .clientes p { text-align: center; } }
-    .clientes p b { color: var(--white); font-weight: 500; }
+    /* Banner de logos: clientes y productos propios. Con pocos logos se centran; con 5 o más,
+       el script les pone .marquesina y desfilan en bucle (pausa al pasar el cursor). */
+    .clientes { position: relative; z-index: 1; padding: 1.4rem 0 1.8rem; text-align: center; }
+    .clientes .tag { max-width: none; margin: 0 1.5rem 1rem; text-align: center; font-size: 0.72rem; color: var(--gray); text-transform: uppercase; letter-spacing: 0.15em; }
+    .logos { overflow: hidden; }
+    .logos-pista { list-style: none; margin: 0; padding: 0 1.5rem; display: flex; flex-wrap: wrap; justify-content: center; align-items: flex-start; gap: 1.2rem 3rem; }
+    .logos-pista a { display: flex; flex-direction: column; align-items: center; gap: .5rem; color: var(--gray); font-size: .82rem; text-decoration: none; }
+    .logos-pista a:hover span { color: var(--green); }
+    .logos-pista img { display: block; height: 44px; width: auto; }
+    .logos.marquesina { mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent); }
+    .logos.marquesina .logos-pista { flex-wrap: nowrap; justify-content: flex-start; width: max-content; padding: 0 1.5rem 0 0; animation: desfila 32s linear infinite; }
+    .logos.marquesina:hover .logos-pista { animation-play-state: paused; }
+    @keyframes desfila { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) { .logos.marquesina .logos-pista { animation: none; } }
     .pie-extra { margin: 1.4rem 0 .4rem; font-size: .86rem; color: var(--gray); text-align: center; }
     .pie-extra a { color: var(--green); text-decoration: none; font-weight: 600; }
-    .clientes .nota-caso { display: inline-flex; align-items: center; gap: .3rem; margin: 0; color: var(--ink); font-size: .9rem; font-weight: 500; }
-    .clientes .nota-caso a { color: var(--green); text-decoration: none; font-weight: 600; }
-    .clientes .flecha { width: 60px; height: 28px; fill: none; stroke: var(--green); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex: none; animation: senala 1.6s ease-in-out infinite; }
-    @keyframes senala { 50% { transform: translateX(-5px); } }
-    @media (max-width: 860px) { .clientes .nota-caso { flex-wrap: wrap; justify-content: center; } .clientes .flecha { transform: rotate(60deg); animation: none; } }
 
     /* ── Botón con trazo que gira (2.5) y se "apachurra" al presionarlo ── */
     .btn-brillo { position: relative; overflow: hidden; border-color: transparent; isolation: isolate; }
@@ -480,10 +483,14 @@
   </header>
 
   <!-- ── CLIENTES ── -->
-  <section class="clientes" aria-label="Clientes">
+  <section class="clientes" aria-label="Clientes y productos">
     <p class="tag">Ya trabajan con nosotros</p>
-    <img src="cliente-diluvium-color.png" alt="Diluvium, control de inundaciones" width="181" height="44"/>
-    <p class="nota-caso"><svg class="flecha" viewBox="0 0 60 28" aria-hidden="true"><path d="M58 6 C40 4, 22 10, 6 20"/><path d="M14 22 L5 21 L8 13"/></svg>Les armamos su CRM con agente de IA · <a href="#equipo">ver el caso</a></p>
+    <div class="logos">
+      <ul class="logos-pista" id="logos-pista">
+        <li><a href="#equipo"><img src="cliente-diluvium-color.png" alt="Diluvium, control de inundaciones" width="181" height="44"/><span>CRM con agente de IA · ver el caso</span></a></li>
+        <li><a href="espacios-3d.html"><img src="cliente-plantea.svg" alt="Plantea, espacios 3D para eventos y casas" width="185" height="44"/><span>Plantea, nuestro software de espacios 3D</span></a></li>
+      </ul>
+    </div>
   </section>
 
   <!-- ── CONFIANZA ── -->
@@ -854,6 +861,15 @@
       new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? on() : off(); }); }, { threshold: 0.6 }).observe(vis);
     }
   })();
+  </script>
+  <script>
+    // Banner de logos: a partir de 5 se vuelve marquesina (se duplica la lista para el bucle).
+    (function () {
+      var pista = document.getElementById('logos-pista');
+      if (!pista || pista.children.length < 5) return;
+      Array.prototype.slice.call(pista.children).forEach(function (li) { var c = li.cloneNode(true); c.setAttribute('aria-hidden', 'true'); pista.appendChild(c); });
+      pista.parentNode.classList.add('marquesina');
+    })();
   </script>
 </body>
 </html>
