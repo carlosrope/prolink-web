@@ -486,8 +486,8 @@
       <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/>
       <p class="pie-foto"><b>Carlos Manuel Robles</b> · ProLink365, Los Mochis</p> -->
       <div class="kpi-tira">
-        <div class="t"><span>Asador Demo · hoy en el CRM</span><b>● Agente activo</b></div>
-        <div class="kpi3"><div><b>9 s</b><span>Respuesta</span></div><div><b>14</b><span>Reservas hoy</span></div><div><b>2</b><span>Lista de espera</span></div></div>
+        <div class="t"><span>Asador Demo · anoche, 10 p.m. – 8 a.m.</span><b>● Mientras dormías</b></div>
+        <div class="kpi3"><div><b>9</b><span>mensajes contestados</span></div><div><b>4</b><span>reservas tomadas</span></div><div><b>0</b><span>llamadas perdidas</span></div></div>
       </div>
       <div class="fila">
       <div class="tel"><div class="pantalla">
@@ -740,15 +740,15 @@
   // Selector de nicho (2.9): cambia la conversación del teléfono (2.7) y los indicadores (2.6). Empresas y datos ficticios.
   (function () {
     var N = {
-      restaurante: { n: 'Asador Demo', ini: 'AD', kpi: [['9 s','Respuesta'],['14','Reservas hoy'],['2','Lista de espera']],
+      restaurante: { n: 'Asador Demo', ini: 'AD', kpi: [['9','mensajes contestados'],['4','reservas tomadas'],['0','llamadas perdidas']],
         chat: [['in','Hola, ¿tienen mesa para 6 hoy a las 8?','6:10 p. m.'],['out','Sí: a las 8:00 o a las 8:45 en terraza. ¿Cuál te acomoda?','6:10 p. m.'],['in','A las 8:00, a nombre de Laura.','6:11 p. m.'],['doc','Reserva confirmada · 8:00 p. m.','Mesa 12 · 6 personas · terraza','6:11 p. m.'],['sys','Recordatorio a las 6:00 · avisar al capitán']] },
-      consultorio: { n: 'Consultorio Demo', ini: 'CS', kpi: [['7 s','Respuesta'],['11','Citas hoy'],['1','Cancelación cubierta']],
+      consultorio: { n: 'Consultorio Demo', ini: 'CS', kpi: [['7','mensajes contestados'],['3','citas agendadas'],['1','cancelación cubierta']],
         chat: [['in','¿Tienen cita con la doctora esta semana?','9:05 p. m.'],['out','Sí: jueves 10:30 o viernes 4:15. ¿Cuál te acomoda?','9:05 p. m.'],['in','Jueves 10:30, por favor.','9:06 p. m.'],['doc','Cita confirmada · jueves 10:30','Consulta general · Dra. Sol','9:06 p. m.'],['sys','Confirmar el miércoles · recordar ayuno de 8 h']] },
-      inmobiliaria: { n: 'Inmobiliaria Demo', ini: 'ID', kpi: [['10 s','Respuesta'],['6','Prospectos'],['2','Visitas agendadas']],
+      inmobiliaria: { n: 'Inmobiliaria Demo', ini: 'ID', kpi: [['6','mensajes contestados'],['2','visitas agendadas'],['3','fichas enviadas']],
         chat: [['in','¿Tienen casas de 3 recámaras hasta 2 millones?','8:20 p. m.'],['out','Sí: dos en Chardonnay y Las Palmas. ¿Te mando fotos y el recorrido 3D?','8:20 p. m.'],['in','Sí. ¿Aceptan Infonavit?','8:21 p. m.'],['doc','Ficha · Casa Chardonnay','$1,850,000 · recorrido 3D · Infonavit sí','8:21 p. m.'],['sys','Visita sábado 11:00 · avisar a Diana (asesora)']] },
-      refacciones: { n: 'Refaccionaria Demo', ini: 'RD', kpi: [['11 s','Respuesta'],['9','Piezas encontradas'],['4','Apartados']],
+      refacciones: { n: 'Refaccionaria Demo', ini: 'RD', kpi: [['8','mensajes contestados'],['3','piezas apartadas'],['0','sin respuesta']],
         chat: [['in','Necesito el filtro de aceite del tractor 5075E.','7:32 a. m.'],['out','Es el RE504836: hay 3 en sucursal centro, $480. ¿Te lo aparto?','7:32 a. m.'],['in','Sí, paso hoy por él.','7:33 a. m.'],['doc','Apartado #2210','RE504836 · $480 · listo hoy','7:33 a. m.'],['sys','Avisar a mostrador · entrega 3:00 p. m.']] },
-      salon: { n: 'Salón Demo', ini: 'SD', kpi: [['12 s','Respuesta'],['5','Cotizaciones'],['2','Fechas apartadas']],
+      salon: { n: 'Salón Demo', ini: 'SD', kpi: [['5','mensajes contestados'],['2','cotizaciones enviadas'],['1','fecha apartada']],
         chat: [['in','¿Tienen el 14 de marzo para una boda de 200?','10:15 p. m.'],['out','Sí, está libre. Para 200 sale en $68,000 con mobiliario. ¿Te mando el salón en 3D?','10:15 p. m.'],['in','Sí, por favor.','10:16 p. m.'],['doc','Plano 3D · Boda 14 de marzo','200 invitados · 20 mesas · Plantea','10:16 p. m.'],['sys','Visita sábado 5:00 p. m. · avisar a Diana (eventos)']] }
     };
     var esc = function (t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); };
@@ -757,7 +757,7 @@
     function pinta(k) {
       var d = N[k]; if (!d) return;
       head.innerHTML = '<span class="av">' + d.ini + '</span><div><b>' + esc(d.n) + '</b><small>en línea · responde la IA</small></div>';
-      tira.querySelector('.t').innerHTML = '<span>' + esc(d.n) + ' · hoy en el CRM</span><b>● Agente activo</b>';
+      tira.querySelector('.t').innerHTML = '<span>' + esc(d.n) + ' · anoche</span><b>● Mientras dormías</b>';
       tira.querySelector('.kpi3').innerHTML = d.kpi.map(function (x) { return '<div><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div>'; }).join('');
       chat.innerHTML = d.chat.map(function (m) {
         if (m[0] === 'sys') return '<div class="m sys">' + esc(m[1]) + '</div>';
