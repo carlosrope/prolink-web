@@ -383,7 +383,12 @@
     .integra a.marca:hover { opacity: 1; border-color: var(--accent); }
     .integra .ico { stroke: var(--accent); fill: var(--accent); }
     /* Recorte del 15 de octubre: píldoras con icono, tarjetas chicas de formatos y sectores en una fila en celular */
-    .nichos-wrap { position: absolute; left: 0; top: 0; z-index: 4; max-width: 340px; }
+    .nichos-wrap { position: absolute; left: 0; top: 0; z-index: 4; width: 100%; }
+    /* Una sola fila deslizable en todos los tamaños: nunca se encima con los indicadores */
+    .nichos-wrap .nichos { flex-wrap: nowrap; max-width: none; overflow-x: auto; scrollbar-width: none; padding-bottom: .3rem; }
+    .nichos-wrap .nichos::-webkit-scrollbar { display: none; }
+    .nichos-wrap .nichos button { flex: none; white-space: nowrap; }
+    @media (min-width: 561px) { .hero .escena .kpi-tira { top: 66px; } }
     .nichos-ayuda { font-size: .74rem; color: var(--gray); margin: 0 0 .35rem; }
     .nichos-wrap .nichos { position: static; }
     .nichos button, .chips a { display: inline-flex; align-items: center; gap: .35rem; }
@@ -470,30 +475,29 @@
       <div class="nichos-wrap">
       <p class="nichos-ayuda">Elige un giro y mira cómo contesta:</p>
       <div class="nichos" role="tablist" aria-label="Elige tu tipo de negocio">
-        <button type="button" role="tab" aria-selected="true" data-nicho="climas"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg>Aire acondicionado</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="restaurante"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Restaurante</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="consultorio"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg>Consultorio</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="inmobiliaria"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg>Inmobiliaria</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="refacciones"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg>Refacciones</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="salon"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Salón de eventos</button>
+        <button type="button" role="tab" aria-selected="true" data-nicho="restaurante"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg>Restaurante</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="consultorio"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-headset"/></svg>Consultorio</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="inmobiliaria"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-map"/></svg>Inmobiliaria</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="refacciones"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-wrench"/></svg>Refacciones</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="salon"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-users"/></svg>Salón de eventos</button>
       </div>
       </div>
       <!-- Foto de Carlos (brazos cruzados, fondo liso, recortada en PNG con transparencia). Cuando exista carlos-hero.png, quitar el comentario:
       <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/>
       <p class="pie-foto"><b>Carlos Manuel Robles</b> · ProLink365, Los Mochis</p> -->
       <div class="kpi-tira">
-        <div class="t"><span>Climas Demo · hoy en el CRM</span><b>● Agente activo</b></div>
-        <div class="kpi3"><div><b>12 s</b><span>Respuesta</span></div><div><b>8</b><span>Por anuncio</span></div><div><b>3</b><span>A vendedor</span></div></div>
+        <div class="t"><span>Asador Demo · hoy en el CRM</span><b>● Agente activo</b></div>
+        <div class="kpi3"><div><b>9 s</b><span>Respuesta</span></div><div><b>14</b><span>Reservas hoy</span></div><div><b>2</b><span>Lista de espera</span></div></div>
       </div>
       <div class="fila">
       <div class="tel"><div class="pantalla">
-        <div class="wa-head"><span class="av">CD</span><div><b>Climas Demo</b><small>en línea · responde la IA</small></div></div>
+        <div class="wa-head"><span class="av">AD</span><div><b>Asador Demo</b><small>en línea · responde la IA</small></div></div>
         <div class="chat">
-          <div class="m">Hola, ¿tienen minisplit de 1 tonelada? ¿Cuánto sale instalado?<time>11:42 p. m.</time></div>
-          <div class="m out">Sí: Inverter de 1 tonelada, $8,900 instalado en Los Mochis. ¿Te mando la cotización en PDF?<time>11:42 p. m.</time></div>
-          <div class="m">Sí, por favor. Es para una recámara.<time>11:43 p. m.</time></div>
-          <div class="m out doc"><b>Cotización #1042 · PDF</b>$8,900 con IVA · vigencia 7 días<time>11:43 p. m.</time></div>
-          <div class="m sys">Seguimiento mañana 10:00 · avisar a Diana (ventas)</div>
+          <div class="m">Hola, ¿tienen mesa para 6 hoy a las 8?<time>6:10 p. m.</time></div>
+          <div class="m out">Sí: a las 8:00 o a las 8:45 en terraza. ¿Cuál te acomoda?<time>6:10 p. m.</time></div>
+          <div class="m">A las 8:00, a nombre de Laura.<time>6:11 p. m.</time></div>
+          <div class="m out doc"><b>Reserva confirmada · 8:00 p. m.</b>Mesa 12 · 6 personas · terraza<time>6:11 p. m.</time></div>
+          <div class="m sys">Recordatorio a las 6:00 · avisar al capitán</div>
         </div>
         <div class="wa-foot"><span>Escribe un mensaje</span><i>➤</i></div>
       </div></div>
@@ -592,13 +596,13 @@
     <h2 class="reveal">Automatización personalizada<br/>para tu sector</h2>
     <p class="section-sub reveal">Elige tu sector y mira sus demos.</p>
     <div class="chips">
-      <a href="demos.html?sector=agro"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg>Agro y agroindustria</a>
-      <a href="demos.html?sector=construccion"><svg class="ico" aria-hidden="true"><use href="#i-ruler"/></svg>Construcción, acero e industria</a>
-      <a href="demos.html?sector=comercio"><svg class="ico" aria-hidden="true"><use href="#i-cart"/></svg>Comercio y distribución</a>
-      <a href="demos.html?sector=gasolineras"><svg class="ico" aria-hidden="true"><use href="#i-fuel"/></svg>Gasolineras y flotillas</a>
-      <a href="demos.html?sector=inmobiliaria"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg>Inmobiliario y notarías</a>
-      <a href="demos.html?sector=eventos"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Restaurantes, hoteles y eventos</a>
-      <a href="demos.html?sector=profesionales"><svg class="ico" aria-hidden="true"><use href="#i-folder"/></svg>Despachos y consultorios</a>
+      <a href="demos.html?sector=agro"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-leaf"/></svg>Agro y agroindustria</a>
+      <a href="demos.html?sector=construccion"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-ruler"/></svg>Construcción, acero e industria</a>
+      <a href="demos.html?sector=comercio"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-cart"/></svg>Comercio y distribución</a>
+      <a href="demos.html?sector=gasolineras"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-fuel"/></svg>Gasolineras y flotillas</a>
+      <a href="demos.html?sector=inmobiliaria"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-map"/></svg>Inmobiliario y notarías</a>
+      <a href="demos.html?sector=eventos"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-calendar"/></svg>Restaurantes, hoteles y eventos</a>
+      <a href="demos.html?sector=profesionales"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-folder"/></svg>Despachos y consultorios</a>
     </div>
   </section>
 
@@ -736,8 +740,6 @@
   // Selector de nicho (2.9): cambia la conversación del teléfono (2.7) y los indicadores (2.6). Empresas y datos ficticios.
   (function () {
     var N = {
-      climas: { n: 'Climas Demo', ini: 'CD', kpi: [['12 s','Respuesta'],['8','Por anuncio'],['3','A vendedor']],
-        chat: [['in','Hola, ¿tienen minisplit de 1 tonelada? ¿Cuánto sale instalado?','11:42 p. m.'],['out','Sí: Inverter de 1 tonelada, $8,900 instalado en Los Mochis. ¿Te mando la cotización en PDF?','11:42 p. m.'],['in','Sí, por favor. Es para una recámara.','11:43 p. m.'],['doc','Cotización #1042 · PDF','$8,900 con IVA · vigencia 7 días','11:43 p. m.'],['sys','Seguimiento mañana 10:00 · avisar a Diana (ventas)']] },
       restaurante: { n: 'Asador Demo', ini: 'AD', kpi: [['9 s','Respuesta'],['14','Reservas hoy'],['2','Lista de espera']],
         chat: [['in','Hola, ¿tienen mesa para 6 hoy a las 8?','6:10 p. m.'],['out','Sí: a las 8:00 o a las 8:45 en terraza. ¿Cuál te acomoda?','6:10 p. m.'],['in','A las 8:00, a nombre de Laura.','6:11 p. m.'],['doc','Reserva confirmada · 8:00 p. m.','Mesa 12 · 6 personas · terraza','6:11 p. m.'],['sys','Recordatorio a las 6:00 · avisar al capitán']] },
       consultorio: { n: 'Consultorio Demo', ini: 'CS', kpi: [['7 s','Respuesta'],['11','Citas hoy'],['1','Cancelación cubierta']],
@@ -769,6 +771,7 @@
         pinta(b.dataset.nicho);
       });
     });
+    pinta('restaurante');
   })();
   // Ruleta de verbos (4.0): cada palabra se ve 2.5 s y sube la siguiente, como en una ruleta sin fin.
   (function () {
