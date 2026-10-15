@@ -382,6 +382,31 @@
     .integra span:not(.etq), .integra a.marca { background: var(--dark); color: #fff; border-color: transparent; opacity: 1; }
     .integra a.marca:hover { opacity: 1; border-color: var(--accent); }
     .integra .ico { stroke: var(--accent); fill: var(--accent); }
+    /* Recorte del 15 de octubre: píldoras con icono, tarjetas chicas de formatos y sectores en una fila en celular */
+    .nichos-wrap { position: absolute; left: 0; top: 0; z-index: 4; max-width: 340px; }
+    .nichos-ayuda { font-size: .74rem; color: var(--gray); margin: 0 0 .35rem; }
+    .nichos-wrap .nichos { position: static; }
+    .nichos button, .chips a { display: inline-flex; align-items: center; gap: .35rem; }
+    .nichos button .ico { width: .95rem; height: .95rem; }
+    .chips a .ico { width: 1.05rem; height: 1.05rem; flex: none; }
+    .formatos.compactos { grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 1rem; }
+    .card.formato.mini { display: flex; flex-direction: column; gap: .45rem; padding: 1.2rem 1.1rem 1.1rem; text-decoration: none; color: inherit; text-align: left; transition: transform .2s, border-color .2s; }
+    .card.formato.mini:hover { transform: translateY(-3px); border-color: var(--green); }
+    .card.formato.mini .badge { align-self: flex-start; }
+    .card.formato.mini h3 { font-size: 1.05rem; line-height: 1.25; }
+    .card.formato.mini p { color: var(--gray); font-size: .88rem; flex: 1; }
+    .card.formato.mini .link { color: var(--green); font-weight: 600; font-size: .88rem; }
+    @media (max-width: 860px) {
+      .nichos-wrap { position: static; max-width: none; width: 100%; align-self: stretch; }
+      .nichos-ayuda { text-align: center; }
+      .formatos.compactos { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+      .card.formato.mini { padding: 1rem .85rem .9rem; }
+      .card.formato.mini h3 { font-size: .98rem; }
+      .card.formato.mini p { font-size: .82rem; }
+      .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin: 0 -1.15rem; padding: 0 1.15rem .4rem; }
+      .chips::-webkit-scrollbar { display: none; }
+      .chips a { flex: none; }
+    }
   </style>
 </head>
 <body>
@@ -442,13 +467,16 @@
       </div>
     </div>
     <div class="escena" aria-label="Una conversación de WhatsApp contestada por la IA y los indicadores del CRM">
+      <div class="nichos-wrap">
+      <p class="nichos-ayuda">Elige un giro y mira cómo contesta:</p>
       <div class="nichos" role="tablist" aria-label="Elige tu tipo de negocio">
-        <button type="button" role="tab" aria-selected="true" data-nicho="climas">Minisplits</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="restaurante">Restaurante</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="consultorio">Consultorio</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="inmobiliaria">Inmobiliaria</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="refacciones">Refacciones</button>
-        <button type="button" role="tab" aria-selected="false" data-nicho="salon">Salón de eventos</button>
+        <button type="button" role="tab" aria-selected="true" data-nicho="climas"><svg class="ico" aria-hidden="true"><use href="#i-sliders"/></svg>Aire acondicionado</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="restaurante"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Restaurante</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="consultorio"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg>Consultorio</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="inmobiliaria"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg>Inmobiliaria</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="refacciones"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg>Refacciones</button>
+        <button type="button" role="tab" aria-selected="false" data-nicho="salon"><svg class="ico" aria-hidden="true"><use href="#i-users"/></svg>Salón de eventos</button>
+      </div>
       </div>
       <!-- Foto de Carlos (brazos cruzados, fondo liso, recortada en PNG con transparencia). Cuando exista carlos-hero.png, quitar el comentario:
       <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/>
@@ -498,108 +526,51 @@
     <h2>Te ayudamos a <span class="ruleta" aria-live="off"><span class="rodillo" id="rodillo"></span></span></h2>
   </div>
   <div class="trust" role="list">
-    <div role="listitem"><svg class="ico"><use href="#i-target"/></svg><strong>Lo pruebas antes de decidir</strong><span>Una prueba de 1 a 2 semanas en tu negocio, con un resultado que se mide y precio cerrado desde el inicio.</span></div>
-    <div role="listitem"><svg class="ico"><use href="#i-link"/></svg><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Instagram, TikTok, Shopify, tu software o tus hojas de cálculo.</span></div>
-    <div role="listitem"><svg class="ico"><use href="#i-cap"/></svg><strong>Tu equipo aprende a usarlo</strong><span>Cada proyecto incluye capacitación práctica para quien lo va a operar.</span></div>
-    <div role="listitem"><svg class="ico"><use href="#i-pin"/></svg><strong>Soporte 24/7 <span class="tierra" aria-hidden="true"><b>🌎</b><b>🌍</b><b>🌏</b></span></strong><span>Estamos en Los Mochis para soporte local y, gracias a la tecnología, te ayudamos desde cualquier parte del mundo.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-target"/></svg><strong>Lo pruebas antes de decidir</strong><span>Prueba de 1 a 2 semanas, con resultado medido y precio cerrado.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-link"/></svg><strong>Se conecta a lo que ya usas</strong><span>WhatsApp, Instagram, Shopify, tu ERP u hojas de cálculo.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-cap"/></svg><strong>Tu equipo aprende a usarlo</strong><span>Capacitación incluida para quien lo opera.</span></div>
+    <div role="listitem"><svg class="ico"><use href="#i-pin"/></svg><strong>Soporte 24/7 <span class="tierra" aria-hidden="true"><b>🌎</b><b>🌍</b><b>🌏</b></span></strong><span>Soporte local en Los Mochis y por WhatsApp a cualquier hora.</span></div>
   </div>
 
   <!-- ── FORMATOS (antes: servicios) ── -->
   <section id="servicios">
     <h2 class="reveal">Formas de que tu negocio trabaje solo,<br/><em>¿cuál se ajusta al tuyo?</em></h2>
-    <p class="section-sub reveal">Un formato por necesidad: conversación, sistema, espacio, voz o presencia. Lo que ves en cada tarjeta es lo que recibes, conectado a tu ecosistema digital.</p>
-    <div class="formatos">
-      <article class="card formato destacado" id="f-agente">
-        <a class="vis agente" href="demo-crm.html" aria-label="Probar la demo del CRM con agente de IA"><span class="chip">WhatsApp e Instagram</span>
-          <div class="tel"><div class="pantalla">
-            <div class="wa-head"><span class="av">CD</span><div><b>Climas Demo</b><small>responde la IA</small></div></div>
-            <div class="chat"><div class="m">¿Tienen de 1 tonelada?<time>11:42</time></div><div class="m out">Sí, $8,900 instalado. ¿Te mando el PDF?<time>11:42</time></div><div class="m">Sí, por favor.<time>11:43</time></div><div class="m out doc"><b>Cotización #1042</b>PDF enviado<time>11:43</time></div></div>
-          </div></div>
-          <div class="kpi-tira"><div class="t"><span>CRM</span><b>● activo</b></div><div class="cols"><div><h4>Nuevo</h4><div class="tj">Ramón V.</div><div class="tj">Lupita M.</div></div><div><h4>Cotizado</h4><div class="tj viva">Laura G.</div></div><div><h4>Vendido</h4><div class="tj">Familia T.</div></div></div></div>
-        </a>
-        <div class="cuerpo">
-          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-chat"/></svg></span><span class="badge">Agente + CRM</span></div>
-          <h3>Agente de IA en WhatsApp e Instagram, con CRM</h3>
-          <p>Contesta a toda hora, cotiza con tus precios, da seguimiento y pasa al vendedor cuando toca cerrar. Todo en una bandeja que tu equipo ve y controla.</p>
-          <ul>
-            <li>Ventas y cotización por WhatsApp, también desde fotos y listas</li>
-            <li>Copiloto de refacciones: identifica la pieza y revisa existencias</li>
-            <li>Catálogo armado desde notas de voz</li>
-            <li>Reservas, citas y facturas a cualquier hora</li>
-          </ul>
-          <a class="link" href="demo-crm.html">Probar la demo del CRM →</a>
-        </div>
-      </article>
-      <article class="card formato" id="f-software">
-        <a class="vis" href="demo-gasolineras.html" aria-label="Probar la demo de la torre de control"><span class="chip">Tu flujo, tu imagen</span>
-          <div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="captura-gasolineras.jpg" alt="Torre de control de estaciones: litros vendidos, alertas abiertas y el resumen del día" width="960" height="611" loading="lazy"/></div>
-        </a>
-        <div class="cuerpo">
-          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-panel"/></svg></span><span class="badge">Software a la medida</span></div>
-          <h3>Software a la medida con IA</h3>
-          <p>Torres de control, cotizadores y asistentes internos con tu flujo y tu imagen. La IA prepara cada noche; tu gente revisa y aprueba.</p>
-          <ul>
-            <li>Torre de control de estaciones, embarques o máquinas en campo</li>
-            <li>Expedientes y auditoría fiscal con revisión humana</li>
-            <li>Cotizadores con tus reglas de ingeniería y precio</li>
-            <li>Pronóstico de demanda e inventario por sucursal</li>
-          </ul>
-          <a class="link" href="demo-gasolineras.html">Probar la torre de control →</a>
-        </div>
-      </article>
-      <article class="card formato" id="f-plantea">
-        <a class="vis plantea" href="espacios-3d.html" aria-label="Ver Plantea, salones y casas en 3D">
-          <img class="poster" src="espacios-salon-3d.jpg" alt="Salón de eventos en 3D con mesas, pista y escenario" width="800" height="575" loading="lazy"/>
-          <video muted loop playsinline preload="none" poster="espacios-salon-3d.jpg" aria-hidden="true"><source src="plantea-hover.mp4" type="video/mp4"/></video>
-          <span class="marca"><b>Plantea</b><small>eventos y casas en 3D</small></span>
-        </a>
-        <div class="cuerpo">
-          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-cube"/></svg></span><span class="badge">Plantea</span></div>
-          <h3>Plantea tu evento o casa en plano y visualiza en 3D</h3>
-          <p>Salones y casas reales en 2D y 3D, desde el celular. Una plataforma hecha por ProLink365.</p>
-          <ul>
-            <li>Montajes, lista de invitados por mesa y hojas para imprimir</li>
-            <li>Casas desde AutoCAD, amuebladas y con visita guiada</li>
-            <li>Enlace y QR para que tu cliente lo recorra y comente</li>
-          </ul>
-          <a class="link" href="espacios-3d.html">Ver Plantea →</a>
-        </div>
-      </article>
-      <article class="card formato" id="f-recepcionista">
-        <a class="vis llamada" href="recepcionista.html" aria-label="Ver la recepcionista virtual"><span class="chip">Llamadas y WhatsApp</span>
-          <div class="call"><div class="top"><span class="av">CS</span><div><b>Consultorio Sol · llamada entrante</b><small>11:48 p. m. · contesta la recepcionista virtual</small></div></div>
-            <div class="onda" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-            <p><span>Paciente:</span> ¿Tienen cita mañana con la doctora?<br/><span>Recepcionista:</span> Sí, a las 10:30 o a las 4:15. ¿Cuál te acomoda? Te mando la confirmación por WhatsApp.</p>
-          </div>
-        </a>
-        <div class="cuerpo">
-          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-headset"/></svg></span><span class="badge">Recepcionista 24/7</span></div>
-          <h3>Recepcionista virtual, llamadas y WhatsApp</h3>
-          <p>Contesta llamadas y mensajes, agenda en tu calendario, confirma un día antes y llena las cancelaciones con la lista de espera. Lista en días, con precio fijo.</p>
-          <ul>
-            <li>Consultorios, clínicas, restaurantes y salones</li>
-            <li>Google Calendar, OpenTable o tu sistema de reservas</li>
-            <li>Factura desde la foto del ticket para flotillas y gasolineras</li>
-          </ul>
-          <a class="link" href="recepcionista.html">Ver planes de recepcionista →</a>
-        </div>
-      </article>
-      <article class="card formato" id="f-web">
-        <a class="vis web" href="paginas-web.html" aria-label="Ver páginas web"><span class="chip">Lista en días</span>
-          <div class="mini" aria-hidden="true"><div class="nv"><b></b><i></i></div><div class="hr"><div><s class="t"></s><s></s><s style="width:70%"></s></div><div></div></div><div class="cs"><b></b><b></b><b></b></div></div>
-        </a>
-        <div class="cuerpo">
-          <div class="cabecera"><span class="icono"><svg class="ico"><use href="#i-globe"/></svg></span><span class="badge">Páginas web</span></div>
-          <h3>Páginas web que venden</h3>
-          <p>Sitio profesional con tu imagen, rápido en el celular, conectado a tu WhatsApp o a tu agente, y listo para aparecer en Google.</p>
-          <ul>
-            <li>Diseño propio, no plantilla; con tus fotos y tus textos</li>
-            <li>Botón de WhatsApp y formulario que llega a tu celular</li>
-            <li>Dominio, hospedaje y mantenimiento incluidos</li>
-          </ul>
-          <a class="link" href="paginas-web.html">Ver ejemplos y planes →</a>
-        </div>
-      </article>
+    <div class="formatos compactos">
+      <a class="card formato mini" id="f-agente" href="demo-crm.html">
+        <span class="icono"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg></span>
+        <span class="badge">Agente + CRM</span>
+        <h3>Vende por WhatsApp mientras duermes</h3>
+        <p>Agente de IA + CRM: contesta, cotiza y pasa al vendedor.</p>
+        <span class="link">Ver cómo →</span>
+      </a>
+      <a class="card formato mini" id="f-software" href="demo-gasolineras.html">
+        <span class="icono"><svg class="ico" aria-hidden="true"><use href="#i-panel"/></svg></span>
+        <span class="badge">Software a la medida</span>
+        <h3>Tu operación en una sola pantalla</h3>
+        <p>Software a la medida con IA para tu proceso y tu imagen.</p>
+        <span class="link">Ver ejemplos →</span>
+      </a>
+      <a class="card formato mini" id="f-plantea" href="espacios-3d.html">
+        <span class="icono"><svg class="ico" aria-hidden="true"><use href="#i-cube"/></svg></span>
+        <span class="badge">Plantea</span>
+        <h3>Tu evento o casa en 3D</h3>
+        <p>Plano, invitados y recorrido desde el celular.</p>
+        <span class="link">Ver Plantea →</span>
+      </a>
+      <a class="card formato mini" id="f-recepcionista" href="recepcionista.html">
+        <span class="icono"><svg class="ico" aria-hidden="true"><use href="#i-headset"/></svg></span>
+        <span class="badge">Recepcionista 24/7</span>
+        <h3>Nunca más una llamada perdida</h3>
+        <p>Contesta, agenda y confirma por WhatsApp.</p>
+        <span class="link">Ver planes →</span>
+      </a>
+      <a class="card formato mini" id="f-web" href="paginas-web.html">
+        <span class="icono"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg></span>
+        <span class="badge">Páginas web</span>
+        <h3>Una página que vende</h3>
+        <p>Sitio profesional listo en días, con precio fijo.</p>
+        <span class="link">Ver planes →</span>
+      </a>
     </div>
     <p class="complementos">También: <a href="taller-ia.html">Taller "IA en tu puesto"</a> para capacitar a tu equipo con casos de tu propia empresa.</p>
     <div class="integra" aria-label="Se conecta con">
@@ -619,66 +590,42 @@
   <!-- ── SECTORES ── -->
   <section id="sectores" class="sectores-compacto franja">
     <h2 class="reveal">Automatización personalizada<br/>para tu sector</h2>
-    <p class="section-sub reveal">Casi siempre empieza por un WhatsApp saturado o una hoja de cálculo. Elige tu sector y mira las demos que ya tenemos para él; si el tuyo no está, cuéntanos.</p>
+    <p class="section-sub reveal">Elige tu sector y mira sus demos.</p>
     <div class="chips">
-      <a href="demos.html?sector=agro">Agro y agroindustria</a>
-      <a href="demos.html?sector=construccion">Construcción, acero e industria</a>
-      <a href="demos.html?sector=comercio">Comercio y distribución</a>
-      <a href="demos.html?sector=gasolineras">Gasolineras y flotillas</a>
-      <a href="demos.html?sector=inmobiliaria">Inmobiliario y notarías</a>
-      <a href="demos.html?sector=eventos">Restaurantes, hoteles y eventos</a>
-      <a href="demos.html?sector=profesionales">Despachos y consultorios</a>
+      <a href="demos.html?sector=agro"><svg class="ico" aria-hidden="true"><use href="#i-leaf"/></svg>Agro y agroindustria</a>
+      <a href="demos.html?sector=construccion"><svg class="ico" aria-hidden="true"><use href="#i-ruler"/></svg>Construcción, acero e industria</a>
+      <a href="demos.html?sector=comercio"><svg class="ico" aria-hidden="true"><use href="#i-cart"/></svg>Comercio y distribución</a>
+      <a href="demos.html?sector=gasolineras"><svg class="ico" aria-hidden="true"><use href="#i-fuel"/></svg>Gasolineras y flotillas</a>
+      <a href="demos.html?sector=inmobiliaria"><svg class="ico" aria-hidden="true"><use href="#i-map"/></svg>Inmobiliario y notarías</a>
+      <a href="demos.html?sector=eventos"><svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg>Restaurantes, hoteles y eventos</a>
+      <a href="demos.html?sector=profesionales"><svg class="ico" aria-hidden="true"><use href="#i-folder"/></svg>Despachos y consultorios</a>
     </div>
   </section>
 
   <!-- ── DEMOS DESTACADAS ── -->
   <section id="demos">
     <h2 class="reveal">Pruébalo antes<br/>de hablar con nosotros</h2>
-    <p class="section-sub reveal">Seis para empezar. Son simuladas, con empresas y datos de ejemplo; conectadas a tu empresa trabajan con tu inventario, tus precios y tu WhatsApp.</p>
+    <p class="section-sub reveal">Simuladas, con datos de ejemplo. Conectadas a tu negocio usan tus precios y tu WhatsApp.</p>
     <div class="grid demos">
       <article class="card demo-card destacada">
         <a class="captura" href="demo-cotizador.html" aria-label="Probar la demo de cotización desde la foto de una lista"><img src="captura-cotizador.jpg" alt="Pantalla de la demo: el cliente manda la foto de su lista escrita a mano y la IA responde con la cotización armada con los precios de la empresa" width="960" height="611" loading="lazy"/></a>
         <div class="cuerpo">
           <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-image"/></svg></div>
           <h3>Cotización desde la foto de una lista</h3>
-          <p>El cliente manda su lista escrita a mano; la IA la lee, pregunta lo que falta (calibre, medida), arma la cotización con tus precios y existencias y le da seguimiento hasta que confirma.</p>
-          <p class="who">Para materiales, acero, ferreterías y equipo comercial.</p>
+          <p>El cliente manda la foto de su lista; la IA cotiza con tus precios y da seguimiento.</p>
           <a class="link" href="demo-cotizador.html">Probar demo →</a>
         </div>
       </article>
       <article class="card demo-card">
         <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-message"/></svg></div>
         <h3>CRM con agente de IA</h3>
-        <p>WhatsApp e Instagram en una sola bandeja. El agente cotiza, mueve a cada cliente en el embudo, le da seguimiento y avisa al vendedor para cerrar.</p>
-        <p class="who">Para negocios que venden por mensajes y anuncios. Basada en el CRM de Diluvium.</p>
+        <p>WhatsApp e Instagram en una bandeja; el agente cotiza y avisa al vendedor para cerrar.</p>
         <a class="link" href="demo-crm.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card">
-        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-fuel"/></svg></div>
-        <h3>Gasolineras: torre de control</h3>
-        <p>Cada noche cruza tanques, ventas, pipas, facturas y cargas de flotilla de todas tus estaciones, explica lo que no cuadra y te lo manda por WhatsApp.</p>
-        <p class="who">Para grupos gasolineros y empresas con flotilla.</p>
-        <a class="link" href="demo-gasolineras.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card">
-        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-file"/></svg></div>
-        <h3>Expedientes: de los documentos al borrador</h3>
-        <p>La IA lee identificaciones, escrituras y boletas, marca lo que falta o no cuadra, prellena el borrador y precalcula impuestos. El notario revisa y decide; todo queda en una bitácora.</p>
-        <p class="who">Para notarías, despachos y desarrolladoras inmobiliarias.</p>
-        <a class="link" href="demo-expedientes.html">Probar demo →</a>
-      </article>
-      <article class="card demo-card">
-        <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-leaf"/></svg></div>
-        <h3>Semilleras: asistente técnico</h3>
-        <p>Recomienda variedad por cultivo, zona y enfermedad con tu guía de resistencias, agenda parcelas demostrativas, manda las fotos de campo a tu agrónomo y captura tus ensayos por nota de voz.</p>
-        <p class="who">Para semilleras, casas comerciales agrícolas y distribuidores de insumos.</p>
-        <a class="link" href="demo-semillas.html">Probar demo →</a>
       </article>
       <article class="card demo-card">
         <div class="cabecera"><span class="badge demo">Demo</span><svg class="ico"><use href="#i-calendar"/></svg></div>
         <h3>Reservas y salones por WhatsApp</h3>
-        <p>Toma reservas, ofrece otra hora si no hay lugar, confirma un día antes y llena las cancelaciones con la lista de espera.</p>
-        <p class="who">Para restaurantes, bares y salones de eventos.</p>
+        <p>Toma reservas, confirma un día antes y llena las cancelaciones.</p>
         <a class="link" href="demo-reservas.html">Probar demo →</a>
       </article>
     </div>
@@ -690,12 +637,12 @@
   <!-- ── CÓMO TRABAJAMOS ── -->
   <section id="como-trabajamos" class="franja oscura">
     <h2 class="reveal">Resolvemos tu dolor,<br/><em>de la mejor manera.</em></h2>
-    <p class="section-sub reveal">La mayoría de las automatizaciones con IA fallan por construir antes de confirmar que hay un dolor real. Nosotros lo confirmamos, lo probamos y medimos; cada ciclo hace al siguiente más inteligente.</p>
+    <p class="section-sub reveal">Primero confirmamos que el dolor es real; luego lo probamos y lo medimos.</p>
     <div class="steps">
-      <div class="step"><div class="step-num">01</div><h3>Confirmamos el dolor</h3><p>Una llamada de 30 minutos, sin costo, con quien decide: dónde duele, qué lo frena hoy, qué no te resuelve lo que ya usas y qué cambiaría si se resolviera. Si no hay dolor claro, lo decimos.</p></div>
-      <div class="step"><div class="step-num">02</div><h3>La prueba más pequeña</h3><p>Un proceso, una sucursal o un canal. Armamos la demo de tu giro con tus datos y medimos la línea base antes de empezar: tiempo de respuesta, cotizaciones cerradas, horas por expediente.</p></div>
-      <div class="step"><div class="step-num">03</div><h3>Piloto de 1 a 2 semanas con una métrica</h3><p>Precio cerrado y alcance acotado. Una persona de tu equipo revisa lo que hace nuestro flujo automatizado, y al final comparamos contra la línea base. Tú decides si seguimos.</p></div>
-      <div class="step"><div class="step-num">04</div><h3>Cada ciclo mejora al siguiente</h3><p>Revisión semanal, ajustes, operación y soporte, y tu equipo capacitado para operarlo. La IA hace el trabajo rápido; tu gente decide qué tanto se hace.</p></div>
+      <div class="step"><div class="step-num">01</div><h3>Confirmamos el dolor</h3><p>Una llamada de 30 minutos, sin costo, con quien decide.</p></div>
+      <div class="step"><div class="step-num">02</div><h3>La prueba más pequeña</h3><p>Un proceso, una sucursal o un canal, con tus datos y una línea base.</p></div>
+      <div class="step"><div class="step-num">03</div><h3>Piloto de 1 a 2 semanas con una métrica</h3><p>Precio cerrado, alcance acotado y resultado comparado. Tú decides si seguimos.</p></div>
+      <div class="step"><div class="step-num">04</div><h3>Cada ciclo mejora al siguiente</h3><p>Revisión semanal, soporte y tu equipo capacitado para operarlo.</p></div>
     </div>
   </section>
 
@@ -712,24 +659,14 @@
         <div>
           <h3>Carlos Manuel Robles</h3>
           <p class="rol">Fundador de ProLink365 · Los Mochis, Sinaloa</p>
-          <p>Diseña y programa cada proyecto: los agentes de IA, el CRM y el software a la medida que ves en las demos, incluido el CRM con agente que construyó para Diluvium. Trabaja en persona con las empresas de Sinaloa y entrega cada piloto con la capacitación de quien lo va a operar.</p>
-          <div class="datos">
-            <span><svg class="ico"><use href="#i-pin"/></svg>Los Mochis, Sinaloa</span>
-            <span><svg class="ico"><use href="#i-headset"/></svg>Soporte en persona</span>
-            <span><svg class="ico relleno"><use href="#i-whatsapp"/></svg>WhatsApp 24/7</span>
-          </div>
+          <p>Diseña y programa cada proyecto, incluido el CRM con agente de Diluvium, y lo entrega con la capacitación de quien lo va a operar.</p>
         </div>
       </article>
       <article class="card caso">
         <div class="logo-panel"><img src="cliente-diluvium-color.png" alt="Diluvium, control de inundaciones" width="800" height="219" loading="lazy"/></div>
         <p class="sector-caso">Control de inundaciones · Caso real</p>
         <h3>CRM con agente de IA para su equipo de ventas</h3>
-        <ul>
-          <li>WhatsApp e Instagram en una sola bandeja para todo el equipo.</li>
-          <li>El agente contesta a toda hora, cotiza, llena la ficha del contacto y mueve la etapa del embudo.</li>
-          <li>Avisa al vendedor cuando toca cerrar; seguimientos, plantillas y opiniones de clientes.</li>
-          <li>Roles de dueño, administrador y vendedor; versión para celular y respaldos.</li>
-        </ul>
+        <!-- Aquí irá el video del CRM que edite el usuario (14 oct: autorizado por Luis Navarro). -->
         <!-- Cita autorizada por Luis Navarro, director de Diluvium, el 10 de octubre de 2026 (texto tal como él lo escribió por WhatsApp). -->
         <blockquote><p>«El CRM nos ordenó la venta, ya que cada conversación tiene su ficha, su etapa y su seguimiento, y el agente responde, cotiza y hasta hace sus ventas. Por la noche y en fin de semana. El equipo entra solo cuando toca confirmar con el cliente.»</p><footer>Luis Navarro · Director de Diluvium</footer></blockquote>
         <a class="link" href="demo-crm.html">Ver la demo basada en este CRM →</a>
@@ -742,7 +679,7 @@
   <!-- ── CTA ── -->
   <div class="cta-section" id="contacto">
     <h2 class="reveal">¿Qué proceso le quita<br/>más horas a tu equipo?</h2>
-    <p class="">Cuéntanos en un mensaje. En 30 minutos te decimos si se puede automatizar, cómo mediríamos el resultado y cuánto costaría el piloto.</p>
+    <p class="">Cuéntanos en un mensaje; en 30 minutos sabes si se puede automatizar y qué costaría el piloto.</p>
     <div class="hero-actions">
       <a href="https://wa.me/526681305828?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20para%20automatizar%20un%20proceso%20de%20mi%20empresa" class="btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       <a href="mailto:carlosrope@prolink365.com.mx?subject=Diagn%C3%B3stico%20ProLink365" class="btn-ghost">Escribir por correo</a>
