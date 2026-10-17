@@ -345,3 +345,15 @@ footer nav a:hover, footer.pie a:hover { color: var(--accent); }
 footer.pie .redes a { color: #fff; border-color: rgba(255,255,255,.15); }
 footer.pie .redes a:hover { border-color: var(--accent); color: var(--accent); }
 footer.pie .pie-legal { border-top-color: rgba(255,255,255,.1); }
+
+/* ══ Logo (17 oct 2026): constelación + ProLink365 en Orbitron 600; "ProLink" en tinta y "365" en verde (blanco y acento en el pie oscuro) ══ */
+a.logo, footer.pie a.logo { display: inline-flex; align-items: center; gap: 0; font-family: 'Orbitron', 'Sora', sans-serif; font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; color: var(--ink); }
+a.logo span, footer.pie a.logo span { display: inline; margin: 0; font-size: inherit; color: var(--green); }
+.logo-sim { width: 1.3em; height: 1.55em; flex: none; margin-right: .45em; fill: var(--green); }
+.logo-sim path { fill: none; stroke: var(--green); stroke-width: 4.5; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
+.logo-sim .g { fill: var(--ink); }
+footer a.logo, footer.pie a.logo { color: #fff; }
+footer a.logo span, footer.pie a.logo span { color: var(--accent); }
+footer .logo-sim { fill: var(--accent); }
+footer .logo-sim path { stroke: var(--accent); }
+footer .logo-sim .g { fill: #f0f5f2; }
