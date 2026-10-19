@@ -412,6 +412,12 @@
       .chips::-webkit-scrollbar { display: none; }
       .chips a { flex: none; }
     }
+    /* Foto de Carlos en 2.8 (19 oct): posición elegida por el usuario en herramientas/vista-sitio/ajustar-foto.js */
+    .foto-zona .foto { right: -6%; bottom: 0px; height: 92%; width: auto; max-width: none; z-index: 1; -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 97%); mask-image: linear-gradient(to bottom, #000 68%, transparent 97%); }
+    @media (max-width: 560px) {
+      .tel { position: relative; top: auto; left: auto; z-index: 3; }
+      .escena .foto, .foto-zona .foto { right: -2%; bottom: 22px; height: 83%; width: auto; max-width: none; z-index: 4; -webkit-mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); }
+    }
   </style>
 </head>
 <body>
@@ -504,7 +510,7 @@
       <!-- Zona de la foto (2.8): la forma verde, la foto cuando exista y los tres dots que vuelan alrededor (abren "¿Qué es un Agente IA?") -->
       <div class="foto-zona">
         <div class="blob" aria-hidden="true"></div>
-        <!-- <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="640" height="1040"/> -->
+        <img class="foto" src="carlos-hero.png" alt="Carlos Manuel Robles, ProLink365" width="810" height="1000"/>
         <a class="dot d1" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i><s></s><s></s></i></a>
         <a class="dot d2" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i><s></s><s></s></i></a>
         <a class="dot d3" href="agente-ia.html" aria-label="¿Qué es un Agente IA?" title="¿Qué es un Agente IA?"><i><s></s><s></s></i></a>
@@ -658,8 +664,7 @@
     <p class="section-sub reveal">No hay intermediarios: la persona que diagnostica es la misma que programa, capacita y da soporte.</p>
     <div class="equipo">
       <article class="card persona">
-        <!-- Foto pendiente. Cuando la haya: <img class="avatar" src="carlos.jpg" alt="Carlos Manuel Robles" width="110" height="110"/> -->
-        <div class="avatar vacio" aria-hidden="true"></div>
+                <img class="avatar" src="carlos.jpg" alt="Carlos Manuel Robles" width="110" height="110"/>
         <div>
           <h3>Carlos Manuel Robles</h3>
           <p class="rol">Fundador de ProLink365 · Los Mochis, Sinaloa</p>
