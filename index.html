@@ -412,11 +412,12 @@
       .chips::-webkit-scrollbar { display: none; }
       .chips a { flex: none; }
     }
-    /* Foto de Carlos en 2.8 (19 oct): delante del teléfono, la mano que señala toca su borde derecho (composición de la captura del usuario a 498 px) */
-    .foto-zona .foto { left: 61px; right: auto; bottom: -10px; height: 480px; width: auto; max-width: none; z-index: 4; -webkit-mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); }
+    /* Foto de Carlos en 2.8 (19 oct): posición definitiva elegida por el usuario en la maqueta (celular a 498 px y escritorio) */
+    .foto-zona .foto { left: 28px; right: auto; bottom: 47px; height: 383px; width: auto; max-width: none; z-index: 4; -webkit-mask-image: linear-gradient(to bottom, #000 71%, transparent 97%); mask-image: linear-gradient(to bottom, #000 71%, transparent 97%); }
+    @media (min-width: 561px) { .foto-zona .blob { width: 84%; height: 70%; right: 2%; bottom: 6%; } }
     @media (max-width: 560px) {
       .tel { position: relative; top: auto; left: auto; z-index: 3; }
-      .escena .foto, .foto-zona .foto { left: min(-17px, calc(100% - clamp(243px, 64.8vw, 340px) + 6px)); right: auto; bottom: 22px; height: clamp(300px, 80vw, 420px); width: auto; }
+      .escena .foto, .foto-zona .foto { left: min(-17px, calc(100% - clamp(243px, 65vw, 340px) + 6px)); right: auto; bottom: 22px; height: clamp(300px, 80.3vw, 420px); width: auto; -webkit-mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); }
     }
   </style>
 </head>
