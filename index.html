@@ -412,11 +412,11 @@
       .chips::-webkit-scrollbar { display: none; }
       .chips a { flex: none; }
     }
-    /* Foto de Carlos en 2.8 (19 oct): posición elegida por el usuario en herramientas/vista-sitio/ajustar-foto.js */
-    .foto-zona .foto { right: -6%; bottom: 0px; height: 92%; width: auto; max-width: none; z-index: 1; -webkit-mask-image: linear-gradient(to bottom, #000 68%, transparent 97%); mask-image: linear-gradient(to bottom, #000 68%, transparent 97%); }
+    /* Foto de Carlos en 2.8 (19 oct): delante del teléfono, la mano que señala toca su borde derecho (composición de la captura del usuario a 498 px) */
+    .foto-zona .foto { left: 61px; right: auto; bottom: -10px; height: 480px; width: auto; max-width: none; z-index: 4; -webkit-mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); }
     @media (max-width: 560px) {
       .tel { position: relative; top: auto; left: auto; z-index: 3; }
-      .escena .foto, .foto-zona .foto { right: -2%; bottom: 22px; height: 83%; width: auto; max-width: none; z-index: 4; -webkit-mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); mask-image: linear-gradient(to bottom, #000 57%, transparent 97%); }
+      .escena .foto, .foto-zona .foto { left: min(-17px, calc(100% - clamp(243px, 64.8vw, 340px) + 6px)); right: auto; bottom: 22px; height: clamp(300px, 80vw, 420px); width: auto; }
     }
   </style>
 </head>
