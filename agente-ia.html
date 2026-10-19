@@ -30,7 +30,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Orbitron:wght@600&display=swap" rel="stylesheet" media="print" onload="this.media='all'"/><noscript><link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:wght@300;400;500;600&family=Orbitron:wght@600&display=swap" rel="stylesheet"/></noscript>
   <link rel="stylesheet" href="prolink.css?v=claro1"/>
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"¿Qué es un Agente IA?","description":"Un Agente IA es un empleado virtual que atiende, cotiza, agenda y da seguimiento en tu negocio, con tus reglas. Explicado en cuatro pasos, sin tecnicismos.","url":"https://prolink365.com.mx/agente-ia.html","mainEntityOfPage":"https://prolink365.com.mx/agente-ia.html","image":"https://prolink365.com.mx/og-image.png","inLanguage":"es-MX","datePublished":"2026-10-13","dateModified":"2026-10-14","author":{"@type":"Organization","name":"ProLink365","@id":"https://prolink365.com.mx/#negocio"},"publisher":{"@type":"Organization","name":"ProLink365","@id":"https://prolink365.com.mx/#negocio","logo":{"@type":"ImageObject","url":"https://prolink365.com.mx/apple-touch-icon.png"}},"about":{"@type":"Thing","name":"Agente IA para empresas"}}]}
+  {"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"¿Qué es un Agente IA?","description":"Un Agente IA es un empleado virtual que atiende, cotiza, agenda y da seguimiento en tu negocio, con tus reglas. Explicado en cuatro pasos, sin tecnicismos.","url":"https://prolink365.com.mx/agente-ia.html","mainEntityOfPage":"https://prolink365.com.mx/agente-ia.html","image":"https://prolink365.com.mx/og-image.png","inLanguage":"es-MX","datePublished":"2026-10-13","dateModified":"2026-10-14","author":{"@type":"Organization","name":"ProLink365","@id":"https://prolink365.com.mx/#negocio"},"publisher":{"@type":"Organization","name":"ProLink365","@id":"https://prolink365.com.mx/#negocio","logo":{"@type":"ImageObject","url":"https://prolink365.com.mx/apple-touch-icon.png"}},"about":{"@type":"Thing","name":"Agente IA para empresas"}},{"@type":"FAQPage","@id":"https://prolink365.com.mx/agente-ia.html#preguntas","inLanguage":"es-MX","mainEntity":[{"@type":"Question","name":"¿Pierdo mi WhatsApp o mi número?","acceptedAnswer":{"@type":"Answer","text":"No. Siguen usando su app de WhatsApp Business en el celular; el agente contesta en el mismo número y se pausa solo cuando alguien de tu equipo responde."}},{"@type":"Question","name":"¿Y si el agente dice algo que no debe?","acceptedAnswer":{"@type":"Answer","text":"Solo contesta con las instrucciones y los datos de tu negocio. Descuentos, fechas de entrega y casos especiales nunca los decide: te pasa la conversación con todo el contexto."}},{"@type":"Question","name":"Mis clientes prefieren hablar con una persona","acceptedAnswer":{"@type":"Answer","text":"Y la van a tener. El agente contesta lo de siempre en segundos, a cualquier hora, y le pasa a tu equipo la conversación cuando toca cerrar o cuando el cliente lo pide."}},{"@type":"Question","name":"¿Cuánto cuesta?","acceptedAnswer":{"@type":"Answer","text":"Depende de cuántos mensajes y vendedores tengas. Te damos un precio cerrado después del diagnóstico de 30 minutos, y antes de pagar lo pruebas de 1 a 2 semanas con tu negocio real."}},{"@type":"Question","name":"¿Qué necesitan de mí para empezar?","acceptedAnswer":{"@type":"Answer","text":"Una plática de 30 minutos y tus preguntas frecuentes, precios y reglas (puede ser una nota de voz). Nosotros escribimos las instrucciones y las ajustamos contigo."}},{"@type":"Question","name":"¿Y mis datos y conversaciones?","acceptedAnswer":{"@type":"Answer","text":"Son de tu negocio. La cuenta de WhatsApp sigue siendo tuya y no compartimos ni vendemos la información de tus clientes."}},{"@type":"Question","name":"¿Atienden fuera de Los Mochis?","acceptedAnswer":{"@type":"Answer","text":"Sí. Estamos en Los Mochis, atendemos en persona en todo Sinaloa y a distancia en todo México."}}]}]}
   </script>
 </head>
 <body>
@@ -114,6 +114,11 @@
     .agente-cta h2 { margin-bottom: 1rem; }
     .agente-cta .hero-actions { justify-content: center; }
     @media (max-width: 600px) { .agente-hero { padding: 6.5rem 1.15rem 2rem; } .pasos-agente, .vs, .agente-cta { padding-left: 1.15rem; padding-right: 1.15rem; } .vs th, .vs td { padding: .7rem .6rem; font-size: .86rem; } }
+    .video-agente { max-width: 960px; margin: 0 auto; padding: 1rem 2rem 4rem; display: grid; grid-template-columns: 1fr 300px; gap: 2.5rem; align-items: center; }
+    .video-agente .accent { color: var(--green); }
+    .video-agente p { color: var(--gray); margin: .8rem 0 1.4rem; }
+    .va-video { width: 100%; height: auto; aspect-ratio: 9 / 16; border-radius: 22px; background: #0f1a15; box-shadow: 0 24px 50px rgba(18,24,21,.18); }
+    @media (max-width: 760px) { .video-agente { grid-template-columns: 1fr; text-align: center; padding: 1rem 1.15rem 3rem; } .va-video { max-width: 280px; margin: 0 auto; } }
   </style>
 
   <header class="agente-hero">
@@ -145,6 +150,15 @@
     </article>
   </section>
 
+  <section class="video-agente" aria-label="Video: el agente contesta y cotiza solo">
+    <div class="va-texto">
+      <h2>Míralo en <span class="accent">18 segundos</span></h2>
+      <p>Un cliente escribe de madrugada pidiendo una cotización. El agente lee la lista, pregunta lo que falta y manda la cotización, sin que nadie de tu equipo esté despierto. Grabación real de la demo, con datos de ejemplo.</p>
+      <a href="demo-cotizador.html" class="btn-ghost">Probar esa demo</a>
+    </div>
+    <video class="va-video" src="video-agente.mp4" poster="video-agente.jpg" width="540" height="960" muted autoplay loop playsinline preload="metadata" aria-label="El agente de IA recibe una lista por WhatsApp y manda la cotización"></video>
+  </section>
+
   <section class="vs">
     <h2>¿En qué se diferencia de un chatbot?</h2>
     <table>
@@ -156,6 +170,17 @@
         <tr><td>No hace nada después de contestar.</td><td>Agenda, manda el PDF, aparta, da seguimiento y registra todo en tu CRM.</td></tr>
       </tbody>
     </table>
+  </section>
+
+  <section id="preguntas" class="faq-sec" aria-label="Preguntas frecuentes">
+    <h2>Lo que nos preguntan <span class="accent">antes de empezar</span></h2>
+    <details class="faq"><summary>¿Pierdo mi WhatsApp o mi número?</summary><p>No. Siguen usando su app de WhatsApp Business en el celular; el agente contesta en el mismo número y se pausa solo cuando alguien de tu equipo responde.</p></details>
+    <details class="faq"><summary>¿Y si el agente dice algo que no debe?</summary><p>Solo contesta con las instrucciones y los datos de tu negocio. Descuentos, fechas de entrega y casos especiales nunca los decide: te pasa la conversación con todo el contexto.</p></details>
+    <details class="faq"><summary>Mis clientes prefieren hablar con una persona</summary><p>Y la van a tener. El agente contesta lo de siempre en segundos, a cualquier hora, y le pasa a tu equipo la conversación cuando toca cerrar o cuando el cliente lo pide.</p></details>
+    <details class="faq"><summary>¿Cuánto cuesta?</summary><p>Depende de cuántos mensajes y vendedores tengas. Te damos un precio cerrado después del diagnóstico de 30 minutos, y antes de pagar lo pruebas de 1 a 2 semanas con tu negocio real.</p></details>
+    <details class="faq"><summary>¿Qué necesitan de mí para empezar?</summary><p>Una plática de 30 minutos y tus preguntas frecuentes, precios y reglas (puede ser una nota de voz). Nosotros escribimos las instrucciones y las ajustamos contigo.</p></details>
+    <details class="faq"><summary>¿Y mis datos y conversaciones?</summary><p>Son de tu negocio. La cuenta de WhatsApp sigue siendo tuya y no compartimos ni vendemos la información de tus clientes.</p></details>
+    <details class="faq"><summary>¿Atienden fuera de Los Mochis?</summary><p>Sí. Estamos en Los Mochis, atendemos en persona en todo Sinaloa y a distancia en todo México.</p></details>
   </section>
 
   <section class="agente-cta">
