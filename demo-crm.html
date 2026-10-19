@@ -63,7 +63,7 @@
     <p class="demo-note" role="note"><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-alert"/></svg><span><b>Demo simulada con una empresa y datos ficticios</b>, basada en el CRM que construimos para Diluvium. Toca los botones para conversar como cliente; a la derecha ves lo que ve tu equipo. Conectado a tu empresa, trabaja con tus precios, tus anuncios y tus vendedores.</span></p>
     <div class="demo-layout">
       <div class="phone" aria-label="Conversación de ejemplo por WhatsApp">
-        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">CD</div><div><b>Climas Demo</b><small>WhatsApp e Instagram</small></div></div>
+        <div class="phone-head"><div class="phone-avatar" aria-hidden="true">CD</div><div><b>Compuertas Demo</b><small>WhatsApp e Instagram</small></div></div>
         <div class="chat" id="chat" aria-live="polite"></div>
         <div class="quick" id="quick"></div>
       </div>
@@ -75,7 +75,7 @@
         </div>
         <div class="panel" style="margin-top:1.2rem;">
           <h3><svg class="ico" aria-hidden="true"><use href="iconos.svg#i-bars"/></svg> Embudo de ventas</h3>
-          <p class="muted small" style="margin-bottom:0.7rem;">Lo que ve tu equipo en el CRM. La tarjeta verde es la conversación de la izquierda: avanza sola conforme el agente califica y cotiza. 💬 WhatsApp · 📸 Instagram.</p>
+          <p class="muted small" style="margin-bottom:0.7rem;">Lo que ve tu equipo en el CRM. La tarjeta azul es la conversación de la izquierda: avanza sola conforme el agente califica y cotiza. 💬 WhatsApp · 📸 Instagram.</p>
           <div class="table-wrap"><div class="kanban" id="kanban"></div></div>
         </div>
         <div class="panel" style="margin-top:1.2rem;">
@@ -85,15 +85,18 @@
         </div>
         <style>
           .kanban { display: grid; grid-template-columns: repeat(5, minmax(106px, 1fr)); gap: 0.5rem; min-width: 570px; }
-          .col { background: rgba(13,138,79,0.03); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem; min-height: 150px; }
+          .col { background: rgba(31,95,191,0.04); border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem; min-height: 150px; }
           .col h4 { display: flex; justify-content: space-between; gap: 0.4rem; font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gray); margin-bottom: 0.45rem; }
           .tarjeta { background: #ffffff; border: 1px solid rgba(18,24,21,0.08); border-radius: 8px; padding: 0.45rem 0.55rem; font-size: 0.76rem; margin-bottom: 0.4rem; }
           .tarjeta b { display: block; font-weight: 500; color: var(--white); }
           .tarjeta span { color: var(--gray); }
-          .tarjeta.tu { border-color: var(--green); background: rgba(13,138,79,0.1); }
+          .tarjeta.tu { border-color: #1f5fbf; background: rgba(31,95,191,0.1); }
           .tarjeta.mov { animation: bubbleIn .45s ease both; }
           #ficha td { font-size: 0.84rem; }
           #ficha td:first-child { color: var(--gray); white-space: nowrap; width: 38%; }
+          .demo-layout .quick button { border-color: rgba(31,95,191,0.4); }
+          .demo-layout .quick button:hover { background: rgba(31,95,191,0.08); }
+          .demo-layout { --green: #1f5fbf; --green-dim: #174a96; --accent: #3d8bff; --green-glow: rgba(31,95,191,0.10); --wa-head: #1f4f9a; --wa-out: #dde9ff; --wa-wall: #eef2f8; }
           .msg .quien { display: block; font-size: 0.72rem; font-weight: 500; color: var(--amber); }
         </style>
       </div>
@@ -156,14 +159,14 @@
 
   const ETAPAS = ['Nuevo', 'Cotizado', 'Por pagar', 'Vendido', 'Instalado'];
   const base = [
-    { n: 'Ramón V.', c: '💬', d: '¿Precio de 1 tonelada?', e: 0 },
-    { n: 'Lupita M.', c: '📸', d: 'Sala de 5 × 5 m', e: 0 },
-    { n: 'Héctor S.', c: '💬', d: '2 ton · seguimiento mañana', e: 1 },
-    { n: 'Paola R.', c: '📸', d: '1.5 ton · 6 meses 🔥', e: 2 },
+    { n: 'Ramón V.', c: '💬', d: '¿Sirve para cochera?', e: 0 },
+    { n: 'Lupita M.', c: '📸', d: 'Puerta de 90 cm', e: 0 },
+    { n: 'Héctor S.', c: '💬', d: 'Cochera 3 m · seguimiento mañana', e: 1 },
+    { n: 'Paola R.', c: '📸', d: 'Local 2.4 m · 6 meses 🔥', e: 2 },
     { n: 'Familia T.', c: '💬', d: 'Instalación el viernes', e: 3 },
     { n: 'Jorge A.', c: '💬', d: 'Opinión ⭐⭐⭐⭐⭐', e: 4 }
   ];
-  const ESP = { rec: { esp: 'Recámara de 16 m²', ton: '1 tonelada', precio: 8900 }, sala: { esp: 'Sala de 30 m²', ton: '2 toneladas', precio: 13400 } };
+  const ESP = { puerta: { esp: 'Puerta de entrada de 90 cm', ton: 'Compuerta de 1 m × 60 cm', precio: 7900 }, cochera: { esp: 'Cochera de 3 m', ton: 'Compuerta de 3 m × 60 cm', precio: 18900 } };
   const inicial = () => ({ canal: null, etapa: -1, ultima: -1, esp: null, temp: null, pago: null, agente: 'Contestando', seg: null, inst: null, opinion: null });
   let S = inicial(), api = null;
   const mx = n => '$' + n.toLocaleString('es-MX');
@@ -182,10 +185,10 @@
     S.ultima = S.etapa;
     const filas = [
       ['Canal', S.canal || '…'],
-      ['Llegó por', S.canal ? 'Anuncio «Minisplit inverter instalado»' : '…'],
+      ['Llegó por', S.canal ? 'Anuncio «Compuertas antiinundación a la medida»' : '…'],
       ['Etapa', S.etapa >= 0 ? ETAPAS[S.etapa] : '…'],
-      ['Espacio', S.esp ? S.esp.esp : '…'],
-      ['Equipo y cotización', S.esp ? S.esp.ton + ' · ' + mx(S.esp.precio) : '…'],
+      ['Acceso', S.esp ? S.esp.esp : '…'],
+      ['Compuerta y cotización', S.esp ? S.esp.ton + ' · ' + mx(S.esp.precio) : '…'],
       ['Forma de pago', S.pago || '…'],
       ['Temperatura', S.temp === 'caliente' ? '<span class="stock-low">🔥 caliente</span>' : (S.temp ? 'tibio' : '…')],
       ['Agente IA', S.agente === 'Contestando' ? '<span class="stock-ok">Contestando</span>' : '<span class="stock-low">' + S.agente + '</span>'],
@@ -204,8 +207,8 @@
   };
   const espacio = k => () => { S.esp = ESP[k]; pintar(); };
   const opcionesEspacio = [
-    { label: 'Recámara de 4 × 4 m', next: 'cotiza', accion: espacio('rec') },
-    { label: 'Sala de 5 × 6 m', next: 'cotiza', accion: espacio('sala') }
+    { label: 'Puerta de entrada (90 cm)', next: 'cotiza', accion: espacio('puerta') },
+    { label: 'Cochera (3 m)', next: 'cotiza', accion: espacio('cochera') }
   ];
   const loQuiero = (label, pago) => ({ label, next: 'pagar', accion: () => { if (pago) S.pago = pago; S.temp = 'caliente'; pintar(); } });
 
@@ -214,42 +217,42 @@
     alReiniciar: () => { S = inicial(); document.querySelector('.phone-head small').textContent = 'WhatsApp e Instagram'; pintar(); },
     nodos: {
       inicio: {
-        bot: [{ tarjeta: true, html: '<i class="muted">📣 Anuncio en Instagram y Facebook</i>\n<b>Minisplit inverter instalado, desde $8,900</b>\nEl cliente toca «Enviar mensaje». ¿Por dónde escribe?' }],
+        bot: [{ tarjeta: true, html: '<i class="muted">📣 Anuncio en Instagram y Facebook</i>\n<b>Compuertas antiinundación a la medida, desde $7,900</b>\nEl cliente toca «Enviar mensaje». ¿Por dónde escribe?' }],
         opciones: [
-          { label: '💬 Por WhatsApp', user: 'Hola, vi su anuncio del minisplit 👋', next: 'saludo', accion: entrar('WhatsApp') },
-          { label: '📸 Por Instagram', user: 'Hola, vi su anuncio del minisplit 👋', next: 'saludo', accion: entrar('Instagram') }
+          { label: '💬 Por WhatsApp', user: 'Hola, vi su anuncio de las compuertas 👋', next: 'saludo', accion: entrar('WhatsApp') },
+          { label: '📸 Por Instagram', user: 'Hola, vi su anuncio de las compuertas 👋', next: 'saludo', accion: entrar('Instagram') }
         ]
       },
       saludo: {
-        bot: [{ text: '¡Hola! 👋 Soy el asistente de Climas Demo. Con gusto le cotizo su minisplit con instalación. ¿Para qué espacio es?', kpi: { kResp: '6 s', kNuevas: '13', kAnuncio: '9' },
+        bot: [{ text: '¡Hola! 👋 Soy el asistente de Compuertas Demo. Con gusto le cotizo su compuerta a la medida, con instalación. ¿Qué acceso quiere proteger?', kpi: { kResp: '6 s', kNuevas: '13', kAnuncio: '9' },
                 despues: a => a.registrar({ text: '<b>Registró al contacto</b> en la bandeja (' + S.canal + ') con el anuncio que lo trajo, y lo puso en <b>Nuevo</b>.' }),
                 log: [{ text: '<b>Contestó en 6 segundos</b>. A las 3 de la tarde o a las 11 de la noche, igual.' }] }],
         opciones: opcionesEspacio.concat([{ label: '¿Cuánto cuesta?', next: 'precios' }])
       },
       precios: {
-        bot: [{ tarjeta: true, html: '<b>Minisplit inverter · instalación básica incluida</b><table><tr><td>1 tonelada</td><td>$8,900</td></tr><tr><td>1.5 toneladas</td><td>$10,900</td></tr><tr><td>2 toneladas</td><td>$13,400</td></tr></table>Para recomendarle el adecuado, ¿para qué espacio es?',
+        bot: [{ tarjeta: true, html: '<b>Compuerta antiinundación · instalación incluida</b><table><tr><td>Puerta de hasta 1 m</td><td>$7,900</td></tr><tr><td>Local de hasta 2.4 m</td><td>$15,400</td></tr><tr><td>Cochera de hasta 3 m</td><td>$18,900</td></tr></table>Altura estándar de 60 cm. Para cotizarle exacto, ¿qué acceso quiere proteger?',
                 log: [{ text: '<b>Respondió con la lista de precios</b> del negocio y siguió calificando.' }] }],
         opciones: opcionesEspacio
       },
       cotiza: {
-        bot: [{ html: () => 'Para una ' + S.esp.esp.toLowerCase() + ' en Los Mochis le recomiendo un equipo de <b>' + S.esp.ton + '</b>. Si el cuarto da mucho sol de tarde, el técnico lo confirma en la visita.', espera: 1200 },
-              { tarjeta: true, html: () => '<b>Cotización Q-218</b> · Climas Demo<table><tr><td>Minisplit inverter ' + S.esp.ton + '</td><td>' + mx(S.esp.precio) + '</td></tr><tr><td>Instalación básica (hasta 3 m)</td><td>Incluida</td></tr><tr><td><b>Total</b></td><td><b>' + mx(S.esp.precio) + '</b></td></tr></table>Precio válido 7 días.',
-                log: [{ text: '<b>Cotizó</b> con la lista de precios y la regla de toneladas por m² que definió el negocio.' }, { text: '<b>Llenó la ficha</b> (espacio, equipo y monto) y <b>movió la tarjeta a Cotizado</b>.' }],
+        bot: [{ html: () => 'Para una ' + S.esp.esp.toLowerCase() + ' le recomiendo una <b>' + S.esp.ton.toLowerCase() + '</b>: cubre el agua que suele subir en la calle en temporada de lluvias. El técnico confirma las medidas exactas en la visita.', espera: 1200 },
+              { tarjeta: true, html: () => '<b>Cotización Q-218</b> · Compuertas Demo<table><tr><td>' + S.esp.ton + '</td><td>' + mx(S.esp.precio) + '</td></tr><tr><td>Marco fijo e instalación</td><td>Incluidos</td></tr><tr><td><b>Total</b></td><td><b>' + mx(S.esp.precio) + '</b></td></tr></table>Precio válido 7 días.',
+                log: [{ text: '<b>Cotizó</b> con la lista de precios y la regla de medidas que definió el negocio.' }, { text: '<b>Llenó la ficha</b> (acceso, compuerta y monto) y <b>movió la tarjeta a Cotizado</b>.' }],
                 despues: () => { S.temp = 'tibio'; etapa(1); } },
-              { text: '¿Le mando un video corto de cómo queda la instalación?' }],
+              { text: '¿Le mando un video corto de cómo se pone la compuerta cuando empieza a llover?' }],
         opciones: [{ label: '🎬 Sí, mándalo', next: 'video' }, { label: '🤔 Lo pienso y les aviso', next: 'pienso' }, loQuiero('✅ Lo quiero, ¿cómo pago?')]
       },
       video: {
-        bot: [{ tarjeta: true, html: '▶️ <b>instalacion-minisplit.mp4</b> · 0:42\nAsí queda: la unidad, la tubería forrada y la condensadora en el patio o la azotea.',
+        bot: [{ tarjeta: true, html: '▶️ <b>compuerta-en-uso.mp4</b> · 0:42\nAsí se pone: entra en el marco en menos de un minuto, sin herramientas, y se guarda cuando pasa la lluvia.',
                 log: [{ text: '<b>Mandó el video</b> desde la biblioteca de archivos del negocio.' }] },
-              { text: '¿Le aparto la instalación para esta semana? Hay espacio el jueves y el sábado.' }],
+              { text: '¿Le aparto la visita para tomar medidas esta semana? Hay espacio el jueves y el sábado.' }],
         opciones: [loQuiero('✅ Sí, lo quiero'), { label: '🤔 Lo pienso', next: 'pienso' }]
       },
       pienso: {
         bot: [{ text: 'Claro, sin presión. Le dejo la cotización guardada; cualquier duda me escribe por aquí.',
                 log: [{ text: '<b>Programó un seguimiento</b> para mañana a las 10:00, por si el cliente no vuelve a escribir.', warn: true }],
                 despues: () => { S.seg = 'Mañana, 10:00 a. m.'; pintar(); } },
-              { espera: 1800, html: () => '<i class="muted">📅 Al día siguiente, 10:00 a. m.</i>\nBuen día 👋 ¿Pudo revisar la cotización del minisplit de ' + S.esp.ton + '? Esta semana todavía tengo instalación el jueves.',
+              { espera: 1800, html: () => '<i class="muted">📅 Al día siguiente, 10:00 a. m.</i>\nBuen día 👋 ¿Pudo revisar la cotización de su ' + S.esp.ton.toLowerCase() + '? Esta semana todavía tengo visita el jueves, antes de que arrecien las lluvias.',
                 log: [{ text: '<b>Mandó el seguimiento</b> a la hora programada, con el contexto de la conversación.' }],
                 despues: () => { S.seg = 'Enviado ✓ (día 2, 10:00 a. m.)'; pintar(); } }],
         opciones: [{ label: '💳 ¿Puedo pagar a meses?', next: 'meses' }, loQuiero('✅ Sí, lo quiero')]
@@ -263,14 +266,14 @@
         bot: [{ text: '¡Excelente! 🙌 Le paso con Carla, del equipo de ventas, para confirmar su dirección y el pago.',
                 log: [{ text: '<b>Avisó a la vendedora</b> (Carla): cliente listo para pagar. El agente se pausa en este chat.', warn: true }, { text: '<b>Movió la tarjeta a Por pagar</b> y marcó al cliente como 🔥 caliente.' }],
                 kpi: { kHum: '1 (Carla)' }, despues: () => { S.agente = 'En pausa: atiende Carla'; etapa(2); } },
-              { espera: 1500, html: () => carla('¡Hola! Soy Carla 😊 Ya vi su cotización. ¿Me comparte su ubicación para la instalación? ' + (S.pago === '6 meses sin intereses' ? 'Le mando el enlace de pago a 6 meses.' : (S.pago ? 'Le mando los datos para la transferencia.' : 'Le mando los datos para pagar por transferencia o con tarjeta.'))) }],
+              { espera: 1500, html: () => carla('¡Hola! Soy Carla 😊 Ya vi su cotización. ¿Me comparte su ubicación para la visita de medidas e instalación? ' + (S.pago === '6 meses sin intereses' ? 'Le mando el enlace de pago a 6 meses.' : (S.pago ? 'Le mando los datos para la transferencia.' : 'Le mando los datos para pagar por transferencia o con tarjeta.'))) }],
         opciones: [{ label: '📍 Mandar ubicación y pago', user: '📍 Ubicación compartida\n🧾 Comprobante de pago.pdf', next: 'venta' }]
       },
       venta: {
-        bot: [{ html: carla('¡Recibido! ✅ Su instalación queda el <b>jueves a las 10:00 a. m.</b> El técnico le llama media hora antes.'),
+        bot: [{ html: carla('¡Recibido! ✅ Su visita queda el <b>jueves a las 10:00 a. m.</b>: el técnico toma medidas y deja instalado el marco. Le llama media hora antes.'),
                 log: [{ text: '<b>Carla confirmó el pago</b>: la tarjeta pasó a Vendido y la instalación quedó en la agenda.' }],
                 despues: () => { S.inst = 'Jueves, 10:00 a. m.'; S.pago = S.pago || 'Transferencia'; etapa(3); } },
-              { espera: 1900, html: '<i class="muted">📅 8 días después de la instalación</i>\n¡Hola! Soy el asistente de Climas Demo. ¿Cómo le quedó su minisplit? Su opinión nos toma 1 minuto y nos ayuda mucho 🙏',
+              { espera: 1900, html: '<i class="muted">📅 8 días después de la instalación</i>\n¡Hola! Soy el asistente de Compuertas Demo. ¿Cómo le quedó su compuerta? Su opinión nos toma 1 minuto y nos ayuda mucho 🙏',
                 log: [{ text: '<b>Mandó la encuesta de opinión</b> después de la instalación y movió la tarjeta a Instalado.' }],
                 despues: () => { S.agente = 'Contestando'; etapa(4); } }],
         opciones: [
